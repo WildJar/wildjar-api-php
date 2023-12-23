@@ -1,5 +1,5 @@
 {
-    "name": "wildjar/client",
+    "name": "WildJar/wildjar-api-php",
     "description": "The WildJar API allows you to programmatically access call data, create and manage accounts,  create and configure services, enable features and integrations, and send SMS.",
     "keywords": [
         "wildjar",
@@ -9,12 +9,12 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
+    "homepage": "https://wildjar.com",
+    "license": "MIT",
     "authors": [
         {
-            "name": "OpenAPI",
-            "homepage": "https://openapi-generator.tech"
+            "name": "WildJar pt ltd",
+            "homepage": "https://wildjar.com"
         }
     ],
     "require": {
@@ -30,9 +30,10 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "Wildjar\\" : "lib/" }
+        "psr-4": { "WildJar\\wildjar-api-php\\" : "lib/"
     },
     "autoload-dev": {
-        "psr-4": { "Wildjar\\Test\\" : "test/" }
-    }
+        "psr-4": { "Wildjar\\wildjar-api-php\\Test\\" : "test/" }
+    },
+    "minimum-stability": "dev"
 }

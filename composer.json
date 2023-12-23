@@ -1,5 +1,5 @@
 {
-    "name": "WildJar/wildjar-api-php",
+    "name": "wildjar/wildjar-api-php",
     "description": "The WildJar API allows you to programmatically access call data, create and manage accounts,  create and configure services, enable features and integrations, and send SMS.",
     "keywords": [
         "wildjar",

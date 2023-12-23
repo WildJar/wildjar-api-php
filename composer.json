@@ -30,7 +30,7 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "WildJar\\wildjar-api-php\\" : "lib/"
+        "psr-4": { "WildJar\\wildjar-api-php\\" : "lib/" }
     },
     "autoload-dev": {
         "psr-4": { "Wildjar\\wildjar-api-php\\Test\\" : "test/" }

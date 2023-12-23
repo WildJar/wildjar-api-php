@@ -1,0 +1,47 @@
+# # Call
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **float** | The Call ID of this call | [optional] [readonly]
+**uuid** | **string** | The Call UUID | [optional] [readonly]
+**status** | **string** | The status of the call:   * &#x60;answered&#x60; - The call has has been answered (by a person or the answer point phone system).   * &#x60;abandoned&#x60; - The caller has hung up before the call is answered (by a person or the answer point phone system) and before the missed call timeout.   * &#x60;missed&#x60; - The call has not been answered (by a person or the answer point phone system) before the missed call timeout. | [optional] [readonly]
+**caller** | **string** | The caller&#39;s phone number in E164 format or \&quot;anonymous\&quot;, if the number was withheld or private. | [optional] [readonly]
+**first_time_caller** | **string** | Whether this is the first time caller or not. | [optional] [readonly]
+**duration** | **float** | The total duration of the call in seconds, including ringing time and recorded voice announcements. | [optional] [readonly]
+**talk_time** | **float** | The talk time of the call in seconds. If the call is abandoned or missed, the talk time will be null. | [optional] [readonly]
+**target** | **string** | The phone number where this call was answered in E164 format. | [optional] [readonly]
+**audio** | **string** | The recording of the call, if enabled. | [optional] [readonly]
+**audio_id** | **string** | The UUID of the call recording, if enabled. | [optional] [readonly]
+**direction** | **string** | Whether the call was inbound or outbound. | [optional] [readonly]
+**account** | **string** | The account number the call is in | [optional] [readonly]
+**account_name** | **string** | The account name the call is in | [optional] [readonly]
+**tracking_number** | **string** | The tracking number the call was received on in E164 format. | [optional] [readonly]
+**tracking_name** | **string** | Unique name to identify the tracking number | [optional] [readonly]
+**tracking_source** | **string** | Grouped source name to identify the call source | [optional] [readonly]
+**tags** | **string[]** |  | [optional]
+**dtmf** | **float** | Smart Tag Lead Scorer digit(s) entered by the caller | [optional] [readonly]
+**dtm_fname** | **string** | Smart tag name for the corresponding Lead Scorer digit. | [optional] [readonly]
+**location** | **string** | The caller&#39;s location. For geo callers, this is the caller&#39;s phone exchange. For mobile callers, this is \&quot;Mobile\&quot;. | [optional] [readonly]
+**country** | **string** | 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information. | [optional] [readonly]
+**network** | **string** | The caller&#39;s network type. | [optional] [readonly]
+**state** | **string** | The state the caller is calling from. If the country is not divided by states, the 2 character country code is used. | [optional] [readonly]
+**area** | **string** | The caller&#39;s area. For geo callers, the broad call charging area. For mobiles in Australia calling a 1300 or 1800 number, the region the mobile is calling from. | [optional] [readonly]
+**timestamp** | **string** | The call timestamp in milliseconds. | [optional] [readonly]
+**date_start_gmt** | **\DateTime** | The call start date and time in GMT in ISO format. | [optional] [readonly]
+**date_stop_gmt** | **\DateTime** | The call end date and time in GMT in ISO format. | [optional] [readonly]
+**user_timezone** | **string** | Timezone of the current user. | [optional] [readonly]
+**date_start_user** | **\DateTime** | The call start date and time in the user&#39;s timezone in ISO format. | [optional] [readonly]
+**date_stop_user** | **\DateTime** | The call end date and time in the user&#39;s timezone in ISO format. | [optional] [readonly]
+**local_timezone** | **string** | Local timezone of the account. | [optional] [readonly]
+**date_start_local** | **\DateTime** | The call start date and time in the local timezone of the account in ISO format. | [optional] [readonly]
+**date_stop_local** | **\DateTime** | The call end date and time in the local timezone of the account in ISO format. | [optional] [readonly]
+**score** | **float** | The score given to the call by a user or automatically as part of a Smart Tag:   * &#x60;1&#x60; - Poor   * &#x60;2&#x60; - Average   * &#x60;3&#x60; - Good | [optional]
+**notes** | **string** | Notes added to the call by a user. | [optional]
+**tag** | [**\Wildjar\Model\CallTag**](CallTag.md) |  | [optional]
+**web** | [**\Wildjar\Model\CallWeb**](CallWeb.md) |  | [optional]
+**ivr** | [**\Wildjar\Model\CallIVR**](CallIVR.md) |  | [optional]
+**intelligence** | **float** | The presence of a transcript for this call. If present, returns a \&quot;1\&quot;. If not present, returns null. | [optional] [readonly]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

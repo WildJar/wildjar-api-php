@@ -29,6 +29,6 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "WildJar\\ApiClient\\" : "lib/" }
+        "psr-4": { "WildJar\\Wildjar\\" : "lib/" }
     }
 }

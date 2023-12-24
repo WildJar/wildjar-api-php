@@ -57,17 +57,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'action' => 'mixed',
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
         'geo_location' => 'mixed',
+        'iv_rattempts' => 'mixed',
+        'iv_rdigits' => 'mixed',
+        'iv_rmessage' => 'mixed',
         'mobile_location' => 'mixed',
         'postcode_prompt' => 'mixed',
-        'iv_rmessage' => 'mixed',
-        'iv_rdigits' => 'mixed',
-        'iv_rattempts' => 'mixed',
         'map' => '\WildJar\ApiClient\Model\ActionLocationsMapAllOfMap'
     ];
 
@@ -80,17 +80,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'action' => null,
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
         'geo_location' => null,
+        'iv_rattempts' => null,
+        'iv_rdigits' => null,
+        'iv_rmessage' => null,
         'mobile_location' => null,
         'postcode_prompt' => null,
-        'iv_rmessage' => null,
-        'iv_rdigits' => null,
-        'iv_rattempts' => null,
         'map' => null
     ];
 
@@ -101,17 +101,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'action' => true,
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
         'geo_location' => true,
+        'iv_rattempts' => true,
+        'iv_rdigits' => true,
+        'iv_rmessage' => true,
         'mobile_location' => true,
         'postcode_prompt' => true,
-        'iv_rmessage' => true,
-        'iv_rdigits' => true,
-        'iv_rattempts' => true,
         'map' => false
     ];
 
@@ -202,17 +202,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'action' => 'action',
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
         'geo_location' => 'geoLocation',
+        'iv_rattempts' => 'IVRattempts',
+        'iv_rdigits' => 'IVRdigits',
+        'iv_rmessage' => 'IVRmessage',
         'mobile_location' => 'mobileLocation',
         'postcode_prompt' => 'postcodePrompt',
-        'iv_rmessage' => 'IVRmessage',
-        'iv_rdigits' => 'IVRdigits',
-        'iv_rattempts' => 'IVRattempts',
         'map' => 'map'
     ];
 
@@ -223,17 +223,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'action' => 'setAction',
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
         'geo_location' => 'setGeoLocation',
+        'iv_rattempts' => 'setIvRattempts',
+        'iv_rdigits' => 'setIvRdigits',
+        'iv_rmessage' => 'setIvRmessage',
         'mobile_location' => 'setMobileLocation',
         'postcode_prompt' => 'setPostcodePrompt',
-        'iv_rmessage' => 'setIvRmessage',
-        'iv_rdigits' => 'setIvRdigits',
-        'iv_rattempts' => 'setIvRattempts',
         'map' => 'setMap'
     ];
 
@@ -244,17 +244,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'action' => 'getAction',
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
         'geo_location' => 'getGeoLocation',
+        'iv_rattempts' => 'getIvRattempts',
+        'iv_rdigits' => 'getIvRdigits',
+        'iv_rmessage' => 'getIvRmessage',
         'mobile_location' => 'getMobileLocation',
         'postcode_prompt' => 'getPostcodePrompt',
-        'iv_rmessage' => 'getIvRmessage',
-        'iv_rdigits' => 'getIvRdigits',
-        'iv_rattempts' => 'getIvRattempts',
         'map' => 'getMap'
     ];
 
@@ -403,17 +403,17 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('action', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
         $this->setIfExists('geo_location', $data ?? [], null);
+        $this->setIfExists('iv_rattempts', $data ?? [], null);
+        $this->setIfExists('iv_rdigits', $data ?? [], null);
+        $this->setIfExists('iv_rmessage', $data ?? [], null);
         $this->setIfExists('mobile_location', $data ?? [], null);
         $this->setIfExists('postcode_prompt', $data ?? [], null);
-        $this->setIfExists('iv_rmessage', $data ?? [], null);
-        $this->setIfExists('iv_rdigits', $data ?? [], null);
-        $this->setIfExists('iv_rattempts', $data ?? [], null);
         $this->setIfExists('map', $data ?? [], null);
     }
 
@@ -553,40 +553,6 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
      * @return mixed|null
@@ -616,6 +582,40 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -781,6 +781,108 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets iv_rattempts
+     *
+     * @return mixed|null
+     */
+    public function getIvRattempts()
+    {
+        return $this->container['iv_rattempts'];
+    }
+
+    /**
+     * Sets iv_rattempts
+     *
+     * @param mixed|null $iv_rattempts The number of attempts allowed before the IVR message is replayed.
+     *
+     * @return self
+     */
+    public function setIvRattempts($iv_rattempts)
+    {
+        if (is_null($iv_rattempts)) {
+            array_push($this->openAPINullablesSetToNull, 'iv_rattempts');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('iv_rattempts', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['iv_rattempts'] = $iv_rattempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets iv_rdigits
+     *
+     * @return mixed|null
+     */
+    public function getIvRdigits()
+    {
+        return $this->container['iv_rdigits'];
+    }
+
+    /**
+     * Sets iv_rdigits
+     *
+     * @param mixed|null $iv_rdigits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
+     *
+     * @return self
+     */
+    public function setIvRdigits($iv_rdigits)
+    {
+        if (is_null($iv_rdigits)) {
+            array_push($this->openAPINullablesSetToNull, 'iv_rdigits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('iv_rdigits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['iv_rdigits'] = $iv_rdigits;
+
+        return $this;
+    }
+
+    /**
+     * Gets iv_rmessage
+     *
+     * @return mixed|null
+     */
+    public function getIvRmessage()
+    {
+        return $this->container['iv_rmessage'];
+    }
+
+    /**
+     * Sets iv_rmessage
+     *
+     * @param mixed|null $iv_rmessage The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
+     *
+     * @return self
+     */
+    public function setIvRmessage($iv_rmessage)
+    {
+        if (is_null($iv_rmessage)) {
+            array_push($this->openAPINullablesSetToNull, 'iv_rmessage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('iv_rmessage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['iv_rmessage'] = $iv_rmessage;
+
+        return $this;
+    }
+
+    /**
      * Gets mobile_location
      *
      * @return mixed|null
@@ -864,108 +966,6 @@ class ActionLocationsMap implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['postcode_prompt'] = $postcode_prompt;
-
-        return $this;
-    }
-
-    /**
-     * Gets iv_rmessage
-     *
-     * @return mixed|null
-     */
-    public function getIvRmessage()
-    {
-        return $this->container['iv_rmessage'];
-    }
-
-    /**
-     * Sets iv_rmessage
-     *
-     * @param mixed|null $iv_rmessage The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
-     *
-     * @return self
-     */
-    public function setIvRmessage($iv_rmessage)
-    {
-        if (is_null($iv_rmessage)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rmessage');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rmessage', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rmessage'] = $iv_rmessage;
-
-        return $this;
-    }
-
-    /**
-     * Gets iv_rdigits
-     *
-     * @return mixed|null
-     */
-    public function getIvRdigits()
-    {
-        return $this->container['iv_rdigits'];
-    }
-
-    /**
-     * Sets iv_rdigits
-     *
-     * @param mixed|null $iv_rdigits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
-     *
-     * @return self
-     */
-    public function setIvRdigits($iv_rdigits)
-    {
-        if (is_null($iv_rdigits)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rdigits');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rdigits', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rdigits'] = $iv_rdigits;
-
-        return $this;
-    }
-
-    /**
-     * Gets iv_rattempts
-     *
-     * @return mixed|null
-     */
-    public function getIvRattempts()
-    {
-        return $this->container['iv_rattempts'];
-    }
-
-    /**
-     * Sets iv_rattempts
-     *
-     * @param mixed|null $iv_rattempts The number of attempts allowed before the IVR message is replayed.
-     *
-     * @return self
-     */
-    public function setIvRattempts($iv_rattempts)
-    {
-        if (is_null($iv_rattempts)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rattempts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rattempts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rattempts'] = $iv_rattempts;
 
         return $this;
     }

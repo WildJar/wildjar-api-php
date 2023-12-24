@@ -57,8 +57,8 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'did' => 'string',
-        'name' => 'string'
+        'did' => 'mixed',
+        'name' => 'mixed'
     ];
 
     /**
@@ -79,8 +79,8 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'did' => false,
-        'name' => false
+        'did' => true,
+        'name' => true
     ];
 
     /**
@@ -299,7 +299,7 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
     /**
      * Gets did
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getDid()
     {
@@ -309,14 +309,21 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
     /**
      * Sets did
      *
-     * @param string|null $did The tracking number in E164 format
+     * @param mixed|null $did The tracking number in E164 format
      *
      * @return self
      */
     public function setDid($did)
     {
         if (is_null($did)) {
-            throw new \InvalidArgumentException('non-nullable did cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'did');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('did', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['did'] = $did;
 
@@ -326,7 +333,7 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
     /**
      * Gets name
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getName()
     {
@@ -336,14 +343,21 @@ class NumberDetailedFullAllOfExtraMultiConf implements ModelInterface, ArrayAcce
     /**
      * Sets name
      *
-     * @param string|null $name Unique name to identify the tracking number
+     * @param mixed|null $name Unique name to identify the tracking number
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 

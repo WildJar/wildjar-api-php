@@ -56,21 +56,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
-        'location_id' => 'mixed',
-        'code' => 'mixed',
-        'address' => 'mixed',
-        'postcode' => 'mixed',
-        'state' => 'mixed',
-        'country' => 'mixed',
-        'lat' => 'mixed',
-        'lon' => 'mixed',
-        'auto_routing' => 'mixed',
-        'force_account' => 'mixed'
+        'address' => 'string',
+        'auto_routing' => 'string',
+        'code' => 'string',
+        'country' => 'string',
+        'force_account' => 'float',
+        'lat' => 'float',
+        'location_id' => 'float',
+        'lon' => 'float',
+        'postcode' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -81,21 +81,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'location_id' => null,
-        'code' => null,
         'address' => null,
-        'postcode' => null,
-        'state' => null,
-        'country' => null,
-        'lat' => 'float',
-        'lon' => 'float',
         'auto_routing' => null,
-        'force_account' => null
+        'code' => null,
+        'country' => null,
+        'force_account' => null,
+        'lat' => 'float',
+        'location_id' => null,
+        'lon' => 'float',
+        'postcode' => null,
+        'state' => null
     ];
 
     /**
@@ -104,21 +104,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
-        'location_id' => true,
-        'code' => true,
-        'address' => true,
-        'postcode' => true,
-        'state' => true,
-        'country' => true,
-        'lat' => true,
-        'lon' => true,
-        'auto_routing' => true,
-        'force_account' => true
+        'address' => false,
+        'auto_routing' => false,
+        'code' => false,
+        'country' => false,
+        'force_account' => false,
+        'lat' => false,
+        'location_id' => false,
+        'lon' => false,
+        'postcode' => false,
+        'state' => false
     ];
 
     /**
@@ -207,21 +207,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'location_id' => 'locationId',
-        'code' => 'code',
         'address' => 'address',
-        'postcode' => 'postcode',
-        'state' => 'state',
-        'country' => 'country',
-        'lat' => 'lat',
-        'lon' => 'lon',
         'auto_routing' => 'autoRouting',
-        'force_account' => 'forceAccount'
+        'code' => 'code',
+        'country' => 'country',
+        'force_account' => 'forceAccount',
+        'lat' => 'lat',
+        'location_id' => 'locationId',
+        'lon' => 'lon',
+        'postcode' => 'postcode',
+        'state' => 'state'
     ];
 
     /**
@@ -230,21 +230,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'location_id' => 'setLocationId',
-        'code' => 'setCode',
         'address' => 'setAddress',
-        'postcode' => 'setPostcode',
-        'state' => 'setState',
-        'country' => 'setCountry',
-        'lat' => 'setLat',
-        'lon' => 'setLon',
         'auto_routing' => 'setAutoRouting',
-        'force_account' => 'setForceAccount'
+        'code' => 'setCode',
+        'country' => 'setCountry',
+        'force_account' => 'setForceAccount',
+        'lat' => 'setLat',
+        'location_id' => 'setLocationId',
+        'lon' => 'setLon',
+        'postcode' => 'setPostcode',
+        'state' => 'setState'
     ];
 
     /**
@@ -253,21 +253,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'location_id' => 'getLocationId',
-        'code' => 'getCode',
         'address' => 'getAddress',
-        'postcode' => 'getPostcode',
-        'state' => 'getState',
-        'country' => 'getCountry',
-        'lat' => 'getLat',
-        'lon' => 'getLon',
         'auto_routing' => 'getAutoRouting',
-        'force_account' => 'getForceAccount'
+        'code' => 'getCode',
+        'country' => 'getCountry',
+        'force_account' => 'getForceAccount',
+        'lat' => 'getLat',
+        'location_id' => 'getLocationId',
+        'lon' => 'getLon',
+        'postcode' => 'getPostcode',
+        'state' => 'getState'
     ];
 
     /**
@@ -371,21 +371,21 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('location_id', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('auto_routing', $data ?? [], 'yes');
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('force_account', $data ?? [], 0);
+        $this->setIfExists('lat', $data ?? [], null);
+        $this->setIfExists('location_id', $data ?? [], null);
+        $this->setIfExists('lon', $data ?? [], null);
         $this->setIfExists('postcode', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('lat', $data ?? [], null);
-        $this->setIfExists('lon', $data ?? [], null);
-        $this->setIfExists('auto_routing', $data ?? [], null);
-        $this->setIfExists('force_account', $data ?? [], null);
     }
 
     /**
@@ -428,28 +428,6 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['location_id'] === null) {
-            $invalidProperties[] = "'location_id' can't be null";
-        }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ((mb_strlen($this->container['code']) > 100)) {
-            $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['postcode']) && (mb_strlen($this->container['postcode']) > 8)) {
-            $invalidProperties[] = "invalid value for 'postcode', the character length must be smaller than or equal to 8.";
-        }
-
-        if (!is_null($this->container['state']) && (mb_strlen($this->container['state']) > 20)) {
-            $invalidProperties[] = "invalid value for 'state', the character length must be smaller than or equal to 20.";
-        }
-
-        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) > 2)) {
-            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
-        }
-
         $allowedValues = $this->getAutoRoutingAllowableValues();
         if (!is_null($this->container['auto_routing']) && !in_array($this->container['auto_routing'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -457,6 +435,28 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['auto_routing'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ((mb_strlen($this->container['code']) > 100)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) > 2)) {
+            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
+        }
+
+        if ($this->container['location_id'] === null) {
+            $invalidProperties[] = "'location_id' can't be null";
+        }
+        if (!is_null($this->container['postcode']) && (mb_strlen($this->container['postcode']) > 8)) {
+            $invalidProperties[] = "invalid value for 'postcode', the character length must be smaller than or equal to 8.";
+        }
+
+        if (!is_null($this->container['state']) && (mb_strlen($this->container['state']) > 20)) {
+            $invalidProperties[] = "invalid value for 'state', the character length must be smaller than or equal to 20.";
         }
 
         return $invalidProperties;
@@ -473,40 +473,6 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets account
@@ -538,6 +504,40 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -659,81 +659,9 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets location_id
-     *
-     * @return mixed
-     */
-    public function getLocationId()
-    {
-        return $this->container['location_id'];
-    }
-
-    /**
-     * Sets location_id
-     *
-     * @param mixed $location_id The location action ID the branch belongs to
-     *
-     * @return self
-     */
-    public function setLocationId($location_id)
-    {
-        if (is_null($location_id)) {
-            array_push($this->openAPINullablesSetToNull, 'location_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('location_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['location_id'] = $location_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return mixed
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param mixed $code The branch code used to identify this branch in the routing.
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            array_push($this->openAPINullablesSetToNull, 'code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($code) && (mb_strlen($code) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $code when calling ActionBranch., must be smaller than or equal to 100.');
-        }
-
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
      * Gets address
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAddress()
     {
@@ -743,21 +671,14 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param mixed|null $address The full address of the branch.
+     * @param string|null $address The full address of the branch.
      *
      * @return self
      */
     public function setAddress($address)
     {
         if (is_null($address)) {
-            array_push($this->openAPINullablesSetToNull, 'address');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('address', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
         $this->container['address'] = $address;
 
@@ -765,191 +686,9 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets postcode
-     *
-     * @return mixed|null
-     */
-    public function getPostcode()
-    {
-        return $this->container['postcode'];
-    }
-
-    /**
-     * Sets postcode
-     *
-     * @param mixed|null $postcode The postcode of the branch.
-     *
-     * @return self
-     */
-    public function setPostcode($postcode)
-    {
-        if (is_null($postcode)) {
-            array_push($this->openAPINullablesSetToNull, 'postcode');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('postcode', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($postcode) && (mb_strlen($postcode) > 8)) {
-            throw new \InvalidArgumentException('invalid length for $postcode when calling ActionBranch., must be smaller than or equal to 8.');
-        }
-
-        $this->container['postcode'] = $postcode;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return mixed|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param mixed|null $state The state the branch is located in.
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        if (is_null($state)) {
-            array_push($this->openAPINullablesSetToNull, 'state');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('state', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($state) && (mb_strlen($state) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $state when calling ActionBranch., must be smaller than or equal to 20.');
-        }
-
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return mixed|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param mixed|null $country The 2 character country code (ie. AU, GB, NZ, US) the branch is located in. Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($country) && (mb_strlen($country) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $country when calling ActionBranch., must be smaller than or equal to 2.');
-        }
-
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets lat
-     *
-     * @return mixed|null
-     */
-    public function getLat()
-    {
-        return $this->container['lat'];
-    }
-
-    /**
-     * Sets lat
-     *
-     * @param mixed|null $lat The latitude of the branch.
-     *
-     * @return self
-     */
-    public function setLat($lat)
-    {
-        if (is_null($lat)) {
-            array_push($this->openAPINullablesSetToNull, 'lat');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lat', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['lat'] = $lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets lon
-     *
-     * @return mixed|null
-     */
-    public function getLon()
-    {
-        return $this->container['lon'];
-    }
-
-    /**
-     * Sets lon
-     *
-     * @param mixed|null $lon The longitude of the branch.
-     *
-     * @return self
-     */
-    public function setLon($lon)
-    {
-        if (is_null($lon)) {
-            array_push($this->openAPINullablesSetToNull, 'lon');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lon', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['lon'] = $lon;
-
-        return $this;
-    }
-
-    /**
      * Gets auto_routing
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAutoRouting()
     {
@@ -959,24 +698,17 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets auto_routing
      *
-     * @param mixed|null $auto_routing Whether the branch will be included in the automatic routing.
+     * @param string|null $auto_routing Whether the branch will be included in the automatic routing.
      *
      * @return self
      */
     public function setAutoRouting($auto_routing)
     {
         if (is_null($auto_routing)) {
-            array_push($this->openAPINullablesSetToNull, 'auto_routing');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auto_routing', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auto_routing cannot be null');
         }
         $allowedValues = $this->getAutoRoutingAllowableValues();
-        if (!is_null($auto_routing) && !in_array($auto_routing, $allowedValues, true)) {
+        if (!in_array($auto_routing, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'auto_routing', must be one of '%s'",
@@ -991,9 +723,71 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code The branch code used to identify this branch in the routing.
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        }
+        if ((mb_strlen($code) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling ActionBranch., must be smaller than or equal to 100.');
+        }
+
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country The 2 character country code (ie. AU, GB, NZ, US) the branch is located in. Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        }
+        if ((mb_strlen($country) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $country when calling ActionBranch., must be smaller than or equal to 2.');
+        }
+
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
      * Gets force_account
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getForceAccount()
     {
@@ -1003,23 +797,159 @@ class ActionBranch implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets force_account
      *
-     * @param mixed|null $force_account The account ID where calls to this branch will be stored for reporting purposes. If the value is \"0\", calls will be stored in the account of the location action.
+     * @param float|null $force_account The account ID where calls to this branch will be stored for reporting purposes. If the value is \"0\", calls will be stored in the account of the location action.
      *
      * @return self
      */
     public function setForceAccount($force_account)
     {
         if (is_null($force_account)) {
-            array_push($this->openAPINullablesSetToNull, 'force_account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('force_account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable force_account cannot be null');
         }
         $this->container['force_account'] = $force_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets lat
+     *
+     * @return float|null
+     */
+    public function getLat()
+    {
+        return $this->container['lat'];
+    }
+
+    /**
+     * Sets lat
+     *
+     * @param float|null $lat The latitude of the branch.
+     *
+     * @return self
+     */
+    public function setLat($lat)
+    {
+        if (is_null($lat)) {
+            throw new \InvalidArgumentException('non-nullable lat cannot be null');
+        }
+        $this->container['lat'] = $lat;
+
+        return $this;
+    }
+
+    /**
+     * Gets location_id
+     *
+     * @return float
+     */
+    public function getLocationId()
+    {
+        return $this->container['location_id'];
+    }
+
+    /**
+     * Sets location_id
+     *
+     * @param float $location_id The location action ID the branch belongs to
+     *
+     * @return self
+     */
+    public function setLocationId($location_id)
+    {
+        if (is_null($location_id)) {
+            throw new \InvalidArgumentException('non-nullable location_id cannot be null');
+        }
+        $this->container['location_id'] = $location_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lon
+     *
+     * @return float|null
+     */
+    public function getLon()
+    {
+        return $this->container['lon'];
+    }
+
+    /**
+     * Sets lon
+     *
+     * @param float|null $lon The longitude of the branch.
+     *
+     * @return self
+     */
+    public function setLon($lon)
+    {
+        if (is_null($lon)) {
+            throw new \InvalidArgumentException('non-nullable lon cannot be null');
+        }
+        $this->container['lon'] = $lon;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcode
+     *
+     * @return string|null
+     */
+    public function getPostcode()
+    {
+        return $this->container['postcode'];
+    }
+
+    /**
+     * Sets postcode
+     *
+     * @param string|null $postcode The postcode of the branch.
+     *
+     * @return self
+     */
+    public function setPostcode($postcode)
+    {
+        if (is_null($postcode)) {
+            throw new \InvalidArgumentException('non-nullable postcode cannot be null');
+        }
+        if ((mb_strlen($postcode) > 8)) {
+            throw new \InvalidArgumentException('invalid length for $postcode when calling ActionBranch., must be smaller than or equal to 8.');
+        }
+
+        $this->container['postcode'] = $postcode;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state The state the branch is located in.
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        }
+        if ((mb_strlen($state) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $state when calling ActionBranch., must be smaller than or equal to 20.');
+        }
+
+        $this->container['state'] = $state;
 
         return $this;
     }

@@ -56,10 +56,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'did' => 'string',
-        'network' => 'string',
-        'country' => 'string',
-        'area' => 'string'
+        'area' => 'mixed',
+        'country' => 'mixed',
+        'did' => 'mixed',
+        'network' => 'mixed'
     ];
 
     /**
@@ -70,10 +70,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'did' => null,
-        'network' => null,
+        'area' => null,
         'country' => null,
-        'area' => null
+        'did' => null,
+        'network' => null
     ];
 
     /**
@@ -82,10 +82,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'did' => false,
-        'network' => false,
-        'country' => false,
-        'area' => false
+        'area' => true,
+        'country' => true,
+        'did' => true,
+        'network' => true
     ];
 
     /**
@@ -174,10 +174,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'did' => 'did',
-        'network' => 'network',
+        'area' => 'area',
         'country' => 'country',
-        'area' => 'area'
+        'did' => 'did',
+        'network' => 'network'
     ];
 
     /**
@@ -186,10 +186,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'did' => 'setDid',
-        'network' => 'setNetwork',
+        'area' => 'setArea',
         'country' => 'setCountry',
-        'area' => 'setArea'
+        'did' => 'setDid',
+        'network' => 'setNetwork'
     ];
 
     /**
@@ -198,10 +198,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'did' => 'getDid',
-        'network' => 'getNetwork',
+        'area' => 'getArea',
         'country' => 'getCountry',
-        'area' => 'getArea'
+        'did' => 'getDid',
+        'network' => 'getNetwork'
     ];
 
     /**
@@ -280,10 +280,10 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('area', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('did', $data ?? [], null);
         $this->setIfExists('network', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('area', $data ?? [], null);
     }
 
     /**
@@ -338,100 +338,9 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets did
-     *
-     * @return string|null
-     */
-    public function getDid()
-    {
-        return $this->container['did'];
-    }
-
-    /**
-     * Sets did
-     *
-     * @param string|null $did The tracking number in E164 format
-     *
-     * @return self
-     */
-    public function setDid($did)
-    {
-        if (is_null($did)) {
-            throw new \InvalidArgumentException('non-nullable did cannot be null');
-        }
-        $this->container['did'] = $did;
-
-        return $this;
-    }
-
-    /**
-     * Gets network
-     *
-     * @return string|null
-     */
-    public function getNetwork()
-    {
-        return $this->container['network'];
-    }
-
-    /**
-     * Sets network
-     *
-     * @param string|null $network The number's network type.
-     *
-     * @return self
-     */
-    public function setNetwork($network)
-    {
-        if (is_null($network)) {
-            throw new \InvalidArgumentException('non-nullable network cannot be null');
-        }
-        $allowedValues = $this->getNetworkAllowableValues();
-        if (!in_array($network, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'network', must be one of '%s'",
-                    $network,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['network'] = $network;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
      * Gets area
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getArea()
     {
@@ -441,16 +350,135 @@ class AvailableNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets area
      *
-     * @param string|null $area The number location or charge area.
+     * @param mixed|null $area The number location or charge area.
      *
      * @return self
      */
     public function setArea($area)
     {
         if (is_null($area)) {
-            throw new \InvalidArgumentException('non-nullable area cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'area');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('area', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['area'] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return mixed|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param mixed|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets did
+     *
+     * @return mixed|null
+     */
+    public function getDid()
+    {
+        return $this->container['did'];
+    }
+
+    /**
+     * Sets did
+     *
+     * @param mixed|null $did The tracking number in E164 format
+     *
+     * @return self
+     */
+    public function setDid($did)
+    {
+        if (is_null($did)) {
+            array_push($this->openAPINullablesSetToNull, 'did');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('did', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['did'] = $did;
+
+        return $this;
+    }
+
+    /**
+     * Gets network
+     *
+     * @return mixed|null
+     */
+    public function getNetwork()
+    {
+        return $this->container['network'];
+    }
+
+    /**
+     * Sets network
+     *
+     * @param mixed|null $network The number's network type.
+     *
+     * @return self
+     */
+    public function setNetwork($network)
+    {
+        if (is_null($network)) {
+            array_push($this->openAPINullablesSetToNull, 'network');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('network', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getNetworkAllowableValues();
+        if (!is_null($network) && !in_array($network, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'network', must be one of '%s'",
+                    $network,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['network'] = $network;
 
         return $this;
     }

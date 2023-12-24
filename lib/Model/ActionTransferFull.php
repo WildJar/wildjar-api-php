@@ -56,20 +56,20 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
-        'target' => 'mixed',
-        'timeout' => 'mixed',
+        'force_caller' => 'mixed',
         'record' => 'mixed',
         'recording' => 'mixed',
+        'target' => 'mixed',
+        'timeout' => 'mixed',
         'whisper' => 'mixed',
-        'force_caller' => 'mixed',
-        'notify' => 'mixed',
         'group_id' => 'mixed',
-        'action' => 'string'
+        'notify' => 'mixed',
+        'action' => 'mixed'
     ];
 
     /**
@@ -80,19 +80,19 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'target' => null,
-        'timeout' => null,
+        'force_caller' => null,
         'record' => null,
         'recording' => null,
+        'target' => null,
+        'timeout' => null,
         'whisper' => null,
-        'force_caller' => null,
-        'notify' => null,
         'group_id' => null,
+        'notify' => null,
         'action' => null
     ];
 
@@ -102,20 +102,20 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
-        'target' => true,
-        'timeout' => true,
+        'force_caller' => true,
         'record' => true,
         'recording' => true,
+        'target' => true,
+        'timeout' => true,
         'whisper' => true,
-        'force_caller' => true,
-        'notify' => true,
         'group_id' => true,
-        'action' => false
+        'notify' => true,
+        'action' => true
     ];
 
     /**
@@ -204,19 +204,19 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'target' => 'target',
-        'timeout' => 'timeout',
+        'force_caller' => 'forceCaller',
         'record' => 'record',
         'recording' => 'recording',
+        'target' => 'target',
+        'timeout' => 'timeout',
         'whisper' => 'whisper',
-        'force_caller' => 'forceCaller',
-        'notify' => 'notify',
         'group_id' => 'groupId',
+        'notify' => 'notify',
         'action' => 'action'
     ];
 
@@ -226,19 +226,19 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'target' => 'setTarget',
-        'timeout' => 'setTimeout',
+        'force_caller' => 'setForceCaller',
         'record' => 'setRecord',
         'recording' => 'setRecording',
+        'target' => 'setTarget',
+        'timeout' => 'setTimeout',
         'whisper' => 'setWhisper',
-        'force_caller' => 'setForceCaller',
-        'notify' => 'setNotify',
         'group_id' => 'setGroupId',
+        'notify' => 'setNotify',
         'action' => 'setAction'
     ];
 
@@ -248,19 +248,19 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'target' => 'getTarget',
-        'timeout' => 'getTimeout',
+        'force_caller' => 'getForceCaller',
         'record' => 'getRecord',
         'recording' => 'getRecording',
+        'target' => 'getTarget',
+        'timeout' => 'getTimeout',
         'whisper' => 'getWhisper',
-        'force_caller' => 'getForceCaller',
-        'notify' => 'getNotify',
         'group_id' => 'getGroupId',
+        'notify' => 'getNotify',
         'action' => 'getAction'
     ];
 
@@ -395,19 +395,19 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('target', $data ?? [], null);
-        $this->setIfExists('timeout', $data ?? [], null);
+        $this->setIfExists('force_caller', $data ?? [], null);
         $this->setIfExists('record', $data ?? [], null);
         $this->setIfExists('recording', $data ?? [], null);
+        $this->setIfExists('target', $data ?? [], null);
+        $this->setIfExists('timeout', $data ?? [], null);
         $this->setIfExists('whisper', $data ?? [], null);
-        $this->setIfExists('force_caller', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('group_id', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
     }
 
@@ -451,11 +451,8 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['target'] === null) {
-            $invalidProperties[] = "'target' can't be null";
-        }
-        if ((mb_strlen($this->container['target']) > 30)) {
-            $invalidProperties[] = "invalid value for 'target', the character length must be smaller than or equal to 30.";
+        if (!is_null($this->container['force_caller']) && (mb_strlen($this->container['force_caller']) > 30)) {
+            $invalidProperties[] = "invalid value for 'force_caller', the character length must be smaller than or equal to 30.";
         }
 
         $allowedValues = $this->getRecordAllowableValues();
@@ -471,12 +468,15 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'recording', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['whisper']) && (mb_strlen($this->container['whisper']) > 100)) {
-            $invalidProperties[] = "invalid value for 'whisper', the character length must be smaller than or equal to 100.";
+        if ($this->container['target'] === null) {
+            $invalidProperties[] = "'target' can't be null";
+        }
+        if ((mb_strlen($this->container['target']) > 30)) {
+            $invalidProperties[] = "invalid value for 'target', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['force_caller']) && (mb_strlen($this->container['force_caller']) > 30)) {
-            $invalidProperties[] = "invalid value for 'force_caller', the character length must be smaller than or equal to 30.";
+        if (!is_null($this->container['whisper']) && (mb_strlen($this->container['whisper']) > 100)) {
+            $invalidProperties[] = "invalid value for 'whisper', the character length must be smaller than or equal to 100.";
         }
 
         $allowedValues = $this->getNotifyAllowableValues();
@@ -513,40 +513,6 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
      * @return mixed|null
@@ -576,6 +542,40 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -697,73 +697,39 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets target
-     *
-     * @return mixed
-     */
-    public function getTarget()
-    {
-        return $this->container['target'];
-    }
-
-    /**
-     * Sets target
-     *
-     * @param mixed $target The phone number to route the call to in E164 format.
-     *
-     * @return self
-     */
-    public function setTarget($target)
-    {
-        if (is_null($target)) {
-            array_push($this->openAPINullablesSetToNull, 'target');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('target', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($target) && (mb_strlen($target) > 30)) {
-            throw new \InvalidArgumentException('invalid length for $target when calling ActionTransferFull., must be smaller than or equal to 30.');
-        }
-
-        $this->container['target'] = $target;
-
-        return $this;
-    }
-
-    /**
-     * Gets timeout
+     * Gets force_caller
      *
      * @return mixed|null
      */
-    public function getTimeout()
+    public function getForceCaller()
     {
-        return $this->container['timeout'];
+        return $this->container['force_caller'];
     }
 
     /**
-     * Sets timeout
+     * Sets force_caller
      *
-     * @param mixed|null $timeout The number of seconds, if a call is not answered, before it is sent to the next action. If the value is 0, a platform wide error-prevention rule of 25 seconds will be applied to the transfer.
+     * @param mixed|null $force_caller The phone number to force as the caller ID when calling the target (must be a WildJar geo or mobile number).
      *
      * @return self
      */
-    public function setTimeout($timeout)
+    public function setForceCaller($force_caller)
     {
-        if (is_null($timeout)) {
-            array_push($this->openAPINullablesSetToNull, 'timeout');
+        if (is_null($force_caller)) {
+            array_push($this->openAPINullablesSetToNull, 'force_caller');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timeout', $nullablesSetToNull);
+            $index = array_search('force_caller', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['timeout'] = $timeout;
+        if (!is_null($force_caller) && (mb_strlen($force_caller) > 30)) {
+            throw new \InvalidArgumentException('invalid length for $force_caller when calling ActionTransferFull., must be smaller than or equal to 30.');
+        }
+
+        $this->container['force_caller'] = $force_caller;
 
         return $this;
     }
@@ -851,6 +817,78 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets target
+     *
+     * @return mixed
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param mixed $target The phone number to route the call to in E164 format.
+     *
+     * @return self
+     */
+    public function setTarget($target)
+    {
+        if (is_null($target)) {
+            array_push($this->openAPINullablesSetToNull, 'target');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('target', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($target) && (mb_strlen($target) > 30)) {
+            throw new \InvalidArgumentException('invalid length for $target when calling ActionTransferFull., must be smaller than or equal to 30.');
+        }
+
+        $this->container['target'] = $target;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeout
+     *
+     * @return mixed|null
+     */
+    public function getTimeout()
+    {
+        return $this->container['timeout'];
+    }
+
+    /**
+     * Sets timeout
+     *
+     * @param mixed|null $timeout The number of seconds, if a call is not answered, before it is sent to the next action. If the value is 0, a platform wide error-prevention rule of 25 seconds will be applied to the transfer.
+     *
+     * @return self
+     */
+    public function setTimeout($timeout)
+    {
+        if (is_null($timeout)) {
+            array_push($this->openAPINullablesSetToNull, 'timeout');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timeout', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['timeout'] = $timeout;
+
+        return $this;
+    }
+
+    /**
      * Gets whisper
      *
      * @return mixed|null
@@ -889,39 +927,35 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets force_caller
+     * Gets group_id
      *
      * @return mixed|null
      */
-    public function getForceCaller()
+    public function getGroupId()
     {
-        return $this->container['force_caller'];
+        return $this->container['group_id'];
     }
 
     /**
-     * Sets force_caller
+     * Sets group_id
      *
-     * @param mixed|null $force_caller The phone number to force as the caller ID when calling the target (must be a WildJar geo or mobile number).
+     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
      *
      * @return self
      */
-    public function setForceCaller($force_caller)
+    public function setGroupId($group_id)
     {
-        if (is_null($force_caller)) {
-            array_push($this->openAPINullablesSetToNull, 'force_caller');
+        if (is_null($group_id)) {
+            array_push($this->openAPINullablesSetToNull, 'group_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('force_caller', $nullablesSetToNull);
+            $index = array_search('group_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($force_caller) && (mb_strlen($force_caller) > 30)) {
-            throw new \InvalidArgumentException('invalid length for $force_caller when calling ActionTransferFull., must be smaller than or equal to 30.');
-        }
-
-        $this->container['force_caller'] = $force_caller;
+        $this->container['group_id'] = $group_id;
 
         return $this;
     }
@@ -971,43 +1005,9 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets group_id
-     *
-     * @return mixed|null
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
-     *
-     * @return self
-     */
-    public function setGroupId($group_id)
-    {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
      * Gets action
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getAction()
     {
@@ -1017,17 +1017,24 @@ class ActionTransferFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets action
      *
-     * @param string|null $action The action type.
+     * @param mixed|null $action The action type.
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            throw new \InvalidArgumentException('non-nullable action cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",

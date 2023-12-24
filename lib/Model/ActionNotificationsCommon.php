@@ -56,8 +56,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notify' => 'string',
-        'group_id' => 'float'
+        'group_id' => 'mixed',
+        'notify' => 'mixed'
     ];
 
     /**
@@ -68,8 +68,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'notify' => null,
-        'group_id' => null
+        'group_id' => null,
+        'notify' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'notify' => false,
-        'group_id' => false
+        'group_id' => true,
+        'notify' => true
     ];
 
     /**
@@ -168,8 +168,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'notify' => 'notify',
-        'group_id' => 'groupId'
+        'group_id' => 'groupId',
+        'notify' => 'notify'
     ];
 
     /**
@@ -178,8 +178,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'notify' => 'setNotify',
-        'group_id' => 'setGroupId'
+        'group_id' => 'setGroupId',
+        'notify' => 'setNotify'
     ];
 
     /**
@@ -188,8 +188,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'notify' => 'getNotify',
-        'group_id' => 'getGroupId'
+        'group_id' => 'getGroupId',
+        'notify' => 'getNotify'
     ];
 
     /**
@@ -266,8 +266,8 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('notify', $data ?? [], 'no');
-        $this->setIfExists('group_id', $data ?? [], 0);
+        $this->setIfExists('group_id', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], null);
     }
 
     /**
@@ -322,46 +322,9 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets notify
-     *
-     * @return string|null
-     */
-    public function getNotify()
-    {
-        return $this->container['notify'];
-    }
-
-    /**
-     * Sets notify
-     *
-     * @param string|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
-     *
-     * @return self
-     */
-    public function setNotify($notify)
-    {
-        if (is_null($notify)) {
-            throw new \InvalidArgumentException('non-nullable notify cannot be null');
-        }
-        $allowedValues = $this->getNotifyAllowableValues();
-        if (!in_array($notify, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'notify', must be one of '%s'",
-                    $notify,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['notify'] = $notify;
-
-        return $this;
-    }
-
-    /**
      * Gets group_id
      *
-     * @return float|null
+     * @return mixed|null
      */
     public function getGroupId()
     {
@@ -371,16 +334,67 @@ class ActionNotificationsCommon implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets group_id
      *
-     * @param float|null $group_id The contact group ID the notifications will be sent to.
+     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
      *
      * @return self
      */
     public function setGroupId($group_id)
     {
         if (is_null($group_id)) {
-            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'group_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify
+     *
+     * @return mixed|null
+     */
+    public function getNotify()
+    {
+        return $this->container['notify'];
+    }
+
+    /**
+     * Sets notify
+     *
+     * @param mixed|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
+     *
+     * @return self
+     */
+    public function setNotify($notify)
+    {
+        if (is_null($notify)) {
+            array_push($this->openAPINullablesSetToNull, 'notify');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('notify', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getNotifyAllowableValues();
+        if (!is_null($notify) && !in_array($notify, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'notify', must be one of '%s'",
+                    $notify,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['notify'] = $notify;
 
         return $this;
     }

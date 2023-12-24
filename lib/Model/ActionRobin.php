@@ -56,14 +56,14 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
-        'notify' => 'mixed',
         'group_id' => 'mixed',
-        'counter' => 'float'
+        'notify' => 'mixed',
+        'counter' => 'mixed'
     ];
 
     /**
@@ -74,13 +74,13 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'notify' => null,
         'group_id' => null,
+        'notify' => null,
         'counter' => null
     ];
 
@@ -90,14 +90,14 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
-        'notify' => true,
         'group_id' => true,
-        'counter' => false
+        'notify' => true,
+        'counter' => true
     ];
 
     /**
@@ -186,13 +186,13 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'notify' => 'notify',
         'group_id' => 'groupId',
+        'notify' => 'notify',
         'counter' => 'counter'
     ];
 
@@ -202,13 +202,13 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'notify' => 'setNotify',
         'group_id' => 'setGroupId',
+        'notify' => 'setNotify',
         'counter' => 'setCounter'
     ];
 
@@ -218,13 +218,13 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'notify' => 'getNotify',
         'group_id' => 'getGroupId',
+        'notify' => 'getNotify',
         'counter' => 'getCounter'
     ];
 
@@ -331,14 +331,14 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('group_id', $data ?? [], null);
-        $this->setIfExists('counter', $data ?? [], 0);
+        $this->setIfExists('notify', $data ?? [], null);
+        $this->setIfExists('counter', $data ?? [], null);
     }
 
     /**
@@ -409,40 +409,6 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
      * @return mixed|null
@@ -472,6 +438,40 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -593,6 +593,40 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets group_id
+     *
+     * @return mixed|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            array_push($this->openAPINullablesSetToNull, 'group_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets notify
      *
      * @return mixed|null
@@ -637,43 +671,9 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets group_id
-     *
-     * @return mixed|null
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
-     *
-     * @return self
-     */
-    public function setGroupId($group_id)
-    {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
      * Gets counter
      *
-     * @return float
+     * @return mixed
      */
     public function getCounter()
     {
@@ -683,14 +683,21 @@ class ActionRobin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets counter
      *
-     * @param float $counter The counter value to start the round robin on.
+     * @param mixed $counter The counter value to start the round robin on.
      *
      * @return self
      */
     public function setCounter($counter)
     {
         if (is_null($counter)) {
-            throw new \InvalidArgumentException('non-nullable counter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'counter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('counter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['counter'] = $counter;
 

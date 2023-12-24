@@ -56,14 +56,14 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
-        'notify' => 'mixed',
         'group_id' => 'mixed',
-        '_tz' => 'string'
+        'notify' => 'mixed',
+        '_tz' => 'mixed'
     ];
 
     /**
@@ -74,13 +74,13 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'notify' => null,
         'group_id' => null,
+        'notify' => null,
         '_tz' => null
     ];
 
@@ -90,14 +90,14 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
-        'notify' => true,
         'group_id' => true,
-        '_tz' => false
+        'notify' => true,
+        '_tz' => true
     ];
 
     /**
@@ -186,13 +186,13 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'notify' => 'notify',
         'group_id' => 'groupId',
+        'notify' => 'notify',
         '_tz' => '_tz'
     ];
 
@@ -202,13 +202,13 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'notify' => 'setNotify',
         'group_id' => 'setGroupId',
+        'notify' => 'setNotify',
         '_tz' => 'setTz'
     ];
 
@@ -218,13 +218,13 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'notify' => 'getNotify',
         'group_id' => 'getGroupId',
+        'notify' => 'getNotify',
         '_tz' => 'getTz'
     ];
 
@@ -331,13 +331,13 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('group_id', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('_tz', $data ?? [], null);
     }
 
@@ -410,40 +410,6 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
      * @return mixed|null
@@ -473,6 +439,40 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -594,6 +594,40 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets group_id
+     *
+     * @return mixed|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            array_push($this->openAPINullablesSetToNull, 'group_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets notify
      *
      * @return mixed|null
@@ -638,43 +672,9 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets group_id
-     *
-     * @return mixed|null
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
-     *
-     * @return self
-     */
-    public function setGroupId($group_id)
-    {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
      * Gets _tz
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getTz()
     {
@@ -684,16 +684,23 @@ class ActionTime implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets _tz
      *
-     * @param string|null $_tz Time zone applied to the time switch. Based on the current account.
+     * @param mixed|null $_tz Time zone applied to the time switch. Based on the current account.
      *
      * @return self
      */
     public function setTz($_tz)
     {
         if (is_null($_tz)) {
-            throw new \InvalidArgumentException('non-nullable _tz cannot be null');
+            array_push($this->openAPINullablesSetToNull, '_tz');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('_tz', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($_tz) > 50)) {
+        if (!is_null($_tz) && (mb_strlen($_tz) > 50)) {
             throw new \InvalidArgumentException('invalid length for $_tz when calling ActionTime., must be smaller than or equal to 50.');
         }
 

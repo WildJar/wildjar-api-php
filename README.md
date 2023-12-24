@@ -162,16 +162,13 @@ Class | Method | HTTP request | Description
 - [ActionNotificationsCommon](docs/Model/ActionNotificationsCommon.md)
 - [ActionRobin](docs/Model/ActionRobin.md)
 - [ActionRobinFull](docs/Model/ActionRobinFull.md)
-- [ActionRobinFullAllOfOptionsInner](docs/Model/ActionRobinFullAllOfOptionsInner.md)
 - [ActionTag](docs/Model/ActionTag.md)
 - [ActionTime](docs/Model/ActionTime.md)
 - [ActionTimeFull](docs/Model/ActionTimeFull.md)
-- [ActionTimeFullAllOfTimesInner](docs/Model/ActionTimeFullAllOfTimesInner.md)
 - [ActionTransfer](docs/Model/ActionTransfer.md)
 - [ActionTransferFull](docs/Model/ActionTransferFull.md)
 - [ActionVoicemail](docs/Model/ActionVoicemail.md)
 - [ActionVoicemailFull](docs/Model/ActionVoicemailFull.md)
-- [ActionVoicemailFullAllOfContactsInner](docs/Model/ActionVoicemailFullAllOfContactsInner.md)
 - [AddAccount200Response](docs/Model/AddAccount200Response.md)
 - [AddressBook](docs/Model/AddressBook.md)
 - [AddressBookContact](docs/Model/AddressBookContact.md)
@@ -224,7 +221,6 @@ Class | Method | HTTP request | Description
 - [NumberDetailedFull](docs/Model/NumberDetailedFull.md)
 - [NumberDetailedFullAllOfExtra](docs/Model/NumberDetailedFullAllOfExtra.md)
 - [NumberDetailedFullAllOfExtraMultiConf](docs/Model/NumberDetailedFullAllOfExtraMultiConf.md)
-- [NumberDetailedFullAllOfExtraWebCode](docs/Model/NumberDetailedFullAllOfExtraWebCode.md)
 - [OrderNumber](docs/Model/OrderNumber.md)
 - [OrderNumber200Response](docs/Model/OrderNumber200Response.md)
 - [OutboundCall](docs/Model/OutboundCall.md)
@@ -235,10 +231,6 @@ Class | Method | HTTP request | Description
 ## Authorization
 
 Authentication schemes defined for the API:
-### userLogin
-
-- **Type**: HTTP basic authentication
-
 ### BearerAuth
 
 - **Type**: Bearer authentication
@@ -249,11 +241,15 @@ Authentication schemes defined for the API:
 - **Flow**: `implicit`
 - **Authorization URL**: `https://portal.wildjar.com/login`
 - **Scopes**: 
-    - **reports**: access to reports
-    - **conf**: access to configuration
-    - **users**: access to create users
     - **admin**: administrator access
+    - **conf**: access to configuration
+    - **reports**: access to reports
     - **super**: reseller super access
+    - **users**: access to create users
+
+### userLogin
+
+- **Type**: HTTP basic authentication
 
 ## Tests
 

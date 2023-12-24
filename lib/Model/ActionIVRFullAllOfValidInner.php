@@ -56,11 +56,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
-        'option' => 'float',
         'action' => 'string',
         'action_id' => 'float',
+        'id' => 'float',
         'name' => 'string',
+        'option' => 'float',
         'remote_code' => 'string'
     ];
 
@@ -72,11 +72,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'option' => null,
         'action' => null,
         'action_id' => null,
+        'id' => null,
         'name' => null,
+        'option' => null,
         'remote_code' => null
     ];
 
@@ -86,11 +86,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'option' => false,
         'action' => false,
         'action_id' => false,
+        'id' => false,
         'name' => false,
+        'option' => false,
         'remote_code' => true
     ];
 
@@ -180,11 +180,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'option' => 'option',
         'action' => 'action',
         'action_id' => 'actionId',
+        'id' => 'id',
         'name' => 'name',
+        'option' => 'option',
         'remote_code' => 'remoteCode'
     ];
 
@@ -194,11 +194,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'option' => 'setOption',
         'action' => 'setAction',
         'action_id' => 'setActionId',
+        'id' => 'setId',
         'name' => 'setName',
+        'option' => 'setOption',
         'remote_code' => 'setRemoteCode'
     ];
 
@@ -208,11 +208,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'option' => 'getOption',
         'action' => 'getAction',
         'action_id' => 'getActionId',
+        'id' => 'getId',
         'name' => 'getName',
+        'option' => 'getOption',
         'remote_code' => 'getRemoteCode'
     ];
 
@@ -302,11 +302,11 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('option', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('action_id', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('option', $data ?? [], null);
         $this->setIfExists('remote_code', $data ?? [], null);
     }
 
@@ -337,9 +337,6 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['option'] === null) {
-            $invalidProperties[] = "'option' can't be null";
-        }
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
@@ -354,6 +351,9 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
 
         if ($this->container['action_id'] === null) {
             $invalidProperties[] = "'action_id' can't be null";
+        }
+        if ($this->container['option'] === null) {
+            $invalidProperties[] = "'option' can't be null";
         }
         if (!is_null($this->container['remote_code']) && (mb_strlen($this->container['remote_code']) > 10)) {
             $invalidProperties[] = "invalid value for 'remote_code', the character length must be smaller than or equal to 10.";
@@ -373,62 +373,6 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return float|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param float|null $id The ID number for the IVR option.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets option
-     *
-     * @return float
-     */
-    public function getOption()
-    {
-        return $this->container['option'];
-    }
-
-    /**
-     * Sets option
-     *
-     * @param float $option The digits assigned to this IVR menu option.
-     *
-     * @return self
-     */
-    public function setOption($option)
-    {
-        if (is_null($option)) {
-            throw new \InvalidArgumentException('non-nullable option cannot be null');
-        }
-
-
-        $this->container['option'] = $option;
-
-        return $this;
-    }
 
     /**
      * Gets action
@@ -495,6 +439,33 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets id
+     *
+     * @return float|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param float|null $id The ID number for the IVR option.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -517,6 +488,35 @@ class ActionIVRFullAllOfValidInner implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets option
+     *
+     * @return float
+     */
+    public function getOption()
+    {
+        return $this->container['option'];
+    }
+
+    /**
+     * Sets option
+     *
+     * @param float $option The digits assigned to this IVR menu option.
+     *
+     * @return self
+     */
+    public function setOption($option)
+    {
+        if (is_null($option)) {
+            throw new \InvalidArgumentException('non-nullable option cannot be null');
+        }
+
+
+        $this->container['option'] = $option;
 
         return $this;
     }

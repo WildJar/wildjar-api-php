@@ -56,15 +56,15 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'mixed',
         'account' => 'mixed',
+        'id' => 'mixed',
         'name' => 'mixed',
         'next_action' => 'mixed',
         'next_action_id' => 'mixed',
-        'notify' => 'mixed',
         'group_id' => 'mixed',
-        'action' => 'string',
-        'times' => '\WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[]'
+        'notify' => 'mixed',
+        'action' => 'mixed',
+        'times' => 'mixed'
     ];
 
     /**
@@ -75,13 +75,13 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'account' => null,
+        'id' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'notify' => null,
         'group_id' => null,
+        'notify' => null,
         'action' => null,
         'times' => null
     ];
@@ -92,15 +92,15 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
         'account' => true,
+        'id' => true,
         'name' => true,
         'next_action' => true,
         'next_action_id' => true,
-        'notify' => true,
         'group_id' => true,
-        'action' => false,
-        'times' => false
+        'notify' => true,
+        'action' => true,
+        'times' => true
     ];
 
     /**
@@ -189,13 +189,13 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'account' => 'account',
+        'id' => 'id',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'notify' => 'notify',
         'group_id' => 'groupId',
+        'notify' => 'notify',
         'action' => 'action',
         'times' => 'times'
     ];
@@ -206,13 +206,13 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'account' => 'setAccount',
+        'id' => 'setId',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'notify' => 'setNotify',
         'group_id' => 'setGroupId',
+        'notify' => 'setNotify',
         'action' => 'setAction',
         'times' => 'setTimes'
     ];
@@ -223,13 +223,13 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'account' => 'getAccount',
+        'id' => 'getId',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'notify' => 'getNotify',
         'group_id' => 'getGroupId',
+        'notify' => 'getNotify',
         'action' => 'getAction',
         'times' => 'getTimes'
     ];
@@ -350,13 +350,13 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('group_id', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('times', $data ?? [], null);
     }
@@ -438,40 +438,6 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
      * @return mixed|null
@@ -501,6 +467,40 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return mixed|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param mixed|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -622,6 +622,40 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets group_id
+     *
+     * @return mixed|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            array_push($this->openAPINullablesSetToNull, 'group_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets notify
      *
      * @return mixed|null
@@ -666,43 +700,9 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets group_id
-     *
-     * @return mixed|null
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
-     *
-     * @return self
-     */
-    public function setGroupId($group_id)
-    {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
      * Gets action
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getAction()
     {
@@ -712,17 +712,24 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param string|null $action The action type.
+     * @param mixed|null $action The action type.
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            throw new \InvalidArgumentException('non-nullable action cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",
@@ -739,7 +746,7 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets times
      *
-     * @return \WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[]
+     * @return mixed
      */
     public function getTimes()
     {
@@ -749,14 +756,21 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets times
      *
-     * @param \WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[] $times times
+     * @param mixed $times An array of time switch rules applied.
      *
      * @return self
      */
     public function setTimes($times)
     {
         if (is_null($times)) {
-            throw new \InvalidArgumentException('non-nullable times cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'times');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('times', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['times'] = $times;
 

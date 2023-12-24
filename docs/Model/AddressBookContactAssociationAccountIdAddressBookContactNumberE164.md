@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**u** | **string** | Address book contact UUID | [optional]
-**n** | **string** | Address book contact full name. | [optional]
+**n** | **mixed** | Address book contact full name. | [optional]
+**u** | **mixed** | Address book contact UUID | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

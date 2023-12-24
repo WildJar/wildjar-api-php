@@ -56,8 +56,8 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action' => 'string',
-        'action_id' => 'float'
+        'action' => 'mixed',
+        'action_id' => 'mixed'
     ];
 
     /**
@@ -78,8 +78,8 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'action' => false,
-        'action_id' => false
+        'action' => true,
+        'action_id' => true
     ];
 
     /**
@@ -336,7 +336,7 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getAction()
     {
@@ -346,17 +346,24 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param string|null $action Action type to route to in the call flow.
+     * @param mixed|null $action Action type to route to in the call flow.
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            throw new \InvalidArgumentException('non-nullable action cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'action');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!in_array($action, $allowedValues, true)) {
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",
@@ -373,7 +380,7 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action_id
      *
-     * @return float|null
+     * @return mixed|null
      */
     public function getActionId()
     {
@@ -383,14 +390,21 @@ class RoutingAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action_id
      *
-     * @param float|null $action_id Action ID to route to in the call flow.
+     * @param mixed|null $action_id Action ID to route to in the call flow.
      *
      * @return self
      */
     public function setActionId($action_id)
     {
         if (is_null($action_id)) {
-            throw new \InvalidArgumentException('non-nullable action_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'action_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['action_id'] = $action_id;
 

@@ -95,11 +95,19 @@ class Configuration
     protected $host = 'https://api.trkcall.com/v2';
 
     /**
+     * The host
+     *
+     * @var string
+     */
+    protected $verifySSL = true;
+
+
+    /**
      * User agent of the HTTP request, set to "WildJar-PHP-client" by default
      *
      * @var string
      */
-    protected $userAgent = 'wildjar-api-php';
+    protected $userAgent = 'wildjar-api-client';
 
     /**
      * Debug switch (default set to false)
@@ -129,6 +137,28 @@ class Configuration
     {
         $this->tempFolderPath = sys_get_temp_dir();
     }
+
+    /**
+     * Sets the default configuration instance
+     *
+     * @param string        $accessToken Token for OAuth
+     * @param string|null   $host        Host for API. Eg: https://api.trkcall.com/v2
+     * @param bool          $verifySSL   Whether to verify the SSL certificate or not
+     *
+     * @return void
+     */
+    public static function init($accessToken,$host=null,$verifySSL=true)
+    {
+        $config = new Configuration();
+        $config->setAccessToken($accessToken);
+
+        if ($host !== null) $config->setHost($host);
+        $config->setVerifySSL($verifySSL);
+        
+        self::$defaultConfiguration = $config;
+    }
+
+    
 
     /**
      * Sets API key
@@ -289,6 +319,19 @@ class Configuration
     }
 
     /**
+     * Sets the SSL verification checks
+     *
+     * @param bool $verifySSL VerifySSL
+     *
+     * @return $this
+     */
+    public function setVerifySSL($verifySSL)
+    {
+        $this->verifySSL = $verifySSL;
+        return $this;
+    }
+
+    /**
      * Gets the host
      *
      * @return string Host
@@ -297,6 +340,17 @@ class Configuration
     {
         return $this->host;
     }
+
+    /**
+     * Gets if need to verify SSL certificates
+     *
+     * @return bool VerifySSL
+     */
+    public function getVerifySSL()
+    {
+        return $this->verifySSL;
+    }
+    
 
     /**
      * Sets the user agent of the api client
@@ -420,6 +474,8 @@ class Configuration
     {
         self::$defaultConfiguration = $config;
     }
+
+
 
     /**
      * Gets the essential information for debugging

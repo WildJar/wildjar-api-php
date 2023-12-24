@@ -56,12 +56,12 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'number' => 'mixed',
-        'reference' => 'mixed',
-        'date' => 'mixed',
-        'user' => 'mixed',
-        'reason' => 'mixed'
+        'account' => 'float',
+        'date' => '\DateTime',
+        'number' => 'string',
+        'reason' => 'string',
+        'reference' => 'string',
+        'user' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'account' => null,
-        'number' => null,
-        'reference' => null,
         'date' => 'date-time',
-        'user' => null,
-        'reason' => null
+        'number' => null,
+        'reason' => null,
+        'reference' => null,
+        'user' => null
     ];
 
     /**
@@ -86,12 +86,12 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'number' => true,
-        'reference' => true,
-        'date' => true,
-        'user' => true,
-        'reason' => true
+        'account' => false,
+        'date' => false,
+        'number' => false,
+        'reason' => false,
+        'reference' => false,
+        'user' => false
     ];
 
     /**
@@ -181,11 +181,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'account' => 'account',
-        'number' => 'number',
-        'reference' => 'reference',
         'date' => 'date',
-        'user' => 'user',
-        'reason' => 'reason'
+        'number' => 'number',
+        'reason' => 'reason',
+        'reference' => 'reference',
+        'user' => 'user'
     ];
 
     /**
@@ -195,11 +195,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'account' => 'setAccount',
-        'number' => 'setNumber',
-        'reference' => 'setReference',
         'date' => 'setDate',
-        'user' => 'setUser',
-        'reason' => 'setReason'
+        'number' => 'setNumber',
+        'reason' => 'setReason',
+        'reference' => 'setReference',
+        'user' => 'setUser'
     ];
 
     /**
@@ -209,11 +209,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'account' => 'getAccount',
-        'number' => 'getNumber',
-        'reference' => 'getReference',
         'date' => 'getDate',
-        'user' => 'getUser',
-        'reason' => 'getReason'
+        'number' => 'getNumber',
+        'reason' => 'getReason',
+        'reference' => 'getReference',
+        'user' => 'getUser'
     ];
 
     /**
@@ -274,11 +274,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('reference', $data ?? [], null);
         $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
+        $this->setIfExists('reference', $data ?? [], null);
+        $this->setIfExists('user', $data ?? [], null);
     }
 
     /**
@@ -315,6 +315,9 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'number', the character length must be smaller than or equal to 30.";
         }
 
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
         if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 40)) {
             $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 40.";
         }
@@ -323,9 +326,6 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'user', the character length must be smaller than or equal to 150.";
         }
 
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -344,7 +344,7 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets account
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getAccount()
     {
@@ -354,21 +354,14 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account
      *
-     * @param mixed|null $account The account ID.
+     * @param float|null $account The account ID.
      *
      * @return self
      */
     public function setAccount($account)
     {
         if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
         }
         $this->container['account'] = $account;
 
@@ -376,85 +369,9 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets number
-     *
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->container['number'];
-    }
-
-    /**
-     * Sets number
-     *
-     * @param mixed $number The blocked caller's phone number in E164 format without a leading plus (\"+\").
-     *
-     * @return self
-     */
-    public function setNumber($number)
-    {
-        if (is_null($number)) {
-            array_push($this->openAPINullablesSetToNull, 'number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($number) && (mb_strlen($number) > 30)) {
-            throw new \InvalidArgumentException('invalid length for $number when calling ActionBlocked., must be smaller than or equal to 30.');
-        }
-
-        $this->container['number'] = $number;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference
-     *
-     * @return mixed|null
-     */
-    public function getReference()
-    {
-        return $this->container['reference'];
-    }
-
-    /**
-     * Sets reference
-     *
-     * @param mixed|null $reference The blocked caller's phone number in E164 format without a leading plus (\"+\"), the CDR ID the caller was blocked from or blocked caller's private reference.
-     *
-     * @return self
-     */
-    public function setReference($reference)
-    {
-        if (is_null($reference)) {
-            array_push($this->openAPINullablesSetToNull, 'reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($reference) && (mb_strlen($reference) > 40)) {
-            throw new \InvalidArgumentException('invalid length for $reference when calling ActionBlocked., must be smaller than or equal to 40.');
-        }
-
-        $this->container['reference'] = $reference;
-
-        return $this;
-    }
-
-    /**
      * Gets date
      *
-     * @return mixed|null
+     * @return \DateTime|null
      */
     public function getDate()
     {
@@ -464,21 +381,14 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date
      *
-     * @param mixed|null $date The date and time the caller was blocked, based on the account time zone, in ISO format.
+     * @param \DateTime|null $date The date and time the caller was blocked, based on the account time zone, in ISO format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            array_push($this->openAPINullablesSetToNull, 'date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
         }
         $this->container['date'] = $date;
 
@@ -486,39 +396,32 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets user
+     * Gets number
      *
-     * @return mixed|null
+     * @return string
      */
-    public function getUser()
+    public function getNumber()
     {
-        return $this->container['user'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets user
+     * Sets number
      *
-     * @param mixed|null $user The user who blocked the caller.
+     * @param string $number The blocked caller's phone number in E164 format without a leading plus (\"+\").
      *
      * @return self
      */
-    public function setUser($user)
+    public function setNumber($number)
     {
-        if (is_null($user)) {
-            array_push($this->openAPINullablesSetToNull, 'user');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('user', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
-        if (!is_null($user) && (mb_strlen($user) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $user when calling ActionBlocked., must be smaller than or equal to 150.');
+        if ((mb_strlen($number) > 30)) {
+            throw new \InvalidArgumentException('invalid length for $number when calling ActionBlocked., must be smaller than or equal to 30.');
         }
 
-        $this->container['user'] = $user;
+        $this->container['number'] = $number;
 
         return $this;
     }
@@ -526,7 +429,7 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reason
      *
-     * @return mixed
+     * @return string
      */
     public function getReason()
     {
@@ -536,23 +439,78 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reason
      *
-     * @param mixed $reason Reason the caller was blocked.
+     * @param string $reason Reason the caller was blocked.
      *
      * @return self
      */
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            array_push($this->openAPINullablesSetToNull, 'reason');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reason', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reason cannot be null');
         }
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference The blocked caller's phone number in E164 format without a leading plus (\"+\"), the CDR ID the caller was blocked from or blocked caller's private reference.
+     *
+     * @return self
+     */
+    public function setReference($reference)
+    {
+        if (is_null($reference)) {
+            throw new \InvalidArgumentException('non-nullable reference cannot be null');
+        }
+        if ((mb_strlen($reference) > 40)) {
+            throw new \InvalidArgumentException('invalid length for $reference when calling ActionBlocked., must be smaller than or equal to 40.');
+        }
+
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return string|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param string|null $user The user who blocked the caller.
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        if (is_null($user)) {
+            throw new \InvalidArgumentException('non-nullable user cannot be null');
+        }
+        if ((mb_strlen($user) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $user when calling ActionBlocked., must be smaller than or equal to 150.');
+        }
+
+        $this->container['user'] = $user;
 
         return $this;
     }

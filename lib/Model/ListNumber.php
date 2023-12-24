@@ -56,15 +56,15 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'did' => 'mixed',
-        'name' => 'mixed',
         'account' => 'mixed',
-        'source' => 'mixed',
-        'type' => 'mixed',
         'action' => 'mixed',
         'action_id' => 'mixed',
+        'did' => 'mixed',
+        'name' => 'mixed',
+        'source' => 'mixed',
         'status' => 'mixed',
-        'id' => 'float'
+        'type' => 'mixed',
+        'id' => 'mixed'
     ];
 
     /**
@@ -75,14 +75,14 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'did' => null,
-        'name' => null,
         'account' => null,
-        'source' => null,
-        'type' => null,
         'action' => null,
         'action_id' => null,
+        'did' => null,
+        'name' => null,
+        'source' => null,
         'status' => null,
+        'type' => null,
         'id' => null
     ];
 
@@ -92,15 +92,15 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'did' => true,
-        'name' => true,
         'account' => true,
-        'source' => true,
-        'type' => true,
         'action' => true,
         'action_id' => true,
+        'did' => true,
+        'name' => true,
+        'source' => true,
         'status' => true,
-        'id' => false
+        'type' => true,
+        'id' => true
     ];
 
     /**
@@ -189,14 +189,14 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'did' => 'did',
-        'name' => 'name',
         'account' => 'account',
-        'source' => 'source',
-        'type' => 'type',
         'action' => 'action',
         'action_id' => 'actionId',
+        'did' => 'did',
+        'name' => 'name',
+        'source' => 'source',
         'status' => 'status',
+        'type' => 'type',
         'id' => 'id'
     ];
 
@@ -206,14 +206,14 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'did' => 'setDid',
-        'name' => 'setName',
         'account' => 'setAccount',
-        'source' => 'setSource',
-        'type' => 'setType',
         'action' => 'setAction',
         'action_id' => 'setActionId',
+        'did' => 'setDid',
+        'name' => 'setName',
+        'source' => 'setSource',
         'status' => 'setStatus',
+        'type' => 'setType',
         'id' => 'setId'
     ];
 
@@ -223,14 +223,14 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'did' => 'getDid',
-        'name' => 'getName',
         'account' => 'getAccount',
-        'source' => 'getSource',
-        'type' => 'getType',
         'action' => 'getAction',
         'action_id' => 'getActionId',
+        'did' => 'getDid',
+        'name' => 'getName',
+        'source' => 'getSource',
         'status' => 'getStatus',
+        'type' => 'getType',
         'id' => 'getId'
     ];
 
@@ -275,10 +275,6 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_GEO = 'geo';
-    public const TYPE_MOBILE = 'mobile';
-    public const TYPE_SMART = 'smart';
-    public const TYPE_TOLLFREE = 'tollfree';
     public const ACTION_HANGUP = 'hangup';
     public const ACTION_IVR = 'ivr';
     public const ACTION_LOCATION = 'location';
@@ -288,21 +284,10 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     public const ACTION_VOICEMAIL = 'voicemail';
     public const STATUS_ACTIVE = 'active';
     public const STATUS_DECOMMISSIONED = 'decommissioned';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_GEO,
-            self::TYPE_MOBILE,
-            self::TYPE_SMART,
-            self::TYPE_TOLLFREE,
-        ];
-    }
+    public const TYPE_GEO = 'geo';
+    public const TYPE_MOBILE = 'mobile';
+    public const TYPE_SMART = 'smart';
+    public const TYPE_TOLLFREE = 'tollfree';
 
     /**
      * Gets allowable values of the enum
@@ -336,6 +321,21 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_GEO,
+            self::TYPE_MOBILE,
+            self::TYPE_SMART,
+            self::TYPE_TOLLFREE,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -350,14 +350,14 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('did', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('action_id', $data ?? [], null);
+        $this->setIfExists('did', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
     }
 
@@ -388,15 +388,6 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -415,6 +406,15 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -429,74 +429,6 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets did
-     *
-     * @return mixed|null
-     */
-    public function getDid()
-    {
-        return $this->container['did'];
-    }
-
-    /**
-     * Sets did
-     *
-     * @param mixed|null $did The tracking number in E164 format
-     *
-     * @return self
-     */
-    public function setDid($did)
-    {
-        if (is_null($did)) {
-            array_push($this->openAPINullablesSetToNull, 'did');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('did', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['did'] = $did;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return mixed|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param mixed|null $name Unique name to identify the tracking number
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
 
     /**
      * Gets account
@@ -528,84 +460,6 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return mixed|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param mixed|null $source Grouped source name to identify the call source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return mixed|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param mixed|null $type The number's network type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }
@@ -689,6 +543,108 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets did
+     *
+     * @return mixed|null
+     */
+    public function getDid()
+    {
+        return $this->container['did'];
+    }
+
+    /**
+     * Sets did
+     *
+     * @param mixed|null $did The tracking number in E164 format
+     *
+     * @return self
+     */
+    public function setDid($did)
+    {
+        if (is_null($did)) {
+            array_push($this->openAPINullablesSetToNull, 'did');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('did', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['did'] = $did;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return mixed|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param mixed|null $name Unique name to identify the tracking number
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return mixed|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param mixed|null $source Grouped source name to identify the call source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return mixed|null
@@ -733,9 +689,53 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets type
+     *
+     * @return mixed|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param mixed|null $type The number's network type.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
-     * @return float|null
+     * @return mixed|null
      */
     public function getId()
     {
@@ -745,14 +745,21 @@ class ListNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param float|null $id The number's inventory ID
+     * @param mixed|null $id The number's inventory ID
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

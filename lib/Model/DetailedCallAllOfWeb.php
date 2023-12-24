@@ -56,20 +56,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'page' => 'string',
-        'campaign' => 'string',
-        'keyword' => 'string',
-        'content' => 'string',
-        'device' => 'string',
-        'landing' => 'string',
-        'user' => 'string',
-        'session' => 'string',
-        'referrer' => 'string',
-        'ip' => 'string',
-        'gclid' => 'string',
-        'msclkid' => 'string',
-        'fbclid' => 'string',
-        'seg_id' => 'string'
+        'campaign' => 'mixed',
+        'content' => 'mixed',
+        'device' => 'mixed',
+        'fbclid' => 'mixed',
+        'gclid' => 'mixed',
+        'ip' => 'mixed',
+        'keyword' => 'mixed',
+        'landing' => 'mixed',
+        'msclkid' => 'mixed',
+        'page' => 'mixed',
+        'referrer' => 'mixed',
+        'seg_id' => 'mixed',
+        'session' => 'mixed',
+        'user' => 'mixed'
     ];
 
     /**
@@ -80,20 +80,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'page' => 'uri',
         'campaign' => null,
-        'keyword' => null,
         'content' => null,
         'device' => null,
-        'landing' => 'uri',
-        'user' => null,
-        'session' => null,
-        'referrer' => 'uri',
-        'ip' => 'ipv4',
-        'gclid' => null,
-        'msclkid' => null,
         'fbclid' => null,
-        'seg_id' => 'uuid'
+        'gclid' => null,
+        'ip' => 'ipv4',
+        'keyword' => null,
+        'landing' => 'uri',
+        'msclkid' => null,
+        'page' => 'uri',
+        'referrer' => 'uri',
+        'seg_id' => 'uuid',
+        'session' => null,
+        'user' => null
     ];
 
     /**
@@ -102,20 +102,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'page' => false,
         'campaign' => true,
-        'keyword' => true,
         'content' => true,
         'device' => true,
-        'landing' => false,
-        'user' => false,
-        'session' => false,
+        'fbclid' => true,
+        'gclid' => true,
+        'ip' => true,
+        'keyword' => true,
+        'landing' => true,
+        'msclkid' => true,
+        'page' => true,
         'referrer' => true,
-        'ip' => false,
-        'gclid' => false,
-        'msclkid' => false,
-        'fbclid' => false,
-        'seg_id' => false
+        'seg_id' => true,
+        'session' => true,
+        'user' => true
     ];
 
     /**
@@ -204,20 +204,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'page' => 'page',
         'campaign' => 'campaign',
-        'keyword' => 'keyword',
         'content' => 'content',
         'device' => 'device',
-        'landing' => 'landing',
-        'user' => 'user',
-        'session' => 'session',
-        'referrer' => 'referrer',
-        'ip' => 'ip',
-        'gclid' => 'gclid',
-        'msclkid' => 'msclkid',
         'fbclid' => 'fbclid',
-        'seg_id' => 'segId'
+        'gclid' => 'gclid',
+        'ip' => 'ip',
+        'keyword' => 'keyword',
+        'landing' => 'landing',
+        'msclkid' => 'msclkid',
+        'page' => 'page',
+        'referrer' => 'referrer',
+        'seg_id' => 'segId',
+        'session' => 'session',
+        'user' => 'user'
     ];
 
     /**
@@ -226,20 +226,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'page' => 'setPage',
         'campaign' => 'setCampaign',
-        'keyword' => 'setKeyword',
         'content' => 'setContent',
         'device' => 'setDevice',
-        'landing' => 'setLanding',
-        'user' => 'setUser',
-        'session' => 'setSession',
-        'referrer' => 'setReferrer',
-        'ip' => 'setIp',
-        'gclid' => 'setGclid',
-        'msclkid' => 'setMsclkid',
         'fbclid' => 'setFbclid',
-        'seg_id' => 'setSegId'
+        'gclid' => 'setGclid',
+        'ip' => 'setIp',
+        'keyword' => 'setKeyword',
+        'landing' => 'setLanding',
+        'msclkid' => 'setMsclkid',
+        'page' => 'setPage',
+        'referrer' => 'setReferrer',
+        'seg_id' => 'setSegId',
+        'session' => 'setSession',
+        'user' => 'setUser'
     ];
 
     /**
@@ -248,20 +248,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'page' => 'getPage',
         'campaign' => 'getCampaign',
-        'keyword' => 'getKeyword',
         'content' => 'getContent',
         'device' => 'getDevice',
-        'landing' => 'getLanding',
-        'user' => 'getUser',
-        'session' => 'getSession',
-        'referrer' => 'getReferrer',
-        'ip' => 'getIp',
-        'gclid' => 'getGclid',
-        'msclkid' => 'getMsclkid',
         'fbclid' => 'getFbclid',
-        'seg_id' => 'getSegId'
+        'gclid' => 'getGclid',
+        'ip' => 'getIp',
+        'keyword' => 'getKeyword',
+        'landing' => 'getLanding',
+        'msclkid' => 'getMsclkid',
+        'page' => 'getPage',
+        'referrer' => 'getReferrer',
+        'seg_id' => 'getSegId',
+        'session' => 'getSession',
+        'user' => 'getUser'
     ];
 
     /**
@@ -338,20 +338,20 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('page', $data ?? [], null);
         $this->setIfExists('campaign', $data ?? [], null);
-        $this->setIfExists('keyword', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('device', $data ?? [], null);
-        $this->setIfExists('landing', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
-        $this->setIfExists('session', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
-        $this->setIfExists('ip', $data ?? [], null);
-        $this->setIfExists('gclid', $data ?? [], null);
-        $this->setIfExists('msclkid', $data ?? [], null);
         $this->setIfExists('fbclid', $data ?? [], null);
+        $this->setIfExists('gclid', $data ?? [], null);
+        $this->setIfExists('ip', $data ?? [], null);
+        $this->setIfExists('keyword', $data ?? [], null);
+        $this->setIfExists('landing', $data ?? [], null);
+        $this->setIfExists('msclkid', $data ?? [], null);
+        $this->setIfExists('page', $data ?? [], null);
+        $this->setIfExists('referrer', $data ?? [], null);
         $this->setIfExists('seg_id', $data ?? [], null);
+        $this->setIfExists('session', $data ?? [], null);
+        $this->setIfExists('user', $data ?? [], null);
     }
 
     /**
@@ -406,36 +406,9 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets page
-     *
-     * @return string|null
-     */
-    public function getPage()
-    {
-        return $this->container['page'];
-    }
-
-    /**
-     * Sets page
-     *
-     * @param string|null $page The web page the call was made from. Also called conversion page.
-     *
-     * @return self
-     */
-    public function setPage($page)
-    {
-        if (is_null($page)) {
-            throw new \InvalidArgumentException('non-nullable page cannot be null');
-        }
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
      * Gets campaign
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getCampaign()
     {
@@ -445,7 +418,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets campaign
      *
-     * @param string|null $campaign The UTM campaign name attributed to the caller.
+     * @param mixed|null $campaign The UTM campaign name attributed to the caller.
      *
      * @return self
      */
@@ -467,43 +440,9 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets keyword
-     *
-     * @return string|null
-     */
-    public function getKeyword()
-    {
-        return $this->container['keyword'];
-    }
-
-    /**
-     * Sets keyword
-     *
-     * @param string|null $keyword The keyword attributed to the caller in the ValueTrack or UTM Term parameter.
-     *
-     * @return self
-     */
-    public function setKeyword($keyword)
-    {
-        if (is_null($keyword)) {
-            array_push($this->openAPINullablesSetToNull, 'keyword');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('keyword', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['keyword'] = $keyword;
-
-        return $this;
-    }
-
-    /**
      * Gets content
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getContent()
     {
@@ -513,7 +452,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets content
      *
-     * @param string|null $content The UTM content parameter attributed to the caller.
+     * @param mixed|null $content The UTM content parameter attributed to the caller.
      *
      * @return self
      */
@@ -537,7 +476,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets device
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getDevice()
     {
@@ -547,7 +486,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets device
      *
-     * @param string|null $device The type of device the site was visited on before a call was made.
+     * @param mixed|null $device The type of device the site was visited on before a call was made.
      *
      * @return self
      */
@@ -579,9 +518,145 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets fbclid
+     *
+     * @return mixed|null
+     */
+    public function getFbclid()
+    {
+        return $this->container['fbclid'];
+    }
+
+    /**
+     * Sets fbclid
+     *
+     * @param mixed|null $fbclid The Facebook Click ID (FBLID) attributed to a paid visitor from Facebook Ads.
+     *
+     * @return self
+     */
+    public function setFbclid($fbclid)
+    {
+        if (is_null($fbclid)) {
+            array_push($this->openAPINullablesSetToNull, 'fbclid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fbclid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fbclid'] = $fbclid;
+
+        return $this;
+    }
+
+    /**
+     * Gets gclid
+     *
+     * @return mixed|null
+     */
+    public function getGclid()
+    {
+        return $this->container['gclid'];
+    }
+
+    /**
+     * Sets gclid
+     *
+     * @param mixed|null $gclid The Google Click ID (GCLID) attributed to a paid visitor from Google Ads.
+     *
+     * @return self
+     */
+    public function setGclid($gclid)
+    {
+        if (is_null($gclid)) {
+            array_push($this->openAPINullablesSetToNull, 'gclid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gclid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gclid'] = $gclid;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return mixed|null
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param mixed|null $ip The IP address of the visitor.
+     *
+     * @return self
+     */
+    public function setIp($ip)
+    {
+        if (is_null($ip)) {
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyword
+     *
+     * @return mixed|null
+     */
+    public function getKeyword()
+    {
+        return $this->container['keyword'];
+    }
+
+    /**
+     * Sets keyword
+     *
+     * @param mixed|null $keyword The keyword attributed to the caller in the ValueTrack or UTM Term parameter.
+     *
+     * @return self
+     */
+    public function setKeyword($keyword)
+    {
+        if (is_null($keyword)) {
+            array_push($this->openAPINullablesSetToNull, 'keyword');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('keyword', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['keyword'] = $keyword;
+
+        return $this;
+    }
+
+    /**
      * Gets landing
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getLanding()
     {
@@ -591,14 +666,21 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets landing
      *
-     * @param string|null $landing The web page the caller landed on first. Also called landing page.
+     * @param mixed|null $landing The web page the caller landed on first. Also called landing page.
      *
      * @return self
      */
     public function setLanding($landing)
     {
         if (is_null($landing)) {
-            throw new \InvalidArgumentException('non-nullable landing cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'landing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('landing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['landing'] = $landing;
 
@@ -606,55 +688,69 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets user
+     * Gets msclkid
      *
-     * @return string|null
+     * @return mixed|null
      */
-    public function getUser()
+    public function getMsclkid()
     {
-        return $this->container['user'];
+        return $this->container['msclkid'];
     }
 
     /**
-     * Sets user
+     * Sets msclkid
      *
-     * @param string|null $user The user portion of the Google Client ID (X in XXXXXXXX.YYYYYYYY).
+     * @param mixed|null $msclkid The Microsoft Ads Click ID (MSCLKID) attributed to a paid visitor from Microsoft Ads.
      *
      * @return self
      */
-    public function setUser($user)
+    public function setMsclkid($msclkid)
     {
-        if (is_null($user)) {
-            throw new \InvalidArgumentException('non-nullable user cannot be null');
+        if (is_null($msclkid)) {
+            array_push($this->openAPINullablesSetToNull, 'msclkid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('msclkid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['user'] = $user;
+        $this->container['msclkid'] = $msclkid;
 
         return $this;
     }
 
     /**
-     * Gets session
+     * Gets page
      *
-     * @return string|null
+     * @return mixed|null
      */
-    public function getSession()
+    public function getPage()
     {
-        return $this->container['session'];
+        return $this->container['page'];
     }
 
     /**
-     * Sets session
+     * Sets page
      *
-     * @param string|null $session The session portion of the Google Client ID (Y in XXXXXXXX.YYYYYYYY).
+     * @param mixed|null $page The web page the call was made from. Also called conversion page.
      *
      * @return self
      */
-    public function setSession($session)
+    public function setPage($page)
     {
-        if (is_null($session)) {
-            throw new \InvalidArgumentException('non-nullable session cannot be null');
+        if (is_null($page)) {
+            array_push($this->openAPINullablesSetToNull, 'page');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('page', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['session'] = $session;
+        $this->container['page'] = $page;
 
         return $this;
     }
@@ -662,7 +758,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets referrer
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getReferrer()
     {
@@ -672,7 +768,7 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets referrer
      *
-     * @param string|null $referrer The referring website before the call was made.
+     * @param mixed|null $referrer The referring website before the call was made.
      *
      * @return self
      */
@@ -694,117 +790,9 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets ip
-     *
-     * @return string|null
-     */
-    public function getIp()
-    {
-        return $this->container['ip'];
-    }
-
-    /**
-     * Sets ip
-     *
-     * @param string|null $ip The IP address of the visitor.
-     *
-     * @return self
-     */
-    public function setIp($ip)
-    {
-        if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
-        }
-        $this->container['ip'] = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets gclid
-     *
-     * @return string|null
-     */
-    public function getGclid()
-    {
-        return $this->container['gclid'];
-    }
-
-    /**
-     * Sets gclid
-     *
-     * @param string|null $gclid The Google Click ID (GCLID) attributed to a paid visitor from Google Ads.
-     *
-     * @return self
-     */
-    public function setGclid($gclid)
-    {
-        if (is_null($gclid)) {
-            throw new \InvalidArgumentException('non-nullable gclid cannot be null');
-        }
-        $this->container['gclid'] = $gclid;
-
-        return $this;
-    }
-
-    /**
-     * Gets msclkid
-     *
-     * @return string|null
-     */
-    public function getMsclkid()
-    {
-        return $this->container['msclkid'];
-    }
-
-    /**
-     * Sets msclkid
-     *
-     * @param string|null $msclkid The Microsoft Ads Click ID (MSCLKID) attributed to a paid visitor from Microsoft Ads.
-     *
-     * @return self
-     */
-    public function setMsclkid($msclkid)
-    {
-        if (is_null($msclkid)) {
-            throw new \InvalidArgumentException('non-nullable msclkid cannot be null');
-        }
-        $this->container['msclkid'] = $msclkid;
-
-        return $this;
-    }
-
-    /**
-     * Gets fbclid
-     *
-     * @return string|null
-     */
-    public function getFbclid()
-    {
-        return $this->container['fbclid'];
-    }
-
-    /**
-     * Sets fbclid
-     *
-     * @param string|null $fbclid The Facebook Click ID (FBLID) attributed to a paid visitor from Facebook Ads.
-     *
-     * @return self
-     */
-    public function setFbclid($fbclid)
-    {
-        if (is_null($fbclid)) {
-            throw new \InvalidArgumentException('non-nullable fbclid cannot be null');
-        }
-        $this->container['fbclid'] = $fbclid;
-
-        return $this;
-    }
-
-    /**
      * Gets seg_id
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getSegId()
     {
@@ -814,16 +802,91 @@ class DetailedCallAllOfWeb implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets seg_id
      *
-     * @param string|null $seg_id The Segment ID if the website is running Segment as a CDP.
+     * @param mixed|null $seg_id The Segment ID if the website is running Segment as a CDP.
      *
      * @return self
      */
     public function setSegId($seg_id)
     {
         if (is_null($seg_id)) {
-            throw new \InvalidArgumentException('non-nullable seg_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'seg_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('seg_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['seg_id'] = $seg_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets session
+     *
+     * @return mixed|null
+     */
+    public function getSession()
+    {
+        return $this->container['session'];
+    }
+
+    /**
+     * Sets session
+     *
+     * @param mixed|null $session The session portion of the Google Client ID (Y in XXXXXXXX.YYYYYYYY).
+     *
+     * @return self
+     */
+    public function setSession($session)
+    {
+        if (is_null($session)) {
+            array_push($this->openAPINullablesSetToNull, 'session');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('session', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['session'] = $session;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return mixed|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param mixed|null $user The user portion of the Google Client ID (X in XXXXXXXX.YYYYYYYY).
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        if (is_null($user)) {
+            array_push($this->openAPINullablesSetToNull, 'user');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['user'] = $user;
 
         return $this;
     }

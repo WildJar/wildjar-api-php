@@ -56,8 +56,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
       * @var string[]
       */
     protected static $openAPITypes = [
-        'u' => 'string',
-        'n' => 'string'
+        'n' => 'mixed',
+        'u' => 'mixed'
     ];
 
     /**
@@ -68,8 +68,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'u' => 'uuid',
-        'n' => null
+        'n' => null,
+        'u' => 'uuid'
     ];
 
     /**
@@ -78,8 +78,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'u' => false,
-        'n' => false
+        'n' => true,
+        'u' => true
     ];
 
     /**
@@ -168,8 +168,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
      * @var string[]
      */
     protected static $attributeMap = [
-        'u' => 'u',
-        'n' => 'n'
+        'n' => 'n',
+        'u' => 'u'
     ];
 
     /**
@@ -178,8 +178,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
      * @var string[]
      */
     protected static $setters = [
-        'u' => 'setU',
-        'n' => 'setN'
+        'n' => 'setN',
+        'u' => 'setU'
     ];
 
     /**
@@ -188,8 +188,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
      * @var string[]
      */
     protected static $getters = [
-        'u' => 'getU',
-        'n' => 'getN'
+        'n' => 'getN',
+        'u' => 'getU'
     ];
 
     /**
@@ -249,8 +249,8 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('u', $data ?? [], null);
         $this->setIfExists('n', $data ?? [], null);
+        $this->setIfExists('u', $data ?? [], null);
     }
 
     /**
@@ -296,36 +296,9 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
 
 
     /**
-     * Gets u
-     *
-     * @return string|null
-     */
-    public function getU()
-    {
-        return $this->container['u'];
-    }
-
-    /**
-     * Sets u
-     *
-     * @param string|null $u Address book contact UUID
-     *
-     * @return self
-     */
-    public function setU($u)
-    {
-        if (is_null($u)) {
-            throw new \InvalidArgumentException('non-nullable u cannot be null');
-        }
-        $this->container['u'] = $u;
-
-        return $this;
-    }
-
-    /**
      * Gets n
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getN()
     {
@@ -335,16 +308,57 @@ class AddressBookContactAssociationAccountIdAddressBookContactNumberE164 impleme
     /**
      * Sets n
      *
-     * @param string|null $n Address book contact full name.
+     * @param mixed|null $n Address book contact full name.
      *
      * @return self
      */
     public function setN($n)
     {
         if (is_null($n)) {
-            throw new \InvalidArgumentException('non-nullable n cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'n');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('n', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['n'] = $n;
+
+        return $this;
+    }
+
+    /**
+     * Gets u
+     *
+     * @return mixed|null
+     */
+    public function getU()
+    {
+        return $this->container['u'];
+    }
+
+    /**
+     * Sets u
+     *
+     * @param mixed|null $u Address book contact UUID
+     *
+     * @return self
+     */
+    public function setU($u)
+    {
+        if (is_null($u)) {
+            array_push($this->openAPINullablesSetToNull, 'u');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('u', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['u'] = $u;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class ActionLocationsMapUpdateAllOfMap implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        '_0000' => 'string'
+        '_0000' => 'mixed'
     ];
 
     /**
@@ -77,7 +77,7 @@ class ActionLocationsMapUpdateAllOfMap implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        '_0000' => false
+        '_0000' => true
     ];
 
     /**
@@ -296,7 +296,7 @@ class ActionLocationsMapUpdateAllOfMap implements ModelInterface, ArrayAccess, \
     /**
      * Gets _0000
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function get0000()
     {
@@ -306,16 +306,23 @@ class ActionLocationsMapUpdateAllOfMap implements ModelInterface, ArrayAccess, \
     /**
      * Sets _0000
      *
-     * @param string|null $_0000 The branch code to associate to this postcode.
+     * @param mixed|null $_0000 The branch code to associate to this postcode.
      *
      * @return self
      */
     public function set0000($_0000)
     {
         if (is_null($_0000)) {
-            throw new \InvalidArgumentException('non-nullable _0000 cannot be null');
+            array_push($this->openAPINullablesSetToNull, '_0000');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('_0000', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($_0000) > 6)) {
+        if (!is_null($_0000) && (mb_strlen($_0000) > 6)) {
             throw new \InvalidArgumentException('invalid length for $_0000 when calling ActionLocationsMapUpdateAllOfMap., must be smaller than or equal to 6.');
         }
 

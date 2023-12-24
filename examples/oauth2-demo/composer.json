@@ -1,0 +1,14 @@
+{
+    "name": "wildjar/wildjar-php-oauth2-demo",
+    "description": "WildJar demo app for PHP using OAuth2",
+    "type": "project",
+    "license": "MIT",
+    "authors": [ { "name": "WildJar team", "email": "tech@wildjar.com" } ],
+    "require": {
+        "league/oauth2-client": "dev-master",
+        "symfony/dotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": { "WildJar\\ApiClient\\" : "../../lib/" }
+    }
+}

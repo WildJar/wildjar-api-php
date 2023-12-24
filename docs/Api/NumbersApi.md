@@ -268,7 +268,7 @@ try {
 ## `listAvailableNumbers()`
 
 ```php
-listAvailableNumbers($country_code, $area, $network, $order, $prefix): \WildJar\ApiClient\Model\ListAvailableNumbers200Response
+listAvailableNumbers($country_code, $area, $network, $prefix, $page, $per_page, $order): \WildJar\ApiClient\Model\ListAvailableNumbers200Response
 ```
 
 Get list of available numbers by country
@@ -282,9 +282,6 @@ Returns a list of available numbers to order based on the selected country code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -296,13 +293,15 @@ $apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     $config
 );
 $country_code = AU; // string | 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
-$area = Sydney; // string | _**\"Geo\" numbers only.**_ Filter results by number location or charge area.
+$area = Sydney; // string | _**Geo numbers only.**_ Filter results by number location or charge area.
 $network = 'network_example'; // string | Filter the results by tracking number type.
-$order = 'order_example'; // string | Sort the available number pool by available number in ascending or descending order.
 $prefix = 6129; // string | Filter results by the number prefix.
+$page = NULL; // mixed | Page number of results to return.
+$per_page = NULL; // mixed | Number of results to return per page.
+$order = NULL; // mixed | Sort the available number pool by available number in ascending or descending order.
 
 try {
-    $result = $apiInstance->listAvailableNumbers($country_code, $area, $network, $order, $prefix);
+    $result = $apiInstance->listAvailableNumbers($country_code, $area, $network, $prefix, $page, $per_page, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NumbersApi->listAvailableNumbers: ', $e->getMessage(), PHP_EOL;
@@ -314,10 +313,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **country_code** | **string**| 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information. | |
-| **area** | **string**| _**\&quot;Geo\&quot; numbers only.**_ Filter results by number location or charge area. | [optional] |
+| **area** | **string**| _**Geo numbers only.**_ Filter results by number location or charge area. | [optional] |
 | **network** | **string**| Filter the results by tracking number type. | [optional] |
-| **order** | **string**| Sort the available number pool by available number in ascending or descending order. | [optional] |
 | **prefix** | **string**| Filter results by the number prefix. | [optional] |
+| **page** | [**mixed**](../Model/.md)| Page number of results to return. | [optional] |
+| **per_page** | [**mixed**](../Model/.md)| Number of results to return per page. | [optional] |
+| **order** | [**mixed**](../Model/.md)| Sort the available number pool by available number in ascending or descending order. | [optional] |
 
 ### Return type
 
@@ -325,7 +326,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

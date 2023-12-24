@@ -56,8 +56,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'expires_in' => 'int',
         'access_token' => 'string',
+        'expires_in' => 'int',
         'token_type' => 'string'
     ];
 
@@ -69,8 +69,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'expires_in' => null,
         'access_token' => null,
+        'expires_in' => null,
         'token_type' => null
     ];
 
@@ -80,8 +80,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'expires_in' => false,
         'access_token' => false,
+        'expires_in' => false,
         'token_type' => false
     ];
 
@@ -171,8 +171,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'expires_in' => 'expires_in',
         'access_token' => 'access_token',
+        'expires_in' => 'expires_in',
         'token_type' => 'token_type'
     ];
 
@@ -182,8 +182,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'expires_in' => 'setExpiresIn',
         'access_token' => 'setAccessToken',
+        'expires_in' => 'setExpiresIn',
         'token_type' => 'setTokenType'
     ];
 
@@ -193,8 +193,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'expires_in' => 'getExpiresIn',
         'access_token' => 'getAccessToken',
+        'expires_in' => 'getExpiresIn',
         'token_type' => 'getTokenType'
     ];
 
@@ -268,8 +268,8 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('expires_in', $data ?? [], null);
         $this->setIfExists('access_token', $data ?? [], null);
+        $this->setIfExists('expires_in', $data ?? [], null);
         $this->setIfExists('token_type', $data ?? [], null);
     }
 
@@ -325,33 +325,6 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets expires_in
-     *
-     * @return int|null
-     */
-    public function getExpiresIn()
-    {
-        return $this->container['expires_in'];
-    }
-
-    /**
-     * Sets expires_in
-     *
-     * @param int|null $expires_in Token TTL 3600 seconds
-     *
-     * @return self
-     */
-    public function setExpiresIn($expires_in)
-    {
-        if (is_null($expires_in)) {
-            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
-        }
-        $this->container['expires_in'] = $expires_in;
-
-        return $this;
-    }
-
-    /**
      * Gets access_token
      *
      * @return string|null
@@ -374,6 +347,33 @@ class Login200Response implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable access_token cannot be null');
         }
         $this->container['access_token'] = $access_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_in
+     *
+     * @return int|null
+     */
+    public function getExpiresIn()
+    {
+        return $this->container['expires_in'];
+    }
+
+    /**
+     * Sets expires_in
+     *
+     * @param int|null $expires_in Token TTL 3600 seconds
+     *
+     * @return self
+     */
+    public function setExpiresIn($expires_in)
+    {
+        if (is_null($expires_in)) {
+            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
+        }
+        $this->container['expires_in'] = $expires_in;
 
         return $this;
     }

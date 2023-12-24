@@ -56,10 +56,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string',
         'data' => '\WildJar\ApiClient\Model\OutboundCall[]',
+        'records_filtered' => 'float',
         'records_total' => 'float',
-        'records_filtered' => 'float'
+        'status' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
         'data' => null,
+        'records_filtered' => null,
         'records_total' => null,
-        'records_filtered' => null
+        'status' => null
     ];
 
     /**
@@ -82,10 +82,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
         'data' => false,
+        'records_filtered' => false,
         'records_total' => false,
-        'records_filtered' => false
+        'status' => false
     ];
 
     /**
@@ -174,10 +174,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
         'data' => 'data',
+        'records_filtered' => 'recordsFiltered',
         'records_total' => 'recordsTotal',
-        'records_filtered' => 'recordsFiltered'
+        'status' => 'status'
     ];
 
     /**
@@ -186,10 +186,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
         'data' => 'setData',
+        'records_filtered' => 'setRecordsFiltered',
         'records_total' => 'setRecordsTotal',
-        'records_filtered' => 'setRecordsFiltered'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -198,10 +198,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
         'data' => 'getData',
+        'records_filtered' => 'getRecordsFiltered',
         'records_total' => 'getRecordsTotal',
-        'records_filtered' => 'getRecordsFiltered'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -274,10 +274,10 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('records_total', $data ?? [], null);
         $this->setIfExists('records_filtered', $data ?? [], null);
+        $this->setIfExists('records_total', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -332,43 +332,6 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
      * @return \WildJar\ApiClient\Model\OutboundCall[]|null
@@ -391,6 +354,33 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets records_filtered
+     *
+     * @return float|null
+     */
+    public function getRecordsFiltered()
+    {
+        return $this->container['records_filtered'];
+    }
+
+    /**
+     * Sets records_filtered
+     *
+     * @param float|null $records_filtered Number of call log records based on filters applied
+     *
+     * @return self
+     */
+    public function setRecordsFiltered($records_filtered)
+    {
+        if (is_null($records_filtered)) {
+            throw new \InvalidArgumentException('non-nullable records_filtered cannot be null');
+        }
+        $this->container['records_filtered'] = $records_filtered;
 
         return $this;
     }
@@ -423,28 +413,38 @@ class GetOutboundCalls200Response implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets records_filtered
+     * Gets status
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getRecordsFiltered()
+    public function getStatus()
     {
-        return $this->container['records_filtered'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets records_filtered
+     * Sets status
      *
-     * @param float|null $records_filtered Number of call log records based on filters applied
+     * @param string|null $status status
      *
      * @return self
      */
-    public function setRecordsFiltered($records_filtered)
+    public function setStatus($status)
     {
-        if (is_null($records_filtered)) {
-            throw new \InvalidArgumentException('non-nullable records_filtered cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['records_filtered'] = $records_filtered;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

@@ -56,8 +56,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string',
-        'data' => '\WildJar\ApiClient\Model\Account[]'
+        'data' => '\WildJar\ApiClient\Model\Account[]',
+        'status' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'data' => null
+        'data' => null,
+        'status' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
-        'data' => false
+        'data' => false,
+        'status' => false
     ];
 
     /**
@@ -168,8 +168,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'data' => 'data'
+        'data' => 'data',
+        'status' => 'status'
     ];
 
     /**
@@ -178,8 +178,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'data' => 'setData'
+        'data' => 'setData',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -188,8 +188,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'data' => 'getData'
+        'data' => 'getData',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -262,8 +262,8 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -318,6 +318,33 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
+     * Gets data
+     *
+     * @return \WildJar\ApiClient\Model\Account[]|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \WildJar\ApiClient\Model\Account[]|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string|null
@@ -350,33 +377,6 @@ class ListAccounts200Response implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \WildJar\ApiClient\Model\Account[]|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \WildJar\ApiClient\Model\Account[]|null $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
 
         return $this;
     }

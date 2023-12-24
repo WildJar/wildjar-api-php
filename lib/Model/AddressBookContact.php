@@ -56,13 +56,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'uuid' => 'mixed',
         'account' => 'mixed',
         'first_name' => 'mixed',
         'last_name' => 'mixed',
-        'type' => 'string',
-        'number' => 'string',
-        'main' => 'string'
+        'uuid' => 'mixed',
+        'main' => 'mixed',
+        'number' => 'mixed',
+        'type' => 'mixed'
     ];
 
     /**
@@ -73,13 +73,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'uuid' => 'uuid',
         'account' => null,
         'first_name' => null,
         'last_name' => null,
-        'type' => null,
+        'uuid' => 'uuid',
+        'main' => null,
         'number' => 'email',
-        'main' => null
+        'type' => null
     ];
 
     /**
@@ -88,13 +88,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'uuid' => true,
         'account' => true,
         'first_name' => true,
         'last_name' => true,
-        'type' => false,
-        'number' => false,
-        'main' => false
+        'uuid' => true,
+        'main' => true,
+        'number' => true,
+        'type' => true
     ];
 
     /**
@@ -183,13 +183,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
         'account' => 'account',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
-        'type' => 'type',
+        'uuid' => 'uuid',
+        'main' => 'main',
         'number' => 'number',
-        'main' => 'main'
+        'type' => 'type'
     ];
 
     /**
@@ -198,13 +198,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
         'account' => 'setAccount',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
-        'type' => 'setType',
+        'uuid' => 'setUuid',
+        'main' => 'setMain',
         'number' => 'setNumber',
-        'main' => 'setMain'
+        'type' => 'setType'
     ];
 
     /**
@@ -213,13 +213,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
         'account' => 'getAccount',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
-        'type' => 'getType',
+        'uuid' => 'getUuid',
+        'main' => 'getMain',
         'number' => 'getNumber',
-        'main' => 'getMain'
+        'type' => 'getType'
     ];
 
     /**
@@ -294,13 +294,13 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('number', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('main', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -357,44 +357,6 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets uuid
-     *
-     * @return mixed|null
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param mixed|null $uuid The contact's UUID.
-     *
-     * @return self
-     */
-    public function setUuid($uuid)
-    {
-        if (is_null($uuid)) {
-            array_push($this->openAPINullablesSetToNull, 'uuid');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('uuid', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($uuid) && (mb_strlen($uuid) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $uuid when calling AddressBookContact., must be smaller than or equal to 50.');
-        }
-
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
 
     /**
      * Gets account
@@ -499,55 +461,39 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets type
+     * Gets uuid
      *
-     * @return string|null
+     * @return mixed|null
      */
-    public function getType()
+    public function getUuid()
     {
-        return $this->container['type'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets type
+     * Sets uuid
      *
-     * @param string|null $type The type of contact number (freeform).
+     * @param mixed|null $uuid The contact's UUID.
      *
      * @return self
      */
-    public function setType($type)
+    public function setUuid($uuid)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($uuid)) {
+            array_push($this->openAPINullablesSetToNull, 'uuid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('uuid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets number
-     *
-     * @return string|null
-     */
-    public function getNumber()
-    {
-        return $this->container['number'];
-    }
-
-    /**
-     * Sets number
-     *
-     * @param string|null $number The contact's phone number
-     *
-     * @return self
-     */
-    public function setNumber($number)
-    {
-        if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+        if (!is_null($uuid) && (mb_strlen($uuid) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $uuid when calling AddressBookContact., must be smaller than or equal to 50.');
         }
-        $this->container['number'] = $number;
+
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
@@ -555,7 +501,7 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets main
      *
-     * @return string|null
+     * @return mixed|null
      */
     public function getMain()
     {
@@ -565,17 +511,24 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets main
      *
-     * @param string|null $main Whether this is the contact's main contact number.
+     * @param mixed|null $main Whether this is the contact's main contact number.
      *
      * @return self
      */
     public function setMain($main)
     {
         if (is_null($main)) {
-            throw new \InvalidArgumentException('non-nullable main cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'main');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('main', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getMainAllowableValues();
-        if (!in_array($main, $allowedValues, true)) {
+        if (!is_null($main) && !in_array($main, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'main', must be one of '%s'",
@@ -585,6 +538,74 @@ class AddressBookContact implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['main'] = $main;
+
+        return $this;
+    }
+
+    /**
+     * Gets number
+     *
+     * @return mixed|null
+     */
+    public function getNumber()
+    {
+        return $this->container['number'];
+    }
+
+    /**
+     * Sets number
+     *
+     * @param mixed|null $number The contact's phone number
+     *
+     * @return self
+     */
+    public function setNumber($number)
+    {
+        if (is_null($number)) {
+            array_push($this->openAPINullablesSetToNull, 'number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['number'] = $number;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return mixed|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param mixed|null $type The type of contact number (freeform).
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

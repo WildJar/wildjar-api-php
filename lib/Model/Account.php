@@ -56,13 +56,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'biller_code' => 'string',
+        'category' => 'string',
+        'country' => 'string',
         'id' => 'float',
         'name' => 'string',
-        'country' => 'string',
-        'timezone' => 'string',
-        'category' => 'string',
-        'biller_code' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'timezone' => 'string'
     ];
 
     /**
@@ -73,13 +73,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'biller_code' => 'uuid',
+        'category' => null,
+        'country' => null,
         'id' => null,
         'name' => null,
-        'country' => null,
-        'timezone' => null,
-        'category' => null,
-        'biller_code' => 'uuid',
-        'status' => null
+        'status' => null,
+        'timezone' => null
     ];
 
     /**
@@ -88,13 +88,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'biller_code' => false,
+        'category' => false,
+        'country' => false,
         'id' => false,
         'name' => false,
-        'country' => false,
-        'timezone' => false,
-        'category' => false,
-        'biller_code' => false,
-        'status' => false
+        'status' => false,
+        'timezone' => false
     ];
 
     /**
@@ -183,13 +183,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'biller_code' => 'billerCode',
+        'category' => 'category',
+        'country' => 'country',
         'id' => 'id',
         'name' => 'name',
-        'country' => 'country',
-        'timezone' => 'timezone',
-        'category' => 'category',
-        'biller_code' => 'billerCode',
-        'status' => 'status'
+        'status' => 'status',
+        'timezone' => 'timezone'
     ];
 
     /**
@@ -198,13 +198,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'biller_code' => 'setBillerCode',
+        'category' => 'setCategory',
+        'country' => 'setCountry',
         'id' => 'setId',
         'name' => 'setName',
-        'country' => 'setCountry',
-        'timezone' => 'setTimezone',
-        'category' => 'setCategory',
-        'biller_code' => 'setBillerCode',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'timezone' => 'setTimezone'
     ];
 
     /**
@@ -213,13 +213,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'biller_code' => 'getBillerCode',
+        'category' => 'getCategory',
+        'country' => 'getCountry',
         'id' => 'getId',
         'name' => 'getName',
-        'country' => 'getCountry',
-        'timezone' => 'getTimezone',
-        'category' => 'getCategory',
-        'biller_code' => 'getBillerCode',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'timezone' => 'getTimezone'
     ];
 
     /**
@@ -294,13 +294,13 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('biller_code', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], null);
-        $this->setIfExists('category', $data ?? [], null);
-        $this->setIfExists('biller_code', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], null);
     }
 
     /**
@@ -330,24 +330,20 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) > 2)) {
-            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
-        }
-
-        if (!is_null($this->container['timezone']) && (mb_strlen($this->container['timezone']) > 50)) {
-            $invalidProperties[] = "invalid value for 'timezone', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['biller_code']) && (mb_strlen($this->container['biller_code']) > 50)) {
+            $invalidProperties[] = "invalid value for 'biller_code', the character length must be smaller than or equal to 50.";
         }
 
         if (!is_null($this->container['category']) && (mb_strlen($this->container['category']) > 6)) {
             $invalidProperties[] = "invalid value for 'category', the character length must be smaller than or equal to 6.";
         }
 
-        if (!is_null($this->container['biller_code']) && (mb_strlen($this->container['biller_code']) > 50)) {
-            $invalidProperties[] = "invalid value for 'biller_code', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['country']) && (mb_strlen($this->container['country']) > 2)) {
+            $invalidProperties[] = "invalid value for 'country', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
         }
 
         $allowedValues = $this->getStatusAllowableValues();
@@ -357,6 +353,10 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['status'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if (!is_null($this->container['timezone']) && (mb_strlen($this->container['timezone']) > 50)) {
+            $invalidProperties[] = "invalid value for 'timezone', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -373,6 +373,99 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets biller_code
+     *
+     * @return string|null
+     */
+    public function getBillerCode()
+    {
+        return $this->container['biller_code'];
+    }
+
+    /**
+     * Sets biller_code
+     *
+     * @param string|null $biller_code Billing identification code
+     *
+     * @return self
+     */
+    public function setBillerCode($biller_code)
+    {
+        if (is_null($biller_code)) {
+            throw new \InvalidArgumentException('non-nullable biller_code cannot be null');
+        }
+        if ((mb_strlen($biller_code) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $biller_code when calling Account., must be smaller than or equal to 50.');
+        }
+
+        $this->container['biller_code'] = $biller_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category Business category code
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
+        }
+        if ((mb_strlen($category) > 6)) {
+            throw new \InvalidArgumentException('invalid length for $category when calling Account., must be smaller than or equal to 6.');
+        }
+
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country Country of the account
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        }
+        if ((mb_strlen($country) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $country when calling Account., must be smaller than or equal to 2.');
+        }
+
+        $this->container['country'] = $country;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -433,130 +526,6 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country Country of the account
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
-        }
-        if ((mb_strlen($country) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $country when calling Account., must be smaller than or equal to 2.');
-        }
-
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone Timezone of the account
-     *
-     * @return self
-     */
-    public function setTimezone($timezone)
-    {
-        if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
-        }
-        if ((mb_strlen($timezone) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $timezone when calling Account., must be smaller than or equal to 50.');
-        }
-
-        $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets category
-     *
-     * @return string|null
-     */
-    public function getCategory()
-    {
-        return $this->container['category'];
-    }
-
-    /**
-     * Sets category
-     *
-     * @param string|null $category Business category code
-     *
-     * @return self
-     */
-    public function setCategory($category)
-    {
-        if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
-        }
-        if ((mb_strlen($category) > 6)) {
-            throw new \InvalidArgumentException('invalid length for $category when calling Account., must be smaller than or equal to 6.');
-        }
-
-        $this->container['category'] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Gets biller_code
-     *
-     * @return string|null
-     */
-    public function getBillerCode()
-    {
-        return $this->container['biller_code'];
-    }
-
-    /**
-     * Sets biller_code
-     *
-     * @param string|null $biller_code Billing identification code
-     *
-     * @return self
-     */
-    public function setBillerCode($biller_code)
-    {
-        if (is_null($biller_code)) {
-            throw new \InvalidArgumentException('non-nullable biller_code cannot be null');
-        }
-        if ((mb_strlen($biller_code) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $biller_code when calling Account., must be smaller than or equal to 50.');
-        }
-
-        $this->container['biller_code'] = $biller_code;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
      * @return string|null
@@ -589,6 +558,37 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone Timezone of the account
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        if (is_null($timezone)) {
+            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+        }
+        if ((mb_strlen($timezone) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $timezone when calling Account., must be smaller than or equal to 50.');
+        }
+
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * GetCalls200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetCalls200Response implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\Call[]',
+        'data' => '\WildJar\ApiClient\Model\Call[]',
         'records_total' => 'float',
         'records_filtered' => 'float'
     ];
@@ -371,7 +371,7 @@ class GetCalls200Response implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\Call[]|null
+     * @return \WildJar\ApiClient\Model\Call[]|null
      */
     public function getData()
     {
@@ -381,7 +381,7 @@ class GetCalls200Response implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\Call[]|null $data data
+     * @param \WildJar\ApiClient\Model\Call[]|null $data data
      *
      * @return self
      */

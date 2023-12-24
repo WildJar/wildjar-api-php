@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace Wildjar\Api;
+namespace WildJar\ApiClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Wildjar\ApiException;
-use Wildjar\Configuration;
-use Wildjar\HeaderSelector;
-use Wildjar\ObjectSerializer;
+use WildJar\ApiClient\ApiException;
+use WildJar\ApiClient\Configuration;
+use WildJar\ApiClient\HeaderSelector;
+use WildJar\ApiClient\ObjectSerializer;
 
 /**
  * NumbersApi Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -153,7 +153,7 @@ class NumbersApi
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['decommissionNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -170,7 +170,7 @@ class NumbersApi
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['decommissionNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -391,7 +391,7 @@ class NumbersApi
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteInventoryNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -408,7 +408,7 @@ class NumbersApi
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteInventoryNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -629,9 +629,9 @@ class NumbersApi
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetNumber200Response|object
+     * @return \WildJar\ApiClient\Model\GetNumber200Response|object
      */
     public function getNumber($did, string $contentType = self::contentTypes['getNumber'][0])
     {
@@ -647,9 +647,9 @@ class NumbersApi
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNumberWithHttpInfo($did, string $contentType = self::contentTypes['getNumber'][0])
     {
@@ -692,11 +692,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetNumber200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetNumber200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetNumber200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetNumber200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -714,14 +714,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetNumber200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetNumber200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetNumber200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetNumber200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -754,7 +754,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetNumber200Response',
+                        '\WildJar\ApiClient\Model\GetNumber200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -799,7 +799,7 @@ class NumbersApi
      */
     public function getNumberAsyncWithHttpInfo($did, string $contentType = self::contentTypes['getNumber'][0])
     {
-        $returnType = '\Wildjar\Model\GetNumber200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetNumber200Response';
         $request = $this->getNumberRequest($did, $contentType);
 
         return $this->client
@@ -946,9 +946,9 @@ class NumbersApi
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberFull'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\OrderNumber200Response|object
+     * @return \WildJar\ApiClient\Model\OrderNumber200Response|object
      */
     public function getNumberFull($did, string $contentType = self::contentTypes['getNumberFull'][0])
     {
@@ -964,9 +964,9 @@ class NumbersApi
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNumberFull'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\OrderNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\OrderNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNumberFullWithHttpInfo($did, string $contentType = self::contentTypes['getNumberFull'][0])
     {
@@ -1009,11 +1009,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\OrderNumber200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\OrderNumber200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\OrderNumber200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\OrderNumber200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1031,14 +1031,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\OrderNumber200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\OrderNumber200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\OrderNumber200Response';
+            $returnType = '\WildJar\ApiClient\Model\OrderNumber200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1071,7 +1071,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\OrderNumber200Response',
+                        '\WildJar\ApiClient\Model\OrderNumber200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1116,7 +1116,7 @@ class NumbersApi
      */
     public function getNumberFullAsyncWithHttpInfo($did, string $contentType = self::contentTypes['getNumberFull'][0])
     {
-        $returnType = '\Wildjar\Model\OrderNumber200Response';
+        $returnType = '\WildJar\ApiClient\Model\OrderNumber200Response';
         $request = $this->getNumberFullRequest($did, $contentType);
 
         return $this->client
@@ -1267,9 +1267,9 @@ class NumbersApi
      * @param  string $prefix Filter results by the number prefix. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAvailableNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListAvailableNumbers200Response|object
+     * @return \WildJar\ApiClient\Model\ListAvailableNumbers200Response|object
      */
     public function listAvailableNumbers($country_code, $area = null, $network = null, $order = null, $prefix = null, string $contentType = self::contentTypes['listAvailableNumbers'][0])
     {
@@ -1289,9 +1289,9 @@ class NumbersApi
      * @param  string $prefix Filter results by the number prefix. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAvailableNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListAvailableNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListAvailableNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAvailableNumbersWithHttpInfo($country_code, $area = null, $network = null, $order = null, $prefix = null, string $contentType = self::contentTypes['listAvailableNumbers'][0])
     {
@@ -1334,11 +1334,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListAvailableNumbers200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListAvailableNumbers200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListAvailableNumbers200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListAvailableNumbers200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1356,14 +1356,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListAvailableNumbers200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListAvailableNumbers200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListAvailableNumbers200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListAvailableNumbers200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1396,7 +1396,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListAvailableNumbers200Response',
+                        '\WildJar\ApiClient\Model\ListAvailableNumbers200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1449,7 +1449,7 @@ class NumbersApi
      */
     public function listAvailableNumbersAsyncWithHttpInfo($country_code, $area = null, $network = null, $order = null, $prefix = null, string $contentType = self::contentTypes['listAvailableNumbers'][0])
     {
-        $returnType = '\Wildjar\Model\ListAvailableNumbers200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListAvailableNumbers200Response';
         $request = $this->listAvailableNumbersRequest($country_code, $area, $network, $order, $prefix, $contentType);
 
         return $this->client
@@ -1643,9 +1643,9 @@ class NumbersApi
      * @param  string $type Filter the results by tracking number type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInventoryNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListInventoryNumbers200Response|object
+     * @return \WildJar\ApiClient\Model\ListInventoryNumbers200Response|object
      */
     public function listInventoryNumbers($country_code, $account = null, $provider = null, $type = null, string $contentType = self::contentTypes['listInventoryNumbers'][0])
     {
@@ -1664,9 +1664,9 @@ class NumbersApi
      * @param  string $type Filter the results by tracking number type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInventoryNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListInventoryNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListInventoryNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listInventoryNumbersWithHttpInfo($country_code, $account = null, $provider = null, $type = null, string $contentType = self::contentTypes['listInventoryNumbers'][0])
     {
@@ -1709,11 +1709,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListInventoryNumbers200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListInventoryNumbers200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListInventoryNumbers200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListInventoryNumbers200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1731,14 +1731,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListInventoryNumbers200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListInventoryNumbers200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListInventoryNumbers200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListInventoryNumbers200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1771,7 +1771,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListInventoryNumbers200Response',
+                        '\WildJar\ApiClient\Model\ListInventoryNumbers200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1822,7 +1822,7 @@ class NumbersApi
      */
     public function listInventoryNumbersAsyncWithHttpInfo($country_code, $account = null, $provider = null, $type = null, string $contentType = self::contentTypes['listInventoryNumbers'][0])
     {
-        $returnType = '\Wildjar\Model\ListInventoryNumbers200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListInventoryNumbers200Response';
         $request = $this->listInventoryNumbersRequest($country_code, $account, $provider, $type, $contentType);
 
         return $this->client
@@ -2003,9 +2003,9 @@ class NumbersApi
      * @param  string $account Filter tracking numbers by account number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListNumbers200Response|object
+     * @return \WildJar\ApiClient\Model\ListNumbers200Response|object
      */
     public function listNumbers($type = null, $account = null, string $contentType = self::contentTypes['listNumbers'][0])
     {
@@ -2022,9 +2022,9 @@ class NumbersApi
      * @param  string $account Filter tracking numbers by account number (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNumbers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListNumbers200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listNumbersWithHttpInfo($type = null, $account = null, string $contentType = self::contentTypes['listNumbers'][0])
     {
@@ -2067,11 +2067,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListNumbers200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListNumbers200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListNumbers200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListNumbers200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2089,14 +2089,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListNumbers200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListNumbers200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListNumbers200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListNumbers200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2129,7 +2129,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListNumbers200Response',
+                        '\WildJar\ApiClient\Model\ListNumbers200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2176,7 +2176,7 @@ class NumbersApi
      */
     public function listNumbersAsyncWithHttpInfo($type = null, $account = null, string $contentType = self::contentTypes['listNumbers'][0])
     {
-        $returnType = '\Wildjar\Model\ListNumbers200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListNumbers200Response';
         $request = $this->listNumbersRequest($type, $account, $contentType);
 
         return $this->client
@@ -2328,12 +2328,12 @@ class NumbersApi
      *
      * @param  int $account WildJar account number (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\OrderNumber $order_number order_number (required)
+     * @param  \WildJar\ApiClient\Model\OrderNumber $order_number order_number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\OrderNumber200Response|object
+     * @return \WildJar\ApiClient\Model\OrderNumber200Response|object
      */
     public function orderNumber($account, $did, $order_number, string $contentType = self::contentTypes['orderNumber'][0])
     {
@@ -2348,12 +2348,12 @@ class NumbersApi
      *
      * @param  int $account WildJar account number (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\OrderNumber $order_number (required)
+     * @param  \WildJar\ApiClient\Model\OrderNumber $order_number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\OrderNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\OrderNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderNumberWithHttpInfo($account, $did, $order_number, string $contentType = self::contentTypes['orderNumber'][0])
     {
@@ -2396,11 +2396,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\OrderNumber200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\OrderNumber200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\OrderNumber200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\OrderNumber200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2418,14 +2418,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\OrderNumber200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\OrderNumber200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\OrderNumber200Response';
+            $returnType = '\WildJar\ApiClient\Model\OrderNumber200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2458,7 +2458,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\OrderNumber200Response',
+                        '\WildJar\ApiClient\Model\OrderNumber200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2476,7 +2476,7 @@ class NumbersApi
      *
      * @param  int $account WildJar account number (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\OrderNumber $order_number (required)
+     * @param  \WildJar\ApiClient\Model\OrderNumber $order_number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2499,7 +2499,7 @@ class NumbersApi
      *
      * @param  int $account WildJar account number (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\OrderNumber $order_number (required)
+     * @param  \WildJar\ApiClient\Model\OrderNumber $order_number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2507,7 +2507,7 @@ class NumbersApi
      */
     public function orderNumberAsyncWithHttpInfo($account, $did, $order_number, string $contentType = self::contentTypes['orderNumber'][0])
     {
-        $returnType = '\Wildjar\Model\OrderNumber200Response';
+        $returnType = '\WildJar\ApiClient\Model\OrderNumber200Response';
         $request = $this->orderNumberRequest($account, $did, $order_number, $contentType);
 
         return $this->client
@@ -2551,7 +2551,7 @@ class NumbersApi
      *
      * @param  int $account WildJar account number (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\OrderNumber $order_number (required)
+     * @param  \WildJar\ApiClient\Model\OrderNumber $order_number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['orderNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2683,12 +2683,12 @@ class NumbersApi
      * Update tracking number details
      *
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\Number $number number (required)
+     * @param  \WildJar\ApiClient\Model\Number $number number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetNumber200Response|object
+     * @return \WildJar\ApiClient\Model\GetNumber200Response|object
      */
     public function updateNumber($did, $number, string $contentType = self::contentTypes['updateNumber'][0])
     {
@@ -2702,12 +2702,12 @@ class NumbersApi
      * Update tracking number details
      *
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\Number $number (required)
+     * @param  \WildJar\ApiClient\Model\Number $number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetNumber200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateNumberWithHttpInfo($did, $number, string $contentType = self::contentTypes['updateNumber'][0])
     {
@@ -2750,11 +2750,11 @@ class NumbersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetNumber200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetNumber200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetNumber200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetNumber200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2772,14 +2772,14 @@ class NumbersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetNumber200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetNumber200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetNumber200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetNumber200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2812,7 +2812,7 @@ class NumbersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetNumber200Response',
+                        '\WildJar\ApiClient\Model\GetNumber200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2829,7 +2829,7 @@ class NumbersApi
      * Update tracking number details
      *
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\Number $number (required)
+     * @param  \WildJar\ApiClient\Model\Number $number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2851,7 +2851,7 @@ class NumbersApi
      * Update tracking number details
      *
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\Number $number (required)
+     * @param  \WildJar\ApiClient\Model\Number $number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2859,7 +2859,7 @@ class NumbersApi
      */
     public function updateNumberAsyncWithHttpInfo($did, $number, string $contentType = self::contentTypes['updateNumber'][0])
     {
-        $returnType = '\Wildjar\Model\GetNumber200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetNumber200Response';
         $request = $this->updateNumberRequest($did, $number, $contentType);
 
         return $this->client
@@ -2902,7 +2902,7 @@ class NumbersApi
      * Create request for operation 'updateNumber'
      *
      * @param  int $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\Number $number (required)
+     * @param  \WildJar\ApiClient\Model\Number $number (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

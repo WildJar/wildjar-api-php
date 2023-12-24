@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * CreateTimeAction200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class CreateTimeAction200Response implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionTimeFull'
+        'data' => '\WildJar\ApiClient\Model\ActionTimeFull'
     ];
 
     /**
@@ -357,7 +357,7 @@ class CreateTimeAction200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionTimeFull|null
+     * @return \WildJar\ApiClient\Model\ActionTimeFull|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class CreateTimeAction200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionTimeFull|null $data data
+     * @param \WildJar\ApiClient\Model\ActionTimeFull|null $data data
      *
      * @return self
      */

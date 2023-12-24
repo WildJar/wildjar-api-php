@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * CreateRobinAction200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class CreateRobinAction200Response implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionRobinFull'
+        'data' => '\WildJar\ApiClient\Model\ActionRobinFull'
     ];
 
     /**
@@ -357,7 +357,7 @@ class CreateRobinAction200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionRobinFull|null
+     * @return \WildJar\ApiClient\Model\ActionRobinFull|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class CreateRobinAction200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionRobinFull|null $data data
+     * @param \WildJar\ApiClient\Model\ActionRobinFull|null $data data
      *
      * @return self
      */

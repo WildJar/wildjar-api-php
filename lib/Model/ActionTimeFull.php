@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionTimeFull Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -64,7 +64,7 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
         'notify' => 'mixed',
         'group_id' => 'mixed',
         'action' => 'string',
-        'times' => '\Wildjar\Model\ActionTimeFullAllOfTimesInner[]'
+        'times' => '\WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[]'
     ];
 
     /**
@@ -739,7 +739,7 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets times
      *
-     * @return \Wildjar\Model\ActionTimeFullAllOfTimesInner[]
+     * @return \WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[]
      */
     public function getTimes()
     {
@@ -749,7 +749,7 @@ class ActionTimeFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets times
      *
-     * @param \Wildjar\Model\ActionTimeFullAllOfTimesInner[] $times times
+     * @param \WildJar\ApiClient\Model\ActionTimeFullAllOfTimesInner[] $times times
      *
      * @return self
      */

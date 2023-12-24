@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,17 +25,17 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionLocationsMapAllOfMap Class Doc Comment
  *
  * @category Class
  * @description The postcode to branch mapping for this location based routing action. Each Australian postcode will appears as a property.
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>

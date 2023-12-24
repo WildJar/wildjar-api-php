@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **action** | **string** | The action type. | [optional] [readonly]
 **mcn_mails** | **string[]** |  | [optional]
 **sms_phone** | **string[]** |  | [optional]
-**contacts** | [**\Wildjar\Model\ActionVoicemailFullAllOfContactsInner[]**](ActionVoicemailFullAllOfContactsInner.md) |  | [optional]
+**contacts** | [**\WildJar\ApiClient\Model\ActionVoicemailFullAllOfContactsInner[]**](ActionVoicemailFullAllOfContactsInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

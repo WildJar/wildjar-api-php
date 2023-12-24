@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace Wildjar\Api;
+namespace WildJar\ApiClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Wildjar\ApiException;
-use Wildjar\Configuration;
-use Wildjar\HeaderSelector;
-use Wildjar\ObjectSerializer;
+use WildJar\ApiClient\ApiException;
+use WildJar\ApiClient\Configuration;
+use WildJar\ApiClient\HeaderSelector;
+use WildJar\ApiClient\ObjectSerializer;
 
 /**
  * AccountApi Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -135,12 +135,12 @@ class AccountApi
      *
      * Create a new account
      *
-     * @param  \Wildjar\Model\Account $account account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\AddAccount200Response|object
+     * @return \WildJar\ApiClient\Model\AddAccount200Response|object
      */
     public function addAccount($account, string $contentType = self::contentTypes['addAccount'][0])
     {
@@ -153,12 +153,12 @@ class AccountApi
      *
      * Create a new account
      *
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function addAccountWithHttpInfo($account, string $contentType = self::contentTypes['addAccount'][0])
     {
@@ -201,11 +201,11 @@ class AccountApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\AddAccount200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\AddAccount200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\AddAccount200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\AddAccount200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -223,14 +223,14 @@ class AccountApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\AddAccount200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\AddAccount200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\AddAccount200Response';
+            $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -263,7 +263,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\AddAccount200Response',
+                        '\WildJar\ApiClient\Model\AddAccount200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -279,7 +279,7 @@ class AccountApi
      *
      * Create a new account
      *
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -300,7 +300,7 @@ class AccountApi
      *
      * Create a new account
      *
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -308,7 +308,7 @@ class AccountApi
      */
     public function addAccountAsyncWithHttpInfo($account, string $contentType = self::contentTypes['addAccount'][0])
     {
-        $returnType = '\Wildjar\Model\AddAccount200Response';
+        $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
         $request = $this->addAccountRequest($account, $contentType);
 
         return $this->client
@@ -350,7 +350,7 @@ class AccountApi
     /**
      * Create request for operation 'addAccount'
      *
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -454,9 +454,9 @@ class AccountApi
      * @param  int $id Account ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\AddAccount200Response|object
+     * @return \WildJar\ApiClient\Model\AddAccount200Response|object
      */
     public function getAccount($id, string $contentType = self::contentTypes['getAccount'][0])
     {
@@ -472,9 +472,9 @@ class AccountApi
      * @param  int $id Account ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountWithHttpInfo($id, string $contentType = self::contentTypes['getAccount'][0])
     {
@@ -517,11 +517,11 @@ class AccountApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\AddAccount200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\AddAccount200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\AddAccount200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\AddAccount200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -539,14 +539,14 @@ class AccountApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\AddAccount200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\AddAccount200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\AddAccount200Response';
+            $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -579,7 +579,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\AddAccount200Response',
+                        '\WildJar\ApiClient\Model\AddAccount200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -624,7 +624,7 @@ class AccountApi
      */
     public function getAccountAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getAccount'][0])
     {
-        $returnType = '\Wildjar\Model\AddAccount200Response';
+        $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
         $request = $this->getAccountRequest($id, $contentType);
 
         return $this->client
@@ -772,9 +772,9 @@ class AccountApi
      * @param  string $name Filter accounts by name (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAccounts'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListAccounts200Response|object
+     * @return \WildJar\ApiClient\Model\ListAccounts200Response|object
      */
     public function listAccounts($status = null, $name = null, string $contentType = self::contentTypes['listAccounts'][0])
     {
@@ -791,9 +791,9 @@ class AccountApi
      * @param  string $name Filter accounts by name (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAccounts'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListAccounts200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListAccounts200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAccountsWithHttpInfo($status = null, $name = null, string $contentType = self::contentTypes['listAccounts'][0])
     {
@@ -836,11 +836,11 @@ class AccountApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListAccounts200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListAccounts200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListAccounts200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListAccounts200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -858,14 +858,14 @@ class AccountApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListAccounts200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListAccounts200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListAccounts200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListAccounts200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -898,7 +898,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListAccounts200Response',
+                        '\WildJar\ApiClient\Model\ListAccounts200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -945,7 +945,7 @@ class AccountApi
      */
     public function listAccountsAsyncWithHttpInfo($status = null, $name = null, string $contentType = self::contentTypes['listAccounts'][0])
     {
-        $returnType = '\Wildjar\Model\ListAccounts200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListAccounts200Response';
         $request = $this->listAccountsRequest($status, $name, $contentType);
 
         return $this->client
@@ -1096,12 +1096,12 @@ class AccountApi
      * Update an existing account
      *
      * @param  int $id Account ID (required)
-     * @param  \Wildjar\Model\Account $account account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\AddAccount200Response|object
+     * @return \WildJar\ApiClient\Model\AddAccount200Response|object
      */
     public function updateAccount($id, $account, string $contentType = self::contentTypes['updateAccount'][0])
     {
@@ -1115,12 +1115,12 @@ class AccountApi
      * Update an existing account
      *
      * @param  int $id Account ID (required)
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccount'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\AddAccount200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAccountWithHttpInfo($id, $account, string $contentType = self::contentTypes['updateAccount'][0])
     {
@@ -1163,11 +1163,11 @@ class AccountApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\AddAccount200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\AddAccount200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\AddAccount200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\AddAccount200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1185,14 +1185,14 @@ class AccountApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\AddAccount200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\AddAccount200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\AddAccount200Response';
+            $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1225,7 +1225,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\AddAccount200Response',
+                        '\WildJar\ApiClient\Model\AddAccount200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1242,7 +1242,7 @@ class AccountApi
      * Update an existing account
      *
      * @param  int $id Account ID (required)
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1264,7 +1264,7 @@ class AccountApi
      * Update an existing account
      *
      * @param  int $id Account ID (required)
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1272,7 +1272,7 @@ class AccountApi
      */
     public function updateAccountAsyncWithHttpInfo($id, $account, string $contentType = self::contentTypes['updateAccount'][0])
     {
-        $returnType = '\Wildjar\Model\AddAccount200Response';
+        $returnType = '\WildJar\ApiClient\Model\AddAccount200Response';
         $request = $this->updateAccountRequest($id, $account, $contentType);
 
         return $this->client
@@ -1315,7 +1315,7 @@ class AccountApi
      * Create request for operation 'updateAccount'
      *
      * @param  int $id Account ID (required)
-     * @param  \Wildjar\Model\Account $account (required)
+     * @param  \WildJar\ApiClient\Model\Account $account (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

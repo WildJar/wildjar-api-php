@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **string** |  | [optional]
-**data** | [**\Wildjar\Model\Call[]**](Call.md) |  | [optional]
+**data** | [**\WildJar\ApiClient\Model\Call[]**](Call.md) |  | [optional]
 **records_total** | **float** | Total number of records available | [optional]
 **records_filtered** | **float** | Number of call log records based on filters applied | [optional]
 

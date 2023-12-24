@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionRobinFull Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -65,7 +65,7 @@ class ActionRobinFull implements ModelInterface, ArrayAccess, \JsonSerializable
         'notify' => 'mixed',
         'group_id' => 'mixed',
         'action' => 'string',
-        'options' => '\Wildjar\Model\ActionRobinFullAllOfOptionsInner[]'
+        'options' => '\WildJar\ApiClient\Model\ActionRobinFullAllOfOptionsInner[]'
     ];
 
     /**
@@ -783,7 +783,7 @@ class ActionRobinFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets options
      *
-     * @return \Wildjar\Model\ActionRobinFullAllOfOptionsInner[]
+     * @return \WildJar\ApiClient\Model\ActionRobinFullAllOfOptionsInner[]
      */
     public function getOptions()
     {
@@ -793,7 +793,7 @@ class ActionRobinFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets options
      *
-     * @param \Wildjar\Model\ActionRobinFullAllOfOptionsInner[] $options options
+     * @param \WildJar\ApiClient\Model\ActionRobinFullAllOfOptionsInner[] $options options
      *
      * @return self
      */

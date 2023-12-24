@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionVoicemailFull Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -68,7 +68,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
         'action' => 'string',
         'mcn_mails' => 'string[]',
         'sms_phone' => 'string[]',
-        'contacts' => '\Wildjar\Model\ActionVoicemailFullAllOfContactsInner[]'
+        'contacts' => '\WildJar\ApiClient\Model\ActionVoicemailFullAllOfContactsInner[]'
     ];
 
     /**
@@ -902,7 +902,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets contacts
      *
-     * @return \Wildjar\Model\ActionVoicemailFullAllOfContactsInner[]|null
+     * @return \WildJar\ApiClient\Model\ActionVoicemailFullAllOfContactsInner[]|null
      */
     public function getContacts()
     {
@@ -912,7 +912,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets contacts
      *
-     * @param \Wildjar\Model\ActionVoicemailFullAllOfContactsInner[]|null $contacts contacts
+     * @param \WildJar\ApiClient\Model\ActionVoicemailFullAllOfContactsInner[]|null $contacts contacts
      *
      * @return self
      */

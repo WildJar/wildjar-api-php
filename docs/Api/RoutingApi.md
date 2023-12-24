@@ -1,4 +1,4 @@
-# Wildjar\RoutingApi
+# WildJar\ApiClient\RoutingApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -47,7 +47,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 ## `blockCaller()`
 
 ```php
-blockCaller($account, $action_blocked): \Wildjar\Model\BlockCaller200Response
+blockCaller($account, $action_blocked): \WildJar\ApiClient\Model\BlockCaller200Response
 ```
 
 Block a caller
@@ -62,20 +62,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_blocked = new \Wildjar\Model\ActionBlocked(); // \Wildjar\Model\ActionBlocked
+$action_blocked = new \WildJar\ApiClient\Model\ActionBlocked(); // \WildJar\ApiClient\Model\ActionBlocked
 
 try {
     $result = $apiInstance->blockCaller($account, $action_blocked);
@@ -90,11 +90,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_blocked** | [**\Wildjar\Model\ActionBlocked**](../Model/ActionBlocked.md)|  | |
+| **action_blocked** | [**\WildJar\ApiClient\Model\ActionBlocked**](../Model/ActionBlocked.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\BlockCaller200Response**](../Model/BlockCaller200Response.md)
+[**\WildJar\ApiClient\Model\BlockCaller200Response**](../Model/BlockCaller200Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ try {
 ## `blockCallerFromCall()`
 
 ```php
-blockCallerFromCall($account, $block_caller_from_call_request): \Wildjar\Model\BlockCaller200Response
+blockCallerFromCall($account, $block_caller_from_call_request): \WildJar\ApiClient\Model\BlockCaller200Response
 ```
 
 Block a caller from a Call record
@@ -127,20 +127,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$block_caller_from_call_request = new \Wildjar\Model\BlockCallerFromCallRequest(); // \Wildjar\Model\BlockCallerFromCallRequest
+$block_caller_from_call_request = new \WildJar\ApiClient\Model\BlockCallerFromCallRequest(); // \WildJar\ApiClient\Model\BlockCallerFromCallRequest
 
 try {
     $result = $apiInstance->blockCallerFromCall($account, $block_caller_from_call_request);
@@ -155,11 +155,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **block_caller_from_call_request** | [**\Wildjar\Model\BlockCallerFromCallRequest**](../Model/BlockCallerFromCallRequest.md)|  | |
+| **block_caller_from_call_request** | [**\WildJar\ApiClient\Model\BlockCallerFromCallRequest**](../Model/BlockCallerFromCallRequest.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\BlockCaller200Response**](../Model/BlockCaller200Response.md)
+[**\WildJar\ApiClient\Model\BlockCaller200Response**](../Model/BlockCaller200Response.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ try {
 ## `createBranchAction()`
 
 ```php
-createBranchAction($account, $action_branch_full): \Wildjar\Model\CreateBranchAction200Response
+createBranchAction($account, $action_branch_full): \WildJar\ApiClient\Model\CreateBranchAction200Response
 ```
 
 Create a location routing branch
@@ -192,20 +192,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_branch_full = new \Wildjar\Model\ActionBranchFull(); // \Wildjar\Model\ActionBranchFull
+$action_branch_full = new \WildJar\ApiClient\Model\ActionBranchFull(); // \WildJar\ApiClient\Model\ActionBranchFull
 
 try {
     $result = $apiInstance->createBranchAction($account, $action_branch_full);
@@ -220,11 +220,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_branch_full** | [**\Wildjar\Model\ActionBranchFull**](../Model/ActionBranchFull.md)|  | |
+| **action_branch_full** | [**\WildJar\ApiClient\Model\ActionBranchFull**](../Model/ActionBranchFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ try {
 ## `createIVRAction()`
 
 ```php
-createIVRAction($account, $action_ivr_full): \Wildjar\Model\CreateIVRAction200Response
+createIVRAction($account, $action_ivr_full): \WildJar\ApiClient\Model\CreateIVRAction200Response
 ```
 
 Create an IVR action
@@ -257,20 +257,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_ivr_full = new \Wildjar\Model\ActionIVRFull(); // \Wildjar\Model\ActionIVRFull
+$action_ivr_full = new \WildJar\ApiClient\Model\ActionIVRFull(); // \WildJar\ApiClient\Model\ActionIVRFull
 
 try {
     $result = $apiInstance->createIVRAction($account, $action_ivr_full);
@@ -285,11 +285,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_ivr_full** | [**\Wildjar\Model\ActionIVRFull**](../Model/ActionIVRFull.md)|  | |
+| **action_ivr_full** | [**\WildJar\ApiClient\Model\ActionIVRFull**](../Model/ActionIVRFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ try {
 ## `createLocationsAction()`
 
 ```php
-createLocationsAction($account, $action_locations_full): \Wildjar\Model\CreateLocationsAction200Response
+createLocationsAction($account, $action_locations_full): \WildJar\ApiClient\Model\CreateLocationsAction200Response
 ```
 
 Create a location routing action
@@ -322,20 +322,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_locations_full = new \Wildjar\Model\ActionLocationsFull(); // \Wildjar\Model\ActionLocationsFull
+$action_locations_full = new \WildJar\ApiClient\Model\ActionLocationsFull(); // \WildJar\ApiClient\Model\ActionLocationsFull
 
 try {
     $result = $apiInstance->createLocationsAction($account, $action_locations_full);
@@ -350,11 +350,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_locations_full** | [**\Wildjar\Model\ActionLocationsFull**](../Model/ActionLocationsFull.md)|  | |
+| **action_locations_full** | [**\WildJar\ApiClient\Model\ActionLocationsFull**](../Model/ActionLocationsFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateLocationsAction200Response**](../Model/CreateLocationsAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateLocationsAction200Response**](../Model/CreateLocationsAction200Response.md)
 
 ### Authorization
 
@@ -372,7 +372,7 @@ try {
 ## `createRobinAction()`
 
 ```php
-createRobinAction($account, $action_robin_full): \Wildjar\Model\CreateRobinAction200Response
+createRobinAction($account, $action_robin_full): \WildJar\ApiClient\Model\CreateRobinAction200Response
 ```
 
 Create a round robin action
@@ -387,20 +387,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_robin_full = new \Wildjar\Model\ActionRobinFull(); // \Wildjar\Model\ActionRobinFull
+$action_robin_full = new \WildJar\ApiClient\Model\ActionRobinFull(); // \WildJar\ApiClient\Model\ActionRobinFull
 
 try {
     $result = $apiInstance->createRobinAction($account, $action_robin_full);
@@ -415,11 +415,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_robin_full** | [**\Wildjar\Model\ActionRobinFull**](../Model/ActionRobinFull.md)|  | |
+| **action_robin_full** | [**\WildJar\ApiClient\Model\ActionRobinFull**](../Model/ActionRobinFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ try {
 ## `createTagAction()`
 
 ```php
-createTagAction($account, $action_tag): \Wildjar\Model\CreateTagAction200Response
+createTagAction($account, $action_tag): \WildJar\ApiClient\Model\CreateTagAction200Response
 ```
 
 Create a tag action
@@ -452,20 +452,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_tag = new \Wildjar\Model\ActionTag(); // \Wildjar\Model\ActionTag
+$action_tag = new \WildJar\ApiClient\Model\ActionTag(); // \WildJar\ApiClient\Model\ActionTag
 
 try {
     $result = $apiInstance->createTagAction($account, $action_tag);
@@ -480,11 +480,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_tag** | [**\Wildjar\Model\ActionTag**](../Model/ActionTag.md)|  | |
+| **action_tag** | [**\WildJar\ApiClient\Model\ActionTag**](../Model/ActionTag.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ try {
 ## `createTimeAction()`
 
 ```php
-createTimeAction($account, $action_time_full): \Wildjar\Model\CreateTimeAction200Response
+createTimeAction($account, $action_time_full): \WildJar\ApiClient\Model\CreateTimeAction200Response
 ```
 
 Create a time switch action
@@ -517,20 +517,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_time_full = new \Wildjar\Model\ActionTimeFull(); // \Wildjar\Model\ActionTimeFull
+$action_time_full = new \WildJar\ApiClient\Model\ActionTimeFull(); // \WildJar\ApiClient\Model\ActionTimeFull
 
 try {
     $result = $apiInstance->createTimeAction($account, $action_time_full);
@@ -545,11 +545,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_time_full** | [**\Wildjar\Model\ActionTimeFull**](../Model/ActionTimeFull.md)|  | |
+| **action_time_full** | [**\WildJar\ApiClient\Model\ActionTimeFull**](../Model/ActionTimeFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
 
 ### Authorization
 
@@ -567,7 +567,7 @@ try {
 ## `createTransferAction()`
 
 ```php
-createTransferAction($account, $action_transfer_full): \Wildjar\Model\CreateTransferAction200Response
+createTransferAction($account, $action_transfer_full): \WildJar\ApiClient\Model\CreateTransferAction200Response
 ```
 
 Create a transfer action
@@ -582,20 +582,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_transfer_full = new \Wildjar\Model\ActionTransferFull(); // \Wildjar\Model\ActionTransferFull
+$action_transfer_full = new \WildJar\ApiClient\Model\ActionTransferFull(); // \WildJar\ApiClient\Model\ActionTransferFull
 
 try {
     $result = $apiInstance->createTransferAction($account, $action_transfer_full);
@@ -610,11 +610,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_transfer_full** | [**\Wildjar\Model\ActionTransferFull**](../Model/ActionTransferFull.md)|  | |
+| **action_transfer_full** | [**\WildJar\ApiClient\Model\ActionTransferFull**](../Model/ActionTransferFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ try {
 ## `createVoicemailAction()`
 
 ```php
-createVoicemailAction($account, $action_voicemail_full): \Wildjar\Model\CreateVoicemailAction200Response
+createVoicemailAction($account, $action_voicemail_full): \WildJar\ApiClient\Model\CreateVoicemailAction200Response
 ```
 
 Create a voicemail action
@@ -647,20 +647,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $account = 20001; // int | WildJar account number.
-$action_voicemail_full = new \Wildjar\Model\ActionVoicemailFull(); // \Wildjar\Model\ActionVoicemailFull
+$action_voicemail_full = new \WildJar\ApiClient\Model\ActionVoicemailFull(); // \WildJar\ApiClient\Model\ActionVoicemailFull
 
 try {
     $result = $apiInstance->createVoicemailAction($account, $action_voicemail_full);
@@ -675,11 +675,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
-| **action_voicemail_full** | [**\Wildjar\Model\ActionVoicemailFull**](../Model/ActionVoicemailFull.md)|  | |
+| **action_voicemail_full** | [**\WildJar\ApiClient\Model\ActionVoicemailFull**](../Model/ActionVoicemailFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
 
 ### Authorization
 
@@ -697,7 +697,7 @@ try {
 ## `getBranchAction()`
 
 ```php
-getBranchAction($account, $action_id): \Wildjar\Model\CreateBranchAction200Response
+getBranchAction($account, $action_id): \WildJar\ApiClient\Model\CreateBranchAction200Response
 ```
 
 Show detailed configuration of a branch action
@@ -712,13 +712,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -744,7 +744,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
 
 ### Authorization
 
@@ -762,7 +762,7 @@ try {
 ## `getIVRAction()`
 
 ```php
-getIVRAction($account, $action_id): \Wildjar\Model\CreateIVRAction200Response
+getIVRAction($account, $action_id): \WildJar\ApiClient\Model\CreateIVRAction200Response
 ```
 
 Show detailed routing for an IVR action
@@ -777,13 +777,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -809,7 +809,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
 
 ### Authorization
 
@@ -827,7 +827,7 @@ try {
 ## `getLocationsAction()`
 
 ```php
-getLocationsAction($account, $action_id): \Wildjar\Model\CreateLocationsAction200Response
+getLocationsAction($account, $action_id): \WildJar\ApiClient\Model\CreateLocationsAction200Response
 ```
 
 Show detailed configuration of a location action
@@ -842,13 +842,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -874,7 +874,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateLocationsAction200Response**](../Model/CreateLocationsAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateLocationsAction200Response**](../Model/CreateLocationsAction200Response.md)
 
 ### Authorization
 
@@ -892,7 +892,7 @@ try {
 ## `getLocationsMap()`
 
 ```php
-getLocationsMap($account, $action_id): \Wildjar\Model\UpdateLocationsAction200Response
+getLocationsMap($account, $action_id): \WildJar\ApiClient\Model\UpdateLocationsAction200Response
 ```
 
 Show detailed location mapping
@@ -907,13 +907,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -939,7 +939,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\UpdateLocationsAction200Response**](../Model/UpdateLocationsAction200Response.md)
+[**\WildJar\ApiClient\Model\UpdateLocationsAction200Response**](../Model/UpdateLocationsAction200Response.md)
 
 ### Authorization
 
@@ -957,7 +957,7 @@ try {
 ## `getRobinAction()`
 
 ```php
-getRobinAction($account, $action_id): \Wildjar\Model\CreateRobinAction200Response
+getRobinAction($account, $action_id): \WildJar\ApiClient\Model\CreateRobinAction200Response
 ```
 
 Show detailed routing for a round robin action
@@ -972,13 +972,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1004,7 +1004,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
 
 ### Authorization
 
@@ -1022,7 +1022,7 @@ try {
 ## `getTagAction()`
 
 ```php
-getTagAction($account, $action_id): \Wildjar\Model\CreateTagAction200Response
+getTagAction($account, $action_id): \WildJar\ApiClient\Model\CreateTagAction200Response
 ```
 
 Show tag action details
@@ -1037,13 +1037,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1069,7 +1069,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
 
 ### Authorization
 
@@ -1087,7 +1087,7 @@ try {
 ## `getTimeAction()`
 
 ```php
-getTimeAction($account, $action_id): \Wildjar\Model\CreateTimeAction200Response
+getTimeAction($account, $action_id): \WildJar\ApiClient\Model\CreateTimeAction200Response
 ```
 
 Show detailed routing for a time switch action
@@ -1102,13 +1102,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1134,7 +1134,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
 
 ### Authorization
 
@@ -1152,7 +1152,7 @@ try {
 ## `getTransferAction()`
 
 ```php
-getTransferAction($account, $action_id): \Wildjar\Model\CreateTransferAction200Response
+getTransferAction($account, $action_id): \WildJar\ApiClient\Model\CreateTransferAction200Response
 ```
 
 Show detailed routing for a transfer action
@@ -1167,13 +1167,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1199,7 +1199,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
 
 ### Authorization
 
@@ -1217,7 +1217,7 @@ try {
 ## `getVoicemailAction()`
 
 ```php
-getVoicemailAction($account, $action_id): \Wildjar\Model\CreateVoicemailAction200Response
+getVoicemailAction($account, $action_id): \WildJar\ApiClient\Model\CreateVoicemailAction200Response
 ```
 
 Show detailed routing for a voicemail action
@@ -1232,13 +1232,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1264,7 +1264,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
 
 ### Authorization
 
@@ -1282,7 +1282,7 @@ try {
 ## `listBlockedCallers()`
 
 ```php
-listBlockedCallers($account): \Wildjar\Model\ListBlockedCallers200Response
+listBlockedCallers($account): \WildJar\ApiClient\Model\ListBlockedCallers200Response
 ```
 
 List blocked callers
@@ -1297,13 +1297,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1327,7 +1327,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListBlockedCallers200Response**](../Model/ListBlockedCallers200Response.md)
+[**\WildJar\ApiClient\Model\ListBlockedCallers200Response**](../Model/ListBlockedCallers200Response.md)
 
 ### Authorization
 
@@ -1345,7 +1345,7 @@ try {
 ## `listBranchActions()`
 
 ```php
-listBranchActions($account): \Wildjar\Model\ListBranchActions200Response
+listBranchActions($account): \WildJar\ApiClient\Model\ListBranchActions200Response
 ```
 
 List location routing branches
@@ -1360,13 +1360,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1390,7 +1390,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListBranchActions200Response**](../Model/ListBranchActions200Response.md)
+[**\WildJar\ApiClient\Model\ListBranchActions200Response**](../Model/ListBranchActions200Response.md)
 
 ### Authorization
 
@@ -1408,7 +1408,7 @@ try {
 ## `listIVRs()`
 
 ```php
-listIVRs($account): \Wildjar\Model\ListIVRs200Response
+listIVRs($account): \WildJar\ApiClient\Model\ListIVRs200Response
 ```
 
 List IVR actions
@@ -1423,13 +1423,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1453,7 +1453,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListIVRs200Response**](../Model/ListIVRs200Response.md)
+[**\WildJar\ApiClient\Model\ListIVRs200Response**](../Model/ListIVRs200Response.md)
 
 ### Authorization
 
@@ -1471,7 +1471,7 @@ try {
 ## `listLocationsActions()`
 
 ```php
-listLocationsActions($account): \Wildjar\Model\ListLocationsActions200Response
+listLocationsActions($account): \WildJar\ApiClient\Model\ListLocationsActions200Response
 ```
 
 List location routing actions
@@ -1486,13 +1486,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1516,7 +1516,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListLocationsActions200Response**](../Model/ListLocationsActions200Response.md)
+[**\WildJar\ApiClient\Model\ListLocationsActions200Response**](../Model/ListLocationsActions200Response.md)
 
 ### Authorization
 
@@ -1534,7 +1534,7 @@ try {
 ## `listRobins()`
 
 ```php
-listRobins($account): \Wildjar\Model\ListRobins200Response
+listRobins($account): \WildJar\ApiClient\Model\ListRobins200Response
 ```
 
 List round robin actions
@@ -1549,13 +1549,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1579,7 +1579,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListRobins200Response**](../Model/ListRobins200Response.md)
+[**\WildJar\ApiClient\Model\ListRobins200Response**](../Model/ListRobins200Response.md)
 
 ### Authorization
 
@@ -1597,7 +1597,7 @@ try {
 ## `listTagActions()`
 
 ```php
-listTagActions($account): \Wildjar\Model\ListTagActions200Response
+listTagActions($account): \WildJar\ApiClient\Model\ListTagActions200Response
 ```
 
 List tag actions
@@ -1612,13 +1612,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1642,7 +1642,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListTagActions200Response**](../Model/ListTagActions200Response.md)
+[**\WildJar\ApiClient\Model\ListTagActions200Response**](../Model/ListTagActions200Response.md)
 
 ### Authorization
 
@@ -1660,7 +1660,7 @@ try {
 ## `listTimeActions()`
 
 ```php
-listTimeActions($account): \Wildjar\Model\ListTimeActions200Response
+listTimeActions($account): \WildJar\ApiClient\Model\ListTimeActions200Response
 ```
 
 List time switch actions
@@ -1675,13 +1675,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1705,7 +1705,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListTimeActions200Response**](../Model/ListTimeActions200Response.md)
+[**\WildJar\ApiClient\Model\ListTimeActions200Response**](../Model/ListTimeActions200Response.md)
 
 ### Authorization
 
@@ -1723,7 +1723,7 @@ try {
 ## `listTransfers()`
 
 ```php
-listTransfers($account): \Wildjar\Model\ListTransfers200Response
+listTransfers($account): \WildJar\ApiClient\Model\ListTransfers200Response
 ```
 
 List transfer actions
@@ -1738,13 +1738,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1768,7 +1768,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListTransfers200Response**](../Model/ListTransfers200Response.md)
+[**\WildJar\ApiClient\Model\ListTransfers200Response**](../Model/ListTransfers200Response.md)
 
 ### Authorization
 
@@ -1786,7 +1786,7 @@ try {
 ## `listVoicemails()`
 
 ```php
-listVoicemails($account): \Wildjar\Model\ListVoicemails200Response
+listVoicemails($account): \WildJar\ApiClient\Model\ListVoicemails200Response
 ```
 
 List voicemail actions
@@ -1801,13 +1801,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1831,7 +1831,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListVoicemails200Response**](../Model/ListVoicemails200Response.md)
+[**\WildJar\ApiClient\Model\ListVoicemails200Response**](../Model/ListVoicemails200Response.md)
 
 ### Authorization
 
@@ -1864,13 +1864,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1913,7 +1913,7 @@ void (empty response body)
 ## `updateBranchAction()`
 
 ```php
-updateBranchAction($account, $action_id, $action_branch): \Wildjar\Model\CreateBranchAction200Response
+updateBranchAction($account, $action_id, $action_branch): \WildJar\ApiClient\Model\CreateBranchAction200Response
 ```
 
 Update a location routing branch
@@ -1928,13 +1928,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1942,7 +1942,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the branch action.
-$action_branch = new \Wildjar\Model\ActionBranch(); // \Wildjar\Model\ActionBranch
+$action_branch = new \WildJar\ApiClient\Model\ActionBranch(); // \WildJar\ApiClient\Model\ActionBranch
 
 try {
     $result = $apiInstance->updateBranchAction($account, $action_id, $action_branch);
@@ -1958,11 +1958,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the branch action. | |
-| **action_branch** | [**\Wildjar\Model\ActionBranch**](../Model/ActionBranch.md)|  | |
+| **action_branch** | [**\WildJar\ApiClient\Model\ActionBranch**](../Model/ActionBranch.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateBranchAction200Response**](../Model/CreateBranchAction200Response.md)
 
 ### Authorization
 
@@ -1980,7 +1980,7 @@ try {
 ## `updateDidRouting()`
 
 ```php
-updateDidRouting($account, $did, $routing_action): \Wildjar\Model\UpdateDidRouting200Response
+updateDidRouting($account, $did, $routing_action): \WildJar\ApiClient\Model\UpdateDidRouting200Response
 ```
 
 Update the routing of a tracking number
@@ -1995,13 +1995,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2009,7 +2009,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $did = 'did_example'; // string | Tracking number in E164 format without a leading plus (+).
-$routing_action = new \Wildjar\Model\RoutingAction(); // \Wildjar\Model\RoutingAction
+$routing_action = new \WildJar\ApiClient\Model\RoutingAction(); // \WildJar\ApiClient\Model\RoutingAction
 
 try {
     $result = $apiInstance->updateDidRouting($account, $did, $routing_action);
@@ -2025,11 +2025,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **did** | **string**| Tracking number in E164 format without a leading plus (+). | |
-| **routing_action** | [**\Wildjar\Model\RoutingAction**](../Model/RoutingAction.md)|  | |
+| **routing_action** | [**\WildJar\ApiClient\Model\RoutingAction**](../Model/RoutingAction.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\UpdateDidRouting200Response**](../Model/UpdateDidRouting200Response.md)
+[**\WildJar\ApiClient\Model\UpdateDidRouting200Response**](../Model/UpdateDidRouting200Response.md)
 
 ### Authorization
 
@@ -2047,7 +2047,7 @@ try {
 ## `updateIVRAction()`
 
 ```php
-updateIVRAction($account, $action_id, $action_ivr_full): \Wildjar\Model\CreateIVRAction200Response
+updateIVRAction($account, $action_id, $action_ivr_full): \WildJar\ApiClient\Model\CreateIVRAction200Response
 ```
 
 Update an IVR action
@@ -2062,13 +2062,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2076,7 +2076,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the IVR.
-$action_ivr_full = new \Wildjar\Model\ActionIVRFull(); // \Wildjar\Model\ActionIVRFull
+$action_ivr_full = new \WildJar\ApiClient\Model\ActionIVRFull(); // \WildJar\ApiClient\Model\ActionIVRFull
 
 try {
     $result = $apiInstance->updateIVRAction($account, $action_id, $action_ivr_full);
@@ -2092,11 +2092,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the IVR. | |
-| **action_ivr_full** | [**\Wildjar\Model\ActionIVRFull**](../Model/ActionIVRFull.md)|  | |
+| **action_ivr_full** | [**\WildJar\ApiClient\Model\ActionIVRFull**](../Model/ActionIVRFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateIVRAction200Response**](../Model/CreateIVRAction200Response.md)
 
 ### Authorization
 
@@ -2114,7 +2114,7 @@ try {
 ## `updateLocationsAction()`
 
 ```php
-updateLocationsAction($account, $action_id, $action_locations_map_update): \Wildjar\Model\UpdateLocationsAction200Response
+updateLocationsAction($account, $action_id, $action_locations_map_update): \WildJar\ApiClient\Model\UpdateLocationsAction200Response
 ```
 
 Update a location routing action
@@ -2129,13 +2129,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2143,7 +2143,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the locations action.
-$action_locations_map_update = new \Wildjar\Model\ActionLocationsMapUpdate(); // \Wildjar\Model\ActionLocationsMapUpdate
+$action_locations_map_update = new \WildJar\ApiClient\Model\ActionLocationsMapUpdate(); // \WildJar\ApiClient\Model\ActionLocationsMapUpdate
 
 try {
     $result = $apiInstance->updateLocationsAction($account, $action_id, $action_locations_map_update);
@@ -2159,11 +2159,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the locations action. | |
-| **action_locations_map_update** | [**\Wildjar\Model\ActionLocationsMapUpdate**](../Model/ActionLocationsMapUpdate.md)|  | |
+| **action_locations_map_update** | [**\WildJar\ApiClient\Model\ActionLocationsMapUpdate**](../Model/ActionLocationsMapUpdate.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\UpdateLocationsAction200Response**](../Model/UpdateLocationsAction200Response.md)
+[**\WildJar\ApiClient\Model\UpdateLocationsAction200Response**](../Model/UpdateLocationsAction200Response.md)
 
 ### Authorization
 
@@ -2181,7 +2181,7 @@ try {
 ## `updateRobinAction()`
 
 ```php
-updateRobinAction($account, $action_id, $action_robin_full): \Wildjar\Model\CreateRobinAction200Response
+updateRobinAction($account, $action_id, $action_robin_full): \WildJar\ApiClient\Model\CreateRobinAction200Response
 ```
 
 Update a round robin action
@@ -2196,13 +2196,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2210,7 +2210,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the round robin.
-$action_robin_full = new \Wildjar\Model\ActionRobinFull(); // \Wildjar\Model\ActionRobinFull
+$action_robin_full = new \WildJar\ApiClient\Model\ActionRobinFull(); // \WildJar\ApiClient\Model\ActionRobinFull
 
 try {
     $result = $apiInstance->updateRobinAction($account, $action_id, $action_robin_full);
@@ -2226,11 +2226,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the round robin. | |
-| **action_robin_full** | [**\Wildjar\Model\ActionRobinFull**](../Model/ActionRobinFull.md)|  | |
+| **action_robin_full** | [**\WildJar\ApiClient\Model\ActionRobinFull**](../Model/ActionRobinFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateRobinAction200Response**](../Model/CreateRobinAction200Response.md)
 
 ### Authorization
 
@@ -2248,7 +2248,7 @@ try {
 ## `updateTagAction()`
 
 ```php
-updateTagAction($account, $action_id, $action_tag): \Wildjar\Model\CreateTagAction200Response
+updateTagAction($account, $action_id, $action_tag): \WildJar\ApiClient\Model\CreateTagAction200Response
 ```
 
 Update a tag action
@@ -2263,13 +2263,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2277,7 +2277,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the tag action.
-$action_tag = new \Wildjar\Model\ActionTag(); // \Wildjar\Model\ActionTag
+$action_tag = new \WildJar\ApiClient\Model\ActionTag(); // \WildJar\ApiClient\Model\ActionTag
 
 try {
     $result = $apiInstance->updateTagAction($account, $action_id, $action_tag);
@@ -2293,11 +2293,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the tag action. | |
-| **action_tag** | [**\Wildjar\Model\ActionTag**](../Model/ActionTag.md)|  | |
+| **action_tag** | [**\WildJar\ApiClient\Model\ActionTag**](../Model/ActionTag.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTagAction200Response**](../Model/CreateTagAction200Response.md)
 
 ### Authorization
 
@@ -2315,7 +2315,7 @@ try {
 ## `updateTimeAction()`
 
 ```php
-updateTimeAction($account, $action_id, $action_time_full): \Wildjar\Model\CreateTimeAction200Response
+updateTimeAction($account, $action_id, $action_time_full): \WildJar\ApiClient\Model\CreateTimeAction200Response
 ```
 
 Update a time switch action
@@ -2330,13 +2330,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2344,7 +2344,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the time switch.
-$action_time_full = new \Wildjar\Model\ActionTimeFull(); // \Wildjar\Model\ActionTimeFull
+$action_time_full = new \WildJar\ApiClient\Model\ActionTimeFull(); // \WildJar\ApiClient\Model\ActionTimeFull
 
 try {
     $result = $apiInstance->updateTimeAction($account, $action_id, $action_time_full);
@@ -2360,11 +2360,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the time switch. | |
-| **action_time_full** | [**\Wildjar\Model\ActionTimeFull**](../Model/ActionTimeFull.md)|  | |
+| **action_time_full** | [**\WildJar\ApiClient\Model\ActionTimeFull**](../Model/ActionTimeFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTimeAction200Response**](../Model/CreateTimeAction200Response.md)
 
 ### Authorization
 
@@ -2382,7 +2382,7 @@ try {
 ## `updateTransferAction()`
 
 ```php
-updateTransferAction($account, $action_id, $action_transfer_full): \Wildjar\Model\CreateTransferAction200Response
+updateTransferAction($account, $action_id, $action_transfer_full): \WildJar\ApiClient\Model\CreateTransferAction200Response
 ```
 
 Update a transfer action
@@ -2397,13 +2397,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2411,7 +2411,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the transfer.
-$action_transfer_full = new \Wildjar\Model\ActionTransferFull(); // \Wildjar\Model\ActionTransferFull
+$action_transfer_full = new \WildJar\ApiClient\Model\ActionTransferFull(); // \WildJar\ApiClient\Model\ActionTransferFull
 
 try {
     $result = $apiInstance->updateTransferAction($account, $action_id, $action_transfer_full);
@@ -2427,11 +2427,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the transfer. | |
-| **action_transfer_full** | [**\Wildjar\Model\ActionTransferFull**](../Model/ActionTransferFull.md)|  | |
+| **action_transfer_full** | [**\WildJar\ApiClient\Model\ActionTransferFull**](../Model/ActionTransferFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateTransferAction200Response**](../Model/CreateTransferAction200Response.md)
 
 ### Authorization
 
@@ -2449,7 +2449,7 @@ try {
 ## `updateVoicemailAction()`
 
 ```php
-updateVoicemailAction($account, $action_id, $action_voicemail_full): \Wildjar\Model\CreateVoicemailAction200Response
+updateVoicemailAction($account, $action_id, $action_voicemail_full): \WildJar\ApiClient\Model\CreateVoicemailAction200Response
 ```
 
 Update a voicemail action
@@ -2464,13 +2464,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\RoutingApi(
+$apiInstance = new WildJar\ApiClient\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2478,7 +2478,7 @@ $apiInstance = new Wildjar\Api\RoutingApi(
 );
 $account = 20001; // int | WildJar account number.
 $action_id = 1234; // float | The action ID of the voicemail.
-$action_voicemail_full = new \Wildjar\Model\ActionVoicemailFull(); // \Wildjar\Model\ActionVoicemailFull
+$action_voicemail_full = new \WildJar\ApiClient\Model\ActionVoicemailFull(); // \WildJar\ApiClient\Model\ActionVoicemailFull
 
 try {
     $result = $apiInstance->updateVoicemailAction($account, $action_id, $action_voicemail_full);
@@ -2494,11 +2494,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number. | |
 | **action_id** | **float**| The action ID of the voicemail. | |
-| **action_voicemail_full** | [**\Wildjar\Model\ActionVoicemailFull**](../Model/ActionVoicemailFull.md)|  | |
+| **action_voicemail_full** | [**\WildJar\ApiClient\Model\ActionVoicemailFull**](../Model/ActionVoicemailFull.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
+[**\WildJar\ApiClient\Model\CreateVoicemailAction200Response**](../Model/CreateVoicemailAction200Response.md)
 
 ### Authorization
 

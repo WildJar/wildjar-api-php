@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListLocationsActions200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListLocationsActions200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionLocations[]'
+        'data' => '\WildJar\ApiClient\Model\ActionLocations[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListLocationsActions200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionLocations[]|null
+     * @return \WildJar\ApiClient\Model\ActionLocations[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListLocationsActions200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionLocations[]|null $data data
+     * @param \WildJar\ApiClient\Model\ActionLocations[]|null $data data
      *
      * @return self
      */

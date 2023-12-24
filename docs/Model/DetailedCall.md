@@ -39,9 +39,9 @@ Name | Type | Description | Notes
 **date_stop_local** | **mixed** | The call end date and time in the local timezone of the account in ISO format. | [optional] [readonly]
 **score** | **mixed** | The score given to the call by a user or automatically as part of a Smart Tag:   * &#x60;1&#x60; - Poor   * &#x60;2&#x60; - Average   * &#x60;3&#x60; - Good | [optional]
 **notes** | **mixed** | Notes added to the call by a user. | [optional]
-**tag** | [**\Wildjar\Model\CallTag**](CallTag.md) |  | [optional]
-**web** | [**\Wildjar\Model\DetailedCallAllOfWeb**](DetailedCallAllOfWeb.md) |  | [optional]
-**ivr** | [**\Wildjar\Model\CallIVR**](CallIVR.md) |  | [optional]
+**tag** | [**\WildJar\ApiClient\Model\CallTag**](CallTag.md) |  | [optional]
+**web** | [**\WildJar\ApiClient\Model\DetailedCallAllOfWeb**](DetailedCallAllOfWeb.md) |  | [optional]
+**ivr** | [**\WildJar\ApiClient\Model\CallIVR**](CallIVR.md) |  | [optional]
 **intelligence** | **mixed** | The presence of a transcript for this call. If present, returns a \&quot;1\&quot;. If not present, returns null. | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

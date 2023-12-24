@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace Wildjar\Api;
+namespace WildJar\ApiClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Wildjar\ApiException;
-use Wildjar\Configuration;
-use Wildjar\HeaderSelector;
-use Wildjar\ObjectSerializer;
+use WildJar\ApiClient\ApiException;
+use WildJar\ApiClient\Configuration;
+use WildJar\ApiClient\HeaderSelector;
+use WildJar\ApiClient\ObjectSerializer;
 
 /**
  * CallsApi Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -141,9 +141,9 @@ class CallsApi
      * @param  int $id Call ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetCallDetails200Response|object
+     * @return \WildJar\ApiClient\Model\GetCallDetails200Response|object
      */
     public function getCallDetails($id, string $contentType = self::contentTypes['getCallDetails'][0])
     {
@@ -159,9 +159,9 @@ class CallsApi
      * @param  int $id Call ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCallDetailsWithHttpInfo($id, string $contentType = self::contentTypes['getCallDetails'][0])
     {
@@ -204,11 +204,11 @@ class CallsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetCallDetails200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetCallDetails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetCallDetails200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetCallDetails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -226,14 +226,14 @@ class CallsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetCallDetails200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetCallDetails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetCallDetails200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetCallDetails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -266,7 +266,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetCallDetails200Response',
+                        '\WildJar\ApiClient\Model\GetCallDetails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,7 +311,7 @@ class CallsApi
      */
     public function getCallDetailsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getCallDetails'][0])
     {
-        $returnType = '\Wildjar\Model\GetCallDetails200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetCallDetails200Response';
         $request = $this->getCallDetailsRequest($id, $contentType);
 
         return $this->client
@@ -468,9 +468,9 @@ class CallsApi
      * @param  string $tracking_source Filter the results by the tracking source. For example, trackingSource&#x3D;SMS will show the numbers with the names \&quot;SMS\&quot; and \&quot;SMS Follow Up\&quot;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCalls'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetCalls200Response|object
+     * @return \WildJar\ApiClient\Model\GetCalls200Response|object
      */
     public function getCalls($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $first_time_caller = null, $order = null, $status = null, $timezone = null, $tracking_number = null, $tracking_source = null, string $contentType = self::contentTypes['getCalls'][0])
     {
@@ -496,9 +496,9 @@ class CallsApi
      * @param  string $tracking_source Filter the results by the tracking source. For example, trackingSource&#x3D;SMS will show the numbers with the names \&quot;SMS\&quot; and \&quot;SMS Follow Up\&quot;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCalls'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetCalls200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetCalls200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCallsWithHttpInfo($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $first_time_caller = null, $order = null, $status = null, $timezone = null, $tracking_number = null, $tracking_source = null, string $contentType = self::contentTypes['getCalls'][0])
     {
@@ -541,11 +541,11 @@ class CallsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetCalls200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetCalls200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetCalls200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetCalls200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -563,14 +563,14 @@ class CallsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetCalls200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetCalls200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetCalls200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetCalls200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -603,7 +603,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetCalls200Response',
+                        '\WildJar\ApiClient\Model\GetCalls200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -668,7 +668,7 @@ class CallsApi
      */
     public function getCallsAsyncWithHttpInfo($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $first_time_caller = null, $order = null, $status = null, $timezone = null, $tracking_number = null, $tracking_source = null, string $contentType = self::contentTypes['getCalls'][0])
     {
-        $returnType = '\Wildjar\Model\GetCalls200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetCalls200Response';
         $request = $this->getCallsRequest($account, $date_from, $date_to, $duration_min, $duration_max, $first_time_caller, $order, $status, $timezone, $tracking_number, $tracking_source, $contentType);
 
         return $this->client
@@ -920,9 +920,9 @@ class CallsApi
      * @param  string $uuid Outbound call UUID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundCallDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetOutboundCallDetails200Response|object
+     * @return \WildJar\ApiClient\Model\GetOutboundCallDetails200Response|object
      */
     public function getOutboundCallDetails($uuid, string $contentType = self::contentTypes['getOutboundCallDetails'][0])
     {
@@ -938,9 +938,9 @@ class CallsApi
      * @param  string $uuid Outbound call UUID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundCallDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetOutboundCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetOutboundCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundCallDetailsWithHttpInfo($uuid, string $contentType = self::contentTypes['getOutboundCallDetails'][0])
     {
@@ -983,11 +983,11 @@ class CallsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetOutboundCallDetails200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetOutboundCallDetails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetOutboundCallDetails200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetOutboundCallDetails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1005,14 +1005,14 @@ class CallsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetOutboundCallDetails200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetOutboundCallDetails200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1045,7 +1045,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetOutboundCallDetails200Response',
+                        '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1090,7 +1090,7 @@ class CallsApi
      */
     public function getOutboundCallDetailsAsyncWithHttpInfo($uuid, string $contentType = self::contentTypes['getOutboundCallDetails'][0])
     {
-        $returnType = '\Wildjar\Model\GetOutboundCallDetails200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response';
         $request = $this->getOutboundCallDetailsRequest($uuid, $contentType);
 
         return $this->client
@@ -1245,9 +1245,9 @@ class CallsApi
      * @param  string $tracking_number Filter tracking numbers by sip extension (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundCalls'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetOutboundCalls200Response|object
+     * @return \WildJar\ApiClient\Model\GetOutboundCalls200Response|object
      */
     public function getOutboundCalls($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $order = null, $status = null, $timezone = null, $tracking_number = null, string $contentType = self::contentTypes['getOutboundCalls'][0])
     {
@@ -1271,9 +1271,9 @@ class CallsApi
      * @param  string $tracking_number Filter tracking numbers by sip extension (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundCalls'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetOutboundCalls200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetOutboundCalls200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundCallsWithHttpInfo($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $order = null, $status = null, $timezone = null, $tracking_number = null, string $contentType = self::contentTypes['getOutboundCalls'][0])
     {
@@ -1316,11 +1316,11 @@ class CallsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetOutboundCalls200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetOutboundCalls200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetOutboundCalls200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetOutboundCalls200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1338,14 +1338,14 @@ class CallsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetOutboundCalls200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetOutboundCalls200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetOutboundCalls200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetOutboundCalls200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1378,7 +1378,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetOutboundCalls200Response',
+                        '\WildJar\ApiClient\Model\GetOutboundCalls200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1439,7 +1439,7 @@ class CallsApi
      */
     public function getOutboundCallsAsyncWithHttpInfo($account = null, $date_from = null, $date_to = null, $duration_min = null, $duration_max = null, $order = null, $status = null, $timezone = null, $tracking_number = null, string $contentType = self::contentTypes['getOutboundCalls'][0])
     {
-        $returnType = '\Wildjar\Model\GetOutboundCalls200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetOutboundCalls200Response';
         $request = $this->getOutboundCallsRequest($account, $date_from, $date_to, $duration_min, $duration_max, $order, $status, $timezone, $tracking_number, $contentType);
 
         return $this->client
@@ -1667,12 +1667,12 @@ class CallsApi
      * Add a score, tag or note to a call
      *
      * @param  int $id Call ID (required)
-     * @param  \Wildjar\Model\Call $call call (required)
+     * @param  \WildJar\ApiClient\Model\Call $call call (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCall'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetCallDetails200Response|object
+     * @return \WildJar\ApiClient\Model\GetCallDetails200Response|object
      */
     public function updateCall($id, $call, string $contentType = self::contentTypes['updateCall'][0])
     {
@@ -1686,12 +1686,12 @@ class CallsApi
      * Add a score, tag or note to a call
      *
      * @param  int $id Call ID (required)
-     * @param  \Wildjar\Model\Call $call (required)
+     * @param  \WildJar\ApiClient\Model\Call $call (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCall'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetCallDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCallWithHttpInfo($id, $call, string $contentType = self::contentTypes['updateCall'][0])
     {
@@ -1734,11 +1734,11 @@ class CallsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetCallDetails200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetCallDetails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetCallDetails200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetCallDetails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1756,14 +1756,14 @@ class CallsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetCallDetails200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetCallDetails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetCallDetails200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetCallDetails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1796,7 +1796,7 @@ class CallsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetCallDetails200Response',
+                        '\WildJar\ApiClient\Model\GetCallDetails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1813,7 +1813,7 @@ class CallsApi
      * Add a score, tag or note to a call
      *
      * @param  int $id Call ID (required)
-     * @param  \Wildjar\Model\Call $call (required)
+     * @param  \WildJar\ApiClient\Model\Call $call (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1835,7 +1835,7 @@ class CallsApi
      * Add a score, tag or note to a call
      *
      * @param  int $id Call ID (required)
-     * @param  \Wildjar\Model\Call $call (required)
+     * @param  \WildJar\ApiClient\Model\Call $call (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1843,7 +1843,7 @@ class CallsApi
      */
     public function updateCallAsyncWithHttpInfo($id, $call, string $contentType = self::contentTypes['updateCall'][0])
     {
-        $returnType = '\Wildjar\Model\GetCallDetails200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetCallDetails200Response';
         $request = $this->updateCallRequest($id, $call, $contentType);
 
         return $this->client
@@ -1886,7 +1886,7 @@ class CallsApi
      * Create request for operation 'updateCall'
      *
      * @param  int $id Call ID (required)
-     * @param  \Wildjar\Model\Call $call (required)
+     * @param  \WildJar\ApiClient\Model\Call $call (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

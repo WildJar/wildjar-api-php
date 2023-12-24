@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * NumberDetailedFull Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -68,7 +68,7 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
         'cancel_date' => 'mixed',
         'country' => 'mixed',
         'area' => 'mixed',
-        'extra' => '\Wildjar\Model\NumberDetailedFullAllOfExtra'
+        'extra' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtra'
     ];
 
     /**
@@ -899,7 +899,7 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets extra
      *
-     * @return \Wildjar\Model\NumberDetailedFullAllOfExtra|null
+     * @return \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtra|null
      */
     public function getExtra()
     {
@@ -909,7 +909,7 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets extra
      *
-     * @param \Wildjar\Model\NumberDetailedFullAllOfExtra|null $extra extra
+     * @param \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtra|null $extra extra
      *
      * @return self
      */

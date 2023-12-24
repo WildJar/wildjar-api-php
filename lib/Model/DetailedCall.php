@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * DetailedCall Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -91,9 +91,9 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
         'date_stop_local' => 'mixed',
         'score' => 'mixed',
         'notes' => 'mixed',
-        'tag' => '\Wildjar\Model\CallTag',
-        'web' => '\Wildjar\Model\DetailedCallAllOfWeb',
-        'ivr' => '\Wildjar\Model\CallIVR',
+        'tag' => '\WildJar\ApiClient\Model\CallTag',
+        'web' => '\WildJar\ApiClient\Model\DetailedCallAllOfWeb',
+        'ivr' => '\WildJar\ApiClient\Model\CallIVR',
         'intelligence' => 'mixed'
     ];
 
@@ -1955,7 +1955,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tag
      *
-     * @return \Wildjar\Model\CallTag|null
+     * @return \WildJar\ApiClient\Model\CallTag|null
      */
     public function getTag()
     {
@@ -1965,7 +1965,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tag
      *
-     * @param \Wildjar\Model\CallTag|null $tag tag
+     * @param \WildJar\ApiClient\Model\CallTag|null $tag tag
      *
      * @return self
      */
@@ -1982,7 +1982,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets web
      *
-     * @return \Wildjar\Model\DetailedCallAllOfWeb|null
+     * @return \WildJar\ApiClient\Model\DetailedCallAllOfWeb|null
      */
     public function getWeb()
     {
@@ -1992,7 +1992,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets web
      *
-     * @param \Wildjar\Model\DetailedCallAllOfWeb|null $web web
+     * @param \WildJar\ApiClient\Model\DetailedCallAllOfWeb|null $web web
      *
      * @return self
      */
@@ -2009,7 +2009,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ivr
      *
-     * @return \Wildjar\Model\CallIVR|null
+     * @return \WildJar\ApiClient\Model\CallIVR|null
      */
     public function getIvr()
     {
@@ -2019,7 +2019,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ivr
      *
-     * @param \Wildjar\Model\CallIVR|null $ivr ivr
+     * @param \WildJar\ApiClient\Model\CallIVR|null $ivr ivr
      *
      * @return self
      */

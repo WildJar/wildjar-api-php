@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace Wildjar\Api;
+namespace WildJar\ApiClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Wildjar\ApiException;
-use Wildjar\Configuration;
-use Wildjar\HeaderSelector;
-use Wildjar\ObjectSerializer;
+use WildJar\ApiClient\ApiException;
+use WildJar\ApiClient\Configuration;
+use WildJar\ApiClient\HeaderSelector;
+use WildJar\ApiClient\ObjectSerializer;
 
 /**
  * RoutingApi Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -238,12 +238,12 @@ class RoutingApi
      * Block a caller
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBlocked $action_blocked action_blocked (required)
+     * @param  \WildJar\ApiClient\Model\ActionBlocked $action_blocked action_blocked (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCaller'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\BlockCaller200Response|object
+     * @return \WildJar\ApiClient\Model\BlockCaller200Response|object
      */
     public function blockCaller($account, $action_blocked, string $contentType = self::contentTypes['blockCaller'][0])
     {
@@ -257,12 +257,12 @@ class RoutingApi
      * Block a caller
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBlocked $action_blocked (required)
+     * @param  \WildJar\ApiClient\Model\ActionBlocked $action_blocked (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCaller'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\BlockCaller200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\BlockCaller200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function blockCallerWithHttpInfo($account, $action_blocked, string $contentType = self::contentTypes['blockCaller'][0])
     {
@@ -305,11 +305,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\BlockCaller200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\BlockCaller200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\BlockCaller200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\BlockCaller200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -327,14 +327,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\BlockCaller200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\BlockCaller200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\BlockCaller200Response';
+            $returnType = '\WildJar\ApiClient\Model\BlockCaller200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -367,7 +367,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\BlockCaller200Response',
+                        '\WildJar\ApiClient\Model\BlockCaller200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -384,7 +384,7 @@ class RoutingApi
      * Block a caller
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBlocked $action_blocked (required)
+     * @param  \WildJar\ApiClient\Model\ActionBlocked $action_blocked (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCaller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -406,7 +406,7 @@ class RoutingApi
      * Block a caller
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBlocked $action_blocked (required)
+     * @param  \WildJar\ApiClient\Model\ActionBlocked $action_blocked (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCaller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -414,7 +414,7 @@ class RoutingApi
      */
     public function blockCallerAsyncWithHttpInfo($account, $action_blocked, string $contentType = self::contentTypes['blockCaller'][0])
     {
-        $returnType = '\Wildjar\Model\BlockCaller200Response';
+        $returnType = '\WildJar\ApiClient\Model\BlockCaller200Response';
         $request = $this->blockCallerRequest($account, $action_blocked, $contentType);
 
         return $this->client
@@ -457,7 +457,7 @@ class RoutingApi
      * Create request for operation 'blockCaller'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBlocked $action_blocked (required)
+     * @param  \WildJar\ApiClient\Model\ActionBlocked $action_blocked (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCaller'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -574,12 +574,12 @@ class RoutingApi
      * Block a caller from a Call record
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\BlockCallerFromCallRequest $block_caller_from_call_request block_caller_from_call_request (required)
+     * @param  \WildJar\ApiClient\Model\BlockCallerFromCallRequest $block_caller_from_call_request block_caller_from_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCallerFromCall'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\BlockCaller200Response|object
+     * @return \WildJar\ApiClient\Model\BlockCaller200Response|object
      */
     public function blockCallerFromCall($account, $block_caller_from_call_request, string $contentType = self::contentTypes['blockCallerFromCall'][0])
     {
@@ -593,12 +593,12 @@ class RoutingApi
      * Block a caller from a Call record
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
+     * @param  \WildJar\ApiClient\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCallerFromCall'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\BlockCaller200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\BlockCaller200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function blockCallerFromCallWithHttpInfo($account, $block_caller_from_call_request, string $contentType = self::contentTypes['blockCallerFromCall'][0])
     {
@@ -641,11 +641,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\BlockCaller200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\BlockCaller200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\BlockCaller200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\BlockCaller200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -663,14 +663,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\BlockCaller200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\BlockCaller200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\BlockCaller200Response';
+            $returnType = '\WildJar\ApiClient\Model\BlockCaller200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -703,7 +703,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\BlockCaller200Response',
+                        '\WildJar\ApiClient\Model\BlockCaller200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -720,7 +720,7 @@ class RoutingApi
      * Block a caller from a Call record
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
+     * @param  \WildJar\ApiClient\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCallerFromCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -742,7 +742,7 @@ class RoutingApi
      * Block a caller from a Call record
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
+     * @param  \WildJar\ApiClient\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCallerFromCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -750,7 +750,7 @@ class RoutingApi
      */
     public function blockCallerFromCallAsyncWithHttpInfo($account, $block_caller_from_call_request, string $contentType = self::contentTypes['blockCallerFromCall'][0])
     {
-        $returnType = '\Wildjar\Model\BlockCaller200Response';
+        $returnType = '\WildJar\ApiClient\Model\BlockCaller200Response';
         $request = $this->blockCallerFromCallRequest($account, $block_caller_from_call_request, $contentType);
 
         return $this->client
@@ -793,7 +793,7 @@ class RoutingApi
      * Create request for operation 'blockCallerFromCall'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
+     * @param  \WildJar\ApiClient\Model\BlockCallerFromCallRequest $block_caller_from_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['blockCallerFromCall'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -910,12 +910,12 @@ class RoutingApi
      * Create a location routing branch
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBranchFull $action_branch_full action_branch_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranchFull $action_branch_full action_branch_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateBranchAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
      */
     public function createBranchAction($account, $action_branch_full, string $contentType = self::contentTypes['createBranchAction'][0])
     {
@@ -929,12 +929,12 @@ class RoutingApi
      * Create a location routing branch
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBranchFull $action_branch_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranchFull $action_branch_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBranchActionWithHttpInfo($account, $action_branch_full, string $contentType = self::contentTypes['createBranchAction'][0])
     {
@@ -977,11 +977,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateBranchAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateBranchAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -999,14 +999,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateBranchAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateBranchAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1039,7 +1039,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateBranchAction200Response',
+                        '\WildJar\ApiClient\Model\CreateBranchAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1056,7 +1056,7 @@ class RoutingApi
      * Create a location routing branch
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBranchFull $action_branch_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranchFull $action_branch_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1078,7 +1078,7 @@ class RoutingApi
      * Create a location routing branch
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBranchFull $action_branch_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranchFull $action_branch_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1086,7 +1086,7 @@ class RoutingApi
      */
     public function createBranchActionAsyncWithHttpInfo($account, $action_branch_full, string $contentType = self::contentTypes['createBranchAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
         $request = $this->createBranchActionRequest($account, $action_branch_full, $contentType);
 
         return $this->client
@@ -1129,7 +1129,7 @@ class RoutingApi
      * Create request for operation 'createBranchAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionBranchFull $action_branch_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranchFull $action_branch_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1246,12 +1246,12 @@ class RoutingApi
      * Create an IVR action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateIVRAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
      */
     public function createIVRAction($account, $action_ivr_full, string $contentType = self::contentTypes['createIVRAction'][0])
     {
@@ -1265,12 +1265,12 @@ class RoutingApi
      * Create an IVR action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createIVRActionWithHttpInfo($account, $action_ivr_full, string $contentType = self::contentTypes['createIVRAction'][0])
     {
@@ -1313,11 +1313,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateIVRAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateIVRAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1335,14 +1335,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateIVRAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateIVRAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1375,7 +1375,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateIVRAction200Response',
+                        '\WildJar\ApiClient\Model\CreateIVRAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1392,7 +1392,7 @@ class RoutingApi
      * Create an IVR action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1414,7 +1414,7 @@ class RoutingApi
      * Create an IVR action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1422,7 +1422,7 @@ class RoutingApi
      */
     public function createIVRActionAsyncWithHttpInfo($account, $action_ivr_full, string $contentType = self::contentTypes['createIVRAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
         $request = $this->createIVRActionRequest($account, $action_ivr_full, $contentType);
 
         return $this->client
@@ -1465,7 +1465,7 @@ class RoutingApi
      * Create request for operation 'createIVRAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1582,12 +1582,12 @@ class RoutingApi
      * Create a location routing action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionLocationsFull $action_locations_full action_locations_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsFull $action_locations_full action_locations_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateLocationsAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|object
      */
     public function createLocationsAction($account, $action_locations_full, string $contentType = self::contentTypes['createLocationsAction'][0])
     {
@@ -1601,12 +1601,12 @@ class RoutingApi
      * Create a location routing action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionLocationsFull $action_locations_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsFull $action_locations_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createLocationsActionWithHttpInfo($account, $action_locations_full, string $contentType = self::contentTypes['createLocationsAction'][0])
     {
@@ -1649,11 +1649,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateLocationsAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateLocationsAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateLocationsAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateLocationsAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1671,14 +1671,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateLocationsAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateLocationsAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateLocationsAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateLocationsAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1711,7 +1711,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateLocationsAction200Response',
+                        '\WildJar\ApiClient\Model\CreateLocationsAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1728,7 +1728,7 @@ class RoutingApi
      * Create a location routing action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionLocationsFull $action_locations_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsFull $action_locations_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1750,7 +1750,7 @@ class RoutingApi
      * Create a location routing action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionLocationsFull $action_locations_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsFull $action_locations_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1758,7 +1758,7 @@ class RoutingApi
      */
     public function createLocationsActionAsyncWithHttpInfo($account, $action_locations_full, string $contentType = self::contentTypes['createLocationsAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateLocationsAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateLocationsAction200Response';
         $request = $this->createLocationsActionRequest($account, $action_locations_full, $contentType);
 
         return $this->client
@@ -1801,7 +1801,7 @@ class RoutingApi
      * Create request for operation 'createLocationsAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionLocationsFull $action_locations_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsFull $action_locations_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1918,12 +1918,12 @@ class RoutingApi
      * Create a round robin action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateRobinAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
      */
     public function createRobinAction($account, $action_robin_full, string $contentType = self::contentTypes['createRobinAction'][0])
     {
@@ -1937,12 +1937,12 @@ class RoutingApi
      * Create a round robin action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRobinActionWithHttpInfo($account, $action_robin_full, string $contentType = self::contentTypes['createRobinAction'][0])
     {
@@ -1985,11 +1985,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateRobinAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateRobinAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2007,14 +2007,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateRobinAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateRobinAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2047,7 +2047,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateRobinAction200Response',
+                        '\WildJar\ApiClient\Model\CreateRobinAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2064,7 +2064,7 @@ class RoutingApi
      * Create a round robin action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2086,7 +2086,7 @@ class RoutingApi
      * Create a round robin action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2094,7 +2094,7 @@ class RoutingApi
      */
     public function createRobinActionAsyncWithHttpInfo($account, $action_robin_full, string $contentType = self::contentTypes['createRobinAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
         $request = $this->createRobinActionRequest($account, $action_robin_full, $contentType);
 
         return $this->client
@@ -2137,7 +2137,7 @@ class RoutingApi
      * Create request for operation 'createRobinAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2254,12 +2254,12 @@ class RoutingApi
      * Create a tag action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTagAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
      */
     public function createTagAction($account, $action_tag, string $contentType = self::contentTypes['createTagAction'][0])
     {
@@ -2273,12 +2273,12 @@ class RoutingApi
      * Create a tag action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTagActionWithHttpInfo($account, $action_tag, string $contentType = self::contentTypes['createTagAction'][0])
     {
@@ -2321,11 +2321,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTagAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTagAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTagAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTagAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2343,14 +2343,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTagAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTagAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTagAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2383,7 +2383,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTagAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTagAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2400,7 +2400,7 @@ class RoutingApi
      * Create a tag action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2422,7 +2422,7 @@ class RoutingApi
      * Create a tag action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2430,7 +2430,7 @@ class RoutingApi
      */
     public function createTagActionAsyncWithHttpInfo($account, $action_tag, string $contentType = self::contentTypes['createTagAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTagAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
         $request = $this->createTagActionRequest($account, $action_tag, $contentType);
 
         return $this->client
@@ -2473,7 +2473,7 @@ class RoutingApi
      * Create request for operation 'createTagAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2590,12 +2590,12 @@ class RoutingApi
      * Create a time switch action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTimeAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
      */
     public function createTimeAction($account, $action_time_full, string $contentType = self::contentTypes['createTimeAction'][0])
     {
@@ -2609,12 +2609,12 @@ class RoutingApi
      * Create a time switch action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTimeActionWithHttpInfo($account, $action_time_full, string $contentType = self::contentTypes['createTimeAction'][0])
     {
@@ -2657,11 +2657,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTimeAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTimeAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2679,14 +2679,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTimeAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTimeAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2719,7 +2719,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTimeAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTimeAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2736,7 +2736,7 @@ class RoutingApi
      * Create a time switch action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2758,7 +2758,7 @@ class RoutingApi
      * Create a time switch action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2766,7 +2766,7 @@ class RoutingApi
      */
     public function createTimeActionAsyncWithHttpInfo($account, $action_time_full, string $contentType = self::contentTypes['createTimeAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
         $request = $this->createTimeActionRequest($account, $action_time_full, $contentType);
 
         return $this->client
@@ -2809,7 +2809,7 @@ class RoutingApi
      * Create request for operation 'createTimeAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2926,12 +2926,12 @@ class RoutingApi
      * Create a transfer action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTransferAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
      */
     public function createTransferAction($account, $action_transfer_full, string $contentType = self::contentTypes['createTransferAction'][0])
     {
@@ -2945,12 +2945,12 @@ class RoutingApi
      * Create a transfer action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTransferActionWithHttpInfo($account, $action_transfer_full, string $contentType = self::contentTypes['createTransferAction'][0])
     {
@@ -2993,11 +2993,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTransferAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTransferAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3015,14 +3015,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTransferAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTransferAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3055,7 +3055,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTransferAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTransferAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3072,7 +3072,7 @@ class RoutingApi
      * Create a transfer action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3094,7 +3094,7 @@ class RoutingApi
      * Create a transfer action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3102,7 +3102,7 @@ class RoutingApi
      */
     public function createTransferActionAsyncWithHttpInfo($account, $action_transfer_full, string $contentType = self::contentTypes['createTransferAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
         $request = $this->createTransferActionRequest($account, $action_transfer_full, $contentType);
 
         return $this->client
@@ -3145,7 +3145,7 @@ class RoutingApi
      * Create request for operation 'createTransferAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3262,12 +3262,12 @@ class RoutingApi
      * Create a voicemail action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateVoicemailAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
      */
     public function createVoicemailAction($account, $action_voicemail_full, string $contentType = self::contentTypes['createVoicemailAction'][0])
     {
@@ -3281,12 +3281,12 @@ class RoutingApi
      * Create a voicemail action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function createVoicemailActionWithHttpInfo($account, $action_voicemail_full, string $contentType = self::contentTypes['createVoicemailAction'][0])
     {
@@ -3329,11 +3329,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateVoicemailAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3351,14 +3351,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateVoicemailAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateVoicemailAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3391,7 +3391,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateVoicemailAction200Response',
+                        '\WildJar\ApiClient\Model\CreateVoicemailAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3408,7 +3408,7 @@ class RoutingApi
      * Create a voicemail action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3430,7 +3430,7 @@ class RoutingApi
      * Create a voicemail action
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3438,7 +3438,7 @@ class RoutingApi
      */
     public function createVoicemailActionAsyncWithHttpInfo($account, $action_voicemail_full, string $contentType = self::contentTypes['createVoicemailAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
         $request = $this->createVoicemailActionRequest($account, $action_voicemail_full, $contentType);
 
         return $this->client
@@ -3481,7 +3481,7 @@ class RoutingApi
      * Create request for operation 'createVoicemailAction'
      *
      * @param  int $account WildJar account number. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3601,9 +3601,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the branch action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateBranchAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
      */
     public function getBranchAction($account, $action_id, string $contentType = self::contentTypes['getBranchAction'][0])
     {
@@ -3620,9 +3620,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the branch action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBranchActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getBranchAction'][0])
     {
@@ -3665,11 +3665,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateBranchAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateBranchAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3687,14 +3687,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateBranchAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateBranchAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3727,7 +3727,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateBranchAction200Response',
+                        '\WildJar\ApiClient\Model\CreateBranchAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3774,7 +3774,7 @@ class RoutingApi
      */
     public function getBranchActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getBranchAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
         $request = $this->getBranchActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -3938,9 +3938,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the IVR. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateIVRAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
      */
     public function getIVRAction($account, $action_id, string $contentType = self::contentTypes['getIVRAction'][0])
     {
@@ -3957,9 +3957,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the IVR. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIVRActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getIVRAction'][0])
     {
@@ -4002,11 +4002,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateIVRAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateIVRAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4024,14 +4024,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateIVRAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateIVRAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4064,7 +4064,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateIVRAction200Response',
+                        '\WildJar\ApiClient\Model\CreateIVRAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4111,7 +4111,7 @@ class RoutingApi
      */
     public function getIVRActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getIVRAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
         $request = $this->getIVRActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -4275,9 +4275,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the locations action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateLocationsAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|object
      */
     public function getLocationsAction($account, $action_id, string $contentType = self::contentTypes['getLocationsAction'][0])
     {
@@ -4294,9 +4294,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the locations action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLocationsActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getLocationsAction'][0])
     {
@@ -4339,11 +4339,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateLocationsAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateLocationsAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateLocationsAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateLocationsAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4361,14 +4361,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateLocationsAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateLocationsAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateLocationsAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateLocationsAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4401,7 +4401,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateLocationsAction200Response',
+                        '\WildJar\ApiClient\Model\CreateLocationsAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4448,7 +4448,7 @@ class RoutingApi
      */
     public function getLocationsActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getLocationsAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateLocationsAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateLocationsAction200Response';
         $request = $this->getLocationsActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -4612,9 +4612,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the IVR. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsMap'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\UpdateLocationsAction200Response|object
+     * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object
      */
     public function getLocationsMap($account, $action_id, string $contentType = self::contentTypes['getLocationsMap'][0])
     {
@@ -4631,9 +4631,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the IVR. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLocationsMap'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\UpdateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLocationsMapWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getLocationsMap'][0])
     {
@@ -4676,11 +4676,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\UpdateLocationsAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\UpdateLocationsAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\UpdateLocationsAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\UpdateLocationsAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4698,14 +4698,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\UpdateLocationsAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\UpdateLocationsAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\UpdateLocationsAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\UpdateLocationsAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4738,7 +4738,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\UpdateLocationsAction200Response',
+                        '\WildJar\ApiClient\Model\UpdateLocationsAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4785,7 +4785,7 @@ class RoutingApi
      */
     public function getLocationsMapAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getLocationsMap'][0])
     {
-        $returnType = '\Wildjar\Model\UpdateLocationsAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\UpdateLocationsAction200Response';
         $request = $this->getLocationsMapRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -4949,9 +4949,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the round robin. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateRobinAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
      */
     public function getRobinAction($account, $action_id, string $contentType = self::contentTypes['getRobinAction'][0])
     {
@@ -4968,9 +4968,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the round robin. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRobinActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getRobinAction'][0])
     {
@@ -5013,11 +5013,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateRobinAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateRobinAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5035,14 +5035,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateRobinAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateRobinAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5075,7 +5075,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateRobinAction200Response',
+                        '\WildJar\ApiClient\Model\CreateRobinAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5122,7 +5122,7 @@ class RoutingApi
      */
     public function getRobinActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getRobinAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
         $request = $this->getRobinActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -5286,9 +5286,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the tag action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTagAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
      */
     public function getTagAction($account, $action_id, string $contentType = self::contentTypes['getTagAction'][0])
     {
@@ -5305,9 +5305,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the tag action. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTagActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTagAction'][0])
     {
@@ -5350,11 +5350,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTagAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTagAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTagAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTagAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5372,14 +5372,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTagAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTagAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTagAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5412,7 +5412,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTagAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTagAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5459,7 +5459,7 @@ class RoutingApi
      */
     public function getTagActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTagAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTagAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
         $request = $this->getTagActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -5623,9 +5623,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the time switch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTimeAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
      */
     public function getTimeAction($account, $action_id, string $contentType = self::contentTypes['getTimeAction'][0])
     {
@@ -5642,9 +5642,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the time switch. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimeActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTimeAction'][0])
     {
@@ -5687,11 +5687,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTimeAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTimeAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5709,14 +5709,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTimeAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTimeAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5749,7 +5749,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTimeAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTimeAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5796,7 +5796,7 @@ class RoutingApi
      */
     public function getTimeActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTimeAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
         $request = $this->getTimeActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -5960,9 +5960,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the transfer. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTransferAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
      */
     public function getTransferAction($account, $action_id, string $contentType = self::contentTypes['getTransferAction'][0])
     {
@@ -5979,9 +5979,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the transfer. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransferActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTransferAction'][0])
     {
@@ -6024,11 +6024,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTransferAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTransferAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6046,14 +6046,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTransferAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTransferAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6086,7 +6086,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTransferAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTransferAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6133,7 +6133,7 @@ class RoutingApi
      */
     public function getTransferActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getTransferAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
         $request = $this->getTransferActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -6297,9 +6297,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the voicemail. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateVoicemailAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
      */
     public function getVoicemailAction($account, $action_id, string $contentType = self::contentTypes['getVoicemailAction'][0])
     {
@@ -6316,9 +6316,9 @@ class RoutingApi
      * @param  float $action_id The action ID of the voicemail. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getVoicemailActionWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getVoicemailAction'][0])
     {
@@ -6361,11 +6361,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateVoicemailAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6383,14 +6383,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateVoicemailAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateVoicemailAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6423,7 +6423,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateVoicemailAction200Response',
+                        '\WildJar\ApiClient\Model\CreateVoicemailAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6470,7 +6470,7 @@ class RoutingApi
      */
     public function getVoicemailActionAsyncWithHttpInfo($account, $action_id, string $contentType = self::contentTypes['getVoicemailAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
         $request = $this->getVoicemailActionRequest($account, $action_id, $contentType);
 
         return $this->client
@@ -6633,9 +6633,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBlockedCallers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListBlockedCallers200Response|object
+     * @return \WildJar\ApiClient\Model\ListBlockedCallers200Response|object
      */
     public function listBlockedCallers($account, string $contentType = self::contentTypes['listBlockedCallers'][0])
     {
@@ -6651,9 +6651,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBlockedCallers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListBlockedCallers200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListBlockedCallers200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBlockedCallersWithHttpInfo($account, string $contentType = self::contentTypes['listBlockedCallers'][0])
     {
@@ -6696,11 +6696,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListBlockedCallers200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListBlockedCallers200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListBlockedCallers200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListBlockedCallers200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6718,14 +6718,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListBlockedCallers200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListBlockedCallers200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListBlockedCallers200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListBlockedCallers200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6758,7 +6758,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListBlockedCallers200Response',
+                        '\WildJar\ApiClient\Model\ListBlockedCallers200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6803,7 +6803,7 @@ class RoutingApi
      */
     public function listBlockedCallersAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listBlockedCallers'][0])
     {
-        $returnType = '\Wildjar\Model\ListBlockedCallers200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListBlockedCallers200Response';
         $request = $this->listBlockedCallersRequest($account, $contentType);
 
         return $this->client
@@ -6950,9 +6950,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBranchActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListBranchActions200Response|object
+     * @return \WildJar\ApiClient\Model\ListBranchActions200Response|object
      */
     public function listBranchActions($account, string $contentType = self::contentTypes['listBranchActions'][0])
     {
@@ -6968,9 +6968,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBranchActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListBranchActions200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListBranchActions200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBranchActionsWithHttpInfo($account, string $contentType = self::contentTypes['listBranchActions'][0])
     {
@@ -7013,11 +7013,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListBranchActions200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListBranchActions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListBranchActions200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListBranchActions200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7035,14 +7035,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListBranchActions200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListBranchActions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListBranchActions200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListBranchActions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7075,7 +7075,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListBranchActions200Response',
+                        '\WildJar\ApiClient\Model\ListBranchActions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7120,7 +7120,7 @@ class RoutingApi
      */
     public function listBranchActionsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listBranchActions'][0])
     {
-        $returnType = '\Wildjar\Model\ListBranchActions200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListBranchActions200Response';
         $request = $this->listBranchActionsRequest($account, $contentType);
 
         return $this->client
@@ -7267,9 +7267,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIVRs'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListIVRs200Response|object
+     * @return \WildJar\ApiClient\Model\ListIVRs200Response|object
      */
     public function listIVRs($account, string $contentType = self::contentTypes['listIVRs'][0])
     {
@@ -7285,9 +7285,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listIVRs'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListIVRs200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListIVRs200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listIVRsWithHttpInfo($account, string $contentType = self::contentTypes['listIVRs'][0])
     {
@@ -7330,11 +7330,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListIVRs200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListIVRs200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListIVRs200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListIVRs200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7352,14 +7352,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListIVRs200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListIVRs200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListIVRs200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListIVRs200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7392,7 +7392,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListIVRs200Response',
+                        '\WildJar\ApiClient\Model\ListIVRs200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7437,7 +7437,7 @@ class RoutingApi
      */
     public function listIVRsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listIVRs'][0])
     {
-        $returnType = '\Wildjar\Model\ListIVRs200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListIVRs200Response';
         $request = $this->listIVRsRequest($account, $contentType);
 
         return $this->client
@@ -7584,9 +7584,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocationsActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListLocationsActions200Response|object
+     * @return \WildJar\ApiClient\Model\ListLocationsActions200Response|object
      */
     public function listLocationsActions($account, string $contentType = self::contentTypes['listLocationsActions'][0])
     {
@@ -7602,9 +7602,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocationsActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListLocationsActions200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListLocationsActions200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listLocationsActionsWithHttpInfo($account, string $contentType = self::contentTypes['listLocationsActions'][0])
     {
@@ -7647,11 +7647,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListLocationsActions200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListLocationsActions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListLocationsActions200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListLocationsActions200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7669,14 +7669,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListLocationsActions200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListLocationsActions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListLocationsActions200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListLocationsActions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7709,7 +7709,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListLocationsActions200Response',
+                        '\WildJar\ApiClient\Model\ListLocationsActions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7754,7 +7754,7 @@ class RoutingApi
      */
     public function listLocationsActionsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listLocationsActions'][0])
     {
-        $returnType = '\Wildjar\Model\ListLocationsActions200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListLocationsActions200Response';
         $request = $this->listLocationsActionsRequest($account, $contentType);
 
         return $this->client
@@ -7901,9 +7901,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRobins'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListRobins200Response|object
+     * @return \WildJar\ApiClient\Model\ListRobins200Response|object
      */
     public function listRobins($account, string $contentType = self::contentTypes['listRobins'][0])
     {
@@ -7919,9 +7919,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRobins'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListRobins200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListRobins200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listRobinsWithHttpInfo($account, string $contentType = self::contentTypes['listRobins'][0])
     {
@@ -7964,11 +7964,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListRobins200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListRobins200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListRobins200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListRobins200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7986,14 +7986,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListRobins200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListRobins200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListRobins200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListRobins200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8026,7 +8026,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListRobins200Response',
+                        '\WildJar\ApiClient\Model\ListRobins200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8071,7 +8071,7 @@ class RoutingApi
      */
     public function listRobinsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listRobins'][0])
     {
-        $returnType = '\Wildjar\Model\ListRobins200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListRobins200Response';
         $request = $this->listRobinsRequest($account, $contentType);
 
         return $this->client
@@ -8218,9 +8218,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTagActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListTagActions200Response|object
+     * @return \WildJar\ApiClient\Model\ListTagActions200Response|object
      */
     public function listTagActions($account, string $contentType = self::contentTypes['listTagActions'][0])
     {
@@ -8236,9 +8236,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTagActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListTagActions200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListTagActions200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTagActionsWithHttpInfo($account, string $contentType = self::contentTypes['listTagActions'][0])
     {
@@ -8281,11 +8281,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListTagActions200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListTagActions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListTagActions200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListTagActions200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8303,14 +8303,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListTagActions200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListTagActions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListTagActions200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListTagActions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8343,7 +8343,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListTagActions200Response',
+                        '\WildJar\ApiClient\Model\ListTagActions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8388,7 +8388,7 @@ class RoutingApi
      */
     public function listTagActionsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listTagActions'][0])
     {
-        $returnType = '\Wildjar\Model\ListTagActions200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListTagActions200Response';
         $request = $this->listTagActionsRequest($account, $contentType);
 
         return $this->client
@@ -8535,9 +8535,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimeActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListTimeActions200Response|object
+     * @return \WildJar\ApiClient\Model\ListTimeActions200Response|object
      */
     public function listTimeActions($account, string $contentType = self::contentTypes['listTimeActions'][0])
     {
@@ -8553,9 +8553,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimeActions'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListTimeActions200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListTimeActions200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTimeActionsWithHttpInfo($account, string $contentType = self::contentTypes['listTimeActions'][0])
     {
@@ -8598,11 +8598,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListTimeActions200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListTimeActions200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListTimeActions200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListTimeActions200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8620,14 +8620,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListTimeActions200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListTimeActions200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListTimeActions200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListTimeActions200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8660,7 +8660,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListTimeActions200Response',
+                        '\WildJar\ApiClient\Model\ListTimeActions200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8705,7 +8705,7 @@ class RoutingApi
      */
     public function listTimeActionsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listTimeActions'][0])
     {
-        $returnType = '\Wildjar\Model\ListTimeActions200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListTimeActions200Response';
         $request = $this->listTimeActionsRequest($account, $contentType);
 
         return $this->client
@@ -8852,9 +8852,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransfers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListTransfers200Response|object
+     * @return \WildJar\ApiClient\Model\ListTransfers200Response|object
      */
     public function listTransfers($account, string $contentType = self::contentTypes['listTransfers'][0])
     {
@@ -8870,9 +8870,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransfers'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListTransfers200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListTransfers200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTransfersWithHttpInfo($account, string $contentType = self::contentTypes['listTransfers'][0])
     {
@@ -8915,11 +8915,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListTransfers200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListTransfers200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListTransfers200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListTransfers200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8937,14 +8937,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListTransfers200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListTransfers200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListTransfers200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListTransfers200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8977,7 +8977,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListTransfers200Response',
+                        '\WildJar\ApiClient\Model\ListTransfers200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9022,7 +9022,7 @@ class RoutingApi
      */
     public function listTransfersAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listTransfers'][0])
     {
-        $returnType = '\Wildjar\Model\ListTransfers200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListTransfers200Response';
         $request = $this->listTransfersRequest($account, $contentType);
 
         return $this->client
@@ -9169,9 +9169,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoicemails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListVoicemails200Response|object
+     * @return \WildJar\ApiClient\Model\ListVoicemails200Response|object
      */
     public function listVoicemails($account, string $contentType = self::contentTypes['listVoicemails'][0])
     {
@@ -9187,9 +9187,9 @@ class RoutingApi
      * @param  int $account WildJar account number. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoicemails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListVoicemails200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListVoicemails200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listVoicemailsWithHttpInfo($account, string $contentType = self::contentTypes['listVoicemails'][0])
     {
@@ -9232,11 +9232,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListVoicemails200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListVoicemails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListVoicemails200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListVoicemails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9254,14 +9254,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListVoicemails200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListVoicemails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListVoicemails200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListVoicemails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9294,7 +9294,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListVoicemails200Response',
+                        '\WildJar\ApiClient\Model\ListVoicemails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9339,7 +9339,7 @@ class RoutingApi
      */
     public function listVoicemailsAsyncWithHttpInfo($account, string $contentType = self::contentTypes['listVoicemails'][0])
     {
-        $returnType = '\Wildjar\Model\ListVoicemails200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListVoicemails200Response';
         $request = $this->listVoicemailsRequest($account, $contentType);
 
         return $this->client
@@ -9487,7 +9487,7 @@ class RoutingApi
      * @param  string $number A blocked caller&#39;s number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unblockNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -9505,7 +9505,7 @@ class RoutingApi
      * @param  string $number A blocked caller&#39;s number in E164 format without a leading plus (+). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unblockNumber'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -9743,12 +9743,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the branch action. (required)
-     * @param  \Wildjar\Model\ActionBranch $action_branch action_branch (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranch $action_branch action_branch (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateBranchAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
      */
     public function updateBranchAction($account, $action_id, $action_branch, string $contentType = self::contentTypes['updateBranchAction'][0])
     {
@@ -9763,12 +9763,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the branch action. (required)
-     * @param  \Wildjar\Model\ActionBranch $action_branch (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranch $action_branch (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBranchAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateBranchAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBranchActionWithHttpInfo($account, $action_id, $action_branch, string $contentType = self::contentTypes['updateBranchAction'][0])
     {
@@ -9811,11 +9811,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateBranchAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateBranchAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateBranchAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9833,14 +9833,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateBranchAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateBranchAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9873,7 +9873,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateBranchAction200Response',
+                        '\WildJar\ApiClient\Model\CreateBranchAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9891,7 +9891,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the branch action. (required)
-     * @param  \Wildjar\Model\ActionBranch $action_branch (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranch $action_branch (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9914,7 +9914,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the branch action. (required)
-     * @param  \Wildjar\Model\ActionBranch $action_branch (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranch $action_branch (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9922,7 +9922,7 @@ class RoutingApi
      */
     public function updateBranchActionAsyncWithHttpInfo($account, $action_id, $action_branch, string $contentType = self::contentTypes['updateBranchAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateBranchAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateBranchAction200Response';
         $request = $this->updateBranchActionRequest($account, $action_id, $action_branch, $contentType);
 
         return $this->client
@@ -9966,7 +9966,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the branch action. (required)
-     * @param  \Wildjar\Model\ActionBranch $action_branch (required)
+     * @param  \WildJar\ApiClient\Model\ActionBranch $action_branch (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBranchAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10099,12 +10099,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\RoutingAction $routing_action routing_action (required)
+     * @param  \WildJar\ApiClient\Model\RoutingAction $routing_action routing_action (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDidRouting'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\UpdateDidRouting200Response|object
+     * @return \WildJar\ApiClient\Model\UpdateDidRouting200Response|object
      */
     public function updateDidRouting($account, $did, $routing_action, string $contentType = self::contentTypes['updateDidRouting'][0])
     {
@@ -10119,12 +10119,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\RoutingAction $routing_action (required)
+     * @param  \WildJar\ApiClient\Model\RoutingAction $routing_action (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDidRouting'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\UpdateDidRouting200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\UpdateDidRouting200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateDidRoutingWithHttpInfo($account, $did, $routing_action, string $contentType = self::contentTypes['updateDidRouting'][0])
     {
@@ -10167,11 +10167,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\UpdateDidRouting200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\UpdateDidRouting200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\UpdateDidRouting200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\UpdateDidRouting200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10189,14 +10189,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\UpdateDidRouting200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\UpdateDidRouting200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\UpdateDidRouting200Response';
+            $returnType = '\WildJar\ApiClient\Model\UpdateDidRouting200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10229,7 +10229,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\UpdateDidRouting200Response',
+                        '\WildJar\ApiClient\Model\UpdateDidRouting200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10247,7 +10247,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\RoutingAction $routing_action (required)
+     * @param  \WildJar\ApiClient\Model\RoutingAction $routing_action (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDidRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10270,7 +10270,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\RoutingAction $routing_action (required)
+     * @param  \WildJar\ApiClient\Model\RoutingAction $routing_action (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDidRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10278,7 +10278,7 @@ class RoutingApi
      */
     public function updateDidRoutingAsyncWithHttpInfo($account, $did, $routing_action, string $contentType = self::contentTypes['updateDidRouting'][0])
     {
-        $returnType = '\Wildjar\Model\UpdateDidRouting200Response';
+        $returnType = '\WildJar\ApiClient\Model\UpdateDidRouting200Response';
         $request = $this->updateDidRoutingRequest($account, $did, $routing_action, $contentType);
 
         return $this->client
@@ -10322,7 +10322,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  string $did Tracking number in E164 format without a leading plus (+). (required)
-     * @param  \Wildjar\Model\RoutingAction $routing_action (required)
+     * @param  \WildJar\ApiClient\Model\RoutingAction $routing_action (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDidRouting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10455,12 +10455,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the IVR. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateIVRAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
      */
     public function updateIVRAction($account, $action_id, $action_ivr_full, string $contentType = self::contentTypes['updateIVRAction'][0])
     {
@@ -10475,12 +10475,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the IVR. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateIVRAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateIVRAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateIVRActionWithHttpInfo($account, $action_id, $action_ivr_full, string $contentType = self::contentTypes['updateIVRAction'][0])
     {
@@ -10523,11 +10523,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateIVRAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateIVRAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateIVRAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10545,14 +10545,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateIVRAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateIVRAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10585,7 +10585,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateIVRAction200Response',
+                        '\WildJar\ApiClient\Model\CreateIVRAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10603,7 +10603,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the IVR. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10626,7 +10626,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the IVR. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10634,7 +10634,7 @@ class RoutingApi
      */
     public function updateIVRActionAsyncWithHttpInfo($account, $action_id, $action_ivr_full, string $contentType = self::contentTypes['updateIVRAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateIVRAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateIVRAction200Response';
         $request = $this->updateIVRActionRequest($account, $action_id, $action_ivr_full, $contentType);
 
         return $this->client
@@ -10678,7 +10678,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the IVR. (required)
-     * @param  \Wildjar\Model\ActionIVRFull $action_ivr_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionIVRFull $action_ivr_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateIVRAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10811,12 +10811,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the locations action. (required)
-     * @param  \Wildjar\Model\ActionLocationsMapUpdate $action_locations_map_update action_locations_map_update (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsMapUpdate $action_locations_map_update action_locations_map_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\UpdateLocationsAction200Response|object
+     * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object
      */
     public function updateLocationsAction($account, $action_id, $action_locations_map_update, string $contentType = self::contentTypes['updateLocationsAction'][0])
     {
@@ -10831,12 +10831,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the locations action. (required)
-     * @param  \Wildjar\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationsAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\UpdateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLocationsActionWithHttpInfo($account, $action_id, $action_locations_map_update, string $contentType = self::contentTypes['updateLocationsAction'][0])
     {
@@ -10879,11 +10879,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\UpdateLocationsAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\UpdateLocationsAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\UpdateLocationsAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\UpdateLocationsAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10901,14 +10901,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\UpdateLocationsAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\UpdateLocationsAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\UpdateLocationsAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\UpdateLocationsAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10941,7 +10941,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\UpdateLocationsAction200Response',
+                        '\WildJar\ApiClient\Model\UpdateLocationsAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10959,7 +10959,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the locations action. (required)
-     * @param  \Wildjar\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10982,7 +10982,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the locations action. (required)
-     * @param  \Wildjar\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10990,7 +10990,7 @@ class RoutingApi
      */
     public function updateLocationsActionAsyncWithHttpInfo($account, $action_id, $action_locations_map_update, string $contentType = self::contentTypes['updateLocationsAction'][0])
     {
-        $returnType = '\Wildjar\Model\UpdateLocationsAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\UpdateLocationsAction200Response';
         $request = $this->updateLocationsActionRequest($account, $action_id, $action_locations_map_update, $contentType);
 
         return $this->client
@@ -11034,7 +11034,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the locations action. (required)
-     * @param  \Wildjar\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
+     * @param  \WildJar\ApiClient\Model\ActionLocationsMapUpdate $action_locations_map_update (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateLocationsAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11167,12 +11167,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the round robin. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateRobinAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
      */
     public function updateRobinAction($account, $action_id, $action_robin_full, string $contentType = self::contentTypes['updateRobinAction'][0])
     {
@@ -11187,12 +11187,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the round robin. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRobinAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateRobinAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRobinActionWithHttpInfo($account, $action_id, $action_robin_full, string $contentType = self::contentTypes['updateRobinAction'][0])
     {
@@ -11235,11 +11235,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateRobinAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateRobinAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateRobinAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -11257,14 +11257,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateRobinAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateRobinAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -11297,7 +11297,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateRobinAction200Response',
+                        '\WildJar\ApiClient\Model\CreateRobinAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11315,7 +11315,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the round robin. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11338,7 +11338,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the round robin. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11346,7 +11346,7 @@ class RoutingApi
      */
     public function updateRobinActionAsyncWithHttpInfo($account, $action_id, $action_robin_full, string $contentType = self::contentTypes['updateRobinAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateRobinAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateRobinAction200Response';
         $request = $this->updateRobinActionRequest($account, $action_id, $action_robin_full, $contentType);
 
         return $this->client
@@ -11390,7 +11390,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the round robin. (required)
-     * @param  \Wildjar\Model\ActionRobinFull $action_robin_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionRobinFull $action_robin_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRobinAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11523,12 +11523,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the tag action. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTagAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
      */
     public function updateTagAction($account, $action_id, $action_tag, string $contentType = self::contentTypes['updateTagAction'][0])
     {
@@ -11543,12 +11543,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the tag action. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTagAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTagAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTagActionWithHttpInfo($account, $action_id, $action_tag, string $contentType = self::contentTypes['updateTagAction'][0])
     {
@@ -11591,11 +11591,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTagAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTagAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTagAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTagAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -11613,14 +11613,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTagAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTagAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTagAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -11653,7 +11653,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTagAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTagAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11671,7 +11671,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the tag action. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11694,7 +11694,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the tag action. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11702,7 +11702,7 @@ class RoutingApi
      */
     public function updateTagActionAsyncWithHttpInfo($account, $action_id, $action_tag, string $contentType = self::contentTypes['updateTagAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTagAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTagAction200Response';
         $request = $this->updateTagActionRequest($account, $action_id, $action_tag, $contentType);
 
         return $this->client
@@ -11746,7 +11746,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the tag action. (required)
-     * @param  \Wildjar\Model\ActionTag $action_tag (required)
+     * @param  \WildJar\ApiClient\Model\ActionTag $action_tag (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTagAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11879,12 +11879,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the time switch. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTimeAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
      */
     public function updateTimeAction($account, $action_id, $action_time_full, string $contentType = self::contentTypes['updateTimeAction'][0])
     {
@@ -11899,12 +11899,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the time switch. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTimeAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTimeAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTimeActionWithHttpInfo($account, $action_id, $action_time_full, string $contentType = self::contentTypes['updateTimeAction'][0])
     {
@@ -11947,11 +11947,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTimeAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTimeAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTimeAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -11969,14 +11969,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTimeAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTimeAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -12009,7 +12009,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTimeAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTimeAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12027,7 +12027,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the time switch. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12050,7 +12050,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the time switch. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12058,7 +12058,7 @@ class RoutingApi
      */
     public function updateTimeActionAsyncWithHttpInfo($account, $action_id, $action_time_full, string $contentType = self::contentTypes['updateTimeAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTimeAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTimeAction200Response';
         $request = $this->updateTimeActionRequest($account, $action_id, $action_time_full, $contentType);
 
         return $this->client
@@ -12102,7 +12102,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the time switch. (required)
-     * @param  \Wildjar\Model\ActionTimeFull $action_time_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTimeFull $action_time_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTimeAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12235,12 +12235,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the transfer. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateTransferAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
      */
     public function updateTransferAction($account, $action_id, $action_transfer_full, string $contentType = self::contentTypes['updateTransferAction'][0])
     {
@@ -12255,12 +12255,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the transfer. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTransferAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateTransferAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTransferActionWithHttpInfo($account, $action_id, $action_transfer_full, string $contentType = self::contentTypes['updateTransferAction'][0])
     {
@@ -12303,11 +12303,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateTransferAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateTransferAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateTransferAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -12325,14 +12325,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateTransferAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateTransferAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -12365,7 +12365,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateTransferAction200Response',
+                        '\WildJar\ApiClient\Model\CreateTransferAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12383,7 +12383,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the transfer. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12406,7 +12406,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the transfer. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12414,7 +12414,7 @@ class RoutingApi
      */
     public function updateTransferActionAsyncWithHttpInfo($account, $action_id, $action_transfer_full, string $contentType = self::contentTypes['updateTransferAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateTransferAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateTransferAction200Response';
         $request = $this->updateTransferActionRequest($account, $action_id, $action_transfer_full, $contentType);
 
         return $this->client
@@ -12458,7 +12458,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the transfer. (required)
-     * @param  \Wildjar\Model\ActionTransferFull $action_transfer_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionTransferFull $action_transfer_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTransferAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12591,12 +12591,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the voicemail. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\CreateVoicemailAction200Response|object
+     * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
      */
     public function updateVoicemailAction($account, $action_id, $action_voicemail_full, string $contentType = self::contentTypes['updateVoicemailAction'][0])
     {
@@ -12611,12 +12611,12 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the voicemail. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoicemailAction'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateVoicemailActionWithHttpInfo($account, $action_id, $action_voicemail_full, string $contentType = self::contentTypes['updateVoicemailAction'][0])
     {
@@ -12659,11 +12659,11 @@ class RoutingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\CreateVoicemailAction200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\CreateVoicemailAction200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -12681,14 +12681,14 @@ class RoutingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\CreateVoicemailAction200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\CreateVoicemailAction200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+            $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -12721,7 +12721,7 @@ class RoutingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\CreateVoicemailAction200Response',
+                        '\WildJar\ApiClient\Model\CreateVoicemailAction200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12739,7 +12739,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the voicemail. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12762,7 +12762,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the voicemail. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12770,7 +12770,7 @@ class RoutingApi
      */
     public function updateVoicemailActionAsyncWithHttpInfo($account, $action_id, $action_voicemail_full, string $contentType = self::contentTypes['updateVoicemailAction'][0])
     {
-        $returnType = '\Wildjar\Model\CreateVoicemailAction200Response';
+        $returnType = '\WildJar\ApiClient\Model\CreateVoicemailAction200Response';
         $request = $this->updateVoicemailActionRequest($account, $action_id, $action_voicemail_full, $contentType);
 
         return $this->client
@@ -12814,7 +12814,7 @@ class RoutingApi
      *
      * @param  int $account WildJar account number. (required)
      * @param  float $action_id The action ID of the voicemail. (required)
-     * @param  \Wildjar\Model\ActionVoicemailFull $action_voicemail_full (required)
+     * @param  \WildJar\ApiClient\Model\ActionVoicemailFull $action_voicemail_full (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoicemailAction'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

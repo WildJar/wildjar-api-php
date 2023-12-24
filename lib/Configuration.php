@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,14 +24,14 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar;
+namespace WildJar\ApiClient;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -99,7 +99,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'wildjar-api-client';
+    protected $userAgent = 'wildjar-api-php';
 
     /**
      * Debug switch (default set to false)
@@ -428,7 +428,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (Wildjar) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (WildJar\ApiClient) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 1.0.0' . PHP_EOL;

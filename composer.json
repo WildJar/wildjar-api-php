@@ -3,17 +3,18 @@
     "description": "The WildJar API allows you to programmatically access call data, create and manage accounts,  create and configure services, enable features and integrations, and send SMS.",
     "keywords": [
         "wildjar",
+        "openapi",
         "php",
         "sdk",
         "rest",
         "api"
     ],
-    "homepage": "https://wildjar.com",
-    "license": "MIT",
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
     "authors": [
         {
-            "name": "WildJar pt ltd",
-            "homepage": "https://wildjar.com"
+            "name": "OpenAPI",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
@@ -29,6 +30,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "WildJar\\Wildjar\\" : "lib/" }
+        "psr-4": { "WildJar\\ApiClient\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "WildJar\\ApiClient\\Test\\" : "test/" }
     }
 }

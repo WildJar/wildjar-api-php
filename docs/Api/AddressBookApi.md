@@ -1,4 +1,4 @@
-# Wildjar\AddressBookApi
+# WildJar\ApiClient\AddressBookApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 ## `getAddressBookContactAssociations()`
 
 ```php
-getAddressBookContactAssociations(): \Wildjar\Model\GetAddressBookContactAssociations200Response
+getAddressBookContactAssociations(): \WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response
 ```
 
 Show full address book contact associations
@@ -27,13 +27,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AddressBookApi(
+$apiInstance = new WildJar\ApiClient\Api\AddressBookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Wildjar\Model\GetAddressBookContactAssociations200Response**](../Model/GetAddressBookContactAssociations200Response.md)
+[**\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response**](../Model/GetAddressBookContactAssociations200Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ This endpoint does not need any parameter.
 ## `getAddressBookContactDetails()`
 
 ```php
-getAddressBookContactDetails($uuid): \Wildjar\Model\GetAddressBookContactDetails200Response
+getAddressBookContactDetails($uuid): \WildJar\ApiClient\Model\GetAddressBookContactDetails200Response
 ```
 
 Show address book contact details
@@ -87,13 +87,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AddressBookApi(
+$apiInstance = new WildJar\ApiClient\Api\AddressBookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetAddressBookContactDetails200Response**](../Model/GetAddressBookContactDetails200Response.md)
+[**\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response**](../Model/GetAddressBookContactDetails200Response.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ try {
 ## `listAddressBookContacts()`
 
 ```php
-listAddressBookContacts(): \Wildjar\Model\ListAddressBookContacts200Response
+listAddressBookContacts(): \WildJar\ApiClient\Model\ListAddressBookContacts200Response
 ```
 
 Get list of contacts in the address book
@@ -150,13 +150,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AddressBookApi(
+$apiInstance = new WildJar\ApiClient\Api\AddressBookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -177,7 +177,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Wildjar\Model\ListAddressBookContacts200Response**](../Model/ListAddressBookContacts200Response.md)
+[**\WildJar\ApiClient\Model\ListAddressBookContacts200Response**](../Model/ListAddressBookContacts200Response.md)
 
 ### Authorization
 

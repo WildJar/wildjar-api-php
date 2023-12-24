@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * GetNumber200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\NumberDetailed'
+        'data' => '\WildJar\ApiClient\Model\NumberDetailed'
     ];
 
     /**
@@ -357,7 +357,7 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\NumberDetailed|null
+     * @return \WildJar\ApiClient\Model\NumberDetailed|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\NumberDetailed|null $data data
+     * @param \WildJar\ApiClient\Model\NumberDetailed|null $data data
      *
      * @return self
      */

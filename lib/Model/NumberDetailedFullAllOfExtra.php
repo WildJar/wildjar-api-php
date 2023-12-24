@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,17 +25,17 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * NumberDetailedFullAllOfExtra Class Doc Comment
  *
  * @category Class
  * @description Linked data including shared routing, DNI configuration and SMS2Email
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'web_code' => '\Wildjar\Model\NumberDetailedFullAllOfExtraWebCode',
-        'multi_conf' => '\Wildjar\Model\NumberDetailedFullAllOfExtraMultiConf',
+        'web_code' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode',
+        'multi_conf' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraMultiConf',
         'sms_email' => 'string'
     ];
 
@@ -306,7 +306,7 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets web_code
      *
-     * @return \Wildjar\Model\NumberDetailedFullAllOfExtraWebCode|null
+     * @return \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode|null
      */
     public function getWebCode()
     {
@@ -316,7 +316,7 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets web_code
      *
-     * @param \Wildjar\Model\NumberDetailedFullAllOfExtraWebCode|null $web_code web_code
+     * @param \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode|null $web_code web_code
      *
      * @return self
      */
@@ -333,7 +333,7 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets multi_conf
      *
-     * @return \Wildjar\Model\NumberDetailedFullAllOfExtraMultiConf|null
+     * @return \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraMultiConf|null
      */
     public function getMultiConf()
     {
@@ -343,7 +343,7 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets multi_conf
      *
-     * @param \Wildjar\Model\NumberDetailedFullAllOfExtraMultiConf|null $multi_conf multi_conf
+     * @param \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraMultiConf|null $multi_conf multi_conf
      *
      * @return self
      */

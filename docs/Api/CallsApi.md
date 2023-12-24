@@ -1,4 +1,4 @@
-# Wildjar\CallsApi
+# WildJar\ApiClient\CallsApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 ## `getCallDetails()`
 
 ```php
-getCallDetails($id): \Wildjar\Model\GetCallDetails200Response
+getCallDetails($id): \WildJar\ApiClient\Model\GetCallDetails200Response
 ```
 
 Show call details
@@ -29,13 +29,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\CallsApi(
+$apiInstance = new WildJar\ApiClient\Api\CallsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetCallDetails200Response**](../Model/GetCallDetails200Response.md)
+[**\WildJar\ApiClient\Model\GetCallDetails200Response**](../Model/GetCallDetails200Response.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `getCalls()`
 
 ```php
-getCalls($account, $date_from, $date_to, $duration_min, $duration_max, $first_time_caller, $order, $status, $timezone, $tracking_number, $tracking_source): \Wildjar\Model\GetCalls200Response
+getCalls($account, $date_from, $date_to, $duration_min, $duration_max, $first_time_caller, $order, $status, $timezone, $tracking_number, $tracking_source): \WildJar\ApiClient\Model\GetCalls200Response
 ```
 
 List Calls
@@ -92,13 +92,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\CallsApi(
+$apiInstance = new WildJar\ApiClient\Api\CallsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -142,7 +142,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetCalls200Response**](../Model/GetCalls200Response.md)
+[**\WildJar\ApiClient\Model\GetCalls200Response**](../Model/GetCalls200Response.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ try {
 ## `getOutboundCallDetails()`
 
 ```php
-getOutboundCallDetails($uuid): \Wildjar\Model\GetOutboundCallDetails200Response
+getOutboundCallDetails($uuid): \WildJar\ApiClient\Model\GetOutboundCallDetails200Response
 ```
 
 Show outbound call details
@@ -175,13 +175,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\CallsApi(
+$apiInstance = new WildJar\ApiClient\Api\CallsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -205,7 +205,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetOutboundCallDetails200Response**](../Model/GetOutboundCallDetails200Response.md)
+[**\WildJar\ApiClient\Model\GetOutboundCallDetails200Response**](../Model/GetOutboundCallDetails200Response.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ try {
 ## `getOutboundCalls()`
 
 ```php
-getOutboundCalls($account, $date_from, $date_to, $duration_min, $duration_max, $order, $status, $timezone, $tracking_number): \Wildjar\Model\GetOutboundCalls200Response
+getOutboundCalls($account, $date_from, $date_to, $duration_min, $duration_max, $order, $status, $timezone, $tracking_number): \WildJar\ApiClient\Model\GetOutboundCalls200Response
 ```
 
 List Outbound Calls
@@ -238,13 +238,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\CallsApi(
+$apiInstance = new WildJar\ApiClient\Api\CallsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -284,7 +284,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetOutboundCalls200Response**](../Model/GetOutboundCalls200Response.md)
+[**\WildJar\ApiClient\Model\GetOutboundCalls200Response**](../Model/GetOutboundCalls200Response.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ try {
 ## `updateCall()`
 
 ```php
-updateCall($id, $call): \Wildjar\Model\GetCallDetails200Response
+updateCall($id, $call): \WildJar\ApiClient\Model\GetCallDetails200Response
 ```
 
 Add a score, tag or note to a call
@@ -317,20 +317,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\CallsApi(
+$apiInstance = new WildJar\ApiClient\Api\CallsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 56; // int | Call ID
-$call = new \Wildjar\Model\Call(); // \Wildjar\Model\Call
+$call = new \WildJar\ApiClient\Model\Call(); // \WildJar\ApiClient\Model\Call
 
 try {
     $result = $apiInstance->updateCall($id, $call);
@@ -345,11 +345,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| Call ID | |
-| **call** | [**\Wildjar\Model\Call**](../Model/Call.md)|  | |
+| **call** | [**\WildJar\ApiClient\Model\Call**](../Model/Call.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\GetCallDetails200Response**](../Model/GetCallDetails200Response.md)
+[**\WildJar\ApiClient\Model\GetCallDetails200Response**](../Model/GetCallDetails200Response.md)
 
 ### Authorization
 

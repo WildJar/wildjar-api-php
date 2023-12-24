@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListTagActions200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListTagActions200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionTag[]'
+        'data' => '\WildJar\ApiClient\Model\ActionTag[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListTagActions200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionTag[]|null
+     * @return \WildJar\ApiClient\Model\ActionTag[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListTagActions200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionTag[]|null $data data
+     * @param \WildJar\ApiClient\Model\ActionTag[]|null $data data
      *
      * @return self
      */

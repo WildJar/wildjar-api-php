@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionIVRFull Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -76,7 +76,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
         'notify' => 'mixed',
         'group_id' => 'mixed',
         'action' => 'string',
-        'valid' => '\Wildjar\Model\ActionIVRFullAllOfValidInner[]'
+        'valid' => '\WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[]'
     ];
 
     /**
@@ -1322,7 +1322,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets valid
      *
-     * @return \Wildjar\Model\ActionIVRFullAllOfValidInner[]
+     * @return \WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[]
      */
     public function getValid()
     {
@@ -1332,7 +1332,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets valid
      *
-     * @param \Wildjar\Model\ActionIVRFullAllOfValidInner[] $valid valid
+     * @param \WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[] $valid valid
      *
      * @return self
      */

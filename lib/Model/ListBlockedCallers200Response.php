@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListBlockedCallers200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListBlockedCallers200Response implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionBlocked[]'
+        'data' => '\WildJar\ApiClient\Model\ActionBlocked[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListBlockedCallers200Response implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionBlocked[]|null
+     * @return \WildJar\ApiClient\Model\ActionBlocked[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListBlockedCallers200Response implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionBlocked[]|null $data data
+     * @param \WildJar\ApiClient\Model\ActionBlocked[]|null $data data
      *
      * @return self
      */

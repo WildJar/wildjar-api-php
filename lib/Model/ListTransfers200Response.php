@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListTransfers200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListTransfers200Response implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionTransfer[]'
+        'data' => '\WildJar\ApiClient\Model\ActionTransfer[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListTransfers200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionTransfer[]|null
+     * @return \WildJar\ApiClient\Model\ActionTransfer[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListTransfers200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionTransfer[]|null $data data
+     * @param \WildJar\ApiClient\Model\ActionTransfer[]|null $data data
      *
      * @return self
      */

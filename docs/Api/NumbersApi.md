@@ -1,4 +1,4 @@
-# Wildjar\NumbersApi
+# WildJar\ApiClient\NumbersApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -33,13 +33,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -95,13 +95,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -142,7 +142,7 @@ void (empty response body)
 ## `getNumber()`
 
 ```php
-getNumber($did): \Wildjar\Model\GetNumber200Response
+getNumber($did): \WildJar\ApiClient\Model\GetNumber200Response
 ```
 
 Get tracking number number details
@@ -157,13 +157,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -187,7 +187,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\GetNumber200Response**](../Model/GetNumber200Response.md)
+[**\WildJar\ApiClient\Model\GetNumber200Response**](../Model/GetNumber200Response.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ try {
 ## `getNumberFull()`
 
 ```php
-getNumberFull($did): \Wildjar\Model\OrderNumber200Response
+getNumberFull($did): \WildJar\ApiClient\Model\OrderNumber200Response
 ```
 
 Get full tracking number number details (Dashboard)
@@ -220,13 +220,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -250,7 +250,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\OrderNumber200Response**](../Model/OrderNumber200Response.md)
+[**\WildJar\ApiClient\Model\OrderNumber200Response**](../Model/OrderNumber200Response.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ try {
 ## `listAvailableNumbers()`
 
 ```php
-listAvailableNumbers($country_code, $area, $network, $order, $prefix): \Wildjar\Model\ListAvailableNumbers200Response
+listAvailableNumbers($country_code, $area, $network, $order, $prefix): \WildJar\ApiClient\Model\ListAvailableNumbers200Response
 ```
 
 Get list of available numbers by country
@@ -283,13 +283,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -321,7 +321,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListAvailableNumbers200Response**](../Model/ListAvailableNumbers200Response.md)
+[**\WildJar\ApiClient\Model\ListAvailableNumbers200Response**](../Model/ListAvailableNumbers200Response.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ try {
 ## `listInventoryNumbers()`
 
 ```php
-listInventoryNumbers($country_code, $account, $provider, $type): \Wildjar\Model\ListInventoryNumbers200Response
+listInventoryNumbers($country_code, $account, $provider, $type): \WildJar\ApiClient\Model\ListInventoryNumbers200Response
 ```
 
 Get list of inventory by country (Internal)
@@ -354,13 +354,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -390,7 +390,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListInventoryNumbers200Response**](../Model/ListInventoryNumbers200Response.md)
+[**\WildJar\ApiClient\Model\ListInventoryNumbers200Response**](../Model/ListInventoryNumbers200Response.md)
 
 ### Authorization
 
@@ -408,7 +408,7 @@ try {
 ## `listNumbers()`
 
 ```php
-listNumbers($type, $account): \Wildjar\Model\ListNumbers200Response
+listNumbers($type, $account): \WildJar\ApiClient\Model\ListNumbers200Response
 ```
 
 Get list of numbers
@@ -423,13 +423,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -455,7 +455,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListNumbers200Response**](../Model/ListNumbers200Response.md)
+[**\WildJar\ApiClient\Model\ListNumbers200Response**](../Model/ListNumbers200Response.md)
 
 ### Authorization
 
@@ -473,7 +473,7 @@ try {
 ## `orderNumber()`
 
 ```php
-orderNumber($account, $did, $order_number): \Wildjar\Model\OrderNumber200Response
+orderNumber($account, $did, $order_number): \WildJar\ApiClient\Model\OrderNumber200Response
 ```
 
 Order an tracking number
@@ -488,13 +488,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -502,7 +502,7 @@ $apiInstance = new Wildjar\Api\NumbersApi(
 );
 $account = 20001; // int | WildJar account number
 $did = 61255501234; // string | Tracking number in E164 format without a leading plus (+).
-$order_number = new \Wildjar\Model\OrderNumber(); // \Wildjar\Model\OrderNumber
+$order_number = new \WildJar\ApiClient\Model\OrderNumber(); // \WildJar\ApiClient\Model\OrderNumber
 
 try {
     $result = $apiInstance->orderNumber($account, $did, $order_number);
@@ -518,11 +518,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **account** | **int**| WildJar account number | |
 | **did** | **string**| Tracking number in E164 format without a leading plus (+). | |
-| **order_number** | [**\Wildjar\Model\OrderNumber**](../Model/OrderNumber.md)|  | |
+| **order_number** | [**\WildJar\ApiClient\Model\OrderNumber**](../Model/OrderNumber.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\OrderNumber200Response**](../Model/OrderNumber200Response.md)
+[**\WildJar\ApiClient\Model\OrderNumber200Response**](../Model/OrderNumber200Response.md)
 
 ### Authorization
 
@@ -540,7 +540,7 @@ try {
 ## `updateNumber()`
 
 ```php
-updateNumber($did, $number): \Wildjar\Model\GetNumber200Response
+updateNumber($did, $number): \WildJar\ApiClient\Model\GetNumber200Response
 ```
 
 Update tracking number details
@@ -555,20 +555,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\NumbersApi(
+$apiInstance = new WildJar\ApiClient\Api\NumbersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $did = 56; // int | Tracking number in E164 format without a leading plus (+).
-$number = new \Wildjar\Model\Number(); // \Wildjar\Model\Number
+$number = new \WildJar\ApiClient\Model\Number(); // \WildJar\ApiClient\Model\Number
 
 try {
     $result = $apiInstance->updateNumber($did, $number);
@@ -583,11 +583,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **did** | **int**| Tracking number in E164 format without a leading plus (+). | |
-| **number** | [**\Wildjar\Model\Number**](../Model/Number.md)|  | |
+| **number** | [**\WildJar\ApiClient\Model\Number**](../Model/Number.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\GetNumber200Response**](../Model/GetNumber200Response.md)
+[**\WildJar\ApiClient\Model\GetNumber200Response**](../Model/GetNumber200Response.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * AddressBookContactAssociation Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class AddressBookContactAssociation implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => '\Wildjar\Model\AddressBookContactAssociationAccountId'
+        'account_id' => '\WildJar\ApiClient\Model\AddressBookContactAssociationAccountId'
     ];
 
     /**
@@ -291,7 +291,7 @@ class AddressBookContactAssociation implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets account_id
      *
-     * @return \Wildjar\Model\AddressBookContactAssociationAccountId|null
+     * @return \WildJar\ApiClient\Model\AddressBookContactAssociationAccountId|null
      */
     public function getAccountId()
     {
@@ -301,7 +301,7 @@ class AddressBookContactAssociation implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets account_id
      *
-     * @param \Wildjar\Model\AddressBookContactAssociationAccountId|null $account_id account_id
+     * @param \WildJar\ApiClient\Model\AddressBookContactAssociationAccountId|null $account_id account_id
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar\Model
+ * @package  WildJar\ApiClient\Model
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,12 +25,12 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package Wildjar\Model
+ * @package WildJar\ApiClient\Model
  * @author  WildJar pty ltd
  */
 interface ModelInterface

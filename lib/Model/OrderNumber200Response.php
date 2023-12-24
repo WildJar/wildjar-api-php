@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * OrderNumber200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class OrderNumber200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\NumberDetailedFull'
+        'data' => '\WildJar\ApiClient\Model\NumberDetailedFull'
     ];
 
     /**
@@ -357,7 +357,7 @@ class OrderNumber200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\NumberDetailedFull|null
+     * @return \WildJar\ApiClient\Model\NumberDetailedFull|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class OrderNumber200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\NumberDetailedFull|null $data data
+     * @param \WildJar\ApiClient\Model\NumberDetailedFull|null $data data
      *
      * @return self
      */

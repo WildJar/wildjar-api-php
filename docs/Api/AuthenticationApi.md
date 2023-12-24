@@ -1,4 +1,4 @@
-# Wildjar\AuthenticationApi
+# WildJar\ApiClient\AuthenticationApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -10,7 +10,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 ## `login()`
 
 ```php
-login(): \Wildjar\Model\Login200Response
+login(): \WildJar\ApiClient\Model\Login200Response
 ```
 
 Generate the authentication token
@@ -25,12 +25,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure HTTP basic authorization: userLogin
-$config = Wildjar\Configuration::getDefaultConfiguration()
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
 
 
-$apiInstance = new Wildjar\Api\AuthenticationApi(
+$apiInstance = new WildJar\ApiClient\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Wildjar\Model\Login200Response**](../Model/Login200Response.md)
+[**\WildJar\ApiClient\Model\Login200Response**](../Model/Login200Response.md)
 
 ### Authorization
 

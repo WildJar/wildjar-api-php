@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * GetAddressBookContactAssociations200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class GetAddressBookContactAssociations200Response implements ModelInterface, Ar
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\AddressBookContactAssociation'
+        'data' => '\WildJar\ApiClient\Model\AddressBookContactAssociation'
     ];
 
     /**
@@ -357,7 +357,7 @@ class GetAddressBookContactAssociations200Response implements ModelInterface, Ar
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\AddressBookContactAssociation|null
+     * @return \WildJar\ApiClient\Model\AddressBookContactAssociation|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class GetAddressBookContactAssociations200Response implements ModelInterface, Ar
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\AddressBookContactAssociation|null $data data
+     * @param \WildJar\ApiClient\Model\AddressBookContactAssociation|null $data data
      *
      * @return self
      */

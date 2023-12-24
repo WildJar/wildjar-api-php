@@ -1,4 +1,4 @@
-# Wildjar\AccountApi
+# WildJar\ApiClient\AccountApi
 
 All URIs are relative to https://api.trkcall.com/v2, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 ## `addAccount()`
 
 ```php
-addAccount($account): \Wildjar\Model\AddAccount200Response
+addAccount($account): \WildJar\ApiClient\Model\AddAccount200Response
 ```
 
 Create a new account
@@ -28,19 +28,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AccountApi(
+$apiInstance = new WildJar\ApiClient\Api\AccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account = new \Wildjar\Model\Account(); // \Wildjar\Model\Account
+$account = new \WildJar\ApiClient\Model\Account(); // \WildJar\ApiClient\Model\Account
 
 try {
     $result = $apiInstance->addAccount($account);
@@ -54,11 +54,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account** | [**\Wildjar\Model\Account**](../Model/Account.md)|  | |
+| **account** | [**\WildJar\ApiClient\Model\Account**](../Model/Account.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
+[**\WildJar\ApiClient\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `getAccount()`
 
 ```php
-getAccount($id): \Wildjar\Model\AddAccount200Response
+getAccount($id): \WildJar\ApiClient\Model\AddAccount200Response
 ```
 
 Get account details
@@ -91,13 +91,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AccountApi(
+$apiInstance = new WildJar\ApiClient\Api\AccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
+[**\WildJar\ApiClient\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ try {
 ## `listAccounts()`
 
 ```php
-listAccounts($status, $name): \Wildjar\Model\ListAccounts200Response
+listAccounts($status, $name): \WildJar\ApiClient\Model\ListAccounts200Response
 ```
 
 Get list of accounts
@@ -154,13 +154,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AccountApi(
+$apiInstance = new WildJar\ApiClient\Api\AccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -186,7 +186,7 @@ try {
 
 ### Return type
 
-[**\Wildjar\Model\ListAccounts200Response**](../Model/ListAccounts200Response.md)
+[**\WildJar\ApiClient\Model\ListAccounts200Response**](../Model/ListAccounts200Response.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ try {
 ## `updateAccount()`
 
 ```php
-updateAccount($id, $account): \Wildjar\Model\AddAccount200Response
+updateAccount($id, $account): \WildJar\ApiClient\Model\AddAccount200Response
 ```
 
 Update an existing account
@@ -219,20 +219,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
-$config = Wildjar\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Wildjar\Api\AccountApi(
+$apiInstance = new WildJar\ApiClient\Api\AccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = 56; // int | Account ID
-$account = new \Wildjar\Model\Account(); // \Wildjar\Model\Account
+$account = new \WildJar\ApiClient\Model\Account(); // \WildJar\ApiClient\Model\Account
 
 try {
     $result = $apiInstance->updateAccount($id, $account);
@@ -247,11 +247,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| Account ID | |
-| **account** | [**\Wildjar\Model\Account**](../Model/Account.md)|  | |
+| **account** | [**\WildJar\ApiClient\Model\Account**](../Model/Account.md)|  | |
 
 ### Return type
 
-[**\Wildjar\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
+[**\WildJar\ApiClient\Model\AddAccount200Response**](../Model/AddAccount200Response.md)
 
 ### Authorization
 

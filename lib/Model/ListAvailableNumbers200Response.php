@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListAvailableNumbers200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListAvailableNumbers200Response implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\AvailableNumber[]'
+        'data' => '\WildJar\ApiClient\Model\AvailableNumber[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListAvailableNumbers200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\AvailableNumber[]|null
+     * @return \WildJar\ApiClient\Model\AvailableNumber[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListAvailableNumbers200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\AvailableNumber[]|null $data data
+     * @param \WildJar\ApiClient\Model\AvailableNumber[]|null $data data
      *
      * @return self
      */

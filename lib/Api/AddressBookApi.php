@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -24,7 +24,7 @@
  * Do not edit the class manually.
  */
 
-namespace Wildjar\Api;
+namespace WildJar\ApiClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Wildjar\ApiException;
-use Wildjar\Configuration;
-use Wildjar\HeaderSelector;
-use Wildjar\ObjectSerializer;
+use WildJar\ApiClient\ApiException;
+use WildJar\ApiClient\Configuration;
+use WildJar\ApiClient\HeaderSelector;
+use WildJar\ApiClient\ObjectSerializer;
 
 /**
  * AddressBookApi Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -134,9 +134,9 @@ class AddressBookApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddressBookContactAssociations'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetAddressBookContactAssociations200Response|object
+     * @return \WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response|object
      */
     public function getAddressBookContactAssociations(string $contentType = self::contentTypes['getAddressBookContactAssociations'][0])
     {
@@ -151,9 +151,9 @@ class AddressBookApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddressBookContactAssociations'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetAddressBookContactAssociations200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAddressBookContactAssociationsWithHttpInfo(string $contentType = self::contentTypes['getAddressBookContactAssociations'][0])
     {
@@ -196,11 +196,11 @@ class AddressBookApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetAddressBookContactAssociations200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetAddressBookContactAssociations200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -218,14 +218,14 @@ class AddressBookApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetAddressBookContactAssociations200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetAddressBookContactAssociations200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -258,7 +258,7 @@ class AddressBookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetAddressBookContactAssociations200Response',
+                        '\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class AddressBookApi
      */
     public function getAddressBookContactAssociationsAsyncWithHttpInfo(string $contentType = self::contentTypes['getAddressBookContactAssociations'][0])
     {
-        $returnType = '\Wildjar\Model\GetAddressBookContactAssociations200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response';
         $request = $this->getAddressBookContactAssociationsRequest($contentType);
 
         return $this->client
@@ -432,9 +432,9 @@ class AddressBookApi
      * @param  string $uuid Address book contact UUID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddressBookContactDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\GetAddressBookContactDetails200Response|object
+     * @return \WildJar\ApiClient\Model\GetAddressBookContactDetails200Response|object
      */
     public function getAddressBookContactDetails($uuid, string $contentType = self::contentTypes['getAddressBookContactDetails'][0])
     {
@@ -450,9 +450,9 @@ class AddressBookApi
      * @param  string $uuid Address book contact UUID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAddressBookContactDetails'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\GetAddressBookContactDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\GetAddressBookContactDetails200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAddressBookContactDetailsWithHttpInfo($uuid, string $contentType = self::contentTypes['getAddressBookContactDetails'][0])
     {
@@ -495,11 +495,11 @@ class AddressBookApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\GetAddressBookContactDetails200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\GetAddressBookContactDetails200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -517,14 +517,14 @@ class AddressBookApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\GetAddressBookContactDetails200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\GetAddressBookContactDetails200Response';
+            $returnType = '\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -557,7 +557,7 @@ class AddressBookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\GetAddressBookContactDetails200Response',
+                        '\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -602,7 +602,7 @@ class AddressBookApi
      */
     public function getAddressBookContactDetailsAsyncWithHttpInfo($uuid, string $contentType = self::contentTypes['getAddressBookContactDetails'][0])
     {
-        $returnType = '\Wildjar\Model\GetAddressBookContactDetails200Response';
+        $returnType = '\WildJar\ApiClient\Model\GetAddressBookContactDetails200Response';
         $request = $this->getAddressBookContactDetailsRequest($uuid, $contentType);
 
         return $this->client
@@ -748,9 +748,9 @@ class AddressBookApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAddressBookContacts'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Wildjar\Model\ListAddressBookContacts200Response|object
+     * @return \WildJar\ApiClient\Model\ListAddressBookContacts200Response|object
      */
     public function listAddressBookContacts(string $contentType = self::contentTypes['listAddressBookContacts'][0])
     {
@@ -765,9 +765,9 @@ class AddressBookApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAddressBookContacts'] to see the possible values for this operation
      *
-     * @throws \Wildjar\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Wildjar\Model\ListAddressBookContacts200Response|object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WildJar\ApiClient\Model\ListAddressBookContacts200Response|object, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAddressBookContactsWithHttpInfo(string $contentType = self::contentTypes['listAddressBookContacts'][0])
     {
@@ -810,11 +810,11 @@ class AddressBookApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wildjar\Model\ListAddressBookContacts200Response' === '\SplFileObject') {
+                    if ('\WildJar\ApiClient\Model\ListAddressBookContacts200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Wildjar\Model\ListAddressBookContacts200Response' !== 'string') {
+                        if ('\WildJar\ApiClient\Model\ListAddressBookContacts200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -832,14 +832,14 @@ class AddressBookApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wildjar\Model\ListAddressBookContacts200Response', []),
+                        ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListAddressBookContacts200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 
             }
 
-            $returnType = '\Wildjar\Model\ListAddressBookContacts200Response';
+            $returnType = '\WildJar\ApiClient\Model\ListAddressBookContacts200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -872,7 +872,7 @@ class AddressBookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wildjar\Model\ListAddressBookContacts200Response',
+                        '\WildJar\ApiClient\Model\ListAddressBookContacts200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -915,7 +915,7 @@ class AddressBookApi
      */
     public function listAddressBookContactsAsyncWithHttpInfo(string $contentType = self::contentTypes['listAddressBookContacts'][0])
     {
-        $returnType = '\Wildjar\Model\ListAddressBookContacts200Response';
+        $returnType = '\WildJar\ApiClient\Model\ListAddressBookContacts200Response';
         $request = $this->listAddressBookContactsRequest($contentType);
 
         return $this->client

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ListTimeActions200Response Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ListTimeActions200Response implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'data' => '\Wildjar\Model\ActionTime[]'
+        'data' => '\WildJar\ApiClient\Model\ActionTime[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class ListTimeActions200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \Wildjar\Model\ActionTime[]|null
+     * @return \WildJar\ApiClient\Model\ActionTime[]|null
      */
     public function getData()
     {
@@ -367,7 +367,7 @@ class ListTimeActions200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \Wildjar\Model\ActionTime[]|null $data data
+     * @param \WildJar\ApiClient\Model\ActionTime[]|null $data data
      *
      * @return self
      */

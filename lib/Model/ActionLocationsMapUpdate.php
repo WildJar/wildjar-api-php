@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * ActionLocationsMapUpdate Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -68,7 +68,7 @@ class ActionLocationsMapUpdate implements ModelInterface, ArrayAccess, \JsonSeri
         'iv_rmessage' => 'mixed',
         'iv_rdigits' => 'mixed',
         'iv_rattempts' => 'mixed',
-        'map' => '\Wildjar\Model\ActionLocationsMapUpdateAllOfMap'
+        'map' => '\WildJar\ApiClient\Model\ActionLocationsMapUpdateAllOfMap'
     ];
 
     /**
@@ -973,7 +973,7 @@ class ActionLocationsMapUpdate implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets map
      *
-     * @return \Wildjar\Model\ActionLocationsMapUpdateAllOfMap|null
+     * @return \WildJar\ApiClient\Model\ActionLocationsMapUpdateAllOfMap|null
      */
     public function getMap()
     {
@@ -983,7 +983,7 @@ class ActionLocationsMapUpdate implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets map
      *
-     * @param \Wildjar\Model\ActionLocationsMapUpdateAllOfMap|null $map map
+     * @param \WildJar\ApiClient\Model\ActionLocationsMapUpdateAllOfMap|null $map map
      *
      * @return self
      */

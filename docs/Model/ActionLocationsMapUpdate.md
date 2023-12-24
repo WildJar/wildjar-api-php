@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **iv_rmessage** | **mixed** | The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file. | [optional]
 **iv_rdigits** | **mixed** | The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey. | [optional]
 **iv_rattempts** | **mixed** | The number of attempts allowed before the IVR message is replayed. | [optional]
-**map** | [**\Wildjar\Model\ActionLocationsMapUpdateAllOfMap**](ActionLocationsMapUpdateAllOfMap.md) |  | [optional]
+**map** | [**\WildJar\ApiClient\Model\ActionLocationsMapUpdateAllOfMap**](ActionLocationsMapUpdateAllOfMap.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

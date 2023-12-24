@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  */
@@ -25,16 +25,16 @@
   * Do not edit the class manually.
  */
 
-namespace Wildjar\Model;
+namespace WildJar\ApiClient\Model;
 
 use \ArrayAccess;
-use \Wildjar\ObjectSerializer;
+use \WildJar\ApiClient\ObjectSerializer;
 
 /**
  * AddressBookContactAssociationAccountId Class Doc Comment
  *
  * @category Class
- * @package  Wildjar
+ * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
@@ -56,7 +56,7 @@ class AddressBookContactAssociationAccountId implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'address_book_contact_number_e164' => '\Wildjar\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164'
+        'address_book_contact_number_e164' => '\WildJar\ApiClient\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164'
     ];
 
     /**
@@ -291,7 +291,7 @@ class AddressBookContactAssociationAccountId implements ModelInterface, ArrayAcc
     /**
      * Gets address_book_contact_number_e164
      *
-     * @return \Wildjar\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164|null
+     * @return \WildJar\ApiClient\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164|null
      */
     public function getAddressBookContactNumberE164()
     {
@@ -301,7 +301,7 @@ class AddressBookContactAssociationAccountId implements ModelInterface, ArrayAcc
     /**
      * Sets address_book_contact_number_e164
      *
-     * @param \Wildjar\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164|null $address_book_contact_number_e164 address_book_contact_number_e164
+     * @param \WildJar\ApiClient\Model\AddressBookContactAssociationAccountIdAddressBookContactNumberE164|null $address_book_contact_number_e164 address_book_contact_number_e164
      *
      * @return self
      */

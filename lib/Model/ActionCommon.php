@@ -56,8 +56,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'float',
         'id' => 'float',
+        'account' => 'float',
         'name' => 'string',
         'next_action' => 'string',
         'next_action_id' => 'float'
@@ -71,8 +71,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
         'id' => null,
+        'account' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null
@@ -84,8 +84,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => false,
         'id' => false,
+        'account' => false,
         'name' => false,
         'next_action' => false,
         'next_action_id' => false
@@ -177,8 +177,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
         'id' => 'id',
+        'account' => 'account',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId'
@@ -190,8 +190,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
         'id' => 'setId',
+        'account' => 'setAccount',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId'
@@ -203,8 +203,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
         'id' => 'getId',
+        'account' => 'getAccount',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId'
@@ -296,8 +296,8 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
@@ -359,33 +359,6 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets account
-     *
-     * @return float|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param float|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            throw new \InvalidArgumentException('non-nullable account cannot be null');
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
      * @return float|null
@@ -408,6 +381,33 @@ class ActionCommon implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
 
         return $this;
     }

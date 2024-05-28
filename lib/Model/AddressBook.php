@@ -56,10 +56,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'first_name' => 'mixed',
-        'last_name' => 'mixed',
-        'uuid' => 'mixed'
+        'uuid' => 'string',
+        'account' => 'float',
+        'first_name' => 'string',
+        'last_name' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'uuid' => 'uuid',
         'account' => null,
         'first_name' => null,
-        'last_name' => null,
-        'uuid' => 'uuid'
+        'last_name' => null
     ];
 
     /**
@@ -82,10 +82,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'first_name' => true,
-        'last_name' => true,
-        'uuid' => true
+        'uuid' => false,
+        'account' => false,
+        'first_name' => false,
+        'last_name' => false
     ];
 
     /**
@@ -174,10 +174,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'uuid' => 'uuid',
         'account' => 'account',
         'first_name' => 'firstName',
-        'last_name' => 'lastName',
-        'uuid' => 'uuid'
+        'last_name' => 'lastName'
     ];
 
     /**
@@ -186,10 +186,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'uuid' => 'setUuid',
         'account' => 'setAccount',
         'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'uuid' => 'setUuid'
+        'last_name' => 'setLastName'
     ];
 
     /**
@@ -198,10 +198,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'uuid' => 'getUuid',
         'account' => 'getAccount',
         'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'uuid' => 'getUuid'
+        'last_name' => 'getLastName'
     ];
 
     /**
@@ -261,10 +261,10 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
     }
 
     /**
@@ -314,111 +314,9 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets account
-     *
-     * @return mixed|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param mixed|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return mixed|null
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param mixed|null $first_name The first name of the contact.
-     *
-     * @return self
-     */
-    public function setFirstName($first_name)
-    {
-        if (is_null($first_name)) {
-            array_push($this->openAPINullablesSetToNull, 'first_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('first_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return mixed|null
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param mixed|null $last_name The last name of the contact.
-     *
-     * @return self
-     */
-    public function setLastName($last_name)
-    {
-        if (is_null($last_name)) {
-            array_push($this->openAPINullablesSetToNull, 'last_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('last_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
      * Gets uuid
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getUuid()
     {
@@ -428,27 +326,101 @@ class AddressBook implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets uuid
      *
-     * @param mixed|null $uuid The contact's UUID.
+     * @param string|null $uuid The contact's UUID.
      *
      * @return self
      */
     public function setUuid($uuid)
     {
         if (is_null($uuid)) {
-            array_push($this->openAPINullablesSetToNull, 'uuid');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('uuid', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
         }
-        if (!is_null($uuid) && (mb_strlen($uuid) > 50)) {
+        if ((mb_strlen($uuid) > 50)) {
             throw new \InvalidArgumentException('invalid length for $uuid when calling AddressBook., must be smaller than or equal to 50.');
         }
 
         $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name The first name of the contact.
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        if (is_null($first_name)) {
+            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        }
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name The last name of the contact.
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        if (is_null($last_name)) {
+            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        }
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }

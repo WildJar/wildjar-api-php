@@ -56,27 +56,25 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'id' => 'mixed',
-        'name' => 'mixed',
-        'next_action' => 'mixed',
-        'next_action_id' => 'mixed',
-        'digits' => 'mixed',
-        'digit_timeout' => 'mixed',
-        'finish_on_key' => 'mixed',
-        'force_caller' => 'mixed',
-        'invalid_action' => 'mixed',
-        'invalid_action_id' => 'mixed',
-        'invalid_play' => 'mixed',
-        'invalid_text' => 'mixed',
-        'message' => 'mixed',
-        'retries' => 'mixed',
-        'timeout' => 'mixed',
-        'whisper' => 'mixed',
-        'group_id' => 'mixed',
-        'notify' => 'mixed',
+        'id' => 'float',
+        'account' => 'float',
+        'name' => 'string',
+        'next_action' => 'string',
+        'next_action_id' => 'float',
+        'timeout' => 'float',
+        'digit_timeout' => 'float',
+        'finish_on_key' => 'string',
+        'digits' => 'float',
+        'retries' => 'float',
+        'message' => 'string',
+        'invalid_text' => 'string',
+        'invalid_play' => 'string',
+        'invalid_action' => 'string',
+        'invalid_action_id' => 'float',
+        'notify' => 'string',
+        'group_id' => 'float',
         'action' => 'string',
-        'valid' => '\WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[]'
+        'valid' => '\WildJar\ApiClient\Model\ActionIVRFullAllOfValid[]'
     ];
 
     /**
@@ -87,25 +85,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
         'id' => null,
+        'account' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'digits' => null,
+        'timeout' => null,
         'digit_timeout' => null,
         'finish_on_key' => null,
-        'force_caller' => null,
+        'digits' => null,
+        'retries' => null,
+        'message' => null,
+        'invalid_text' => null,
+        'invalid_play' => null,
         'invalid_action' => null,
         'invalid_action_id' => null,
-        'invalid_play' => null,
-        'invalid_text' => null,
-        'message' => null,
-        'retries' => null,
-        'timeout' => null,
-        'whisper' => null,
-        'group_id' => null,
         'notify' => null,
+        'group_id' => null,
         'action' => null,
         'valid' => null
     ];
@@ -116,25 +112,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'id' => true,
-        'name' => true,
-        'next_action' => true,
-        'next_action_id' => true,
-        'digits' => true,
-        'digit_timeout' => true,
-        'finish_on_key' => true,
-        'force_caller' => true,
-        'invalid_action' => true,
-        'invalid_action_id' => true,
-        'invalid_play' => true,
-        'invalid_text' => true,
-        'message' => true,
-        'retries' => true,
-        'timeout' => true,
-        'whisper' => true,
-        'group_id' => true,
-        'notify' => true,
+        'id' => false,
+        'account' => false,
+        'name' => false,
+        'next_action' => false,
+        'next_action_id' => false,
+        'timeout' => false,
+        'digit_timeout' => false,
+        'finish_on_key' => false,
+        'digits' => false,
+        'retries' => false,
+        'message' => false,
+        'invalid_text' => false,
+        'invalid_play' => false,
+        'invalid_action' => false,
+        'invalid_action_id' => false,
+        'notify' => false,
+        'group_id' => false,
         'action' => false,
         'valid' => false
     ];
@@ -225,25 +219,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
         'id' => 'id',
+        'account' => 'account',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'digits' => 'digits',
+        'timeout' => 'timeout',
         'digit_timeout' => 'digitTimeout',
         'finish_on_key' => 'finishOnKey',
-        'force_caller' => 'forceCaller',
+        'digits' => 'digits',
+        'retries' => 'retries',
+        'message' => 'message',
+        'invalid_text' => 'invalidText',
+        'invalid_play' => 'invalidPlay',
         'invalid_action' => 'invalidAction',
         'invalid_action_id' => 'invalidActionId',
-        'invalid_play' => 'invalidPlay',
-        'invalid_text' => 'invalidText',
-        'message' => 'message',
-        'retries' => 'retries',
-        'timeout' => 'timeout',
-        'whisper' => 'whisper',
-        'group_id' => 'groupId',
         'notify' => 'notify',
+        'group_id' => 'groupId',
         'action' => 'action',
         'valid' => 'valid'
     ];
@@ -254,25 +246,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
         'id' => 'setId',
+        'account' => 'setAccount',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'digits' => 'setDigits',
+        'timeout' => 'setTimeout',
         'digit_timeout' => 'setDigitTimeout',
         'finish_on_key' => 'setFinishOnKey',
-        'force_caller' => 'setForceCaller',
+        'digits' => 'setDigits',
+        'retries' => 'setRetries',
+        'message' => 'setMessage',
+        'invalid_text' => 'setInvalidText',
+        'invalid_play' => 'setInvalidPlay',
         'invalid_action' => 'setInvalidAction',
         'invalid_action_id' => 'setInvalidActionId',
-        'invalid_play' => 'setInvalidPlay',
-        'invalid_text' => 'setInvalidText',
-        'message' => 'setMessage',
-        'retries' => 'setRetries',
-        'timeout' => 'setTimeout',
-        'whisper' => 'setWhisper',
-        'group_id' => 'setGroupId',
         'notify' => 'setNotify',
+        'group_id' => 'setGroupId',
         'action' => 'setAction',
         'valid' => 'setValid'
     ];
@@ -283,25 +273,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
         'id' => 'getId',
+        'account' => 'getAccount',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'digits' => 'getDigits',
+        'timeout' => 'getTimeout',
         'digit_timeout' => 'getDigitTimeout',
         'finish_on_key' => 'getFinishOnKey',
-        'force_caller' => 'getForceCaller',
+        'digits' => 'getDigits',
+        'retries' => 'getRetries',
+        'message' => 'getMessage',
+        'invalid_text' => 'getInvalidText',
+        'invalid_play' => 'getInvalidPlay',
         'invalid_action' => 'getInvalidAction',
         'invalid_action_id' => 'getInvalidActionId',
-        'invalid_play' => 'getInvalidPlay',
-        'invalid_text' => 'getInvalidText',
-        'message' => 'getMessage',
-        'retries' => 'getRetries',
-        'timeout' => 'getTimeout',
-        'whisper' => 'getWhisper',
-        'group_id' => 'getGroupId',
         'notify' => 'getNotify',
+        'group_id' => 'getGroupId',
         'action' => 'getAction',
         'valid' => 'getValid'
     ];
@@ -451,25 +439,23 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('digits', $data ?? [], null);
-        $this->setIfExists('digit_timeout', $data ?? [], null);
-        $this->setIfExists('finish_on_key', $data ?? [], null);
-        $this->setIfExists('force_caller', $data ?? [], null);
-        $this->setIfExists('invalid_action', $data ?? [], null);
-        $this->setIfExists('invalid_action_id', $data ?? [], null);
-        $this->setIfExists('invalid_play', $data ?? [], null);
-        $this->setIfExists('invalid_text', $data ?? [], null);
+        $this->setIfExists('timeout', $data ?? [], 5);
+        $this->setIfExists('digit_timeout', $data ?? [], 3);
+        $this->setIfExists('finish_on_key', $data ?? [], '#');
+        $this->setIfExists('digits', $data ?? [], 1);
+        $this->setIfExists('retries', $data ?? [], 1);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('retries', $data ?? [], null);
-        $this->setIfExists('timeout', $data ?? [], null);
-        $this->setIfExists('whisper', $data ?? [], null);
-        $this->setIfExists('group_id', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
+        $this->setIfExists('invalid_text', $data ?? [], '');
+        $this->setIfExists('invalid_play', $data ?? [], null);
+        $this->setIfExists('invalid_action', $data ?? [], 'hangup');
+        $this->setIfExists('invalid_action_id', $data ?? [], 0);
+        $this->setIfExists('notify', $data ?? [], 'no');
+        $this->setIfExists('group_id', $data ?? [], 0);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('valid', $data ?? [], null);
     }
@@ -518,8 +504,15 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'finish_on_key', the character length must be smaller than or equal to 1.";
         }
 
-        if (!is_null($this->container['force_caller']) && (mb_strlen($this->container['force_caller']) > 30)) {
-            $invalidProperties[] = "invalid value for 'force_caller', the character length must be smaller than or equal to 30.";
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if (!is_null($this->container['invalid_text']) && (mb_strlen($this->container['invalid_text']) > 100)) {
+            $invalidProperties[] = "invalid value for 'invalid_text', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['invalid_play']) && (mb_strlen($this->container['invalid_play']) > 100)) {
+            $invalidProperties[] = "invalid value for 'invalid_play', the character length must be smaller than or equal to 100.";
         }
 
         $allowedValues = $this->getInvalidActionAllowableValues();
@@ -529,21 +522,6 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['invalid_action'],
                 implode("', '", $allowedValues)
             );
-        }
-
-        if (!is_null($this->container['invalid_play']) && (mb_strlen($this->container['invalid_play']) > 100)) {
-            $invalidProperties[] = "invalid value for 'invalid_play', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['invalid_text']) && (mb_strlen($this->container['invalid_text']) > 100)) {
-            $invalidProperties[] = "invalid value for 'invalid_text', the character length must be smaller than or equal to 100.";
-        }
-
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if (!is_null($this->container['whisper']) && (mb_strlen($this->container['whisper']) > 100)) {
-            $invalidProperties[] = "invalid value for 'whisper', the character length must be smaller than or equal to 100.";
         }
 
         $allowedValues = $this->getNotifyAllowableValues();
@@ -583,43 +561,9 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets account
-     *
-     * @return mixed|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param mixed|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getId()
     {
@@ -629,21 +573,14 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param mixed|null $id The action ID.
+     * @param float|null $id The action ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -651,9 +588,36 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getName()
     {
@@ -663,23 +627,16 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param mixed|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
+     * @param string|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 100)) {
+        if ((mb_strlen($name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ActionIVRFull., must be smaller than or equal to 100.');
         }
 
@@ -691,7 +648,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next_action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getNextAction()
     {
@@ -701,24 +658,17 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next_action
      *
-     * @param mixed|null $next_action Next action type to route to in the call flow.
+     * @param string|null $next_action Next action type to route to in the call flow.
      *
      * @return self
      */
     public function setNextAction($next_action)
     {
         if (is_null($next_action)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action cannot be null');
         }
         $allowedValues = $this->getNextActionAllowableValues();
-        if (!is_null($next_action) && !in_array($next_action, $allowedValues, true)) {
+        if (!in_array($next_action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'next_action', must be one of '%s'",
@@ -735,7 +685,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next_action_id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getNextActionId()
     {
@@ -745,21 +695,14 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next_action_id
      *
-     * @param mixed|null $next_action_id Next action ID to route to in the call flow.
+     * @param float|null $next_action_id Next action ID to route to in the call flow.
      *
      * @return self
      */
     public function setNextActionId($next_action_id)
     {
         if (is_null($next_action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action_id cannot be null');
         }
         $this->container['next_action_id'] = $next_action_id;
 
@@ -767,35 +710,28 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets digits
+     * Gets timeout
      *
-     * @return mixed|null
+     * @return float|null
      */
-    public function getDigits()
+    public function getTimeout()
     {
-        return $this->container['digits'];
+        return $this->container['timeout'];
     }
 
     /**
-     * Sets digits
+     * Sets timeout
      *
-     * @param mixed|null $digits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
+     * @param float|null $timeout The number of seconds, if no IVR selection is made, before it is sent to the next action.
      *
      * @return self
      */
-    public function setDigits($digits)
+    public function setTimeout($timeout)
     {
-        if (is_null($digits)) {
-            array_push($this->openAPINullablesSetToNull, 'digits');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('digits', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($timeout)) {
+            throw new \InvalidArgumentException('non-nullable timeout cannot be null');
         }
-        $this->container['digits'] = $digits;
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }
@@ -803,7 +739,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets digit_timeout
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getDigitTimeout()
     {
@@ -813,21 +749,14 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets digit_timeout
      *
-     * @param mixed|null $digit_timeout The number of seconds to listen for a digit before sending the user to the next action.
+     * @param float|null $digit_timeout The number of seconds to listen for a digit before sending the user to the next action.
      *
      * @return self
      */
     public function setDigitTimeout($digit_timeout)
     {
         if (is_null($digit_timeout)) {
-            array_push($this->openAPINullablesSetToNull, 'digit_timeout');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('digit_timeout', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable digit_timeout cannot be null');
         }
         $this->container['digit_timeout'] = $digit_timeout;
 
@@ -837,7 +766,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets finish_on_key
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getFinishOnKey()
     {
@@ -847,23 +776,16 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets finish_on_key
      *
-     * @param mixed|null $finish_on_key The digit which indicates the input is finished. Standard behaviour and default is to use the hash key (\"#\").
+     * @param string|null $finish_on_key The digit which indicates the input is finished. Standard behaviour and default is to use the hash key (\"#\").
      *
      * @return self
      */
     public function setFinishOnKey($finish_on_key)
     {
         if (is_null($finish_on_key)) {
-            array_push($this->openAPINullablesSetToNull, 'finish_on_key');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('finish_on_key', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable finish_on_key cannot be null');
         }
-        if (!is_null($finish_on_key) && (mb_strlen($finish_on_key) > 1)) {
+        if ((mb_strlen($finish_on_key) > 1)) {
             throw new \InvalidArgumentException('invalid length for $finish_on_key when calling ActionIVRFull., must be smaller than or equal to 1.');
         }
 
@@ -873,39 +795,144 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets force_caller
+     * Gets digits
      *
-     * @return mixed|null
+     * @return float|null
      */
-    public function getForceCaller()
+    public function getDigits()
     {
-        return $this->container['force_caller'];
+        return $this->container['digits'];
     }
 
     /**
-     * Sets force_caller
+     * Sets digits
      *
-     * @param mixed|null $force_caller The phone number to force as the caller ID when calling the target (must be a WildJar geo or mobile number).
+     * @param float|null $digits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
      *
      * @return self
      */
-    public function setForceCaller($force_caller)
+    public function setDigits($digits)
     {
-        if (is_null($force_caller)) {
-            array_push($this->openAPINullablesSetToNull, 'force_caller');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('force_caller', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($digits)) {
+            throw new \InvalidArgumentException('non-nullable digits cannot be null');
         }
-        if (!is_null($force_caller) && (mb_strlen($force_caller) > 30)) {
-            throw new \InvalidArgumentException('invalid length for $force_caller when calling ActionIVRFull., must be smaller than or equal to 30.');
+        $this->container['digits'] = $digits;
+
+        return $this;
+    }
+
+    /**
+     * Gets retries
+     *
+     * @return float|null
+     */
+    public function getRetries()
+    {
+        return $this->container['retries'];
+    }
+
+    /**
+     * Sets retries
+     *
+     * @param float|null $retries The number of attempts allowed before the IVR message is replayed.
+     *
+     * @return self
+     */
+    public function setRetries($retries)
+    {
+        if (is_null($retries)) {
+            throw new \InvalidArgumentException('non-nullable retries cannot be null');
+        }
+        $this->container['retries'] = $retries;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets invalid_text
+     *
+     * @return string|null
+     */
+    public function getInvalidText()
+    {
+        return $this->container['invalid_text'];
+    }
+
+    /**
+     * Sets invalid_text
+     *
+     * @param string|null $invalid_text The message to be read to the caller using Text-to-Speech (TTS) after an invalid input. Only populate if **not** using a recording MP3 in invalidPlay.
+     *
+     * @return self
+     */
+    public function setInvalidText($invalid_text)
+    {
+        if (is_null($invalid_text)) {
+            throw new \InvalidArgumentException('non-nullable invalid_text cannot be null');
+        }
+        if ((mb_strlen($invalid_text) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $invalid_text when calling ActionIVRFull., must be smaller than or equal to 100.');
         }
 
-        $this->container['force_caller'] = $force_caller;
+        $this->container['invalid_text'] = $invalid_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets invalid_play
+     *
+     * @return string|null
+     */
+    public function getInvalidPlay()
+    {
+        return $this->container['invalid_play'];
+    }
+
+    /**
+     * Sets invalid_play
+     *
+     * @param string|null $invalid_play The URI to an MP3 file to play after an invalid input. Only populate if **not** using TTS in invalidText.
+     *
+     * @return self
+     */
+    public function setInvalidPlay($invalid_play)
+    {
+        if (is_null($invalid_play)) {
+            throw new \InvalidArgumentException('non-nullable invalid_play cannot be null');
+        }
+        if ((mb_strlen($invalid_play) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $invalid_play when calling ActionIVRFull., must be smaller than or equal to 100.');
+        }
+
+        $this->container['invalid_play'] = $invalid_play;
 
         return $this;
     }
@@ -913,7 +940,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invalid_action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getInvalidAction()
     {
@@ -923,24 +950,17 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invalid_action
      *
-     * @param mixed|null $invalid_action The action type to route to in the call flow if an invalid option is entered.
+     * @param string|null $invalid_action The action type to route to in the call flow if an invalid option is entered.
      *
      * @return self
      */
     public function setInvalidAction($invalid_action)
     {
         if (is_null($invalid_action)) {
-            array_push($this->openAPINullablesSetToNull, 'invalid_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invalid_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable invalid_action cannot be null');
         }
         $allowedValues = $this->getInvalidActionAllowableValues();
-        if (!is_null($invalid_action) && !in_array($invalid_action, $allowedValues, true)) {
+        if (!in_array($invalid_action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'invalid_action', must be one of '%s'",
@@ -957,7 +977,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invalid_action_id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getInvalidActionId()
     {
@@ -967,21 +987,14 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invalid_action_id
      *
-     * @param mixed|null $invalid_action_id The action ID to route to in the call flow if an invalid option is entered.
+     * @param float|null $invalid_action_id The action ID to route to in the call flow if an invalid option is entered.
      *
      * @return self
      */
     public function setInvalidActionId($invalid_action_id)
     {
         if (is_null($invalid_action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'invalid_action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invalid_action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable invalid_action_id cannot be null');
         }
         $this->container['invalid_action_id'] = $invalid_action_id;
 
@@ -989,259 +1002,9 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets invalid_play
-     *
-     * @return mixed|null
-     */
-    public function getInvalidPlay()
-    {
-        return $this->container['invalid_play'];
-    }
-
-    /**
-     * Sets invalid_play
-     *
-     * @param mixed|null $invalid_play The URI to an MP3 file to play after an invalid input. Only populate if **not** using TTS in invalidText.
-     *
-     * @return self
-     */
-    public function setInvalidPlay($invalid_play)
-    {
-        if (is_null($invalid_play)) {
-            array_push($this->openAPINullablesSetToNull, 'invalid_play');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invalid_play', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($invalid_play) && (mb_strlen($invalid_play) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $invalid_play when calling ActionIVRFull., must be smaller than or equal to 100.');
-        }
-
-        $this->container['invalid_play'] = $invalid_play;
-
-        return $this;
-    }
-
-    /**
-     * Gets invalid_text
-     *
-     * @return mixed|null
-     */
-    public function getInvalidText()
-    {
-        return $this->container['invalid_text'];
-    }
-
-    /**
-     * Sets invalid_text
-     *
-     * @param mixed|null $invalid_text The message to be read to the caller using Text-to-Speech (TTS) after an invalid input. Only populate if **not** using a recording MP3 in invalidPlay.
-     *
-     * @return self
-     */
-    public function setInvalidText($invalid_text)
-    {
-        if (is_null($invalid_text)) {
-            array_push($this->openAPINullablesSetToNull, 'invalid_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invalid_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($invalid_text) && (mb_strlen($invalid_text) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $invalid_text when calling ActionIVRFull., must be smaller than or equal to 100.');
-        }
-
-        $this->container['invalid_text'] = $invalid_text;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param mixed $message The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            array_push($this->openAPINullablesSetToNull, 'message');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('message', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets retries
-     *
-     * @return mixed|null
-     */
-    public function getRetries()
-    {
-        return $this->container['retries'];
-    }
-
-    /**
-     * Sets retries
-     *
-     * @param mixed|null $retries The number of attempts allowed before the IVR message is replayed.
-     *
-     * @return self
-     */
-    public function setRetries($retries)
-    {
-        if (is_null($retries)) {
-            array_push($this->openAPINullablesSetToNull, 'retries');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('retries', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['retries'] = $retries;
-
-        return $this;
-    }
-
-    /**
-     * Gets timeout
-     *
-     * @return mixed|null
-     */
-    public function getTimeout()
-    {
-        return $this->container['timeout'];
-    }
-
-    /**
-     * Sets timeout
-     *
-     * @param mixed|null $timeout The number of seconds, if no IVR selection is made, before it is sent to the next action.
-     *
-     * @return self
-     */
-    public function setTimeout($timeout)
-    {
-        if (is_null($timeout)) {
-            array_push($this->openAPINullablesSetToNull, 'timeout');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('timeout', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['timeout'] = $timeout;
-
-        return $this;
-    }
-
-    /**
-     * Gets whisper
-     *
-     * @return mixed|null
-     */
-    public function getWhisper()
-    {
-        return $this->container['whisper'];
-    }
-
-    /**
-     * Sets whisper
-     *
-     * @param mixed|null $whisper The whisper message to be played to the answering party. Can be a Text to speech or URI to an MP3 file.
-     *
-     * @return self
-     */
-    public function setWhisper($whisper)
-    {
-        if (is_null($whisper)) {
-            array_push($this->openAPINullablesSetToNull, 'whisper');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('whisper', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($whisper) && (mb_strlen($whisper) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $whisper when calling ActionIVRFull., must be smaller than or equal to 100.');
-        }
-
-        $this->container['whisper'] = $whisper;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_id
-     *
-     * @return mixed|null
-     */
-    public function getGroupId()
-    {
-        return $this->container['group_id'];
-    }
-
-    /**
-     * Sets group_id
-     *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
-     *
-     * @return self
-     */
-    public function setGroupId($group_id)
-    {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group_id'] = $group_id;
-
-        return $this;
-    }
-
-    /**
      * Gets notify
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getNotify()
     {
@@ -1251,24 +1014,17 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets notify
      *
-     * @param mixed|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
+     * @param string|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
      *
      * @return self
      */
     public function setNotify($notify)
     {
         if (is_null($notify)) {
-            array_push($this->openAPINullablesSetToNull, 'notify');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('notify', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable notify cannot be null');
         }
         $allowedValues = $this->getNotifyAllowableValues();
-        if (!is_null($notify) && !in_array($notify, $allowedValues, true)) {
+        if (!in_array($notify, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'notify', must be one of '%s'",
@@ -1278,6 +1034,33 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['notify'] = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_id
+     *
+     * @return float|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param float|null $group_id The contact group ID the notifications will be sent to.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
+        }
+        $this->container['group_id'] = $group_id;
 
         return $this;
     }
@@ -1322,7 +1105,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets valid
      *
-     * @return \WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[]
+     * @return \WildJar\ApiClient\Model\ActionIVRFullAllOfValid[]
      */
     public function getValid()
     {
@@ -1332,7 +1115,7 @@ class ActionIVRFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets valid
      *
-     * @param \WildJar\ApiClient\Model\ActionIVRFullAllOfValidInner[] $valid valid
+     * @param \WildJar\ApiClient\Model\ActionIVRFullAllOfValid[] $valid valid
      *
      * @return self
      */

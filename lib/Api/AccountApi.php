@@ -295,7 +295,7 @@ class AccountApi
 	public function getAccount( $id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_getAccount();
 
-		$request = $this->getAccountRequest( $id );
+		$request = $this->getAccountRequest( $id,  $passParams->show );
 
 		$options = $this->createHttpClientOption();
 		try {
@@ -377,16 +377,17 @@ class AccountApi
 	 * Create request for operation 'getAccount'
 	 *
 	 * @param  int $id Account ID (required)
+	 * @param  string $show Use &#x60;links&#x60; to include the account&#39;s parent and child accounts. (optional)
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function getAccountRequest($id )
+	public function getAccountRequest($id, $show = null )
 	{
 		// verify the required parameter 'id' is set
 		if ($id === null || (is_array($id) && count($id) === 0)) {
 			throw new \InvalidArgumentException( 'Missing the required parameter $id when calling getAccount' );
 		}
-		
+				
 
 		$resourcePath = '/account/{id}';
 		$formParams = [];
@@ -395,6 +396,7 @@ class AccountApi
 		$httpBody = '';
 		$multipart = false;
 
+		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $show, 'show', 'string','form', true, false ) ?? [] );
 		
 		// path params
 		if ($id !== null) {
@@ -443,20 +445,20 @@ class AccountApi
 
 
 	/**
-	 * Operation listAccounts 
+	 * Operation listAccount 
 	 *
 	 * Get list of accounts
 	 * 
-	 * @param RequestParams_AccountApi_listAccounts|null $passParams
+	 * @param RequestParams_AccountApi_listAccount|null $passParams
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListAccounts200Response|object
+	 * @return \WildJar\ApiClient\Model\ListAccount200Response|object
 	 */
-	public function listAccounts( $passParams = null) {
-		if ($passParams===null) $passParams = new RequestParams_AccountApi_listAccounts();
+	public function listAccount( $passParams = null) {
+		if ($passParams===null) $passParams = new RequestParams_AccountApi_listAccount();
 
-		$request = $this->listAccountsRequest( $passParams->status,  $passParams->name );
+		$request = $this->listAccountRequest( $passParams->page,  $passParams->per_page,  $passParams->order,  $passParams->status,  $passParams->name );
 
 		$options = $this->createHttpClientOption();
 		try {
@@ -480,11 +482,11 @@ class AccountApi
 
 		switch($statusCode) {
 			case 200:
-				if ('\WildJar\ApiClient\Model\ListAccounts200Response' === '\SplFileObject') {
+				if ('\WildJar\ApiClient\Model\ListAccount200Response' === '\SplFileObject') {
 					$content = $response->getBody(); //stream goes to serializer
 				} else {
 					$content = (string) $response->getBody();
-					if ('\WildJar\ApiClient\Model\ListAccounts200Response' !== 'string') {
+					if ('\WildJar\ApiClient\Model\ListAccount200Response' !== 'string') {
 						try {
 							$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
 						} catch (\JsonException $exception) {
@@ -499,14 +501,14 @@ class AccountApi
 				}
 
 				return new OperationReturnAccountApi(
-					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListAccounts200Response', []),
+					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\ListAccount200Response', []),
 					$response->getStatusCode(),
 					$response->getHeaders()
 				);
 			
 		}
 
-		$returnType = '\WildJar\ApiClient\Model\ListAccounts200Response';
+		$returnType = '\WildJar\ApiClient\Model\ListAccount200Response';
 		if ($returnType === '\SplFileObject') {
 			$content = $response->getBody(); //stream goes to serializer
 		} else {
@@ -535,16 +537,28 @@ class AccountApi
 
 
 	/**
-	 * Create request for operation 'listAccounts'
+	 * Create request for operation 'listAccount'
 	 *
+	 * @param  int $page Page number of results to return. (optional, default to 1)
+	 * @param  int $per_page Number of results to return per page. (optional, default to 10)
+	 * @param  string $order Field name to sort results by. Prefix the field name by a minus sign (ie. -id) to filter in descending order. (optional)
 	 * @param  string $status Filter accounts by their status (optional)
 	 * @param  string $name Filter accounts by name (optional)
 	 * @throws \InvalidArgumentException
 	 * @return \GuzzleHttp\Psr7\Request
 	 */
-	public function listAccountsRequest($status = null, $name = null )
+	public function listAccountRequest($page = 1, $per_page = 10, $order = null, $status = null, $name = null )
 	{
-				
+		
+		if ($page !== null && $page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$page" when calling AccountApi.listAccount, must be bigger than or equal to 1.');
+		}		
+		if ($per_page !== null && $per_page > 1000) {
+			throw new \InvalidArgumentException('invalid value for "$per_page" when calling AccountApi.listAccount, must be smaller than or equal to 1000.');
+		}
+		if ($per_page !== null && $per_page < 1) {
+			throw new \InvalidArgumentException('invalid value for "$per_page" when calling AccountApi.listAccount, must be bigger than or equal to 1.');
+		}						
 
 		$resourcePath = '/account';
 		$formParams = [];
@@ -553,9 +567,186 @@ class AccountApi
 		$httpBody = '';
 		$multipart = false;
 
+		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $page, 'page', 'integer','form', true, false ) ?? [] );
+		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $per_page, 'perPage', 'integer','form', true, false ) ?? [] );
+		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $order, 'order', 'string','form', true, false ) ?? [] );
 		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $status, 'status', 'string','form', true, false ) ?? [] );
 		$queryParams = array_merge( $queryParams, ObjectSerializer::toQueryValue( $name, 'name', 'string','form', true, false ) ?? [] );
 		
+
+
+		// for model (json/xml)
+		if (count($formParams) > 0) {
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
+
+		$query = ObjectSerializer::buildQuery($queryParams);
+
+		// set headers
+		$headers['Accept'] = 'application/json';
+		if (!$multipart) $headers['Content-Type'] = 'application/json';
+		if ($this->config->getUserAgent()) $headers['User-Agent'] = $this->config->getUserAgent();
+		
+		// this endpoint requires Bearer authentication (access token)
+		if (!empty($this->config->getAccessToken())) $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		
+
+		return new Request( 'GET', $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''), $headers, $httpBody );
+	}
+
+
+	/**
+	 * Operation moveAccount 
+	 *
+	 * Move an account
+	 * 
+	 * @param  float $child The account ID of the account to be moved (required)
+	 * 
+	 * @param  float $parent The account ID of the new parent account. (required)
+	 * 
+	 * @param RequestParams_AccountApi_moveAccount|null $passParams
+	 *
+	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \WildJar\ApiClient\Model\MoveAccount200Response|object
+	 */
+	public function moveAccount( $child, $parent, $passParams = null) {
+		if ($passParams===null) $passParams = new RequestParams_AccountApi_moveAccount();
+
+		$request = $this->moveAccountRequest( $child,  $parent );
+
+		$options = $this->createHttpClientOption();
+		try {
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null );
+		} catch (ConnectException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null );
+		}
+
+		$statusCode = $response->getStatusCode();
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf( '[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri() ),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		switch($statusCode) {
+			case 200:
+				if ('\WildJar\ApiClient\Model\MoveAccount200Response' === '\SplFileObject') {
+					$content = $response->getBody(); //stream goes to serializer
+				} else {
+					$content = (string) $response->getBody();
+					if ('\WildJar\ApiClient\Model\MoveAccount200Response' !== 'string') {
+						try {
+							$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+						} catch (\JsonException $exception) {
+							throw new ApiException(
+								sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+								$statusCode,
+								$response->getHeaders(),
+								$content
+							);
+						}
+					}
+				}
+
+				return new OperationReturnAccountApi(
+					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\MoveAccount200Response', []),
+					$response->getStatusCode(),
+					$response->getHeaders()
+				);
+			
+		}
+
+		$returnType = '\WildJar\ApiClient\Model\MoveAccount200Response';
+		if ($returnType === '\SplFileObject') {
+			$content = $response->getBody(); //stream goes to serializer
+		} else {
+			$content = (string) $response->getBody();
+			if ($returnType !== 'string') {
+				try {
+					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+				} catch (\JsonException $exception) {
+					throw new ApiException(
+						sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+						$statusCode,
+						$response->getHeaders(),
+						$content
+					);
+				}
+			}
+		}
+
+		return new OperationReturnAccountApi(
+			ObjectSerializer::deserialize($content, $returnType, []),
+			$response->getStatusCode(),
+			$response->getHeaders()
+		);
+
+	}
+
+
+	/**
+	 * Create request for operation 'moveAccount'
+	 *
+	 * @param  float $child The account ID of the account to be moved (required)
+	 * @param  float $parent The account ID of the new parent account. (required)
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function moveAccountRequest($child, $parent )
+	{
+		// verify the required parameter 'child' is set
+		if ($child === null || (is_array($child) && count($child) === 0)) {
+			throw new \InvalidArgumentException( 'Missing the required parameter $child when calling moveAccount' );
+		}
+				// verify the required parameter 'parent' is set
+		if ($parent === null || (is_array($parent) && count($parent) === 0)) {
+			throw new \InvalidArgumentException( 'Missing the required parameter $parent when calling moveAccount' );
+		}
+		
+
+		$resourcePath = '/account/tree/{child}/{parent}';
+		$formParams = [];
+		$queryParams = [];
+		$headers = [];
+		$httpBody = '';
+		$multipart = false;
+
+		
+		// path params
+		if ($child !== null) {
+			$resourcePath = str_replace( '{' . 'child' . '}', ObjectSerializer::toPathValue($child), $resourcePath );
+		}
+		// path params
+		if ($parent !== null) {
+			$resourcePath = str_replace( '{' . 'parent' . '}', ObjectSerializer::toPathValue($parent), $resourcePath );
+		}
 
 
 		// for model (json/xml)
@@ -800,16 +991,33 @@ class AccountApi
 	
 	class RequestParams_AccountApi_getAccount {
 		
+		/** @var  string $show Use &#x60;links&#x60; to include the account&#39;s parent and child accounts.  */
+		public $show ;
+		
 	}
 	
 	
-	class RequestParams_AccountApi_listAccounts {
+	class RequestParams_AccountApi_listAccount {
+		
+		/** @var  int $page Page number of results to return.  */
+		public $page = 1 ;
+		
+		/** @var  int $per_page Number of results to return per page.  */
+		public $per_page = 10 ;
+		
+		/** @var  string $order Field name to sort results by. Prefix the field name by a minus sign (ie. -id) to filter in descending order.  */
+		public $order ;
 		
 		/** @var  string $status Filter accounts by their status  */
 		public $status ;
 		
 		/** @var  string $name Filter accounts by name  */
 		public $name ;
+		
+	}
+	
+	
+	class RequestParams_AccountApi_moveAccount {
 		
 	}
 	

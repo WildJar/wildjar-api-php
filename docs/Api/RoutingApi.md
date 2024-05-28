@@ -61,9 +61,6 @@ Block a caller from calling any number on the account. If the blocked number dia
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -98,7 +95,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -125,9 +122,6 @@ Block a caller directly from a call log record. This endpoint can be used to blo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -163,7 +157,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -190,9 +184,6 @@ Create a branch to be used in location routing.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -228,7 +219,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -255,9 +246,6 @@ Create an IVR menu action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -293,7 +281,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -320,9 +308,6 @@ Create a location routing action.  **IMPORTANT**: Location based routing is curr
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -358,7 +343,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -385,9 +370,6 @@ Create a round robin action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -423,7 +405,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -450,9 +432,6 @@ Create a tag action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -488,7 +467,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -515,9 +494,6 @@ Create a time switch action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -553,7 +529,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -580,9 +556,6 @@ Create a transfer action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -618,7 +591,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -645,9 +618,6 @@ Create a voicemail action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -683,7 +653,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -710,9 +680,6 @@ Show detailed configuration of a branch used in location based routing.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -748,7 +715,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -775,9 +742,6 @@ Show detailed routing configuration of an IVR action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -813,7 +777,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -840,9 +804,6 @@ Show detailed configuration of a location based routing action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -878,7 +839,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -905,9 +866,6 @@ Show detailed location mapping including postcode to branch allocation.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -943,7 +901,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -970,9 +928,6 @@ Show detailed routing configuration of a round robin action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1008,7 +963,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1035,9 +990,6 @@ Show tag action details.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1073,7 +1025,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1100,9 +1052,6 @@ Show detailed routing configuration of a time switch action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1138,7 +1087,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1165,9 +1114,6 @@ Show detailed routing configuration of a transfer action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1203,7 +1149,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1230,9 +1176,6 @@ Show detailed routing configuration of a voicemail action.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1268,7 +1211,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1295,9 +1238,6 @@ List callers who are blocked on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1331,7 +1271,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1358,9 +1298,6 @@ List location based routing branches on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1394,7 +1331,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1421,9 +1358,6 @@ List IVR menu actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1457,7 +1391,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1484,9 +1418,6 @@ List location routing actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1520,7 +1451,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1547,9 +1478,6 @@ List round robin actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1583,7 +1511,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1610,9 +1538,6 @@ List tag actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1646,7 +1571,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1673,9 +1598,6 @@ List time switch actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1709,7 +1631,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1736,9 +1658,6 @@ List transfer actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1772,7 +1691,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1799,9 +1718,6 @@ List voicemail actions on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1835,7 +1751,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1862,9 +1778,6 @@ Unblock a caller and allow them to call any number on the specified account.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1899,7 +1812,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1926,9 +1839,6 @@ Update a branch used in location based routing.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -1966,7 +1876,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1993,9 +1903,6 @@ Update the routing of a tracking number to a specified action. If making the rou
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2033,7 +1940,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2060,9 +1967,6 @@ Update routing, options or features on an IVR action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2100,7 +2004,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2127,9 +2031,6 @@ Update location action configuration or routing.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2167,7 +2068,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2194,9 +2095,6 @@ Update members and routing on a round robin action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2234,7 +2132,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2261,9 +2159,6 @@ Update a tag action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2301,7 +2196,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2328,9 +2223,6 @@ Update rules and/or routing on a time switch action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2368,7 +2260,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2395,9 +2287,6 @@ Update routing and/or features on a transfer action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2435,7 +2324,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -2462,9 +2351,6 @@ Update routing and/or features on a voicemail action in the call flow.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -2502,7 +2388,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

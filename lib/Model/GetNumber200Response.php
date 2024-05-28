@@ -56,8 +56,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\WildJar\ApiClient\Model\NumberDetailed',
-        'status' => 'string'
+        'status' => 'string',
+        'data' => '\WildJar\ApiClient\Model\NumberDetailed'
     ];
 
     /**
@@ -68,8 +68,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'status' => null
+        'status' => null,
+        'data' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false,
-        'status' => false
+        'status' => false,
+        'data' => false
     ];
 
     /**
@@ -168,8 +168,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'status' => 'status'
+        'status' => 'status',
+        'data' => 'data'
     ];
 
     /**
@@ -178,8 +178,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'data' => 'setData'
     ];
 
     /**
@@ -188,8 +188,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'data' => 'getData'
     ];
 
     /**
@@ -262,8 +262,8 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -318,33 +318,6 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets data
-     *
-     * @return \WildJar\ApiClient\Model\NumberDetailed|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \WildJar\ApiClient\Model\NumberDetailed|null $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
      * @return string|null
@@ -377,6 +350,33 @@ class GetNumber200Response implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \WildJar\ApiClient\Model\NumberDetailed|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \WildJar\ApiClient\Model\NumberDetailed|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

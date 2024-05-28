@@ -26,9 +26,6 @@ Show full address book contact number to contact mapping by account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -58,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -85,9 +82,6 @@ Show detailed call record for an outbound call.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -121,7 +115,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -148,9 +142,6 @@ Returns a list of contacts in the address book.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -181,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

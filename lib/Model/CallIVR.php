@@ -56,15 +56,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action' => 'mixed',
-        'action_id' => 'mixed',
-        'branch_code' => 'mixed',
-        'branch_name' => 'mixed',
-        'history' => 'mixed',
-        'id' => 'mixed',
-        'name' => 'mixed',
-        'option' => 'mixed',
-        'remote_code' => 'mixed'
+        'id' => 'float',
+        'option' => 'string',
+        'action' => 'string',
+        'action_id' => 'string',
+        'name' => 'string',
+        'branch_code' => 'string',
+        'branch_name' => 'string',
+        'remote_code' => 'string',
+        'history' => 'string'
     ];
 
     /**
@@ -75,15 +75,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'option' => null,
         'action' => null,
         'action_id' => null,
+        'name' => null,
         'branch_code' => null,
         'branch_name' => null,
-        'history' => null,
-        'id' => null,
-        'name' => null,
-        'option' => null,
-        'remote_code' => null
+        'remote_code' => null,
+        'history' => null
     ];
 
     /**
@@ -92,15 +92,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'action' => true,
-        'action_id' => true,
-        'branch_code' => true,
-        'branch_name' => true,
-        'history' => true,
-        'id' => true,
-        'name' => true,
-        'option' => true,
-        'remote_code' => true
+        'id' => false,
+        'option' => false,
+        'action' => false,
+        'action_id' => false,
+        'name' => false,
+        'branch_code' => false,
+        'branch_name' => false,
+        'remote_code' => true,
+        'history' => false
     ];
 
     /**
@@ -189,15 +189,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'option' => 'option',
         'action' => 'action',
         'action_id' => 'actionId',
+        'name' => 'name',
         'branch_code' => 'branchCode',
         'branch_name' => 'branchName',
-        'history' => 'history',
-        'id' => 'id',
-        'name' => 'name',
-        'option' => 'option',
-        'remote_code' => 'remoteCode'
+        'remote_code' => 'remoteCode',
+        'history' => 'history'
     ];
 
     /**
@@ -206,15 +206,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'option' => 'setOption',
         'action' => 'setAction',
         'action_id' => 'setActionId',
+        'name' => 'setName',
         'branch_code' => 'setBranchCode',
         'branch_name' => 'setBranchName',
-        'history' => 'setHistory',
-        'id' => 'setId',
-        'name' => 'setName',
-        'option' => 'setOption',
-        'remote_code' => 'setRemoteCode'
+        'remote_code' => 'setRemoteCode',
+        'history' => 'setHistory'
     ];
 
     /**
@@ -223,15 +223,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'option' => 'getOption',
         'action' => 'getAction',
         'action_id' => 'getActionId',
+        'name' => 'getName',
         'branch_code' => 'getBranchCode',
         'branch_name' => 'getBranchName',
-        'history' => 'getHistory',
-        'id' => 'getId',
-        'name' => 'getName',
-        'option' => 'getOption',
-        'remote_code' => 'getRemoteCode'
+        'remote_code' => 'getRemoteCode',
+        'history' => 'getHistory'
     ];
 
     /**
@@ -320,15 +320,15 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('option', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('action_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('branch_code', $data ?? [], null);
         $this->setIfExists('branch_name', $data ?? [], null);
-        $this->setIfExists('history', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('option', $data ?? [], null);
         $this->setIfExists('remote_code', $data ?? [], null);
+        $this->setIfExists('history', $data ?? [], null);
     }
 
     /**
@@ -383,9 +383,63 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets id
+     *
+     * @return float|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param float|null $id The ID of the IVR option.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets option
+     *
+     * @return string|null
+     */
+    public function getOption()
+    {
+        return $this->container['option'];
+    }
+
+    /**
+     * Sets option
+     *
+     * @param string|null $option The IVR digit the caller entered and was routed to.
+     *
+     * @return self
+     */
+    public function setOption($option)
+    {
+        if (is_null($option)) {
+            throw new \InvalidArgumentException('non-nullable option cannot be null');
+        }
+        $this->container['option'] = $option;
+
+        return $this;
+    }
+
+    /**
      * Gets action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAction()
     {
@@ -395,24 +449,17 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action
      *
-     * @param mixed|null $action Call flow action type this number routes to
+     * @param string|null $action Call flow action type this number routes to
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            array_push($this->openAPINullablesSetToNull, 'action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        if (!in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",
@@ -429,7 +476,7 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets action_id
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getActionId()
     {
@@ -439,21 +486,14 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets action_id
      *
-     * @param mixed|null $action_id Action ID of the call flow action
+     * @param string|null $action_id Action ID of the call flow action
      *
      * @return self
      */
     public function setActionId($action_id)
     {
         if (is_null($action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action_id cannot be null');
         }
         $this->container['action_id'] = $action_id;
 
@@ -461,145 +501,9 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets branch_code
-     *
-     * @return mixed|null
-     */
-    public function getBranchCode()
-    {
-        return $this->container['branch_code'];
-    }
-
-    /**
-     * Sets branch_code
-     *
-     * @param mixed|null $branch_code **Location routing only**: The branch code the call was answered at.
-     *
-     * @return self
-     */
-    public function setBranchCode($branch_code)
-    {
-        if (is_null($branch_code)) {
-            array_push($this->openAPINullablesSetToNull, 'branch_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('branch_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['branch_code'] = $branch_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets branch_name
-     *
-     * @return mixed|null
-     */
-    public function getBranchName()
-    {
-        return $this->container['branch_name'];
-    }
-
-    /**
-     * Sets branch_name
-     *
-     * @param mixed|null $branch_name **Location routing only**: The branch name the call was answered at.
-     *
-     * @return self
-     */
-    public function setBranchName($branch_name)
-    {
-        if (is_null($branch_name)) {
-            array_push($this->openAPINullablesSetToNull, 'branch_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('branch_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['branch_name'] = $branch_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets history
-     *
-     * @return mixed|null
-     */
-    public function getHistory()
-    {
-        return $this->container['history'];
-    }
-
-    /**
-     * Sets history
-     *
-     * @param mixed|null $history The full history of all IVR digits pressed on the call, including multiple IVR menu levels.
-     *
-     * @return self
-     */
-    public function setHistory($history)
-    {
-        if (is_null($history)) {
-            array_push($this->openAPINullablesSetToNull, 'history');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('history', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['history'] = $history;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The ID of the IVR option.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getName()
     {
@@ -609,21 +513,14 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param mixed|null $name The IVR option name the caller was routed to.
+     * @param string|null $name The IVR option name the caller was routed to.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -631,35 +528,55 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets option
+     * Gets branch_code
      *
-     * @return mixed|null
+     * @return string|null
      */
-    public function getOption()
+    public function getBranchCode()
     {
-        return $this->container['option'];
+        return $this->container['branch_code'];
     }
 
     /**
-     * Sets option
+     * Sets branch_code
      *
-     * @param mixed|null $option The IVR digit the caller entered and was routed to.
+     * @param string|null $branch_code **Location routing only**: The branch code the call was answered at.
      *
      * @return self
      */
-    public function setOption($option)
+    public function setBranchCode($branch_code)
     {
-        if (is_null($option)) {
-            array_push($this->openAPINullablesSetToNull, 'option');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('option', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($branch_code)) {
+            throw new \InvalidArgumentException('non-nullable branch_code cannot be null');
         }
-        $this->container['option'] = $option;
+        $this->container['branch_code'] = $branch_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch_name
+     *
+     * @return string|null
+     */
+    public function getBranchName()
+    {
+        return $this->container['branch_name'];
+    }
+
+    /**
+     * Sets branch_name
+     *
+     * @param string|null $branch_name **Location routing only**: The branch name the call was answered at.
+     *
+     * @return self
+     */
+    public function setBranchName($branch_name)
+    {
+        if (is_null($branch_name)) {
+            throw new \InvalidArgumentException('non-nullable branch_name cannot be null');
+        }
+        $this->container['branch_name'] = $branch_name;
 
         return $this;
     }
@@ -667,7 +584,7 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_code
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getRemoteCode()
     {
@@ -677,7 +594,7 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_code
      *
-     * @param mixed|null $remote_code An optional option code used for integrations into a 3rd party platform.
+     * @param string|null $remote_code An optional option code used for integrations into a 3rd party platform.
      *
      * @return self
      */
@@ -694,6 +611,33 @@ class CallIVR implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['remote_code'] = $remote_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets history
+     *
+     * @return string|null
+     */
+    public function getHistory()
+    {
+        return $this->container['history'];
+    }
+
+    /**
+     * Sets history
+     *
+     * @param string|null $history The full history of all IVR digits pressed on the call, including multiple IVR menu levels.
+     *
+     * @return self
+     */
+    public function setHistory($history)
+    {
+        if (is_null($history)) {
+            throw new \InvalidArgumentException('non-nullable history cannot be null');
+        }
+        $this->container['history'] = $history;
 
         return $this;
     }

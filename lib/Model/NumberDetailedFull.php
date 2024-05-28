@@ -56,18 +56,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'action' => 'mixed',
-        'action_id' => 'mixed',
-        'did' => 'mixed',
-        'name' => 'mixed',
-        'source' => 'mixed',
-        'status' => 'mixed',
-        'type' => 'mixed',
-        'activation_date' => 'mixed',
-        'area' => 'mixed',
-        'cancel_date' => 'mixed',
-        'country' => 'mixed',
+        'did' => 'string',
+        'name' => 'string',
+        'account' => 'string',
+        'source' => 'string',
+        'type' => 'string',
+        'action' => 'string',
+        'action_id' => 'string',
+        'status' => 'string',
+        'activation_date' => '\DateTime',
+        'cancel_date' => '\DateTime',
+        'country' => 'string',
+        'area' => 'string',
         'extra' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtra'
     ];
 
@@ -79,18 +79,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
-        'action' => null,
-        'action_id' => null,
         'did' => null,
         'name' => null,
+        'account' => null,
         'source' => null,
-        'status' => null,
         'type' => null,
+        'action' => null,
+        'action_id' => null,
+        'status' => null,
         'activation_date' => 'date-time',
-        'area' => null,
         'cancel_date' => 'date-time',
         'country' => null,
+        'area' => null,
         'extra' => null
     ];
 
@@ -100,18 +100,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'action' => true,
-        'action_id' => true,
-        'did' => true,
-        'name' => true,
-        'source' => true,
-        'status' => true,
-        'type' => true,
-        'activation_date' => true,
-        'area' => true,
-        'cancel_date' => true,
-        'country' => true,
+        'did' => false,
+        'name' => false,
+        'account' => false,
+        'source' => false,
+        'type' => false,
+        'action' => false,
+        'action_id' => false,
+        'status' => false,
+        'activation_date' => false,
+        'cancel_date' => false,
+        'country' => false,
+        'area' => false,
         'extra' => false
     ];
 
@@ -201,18 +201,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
-        'action' => 'action',
-        'action_id' => 'actionId',
         'did' => 'did',
         'name' => 'name',
+        'account' => 'account',
         'source' => 'source',
-        'status' => 'status',
         'type' => 'type',
+        'action' => 'action',
+        'action_id' => 'actionId',
+        'status' => 'status',
         'activation_date' => 'activationDate',
-        'area' => 'area',
         'cancel_date' => 'cancelDate',
         'country' => 'country',
+        'area' => 'area',
         'extra' => 'extra'
     ];
 
@@ -222,18 +222,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
-        'action' => 'setAction',
-        'action_id' => 'setActionId',
         'did' => 'setDid',
         'name' => 'setName',
+        'account' => 'setAccount',
         'source' => 'setSource',
-        'status' => 'setStatus',
         'type' => 'setType',
+        'action' => 'setAction',
+        'action_id' => 'setActionId',
+        'status' => 'setStatus',
         'activation_date' => 'setActivationDate',
-        'area' => 'setArea',
         'cancel_date' => 'setCancelDate',
         'country' => 'setCountry',
+        'area' => 'setArea',
         'extra' => 'setExtra'
     ];
 
@@ -243,18 +243,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
-        'action' => 'getAction',
-        'action_id' => 'getActionId',
         'did' => 'getDid',
         'name' => 'getName',
+        'account' => 'getAccount',
         'source' => 'getSource',
-        'status' => 'getStatus',
         'type' => 'getType',
+        'action' => 'getAction',
+        'action_id' => 'getActionId',
+        'status' => 'getStatus',
         'activation_date' => 'getActivationDate',
-        'area' => 'getArea',
         'cancel_date' => 'getCancelDate',
         'country' => 'getCountry',
+        'area' => 'getArea',
         'extra' => 'getExtra'
     ];
 
@@ -299,6 +299,10 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const TYPE_GEO = 'geo';
+    public const TYPE_MOBILE = 'mobile';
+    public const TYPE_SMART = 'smart';
+    public const TYPE_TOLLFREE = 'tollfree';
     public const ACTION_HANGUP = 'hangup';
     public const ACTION_IVR = 'ivr';
     public const ACTION_LOCATION = 'location';
@@ -308,10 +312,21 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     public const ACTION_VOICEMAIL = 'voicemail';
     public const STATUS_ACTIVE = 'active';
     public const STATUS_DECOMMISSIONED = 'decommissioned';
-    public const TYPE_GEO = 'geo';
-    public const TYPE_MOBILE = 'mobile';
-    public const TYPE_SMART = 'smart';
-    public const TYPE_TOLLFREE = 'tollfree';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_GEO,
+            self::TYPE_MOBILE,
+            self::TYPE_SMART,
+            self::TYPE_TOLLFREE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -345,21 +360,6 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_GEO,
-            self::TYPE_MOBILE,
-            self::TYPE_SMART,
-            self::TYPE_TOLLFREE,
-        ];
-    }
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -374,18 +374,18 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('action', $data ?? [], null);
-        $this->setIfExists('action_id', $data ?? [], null);
         $this->setIfExists('did', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('action', $data ?? [], null);
+        $this->setIfExists('action_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('activation_date', $data ?? [], null);
-        $this->setIfExists('area', $data ?? [], null);
         $this->setIfExists('cancel_date', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('area', $data ?? [], null);
         $this->setIfExists('extra', $data ?? [], null);
     }
 
@@ -416,6 +416,15 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -430,15 +439,6 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'status', must be one of '%s'",
                 $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -459,9 +459,63 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
+     * Gets did
+     *
+     * @return string|null
+     */
+    public function getDid()
+    {
+        return $this->container['did'];
+    }
+
+    /**
+     * Sets did
+     *
+     * @param string|null $did The tracking number in E164 format
+     *
+     * @return self
+     */
+    public function setDid($did)
+    {
+        if (is_null($did)) {
+            throw new \InvalidArgumentException('non-nullable did cannot be null');
+        }
+        $this->container['did'] = $did;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Unique name to identify the tracking number
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets account
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAccount()
     {
@@ -471,21 +525,14 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets account
      *
-     * @param mixed|null $account The account number the tracking number is located in
+     * @param string|null $account The account number the tracking number is located in
      *
      * @return self
      */
     public function setAccount($account)
     {
         if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
         }
         $this->container['account'] = $account;
 
@@ -493,9 +540,73 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source Grouped source name to identify the call source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The number's network type.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
      * Gets action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAction()
     {
@@ -505,24 +616,17 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets action
      *
-     * @param mixed|null $action Call flow action type this number routes to
+     * @param string|null $action Call flow action type this number routes to
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            array_push($this->openAPINullablesSetToNull, 'action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        if (!in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",
@@ -539,7 +643,7 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets action_id
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getActionId()
     {
@@ -549,21 +653,14 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets action_id
      *
-     * @param mixed|null $action_id Action ID of the call flow action
+     * @param string|null $action_id Action ID of the call flow action
      *
      * @return self
      */
     public function setActionId($action_id)
     {
         if (is_null($action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action_id cannot be null');
         }
         $this->container['action_id'] = $action_id;
 
@@ -571,111 +668,9 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets did
-     *
-     * @return mixed|null
-     */
-    public function getDid()
-    {
-        return $this->container['did'];
-    }
-
-    /**
-     * Sets did
-     *
-     * @param mixed|null $did The tracking number in E164 format
-     *
-     * @return self
-     */
-    public function setDid($did)
-    {
-        if (is_null($did)) {
-            array_push($this->openAPINullablesSetToNull, 'did');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('did', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['did'] = $did;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return mixed|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param mixed|null $name Unique name to identify the tracking number
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return mixed|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param mixed|null $source Grouped source name to identify the call source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -685,24 +680,17 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param mixed|null $status Number status
+     * @param string|null $status Number status
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+        if (!in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -717,53 +705,9 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets type
-     *
-     * @return mixed|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param mixed|null $type The number's network type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets activation_date
      *
-     * @return mixed|null
+     * @return \DateTime|null
      */
     public function getActivationDate()
     {
@@ -773,21 +717,14 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets activation_date
      *
-     * @param mixed|null $activation_date The date the number was activated in ISO format.
+     * @param \DateTime|null $activation_date The date the number was activated in ISO format.
      *
      * @return self
      */
     public function setActivationDate($activation_date)
     {
         if (is_null($activation_date)) {
-            array_push($this->openAPINullablesSetToNull, 'activation_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('activation_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable activation_date cannot be null');
         }
         $this->container['activation_date'] = $activation_date;
 
@@ -795,43 +732,9 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets area
-     *
-     * @return mixed|null
-     */
-    public function getArea()
-    {
-        return $this->container['area'];
-    }
-
-    /**
-     * Sets area
-     *
-     * @param mixed|null $area The number location or charge area.
-     *
-     * @return self
-     */
-    public function setArea($area)
-    {
-        if (is_null($area)) {
-            array_push($this->openAPINullablesSetToNull, 'area');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('area', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['area'] = $area;
-
-        return $this;
-    }
-
-    /**
      * Gets cancel_date
      *
-     * @return mixed|null
+     * @return \DateTime|null
      */
     public function getCancelDate()
     {
@@ -841,21 +744,14 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets cancel_date
      *
-     * @param mixed|null $cancel_date The date the number was decommissioned in ISO format.
+     * @param \DateTime|null $cancel_date The date the number was decommissioned in ISO format.
      *
      * @return self
      */
     public function setCancelDate($cancel_date)
     {
         if (is_null($cancel_date)) {
-            array_push($this->openAPINullablesSetToNull, 'cancel_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cancel_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable cancel_date cannot be null');
         }
         $this->container['cancel_date'] = $cancel_date;
 
@@ -865,7 +761,7 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets country
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getCountry()
     {
@@ -875,23 +771,43 @@ class NumberDetailedFull implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets country
      *
-     * @param mixed|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
+     * @param string|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
      *
      * @return self
      */
     public function setCountry($country)
     {
         if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets area
+     *
+     * @return string|null
+     */
+    public function getArea()
+    {
+        return $this->container['area'];
+    }
+
+    /**
+     * Sets area
+     *
+     * @param string|null $area The number location or charge area.
+     *
+     * @return self
+     */
+    public function setArea($area)
+    {
+        if (is_null($area)) {
+            throw new \InvalidArgumentException('non-nullable area cannot be null');
+        }
+        $this->container['area'] = $area;
 
         return $this;
     }

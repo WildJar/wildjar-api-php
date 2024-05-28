@@ -56,17 +56,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'id' => 'mixed',
-        'name' => 'mixed',
-        'next_action' => 'mixed',
-        'next_action_id' => 'mixed',
-        'geo_location' => 'mixed',
-        'iv_rattempts' => 'mixed',
-        'iv_rdigits' => 'mixed',
-        'iv_rmessage' => 'mixed',
-        'mobile_location' => 'mixed',
-        'postcode_prompt' => 'mixed',
+        'geo_location' => 'string',
+        'mobile_location' => 'string',
+        'postcode_prompt' => 'string',
+        'iv_rmessage' => 'string',
+        'iv_rdigits' => 'float',
+        'iv_rattempts' => 'float',
+        'id' => 'float',
+        'account' => 'float',
+        'name' => 'string',
+        'next_action' => 'string',
+        'next_action_id' => 'float',
         'action' => 'string',
         'map' => 'object'
     ];
@@ -79,17 +79,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
+        'geo_location' => null,
+        'mobile_location' => null,
+        'postcode_prompt' => null,
+        'iv_rmessage' => null,
+        'iv_rdigits' => null,
+        'iv_rattempts' => null,
         'id' => null,
+        'account' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'geo_location' => null,
-        'iv_rattempts' => null,
-        'iv_rdigits' => null,
-        'iv_rmessage' => null,
-        'mobile_location' => null,
-        'postcode_prompt' => null,
         'action' => null,
         'map' => null
     ];
@@ -100,17 +100,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'id' => true,
-        'name' => true,
-        'next_action' => true,
-        'next_action_id' => true,
-        'geo_location' => true,
-        'iv_rattempts' => true,
-        'iv_rdigits' => true,
-        'iv_rmessage' => true,
-        'mobile_location' => true,
-        'postcode_prompt' => true,
+        'geo_location' => false,
+        'mobile_location' => false,
+        'postcode_prompt' => false,
+        'iv_rmessage' => false,
+        'iv_rdigits' => false,
+        'iv_rattempts' => false,
+        'id' => false,
+        'account' => false,
+        'name' => false,
+        'next_action' => false,
+        'next_action_id' => false,
         'action' => false,
         'map' => true
     ];
@@ -201,17 +201,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
+        'geo_location' => 'geoLocation',
+        'mobile_location' => 'mobileLocation',
+        'postcode_prompt' => 'postcodePrompt',
+        'iv_rmessage' => 'IVRmessage',
+        'iv_rdigits' => 'IVRdigits',
+        'iv_rattempts' => 'IVRattempts',
         'id' => 'id',
+        'account' => 'account',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'geo_location' => 'geoLocation',
-        'iv_rattempts' => 'IVRattempts',
-        'iv_rdigits' => 'IVRdigits',
-        'iv_rmessage' => 'IVRmessage',
-        'mobile_location' => 'mobileLocation',
-        'postcode_prompt' => 'postcodePrompt',
         'action' => 'action',
         'map' => 'map'
     ];
@@ -222,17 +222,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
+        'geo_location' => 'setGeoLocation',
+        'mobile_location' => 'setMobileLocation',
+        'postcode_prompt' => 'setPostcodePrompt',
+        'iv_rmessage' => 'setIvRmessage',
+        'iv_rdigits' => 'setIvRdigits',
+        'iv_rattempts' => 'setIvRattempts',
         'id' => 'setId',
+        'account' => 'setAccount',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'geo_location' => 'setGeoLocation',
-        'iv_rattempts' => 'setIvRattempts',
-        'iv_rdigits' => 'setIvRdigits',
-        'iv_rmessage' => 'setIvRmessage',
-        'mobile_location' => 'setMobileLocation',
-        'postcode_prompt' => 'setPostcodePrompt',
         'action' => 'setAction',
         'map' => 'setMap'
     ];
@@ -243,17 +243,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
+        'geo_location' => 'getGeoLocation',
+        'mobile_location' => 'getMobileLocation',
+        'postcode_prompt' => 'getPostcodePrompt',
+        'iv_rmessage' => 'getIvRmessage',
+        'iv_rdigits' => 'getIvRdigits',
+        'iv_rattempts' => 'getIvRattempts',
         'id' => 'getId',
+        'account' => 'getAccount',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'geo_location' => 'getGeoLocation',
-        'iv_rattempts' => 'getIvRattempts',
-        'iv_rdigits' => 'getIvRdigits',
-        'iv_rmessage' => 'getIvRmessage',
-        'mobile_location' => 'getMobileLocation',
-        'postcode_prompt' => 'getPostcodePrompt',
         'action' => 'getAction',
         'map' => 'getMap'
     ];
@@ -299,6 +299,12 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const GEO_LOCATION_YES = 'yes';
+    public const GEO_LOCATION_NO = 'no';
+    public const MOBILE_LOCATION_YES = 'yes';
+    public const MOBILE_LOCATION_NO = 'no';
+    public const POSTCODE_PROMPT_YES = 'yes';
+    public const POSTCODE_PROMPT_NO = 'no';
     public const NEXT_ACTION_BRANCH = 'branch';
     public const NEXT_ACTION_HANGUP = 'hangup';
     public const NEXT_ACTION_IVR = 'ivr';
@@ -308,33 +314,7 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     public const NEXT_ACTION_TIME = 'time';
     public const NEXT_ACTION_TRANSFER = 'transfer';
     public const NEXT_ACTION_VOICEMAIL = 'voicemail';
-    public const GEO_LOCATION_YES = 'yes';
-    public const GEO_LOCATION_NO = 'no';
-    public const MOBILE_LOCATION_YES = 'yes';
-    public const MOBILE_LOCATION_NO = 'no';
-    public const POSTCODE_PROMPT_YES = 'yes';
-    public const POSTCODE_PROMPT_NO = 'no';
     public const ACTION_LOCATIONS = 'locations';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNextActionAllowableValues()
-    {
-        return [
-            self::NEXT_ACTION_BRANCH,
-            self::NEXT_ACTION_HANGUP,
-            self::NEXT_ACTION_IVR,
-            self::NEXT_ACTION_LOCATIONS,
-            self::NEXT_ACTION_ROBIN,
-            self::NEXT_ACTION_TAG,
-            self::NEXT_ACTION_TIME,
-            self::NEXT_ACTION_TRANSFER,
-            self::NEXT_ACTION_VOICEMAIL,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -380,6 +360,26 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @return string[]
      */
+    public function getNextActionAllowableValues()
+    {
+        return [
+            self::NEXT_ACTION_BRANCH,
+            self::NEXT_ACTION_HANGUP,
+            self::NEXT_ACTION_IVR,
+            self::NEXT_ACTION_LOCATIONS,
+            self::NEXT_ACTION_ROBIN,
+            self::NEXT_ACTION_TAG,
+            self::NEXT_ACTION_TIME,
+            self::NEXT_ACTION_TRANSFER,
+            self::NEXT_ACTION_VOICEMAIL,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
     public function getActionAllowableValues()
     {
         return [
@@ -402,17 +402,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('geo_location', $data ?? [], 'yes');
+        $this->setIfExists('mobile_location', $data ?? [], 'yes');
+        $this->setIfExists('postcode_prompt', $data ?? [], 'no');
+        $this->setIfExists('iv_rmessage', $data ?? [], null);
+        $this->setIfExists('iv_rdigits', $data ?? [], 4);
+        $this->setIfExists('iv_rattempts', $data ?? [], 2);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('geo_location', $data ?? [], null);
-        $this->setIfExists('iv_rattempts', $data ?? [], null);
-        $this->setIfExists('iv_rdigits', $data ?? [], null);
-        $this->setIfExists('iv_rmessage', $data ?? [], null);
-        $this->setIfExists('mobile_location', $data ?? [], null);
-        $this->setIfExists('postcode_prompt', $data ?? [], null);
         $this->setIfExists('action', $data ?? [], null);
         $this->setIfExists('map', $data ?? [], null);
     }
@@ -444,19 +444,6 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        $allowedValues = $this->getNextActionAllowableValues();
-        if (!is_null($this->container['next_action']) && !in_array($this->container['next_action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'next_action', must be one of '%s'",
-                $this->container['next_action'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getGeoLocationAllowableValues();
         if (!is_null($this->container['geo_location']) && !in_array($this->container['geo_location'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -480,6 +467,19 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'postcode_prompt', must be one of '%s'",
                 $this->container['postcode_prompt'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
+
+        $allowedValues = $this->getNextActionAllowableValues();
+        if (!is_null($this->container['next_action']) && !in_array($this->container['next_action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'next_action', must be one of '%s'",
+                $this->container['next_action'],
                 implode("', '", $allowedValues)
             );
         }
@@ -509,193 +509,9 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets account
-     *
-     * @return mixed|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param mixed|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return mixed|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param mixed|null $id The action ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return mixed|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param mixed|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($name) && (mb_strlen($name) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling ActionLocationsFull., must be smaller than or equal to 100.');
-        }
-
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_action
-     *
-     * @return mixed|null
-     */
-    public function getNextAction()
-    {
-        return $this->container['next_action'];
-    }
-
-    /**
-     * Sets next_action
-     *
-     * @param mixed|null $next_action Next action type to route to in the call flow.
-     *
-     * @return self
-     */
-    public function setNextAction($next_action)
-    {
-        if (is_null($next_action)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getNextActionAllowableValues();
-        if (!is_null($next_action) && !in_array($next_action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'next_action', must be one of '%s'",
-                    $next_action,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['next_action'] = $next_action;
-
-        return $this;
-    }
-
-    /**
-     * Gets next_action_id
-     *
-     * @return mixed|null
-     */
-    public function getNextActionId()
-    {
-        return $this->container['next_action_id'];
-    }
-
-    /**
-     * Sets next_action_id
-     *
-     * @param mixed|null $next_action_id Next action ID to route to in the call flow.
-     *
-     * @return self
-     */
-    public function setNextActionId($next_action_id)
-    {
-        if (is_null($next_action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['next_action_id'] = $next_action_id;
-
-        return $this;
-    }
-
-    /**
      * Gets geo_location
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getGeoLocation()
     {
@@ -705,24 +521,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets geo_location
      *
-     * @param mixed|null $geo_location Whether the call will be automatically routed based on a landline caller's exchange.
+     * @param string|null $geo_location Whether the call will be automatically routed based on a landline caller's exchange.
      *
      * @return self
      */
     public function setGeoLocation($geo_location)
     {
         if (is_null($geo_location)) {
-            array_push($this->openAPINullablesSetToNull, 'geo_location');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('geo_location', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable geo_location cannot be null');
         }
         $allowedValues = $this->getGeoLocationAllowableValues();
-        if (!is_null($geo_location) && !in_array($geo_location, $allowedValues, true)) {
+        if (!in_array($geo_location, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'geo_location', must be one of '%s'",
@@ -737,111 +546,9 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets iv_rattempts
-     *
-     * @return mixed|null
-     */
-    public function getIvRattempts()
-    {
-        return $this->container['iv_rattempts'];
-    }
-
-    /**
-     * Sets iv_rattempts
-     *
-     * @param mixed|null $iv_rattempts The number of attempts allowed before the IVR message is replayed.
-     *
-     * @return self
-     */
-    public function setIvRattempts($iv_rattempts)
-    {
-        if (is_null($iv_rattempts)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rattempts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rattempts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rattempts'] = $iv_rattempts;
-
-        return $this;
-    }
-
-    /**
-     * Gets iv_rdigits
-     *
-     * @return mixed|null
-     */
-    public function getIvRdigits()
-    {
-        return $this->container['iv_rdigits'];
-    }
-
-    /**
-     * Sets iv_rdigits
-     *
-     * @param mixed|null $iv_rdigits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
-     *
-     * @return self
-     */
-    public function setIvRdigits($iv_rdigits)
-    {
-        if (is_null($iv_rdigits)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rdigits');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rdigits', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rdigits'] = $iv_rdigits;
-
-        return $this;
-    }
-
-    /**
-     * Gets iv_rmessage
-     *
-     * @return mixed|null
-     */
-    public function getIvRmessage()
-    {
-        return $this->container['iv_rmessage'];
-    }
-
-    /**
-     * Sets iv_rmessage
-     *
-     * @param mixed|null $iv_rmessage The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
-     *
-     * @return self
-     */
-    public function setIvRmessage($iv_rmessage)
-    {
-        if (is_null($iv_rmessage)) {
-            array_push($this->openAPINullablesSetToNull, 'iv_rmessage');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('iv_rmessage', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['iv_rmessage'] = $iv_rmessage;
-
-        return $this;
-    }
-
-    /**
      * Gets mobile_location
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getMobileLocation()
     {
@@ -851,24 +558,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets mobile_location
      *
-     * @param mixed|null $mobile_location Whether the call will be automatically routed based on a mobile caller's MoLI location (13, 1300 and 1800 tracking numbers only).
+     * @param string|null $mobile_location Whether the call will be automatically routed based on a mobile caller's MoLI location (13, 1300 and 1800 tracking numbers only).
      *
      * @return self
      */
     public function setMobileLocation($mobile_location)
     {
         if (is_null($mobile_location)) {
-            array_push($this->openAPINullablesSetToNull, 'mobile_location');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('mobile_location', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable mobile_location cannot be null');
         }
         $allowedValues = $this->getMobileLocationAllowableValues();
-        if (!is_null($mobile_location) && !in_array($mobile_location, $allowedValues, true)) {
+        if (!in_array($mobile_location, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'mobile_location', must be one of '%s'",
@@ -885,7 +585,7 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets postcode_prompt
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getPostcodePrompt()
     {
@@ -895,24 +595,17 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets postcode_prompt
      *
-     * @param mixed|null $postcode_prompt Whether the caller will be prompted to enter a postcode before being routed to the nearest branch.
+     * @param string|null $postcode_prompt Whether the caller will be prompted to enter a postcode before being routed to the nearest branch.
      *
      * @return self
      */
     public function setPostcodePrompt($postcode_prompt)
     {
         if (is_null($postcode_prompt)) {
-            array_push($this->openAPINullablesSetToNull, 'postcode_prompt');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('postcode_prompt', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable postcode_prompt cannot be null');
         }
         $allowedValues = $this->getPostcodePromptAllowableValues();
-        if (!is_null($postcode_prompt) && !in_array($postcode_prompt, $allowedValues, true)) {
+        if (!in_array($postcode_prompt, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'postcode_prompt', must be one of '%s'",
@@ -922,6 +615,236 @@ class ActionLocationsFull implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
         $this->container['postcode_prompt'] = $postcode_prompt;
+
+        return $this;
+    }
+
+    /**
+     * Gets iv_rmessage
+     *
+     * @return string|null
+     */
+    public function getIvRmessage()
+    {
+        return $this->container['iv_rmessage'];
+    }
+
+    /**
+     * Sets iv_rmessage
+     *
+     * @param string|null $iv_rmessage The message to be played to the caller on the IVR menu. Can be Text to speech or a URI to an MP3 file.
+     *
+     * @return self
+     */
+    public function setIvRmessage($iv_rmessage)
+    {
+        if (is_null($iv_rmessage)) {
+            throw new \InvalidArgumentException('non-nullable iv_rmessage cannot be null');
+        }
+        $this->container['iv_rmessage'] = $iv_rmessage;
+
+        return $this;
+    }
+
+    /**
+     * Gets iv_rdigits
+     *
+     * @return float|null
+     */
+    public function getIvRdigits()
+    {
+        return $this->container['iv_rdigits'];
+    }
+
+    /**
+     * Sets iv_rdigits
+     *
+     * @param float|null $iv_rdigits The number of digits required for input to be valid and routed to that option. If fewer digits are requierd for an option, it can be overridden by pressing the digit set in finishOnKey.
+     *
+     * @return self
+     */
+    public function setIvRdigits($iv_rdigits)
+    {
+        if (is_null($iv_rdigits)) {
+            throw new \InvalidArgumentException('non-nullable iv_rdigits cannot be null');
+        }
+        $this->container['iv_rdigits'] = $iv_rdigits;
+
+        return $this;
+    }
+
+    /**
+     * Gets iv_rattempts
+     *
+     * @return float|null
+     */
+    public function getIvRattempts()
+    {
+        return $this->container['iv_rattempts'];
+    }
+
+    /**
+     * Sets iv_rattempts
+     *
+     * @param float|null $iv_rattempts The number of attempts allowed before the IVR message is replayed.
+     *
+     * @return self
+     */
+    public function setIvRattempts($iv_rattempts)
+    {
+        if (is_null($iv_rattempts)) {
+            throw new \InvalidArgumentException('non-nullable iv_rattempts cannot be null');
+        }
+        $this->container['iv_rattempts'] = $iv_rattempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return float|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param float|null $id The action ID.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        if ((mb_strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ActionLocationsFull., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_action
+     *
+     * @return string|null
+     */
+    public function getNextAction()
+    {
+        return $this->container['next_action'];
+    }
+
+    /**
+     * Sets next_action
+     *
+     * @param string|null $next_action Next action type to route to in the call flow.
+     *
+     * @return self
+     */
+    public function setNextAction($next_action)
+    {
+        if (is_null($next_action)) {
+            throw new \InvalidArgumentException('non-nullable next_action cannot be null');
+        }
+        $allowedValues = $this->getNextActionAllowableValues();
+        if (!in_array($next_action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'next_action', must be one of '%s'",
+                    $next_action,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['next_action'] = $next_action;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_action_id
+     *
+     * @return float|null
+     */
+    public function getNextActionId()
+    {
+        return $this->container['next_action_id'];
+    }
+
+    /**
+     * Sets next_action_id
+     *
+     * @param float|null $next_action_id Next action ID to route to in the call flow.
+     *
+     * @return self
+     */
+    public function setNextActionId($next_action_id)
+    {
+        if (is_null($next_action_id)) {
+            throw new \InvalidArgumentException('non-nullable next_action_id cannot be null');
+        }
+        $this->container['next_action_id'] = $next_action_id;
 
         return $this;
     }

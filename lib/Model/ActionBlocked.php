@@ -57,11 +57,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'account' => 'float',
-        'date' => '\DateTime',
         'number' => 'string',
-        'reason' => 'string',
         'reference' => 'string',
-        'user' => 'string'
+        'date' => '\DateTime',
+        'user' => 'string',
+        'reason' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'account' => null,
-        'date' => 'date-time',
         'number' => null,
-        'reason' => null,
         'reference' => null,
-        'user' => null
+        'date' => 'date-time',
+        'user' => null,
+        'reason' => null
     ];
 
     /**
@@ -87,11 +87,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'account' => false,
-        'date' => false,
         'number' => false,
-        'reason' => false,
         'reference' => false,
-        'user' => false
+        'date' => false,
+        'user' => false,
+        'reason' => false
     ];
 
     /**
@@ -181,11 +181,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'account' => 'account',
-        'date' => 'date',
         'number' => 'number',
-        'reason' => 'reason',
         'reference' => 'reference',
-        'user' => 'user'
+        'date' => 'date',
+        'user' => 'user',
+        'reason' => 'reason'
     ];
 
     /**
@@ -195,11 +195,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'account' => 'setAccount',
-        'date' => 'setDate',
         'number' => 'setNumber',
-        'reason' => 'setReason',
         'reference' => 'setReference',
-        'user' => 'setUser'
+        'date' => 'setDate',
+        'user' => 'setUser',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -209,11 +209,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'account' => 'getAccount',
-        'date' => 'getDate',
         'number' => 'getNumber',
-        'reason' => 'getReason',
         'reference' => 'getReference',
-        'user' => 'getUser'
+        'date' => 'getDate',
+        'user' => 'getUser',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -274,11 +274,11 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('reason', $data ?? [], null);
         $this->setIfExists('reference', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
         $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('reason', $data ?? [], null);
     }
 
     /**
@@ -315,9 +315,6 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'number', the character length must be smaller than or equal to 30.";
         }
 
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
-        }
         if (!is_null($this->container['reference']) && (mb_strlen($this->container['reference']) > 40)) {
             $invalidProperties[] = "invalid value for 'reference', the character length must be smaller than or equal to 40.";
         }
@@ -326,6 +323,9 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'user', the character length must be smaller than or equal to 150.";
         }
 
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -369,33 +369,6 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date The date and time the caller was blocked, based on the account time zone, in ISO format.
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
      * Gets number
      *
      * @return string
@@ -422,33 +395,6 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['number'] = $number;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return string
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string $reason Reason the caller was blocked.
-     *
-     * @return self
-     */
-    public function setReason($reason)
-    {
-        if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
-        }
-        $this->container['reason'] = $reason;
 
         return $this;
     }
@@ -485,6 +431,33 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date The date and time the caller was blocked, based on the account time zone, in ISO format.
+     *
+     * @return self
+     */
+    public function setDate($date)
+    {
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        }
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
      * Gets user
      *
      * @return string|null
@@ -511,6 +484,33 @@ class ActionBlocked implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason Reason the caller was blocked.
+     *
+     * @return self
+     */
+    public function setReason($reason)
+    {
+        if (is_null($reason)) {
+            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+        }
+        $this->container['reason'] = $reason;
 
         return $this;
     }

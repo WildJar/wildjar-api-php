@@ -56,8 +56,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'data' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'status' => null
+        'status' => null,
+        'data' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false,
-        'status' => false
+        'status' => false,
+        'data' => false
     ];
 
     /**
@@ -168,8 +168,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'status' => 'status'
+        'status' => 'status',
+        'data' => 'data'
     ];
 
     /**
@@ -178,8 +178,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'data' => 'setData'
     ];
 
     /**
@@ -188,8 +188,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'data' => 'getData'
     ];
 
     /**
@@ -233,20 +233,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const DATA_DONE = 'done';
     public const STATUS_OK = 'ok';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDataAllowableValues()
-    {
-        return [
-            self::DATA_DONE,
-        ];
-    }
+    public const DATA_DONE = 'done';
 
     /**
      * Gets allowable values of the enum
@@ -257,6 +245,18 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
     {
         return [
             self::STATUS_OK,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDataAllowableValues()
+    {
+        return [
+            self::DATA_DONE,
         ];
     }
 
@@ -275,8 +275,8 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -306,20 +306,20 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getDataAllowableValues();
-        if (!is_null($this->container['data']) && !in_array($this->container['data'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'data', must be one of '%s'",
-                $this->container['data'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'status', must be one of '%s'",
                 $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getDataAllowableValues();
+        if (!is_null($this->container['data']) && !in_array($this->container['data'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'data', must be one of '%s'",
+                $this->container['data'],
                 implode("', '", $allowedValues)
             );
         }
@@ -338,43 +338,6 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets data
-     *
-     * @return string|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param string|null $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $allowedValues = $this->getDataAllowableValues();
-        if (!in_array($data, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'data', must be one of '%s'",
-                    $data,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['data'] = $data;
-
-        return $this;
-    }
 
     /**
      * Gets status
@@ -409,6 +372,43 @@ class UpdateDidRouting200Response implements ModelInterface, ArrayAccess, \JsonS
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return string|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string|null $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $allowedValues = $this->getDataAllowableValues();
+        if (!in_array($data, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'data', must be one of '%s'",
+                    $data,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['data'] = $data;
 
         return $this;
     }

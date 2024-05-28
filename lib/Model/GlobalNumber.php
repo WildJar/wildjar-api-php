@@ -56,13 +56,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'area' => 'mixed',
-        'cancel_date' => 'mixed',
-        'country' => 'mixed',
-        'did' => 'mixed',
-        'provider' => 'mixed',
-        'type' => 'mixed'
+        'did' => 'string',
+        'type' => 'string',
+        'country' => 'string',
+        'area' => 'string',
+        'provider' => 'string',
+        'account' => 'string',
+        'cancel_date' => '\DateTime'
     ];
 
     /**
@@ -73,13 +73,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
-        'area' => null,
-        'cancel_date' => 'date-time',
-        'country' => null,
         'did' => null,
+        'type' => null,
+        'country' => null,
+        'area' => null,
         'provider' => null,
-        'type' => null
+        'account' => null,
+        'cancel_date' => 'date-time'
     ];
 
     /**
@@ -88,13 +88,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'area' => true,
-        'cancel_date' => true,
-        'country' => true,
-        'did' => true,
-        'provider' => true,
-        'type' => true
+        'did' => false,
+        'type' => false,
+        'country' => false,
+        'area' => false,
+        'provider' => false,
+        'account' => false,
+        'cancel_date' => true
     ];
 
     /**
@@ -183,13 +183,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
-        'area' => 'area',
-        'cancel_date' => 'cancelDate',
-        'country' => 'country',
         'did' => 'did',
+        'type' => 'type',
+        'country' => 'country',
+        'area' => 'area',
         'provider' => 'provider',
-        'type' => 'type'
+        'account' => 'account',
+        'cancel_date' => 'cancelDate'
     ];
 
     /**
@@ -198,13 +198,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
-        'area' => 'setArea',
-        'cancel_date' => 'setCancelDate',
-        'country' => 'setCountry',
         'did' => 'setDid',
+        'type' => 'setType',
+        'country' => 'setCountry',
+        'area' => 'setArea',
         'provider' => 'setProvider',
-        'type' => 'setType'
+        'account' => 'setAccount',
+        'cancel_date' => 'setCancelDate'
     ];
 
     /**
@@ -213,13 +213,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
-        'area' => 'getArea',
-        'cancel_date' => 'getCancelDate',
-        'country' => 'getCountry',
         'did' => 'getDid',
+        'type' => 'getType',
+        'country' => 'getCountry',
+        'area' => 'getArea',
         'provider' => 'getProvider',
-        'type' => 'getType'
+        'account' => 'getAccount',
+        'cancel_date' => 'getCancelDate'
     ];
 
     /**
@@ -298,13 +298,13 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('area', $data ?? [], null);
-        $this->setIfExists('cancel_date', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('did', $data ?? [], null);
-        $this->setIfExists('provider', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('area', $data ?? [], null);
+        $this->setIfExists('provider', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
+        $this->setIfExists('cancel_date', $data ?? [], null);
     }
 
     /**
@@ -359,35 +359,92 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets account
+     * Gets did
      *
-     * @return mixed|null
+     * @return string|null
      */
-    public function getAccount()
+    public function getDid()
     {
-        return $this->container['account'];
+        return $this->container['did'];
     }
 
     /**
-     * Sets account
+     * Sets did
      *
-     * @param mixed|null $account The account number the tracking number is located in
+     * @param string|null $did The tracking number in E164 format
      *
      * @return self
      */
-    public function setAccount($account)
+    public function setDid($did)
     {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($did)) {
+            throw new \InvalidArgumentException('non-nullable did cannot be null');
         }
-        $this->container['account'] = $account;
+        $this->container['did'] = $did;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type The number's network type.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        }
+        $this->container['country'] = $country;
 
         return $this;
     }
@@ -395,7 +452,7 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets area
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getArea()
     {
@@ -405,21 +462,14 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets area
      *
-     * @param mixed|null $area The number location or charge area.
+     * @param string|null $area The number location or charge area.
      *
      * @return self
      */
     public function setArea($area)
     {
         if (is_null($area)) {
-            array_push($this->openAPINullablesSetToNull, 'area');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('area', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable area cannot be null');
         }
         $this->container['area'] = $area;
 
@@ -427,9 +477,63 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider The provider of the number.
+     *
+     * @return self
+     */
+    public function setProvider($provider)
+    {
+        if (is_null($provider)) {
+            throw new \InvalidArgumentException('non-nullable provider cannot be null');
+        }
+        $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return string|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param string|null $account The account number the tracking number is located in
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
      * Gets cancel_date
      *
-     * @return mixed|null
+     * @return \DateTime|null
      */
     public function getCancelDate()
     {
@@ -439,7 +543,7 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cancel_date
      *
-     * @param mixed|null $cancel_date The date the number was decommissioned in ISO format.
+     * @param \DateTime|null $cancel_date The date the number was decommissioned in ISO format.
      *
      * @return self
      */
@@ -456,152 +560,6 @@ class GlobalNumber implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['cancel_date'] = $cancel_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return mixed|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param mixed|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets did
-     *
-     * @return mixed|null
-     */
-    public function getDid()
-    {
-        return $this->container['did'];
-    }
-
-    /**
-     * Sets did
-     *
-     * @param mixed|null $did The tracking number in E164 format
-     *
-     * @return self
-     */
-    public function setDid($did)
-    {
-        if (is_null($did)) {
-            array_push($this->openAPINullablesSetToNull, 'did');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('did', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['did'] = $did;
-
-        return $this;
-    }
-
-    /**
-     * Gets provider
-     *
-     * @return mixed|null
-     */
-    public function getProvider()
-    {
-        return $this->container['provider'];
-    }
-
-    /**
-     * Sets provider
-     *
-     * @param mixed|null $provider The provider of the number.
-     *
-     * @return self
-     */
-    public function setProvider($provider)
-    {
-        if (is_null($provider)) {
-            array_push($this->openAPINullablesSetToNull, 'provider');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('provider', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['provider'] = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return mixed|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param mixed|null $type The number's network type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

@@ -52,9 +52,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -84,26 +81,36 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**addAccount**](docs/Api/AccountApi.md#addaccount) | **PUT** /account | Create a new account
 *AccountApi* | [**getAccount**](docs/Api/AccountApi.md#getaccount) | **GET** /account/{id} | Get account details
-*AccountApi* | [**listAccounts**](docs/Api/AccountApi.md#listaccounts) | **GET** /account | Get list of accounts
+*AccountApi* | [**listAccount**](docs/Api/AccountApi.md#listaccount) | **GET** /account | Get list of accounts
+*AccountApi* | [**moveAccount**](docs/Api/AccountApi.md#moveaccount) | **GET** /account/tree/{child}/{parent} | Move an account
 *AccountApi* | [**updateAccount**](docs/Api/AccountApi.md#updateaccount) | **POST** /account/{id} | Update an existing account
 *AddressBookApi* | [**getAddressBookContactAssociations**](docs/Api/AddressBookApi.md#getaddressbookcontactassociations) | **GET** /addressbook/full | Show full address book contact associations
 *AddressBookApi* | [**getAddressBookContactDetails**](docs/Api/AddressBookApi.md#getaddressbookcontactdetails) | **GET** /addressbook/{uuid} | Show address book contact details
 *AddressBookApi* | [**listAddressBookContacts**](docs/Api/AddressBookApi.md#listaddressbookcontacts) | **GET** /addressbook | Get list of contacts in the address book
 *AuthenticationApi* | [**login**](docs/Api/AuthenticationApi.md#login) | **POST** /token | Generate the authentication token
-*CallsApi* | [**getCallDetails**](docs/Api/CallsApi.md#getcalldetails) | **GET** /call/{id} | Show call details
-*CallsApi* | [**getCalls**](docs/Api/CallsApi.md#getcalls) | **GET** /call | List Calls
-*CallsApi* | [**getOutboundCallDetails**](docs/Api/CallsApi.md#getoutboundcalldetails) | **GET** /call/outbound/{uuid} | Show outbound call details
-*CallsApi* | [**getOutboundCalls**](docs/Api/CallsApi.md#getoutboundcalls) | **GET** /call/outbound | List Outbound Calls
-*CallsApi* | [**updateCall**](docs/Api/CallsApi.md#updatecall) | **PATCH** /call/{id} | Add a score, tag or note to a call
-*NumbersApi* | [**decommissionNumber**](docs/Api/NumbersApi.md#decommissionnumber) | **DELETE** /number/{did} | Decommission a tracking number
-*NumbersApi* | [**deleteInventoryNumber**](docs/Api/NumbersApi.md#deleteinventorynumber) | **DELETE** /number/inventory/{did} | Remove a number from inventory (Internal)
-*NumbersApi* | [**getNumber**](docs/Api/NumbersApi.md#getnumber) | **GET** /number/{did} | Get tracking number number details
-*NumbersApi* | [**getNumberFull**](docs/Api/NumbersApi.md#getnumberfull) | **GET** /number/{did}/extra | Get full tracking number number details (Dashboard)
-*NumbersApi* | [**listAvailableNumbers**](docs/Api/NumbersApi.md#listavailablenumbers) | **GET** /number/available/{country_code} | Get list of available numbers by country
-*NumbersApi* | [**listInventoryNumbers**](docs/Api/NumbersApi.md#listinventorynumbers) | **GET** /number/all/{country_code} | Get list of inventory by country (Internal)
-*NumbersApi* | [**listNumbers**](docs/Api/NumbersApi.md#listnumbers) | **GET** /number | Get list of numbers
-*NumbersApi* | [**orderNumber**](docs/Api/NumbersApi.md#ordernumber) | **PUT** /number/{account}/{did} | Order an tracking number
-*NumbersApi* | [**updateNumber**](docs/Api/NumbersApi.md#updatenumber) | **POST** /number/{did} | Update tracking number details
+*CallApi* | [**getCall**](docs/Api/CallApi.md#getcall) | **GET** /call | List Calls
+*CallApi* | [**getCallDetails**](docs/Api/CallApi.md#getcalldetails) | **GET** /call/{id} | Show call details
+*CallApi* | [**getOutboundCallDetails**](docs/Api/CallApi.md#getoutboundcalldetails) | **GET** /call/outbound/{uuid} | Show outbound call details
+*CallApi* | [**getOutboundCalls**](docs/Api/CallApi.md#getoutboundcalls) | **GET** /call/outbound | List Outbound Calls
+*CallApi* | [**updateCall**](docs/Api/CallApi.md#updatecall) | **PATCH** /call/{id} | Add a score, tag or note to a call
+*DNIApi* | [**addDNI**](docs/Api/DNIApi.md#adddni) | **PUT** /web | Create a DNI configuration
+*DNIApi* | [**addToDNIPool**](docs/Api/DNIApi.md#addtodnipool) | **POST** /web/{code}/pool | Add to DNI number pool
+*DNIApi* | [**getDNI**](docs/Api/DNIApi.md#getdni) | **GET** /web/{code} | Get DNI configuration details
+*DNIApi* | [**listDNI**](docs/Api/DNIApi.md#listdni) | **GET** /web | Get list of DNI configurations
+*DNIApi* | [**listDNIAll**](docs/Api/DNIApi.md#listdniall) | **GET** /web/all | Get list of all DNI configurations including aliases
+*DNIApi* | [**patchDNI**](docs/Api/DNIApi.md#patchdni) | **PATCH** /web/{code} | Force update DNI script
+*DNIApi* | [**patchDNIToVersion**](docs/Api/DNIApi.md#patchdnitoversion) | **PATCH** /web/{code}/{version} | Force update DNI script to specific version
+*DNIApi* | [**removeDNI**](docs/Api/DNIApi.md#removedni) | **DELETE** /web/{code} | Remove a DNI configuration
+*DNIApi* | [**updateDNI**](docs/Api/DNIApi.md#updatedni) | **POST** /web/{code} | Update DNI configuration
+*NumberApi* | [**decommissionNumber**](docs/Api/NumberApi.md#decommissionnumber) | **DELETE** /number/{did} | Decommission a tracking number
+*NumberApi* | [**deleteInventoryNumber**](docs/Api/NumberApi.md#deleteinventorynumber) | **DELETE** /number/inventory/{did} | Remove a number from inventory (Internal)
+*NumberApi* | [**getNumber**](docs/Api/NumberApi.md#getnumber) | **GET** /number/{did} | Get tracking number number details
+*NumberApi* | [**getNumberFull**](docs/Api/NumberApi.md#getnumberfull) | **GET** /number/extra/{did} | Get full tracking number number details (Dashboard)
+*NumberApi* | [**listAvailableNumber**](docs/Api/NumberApi.md#listavailablenumber) | **GET** /number/available/{country_code} | Get list of available numbers by country
+*NumberApi* | [**listInventoryNumber**](docs/Api/NumberApi.md#listinventorynumber) | **GET** /number/all/{country_code} | Get list of inventory by country (Internal)
+*NumberApi* | [**listNumber**](docs/Api/NumberApi.md#listnumber) | **GET** /number | Get list of numbers
+*NumberApi* | [**orderNumber**](docs/Api/NumberApi.md#ordernumber) | **PUT** /number/{account}/{did} | Order an tracking number
+*NumberApi* | [**updateNumber**](docs/Api/NumberApi.md#updatenumber) | **POST** /number/{did} | Update tracking number details
 *RoutingApi* | [**blockCaller**](docs/Api/RoutingApi.md#blockcaller) | **POST** /routing/{account}/blocked | Block a caller
 *RoutingApi* | [**blockCallerFromCall**](docs/Api/RoutingApi.md#blockcallerfromcall) | **PATCH** /routing/{account}/blocked | Block a caller from a Call record
 *RoutingApi* | [**createBranchAction**](docs/Api/RoutingApi.md#createbranchaction) | **PUT** /routing/{account}/branch | Create a location routing branch
@@ -142,6 +149,22 @@ Class | Method | HTTP request | Description
 *RoutingApi* | [**updateTimeAction**](docs/Api/RoutingApi.md#updatetimeaction) | **POST** /routing/{account}/time/{action_id} | Update a time switch action
 *RoutingApi* | [**updateTransferAction**](docs/Api/RoutingApi.md#updatetransferaction) | **POST** /routing/{account}/transfer/{action_id} | Update a transfer action
 *RoutingApi* | [**updateVoicemailAction**](docs/Api/RoutingApi.md#updatevoicemailaction) | **POST** /routing/{account}/voicemail/{action_id} | Update a voicemail action
+*SIPApi* | [**addSIPExtension**](docs/Api/SIPApi.md#addsipextension) | **PUT** /sip | Create a new SIP extension
+*SIPApi* | [**getSIPExtension**](docs/Api/SIPApi.md#getsipextension) | **GET** /sip/{uuid} | Show SIP extension details
+*SIPApi* | [**init**](docs/Api/SIPApi.md#init) | **PATCH** /sip/web | Initialise the web phone module for an end-user
+*SIPApi* | [**listSIPExtension**](docs/Api/SIPApi.md#listsipextension) | **GET** /sip | Get list of SIP extensions
+*SIPApi* | [**updateSIPExtension**](docs/Api/SIPApi.md#updatesipextension) | **POST** /sip/{uuid} | Update SIP extension details
+*UserApi* | [**addUser**](docs/Api/UserApi.md#adduser) | **PUT** /user | Invite a user
+*UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /user/{email} | Get user details
+*UserApi* | [**getUserInfo**](docs/Api/UserApi.md#getuserinfo) | **GET** /user/me | Retrieve your user details
+*UserApi* | [**listUser**](docs/Api/UserApi.md#listuser) | **GET** /user | List Users
+*UserApi* | [**removeUser**](docs/Api/UserApi.md#removeuser) | **DELETE** /user/{email} | Suspend and remove a user
+*UserApi* | [**updateUser**](docs/Api/UserApi.md#updateuser) | **POST** /user/{email} | Update user details
+*WebhookApi* | [**addWebhook**](docs/Api/WebhookApi.md#addwebhook) | **PUT** /hook | Create a webhook
+*WebhookApi* | [**getWebhook**](docs/Api/WebhookApi.md#getwebhook) | **GET** /hook/{uuid} | Get webhook configuration details
+*WebhookApi* | [**listWebhook**](docs/Api/WebhookApi.md#listwebhook) | **GET** /hook | Get list of webhooks
+*WebhookApi* | [**removeWebhook**](docs/Api/WebhookApi.md#removewebhook) | **DELETE** /hook/{uuid} | Remove a webhook
+*WebhookApi* | [**updateWebhook**](docs/Api/WebhookApi.md#updatewebhook) | **POST** /hook/{uuid} | Update a webhook configuration
 
 ## Models
 
@@ -152,7 +175,7 @@ Class | Method | HTTP request | Description
 - [ActionCommon](docs/Model/ActionCommon.md)
 - [ActionIVR](docs/Model/ActionIVR.md)
 - [ActionIVRFull](docs/Model/ActionIVRFull.md)
-- [ActionIVRFullAllOfValidInner](docs/Model/ActionIVRFullAllOfValidInner.md)
+- [ActionIVRFullAllOfValid](docs/Model/ActionIVRFullAllOfValid.md)
 - [ActionLocations](docs/Model/ActionLocations.md)
 - [ActionLocationsFull](docs/Model/ActionLocationsFull.md)
 - [ActionLocationsMap](docs/Model/ActionLocationsMap.md)
@@ -162,14 +185,21 @@ Class | Method | HTTP request | Description
 - [ActionNotificationsCommon](docs/Model/ActionNotificationsCommon.md)
 - [ActionRobin](docs/Model/ActionRobin.md)
 - [ActionRobinFull](docs/Model/ActionRobinFull.md)
+- [ActionRobinFullAllOfOptions](docs/Model/ActionRobinFullAllOfOptions.md)
 - [ActionTag](docs/Model/ActionTag.md)
 - [ActionTime](docs/Model/ActionTime.md)
 - [ActionTimeFull](docs/Model/ActionTimeFull.md)
+- [ActionTimeFullAllOfTimes](docs/Model/ActionTimeFullAllOfTimes.md)
 - [ActionTransfer](docs/Model/ActionTransfer.md)
 - [ActionTransferFull](docs/Model/ActionTransferFull.md)
 - [ActionVoicemail](docs/Model/ActionVoicemail.md)
 - [ActionVoicemailFull](docs/Model/ActionVoicemailFull.md)
+- [ActionVoicemailFullAllOfContacts](docs/Model/ActionVoicemailFullAllOfContacts.md)
 - [AddAccount200Response](docs/Model/AddAccount200Response.md)
+- [AddDNI200Response](docs/Model/AddDNI200Response.md)
+- [AddSIPExtension200Response](docs/Model/AddSIPExtension200Response.md)
+- [AddUser200Response](docs/Model/AddUser200Response.md)
+- [AddWebhook200Response](docs/Model/AddWebhook200Response.md)
 - [AddressBook](docs/Model/AddressBook.md)
 - [AddressBookContact](docs/Model/AddressBookContact.md)
 - [AddressBookContactAssociation](docs/Model/AddressBookContactAssociation.md)
@@ -194,62 +224,75 @@ Class | Method | HTTP request | Description
 - [DetailedCallAllOfWeb](docs/Model/DetailedCallAllOfWeb.md)
 - [GetAddressBookContactAssociations200Response](docs/Model/GetAddressBookContactAssociations200Response.md)
 - [GetAddressBookContactDetails200Response](docs/Model/GetAddressBookContactDetails200Response.md)
+- [GetCall200Response](docs/Model/GetCall200Response.md)
 - [GetCallDetails200Response](docs/Model/GetCallDetails200Response.md)
-- [GetCalls200Response](docs/Model/GetCalls200Response.md)
 - [GetNumber200Response](docs/Model/GetNumber200Response.md)
 - [GetOutboundCallDetails200Response](docs/Model/GetOutboundCallDetails200Response.md)
 - [GetOutboundCalls200Response](docs/Model/GetOutboundCalls200Response.md)
 - [GlobalNumber](docs/Model/GlobalNumber.md)
-- [ListAccounts200Response](docs/Model/ListAccounts200Response.md)
+- [Init200Response](docs/Model/Init200Response.md)
+- [ListAccount200Response](docs/Model/ListAccount200Response.md)
 - [ListAddressBookContacts200Response](docs/Model/ListAddressBookContacts200Response.md)
-- [ListAvailableNumbers200Response](docs/Model/ListAvailableNumbers200Response.md)
+- [ListAvailableNumber200Response](docs/Model/ListAvailableNumber200Response.md)
 - [ListBlockedCallers200Response](docs/Model/ListBlockedCallers200Response.md)
 - [ListBranchActions200Response](docs/Model/ListBranchActions200Response.md)
+- [ListDNI200Response](docs/Model/ListDNI200Response.md)
+- [ListDNIAll200Response](docs/Model/ListDNIAll200Response.md)
 - [ListIVRs200Response](docs/Model/ListIVRs200Response.md)
-- [ListInventoryNumbers200Response](docs/Model/ListInventoryNumbers200Response.md)
+- [ListInventoryNumber200Response](docs/Model/ListInventoryNumber200Response.md)
 - [ListLocationsActions200Response](docs/Model/ListLocationsActions200Response.md)
 - [ListNumber](docs/Model/ListNumber.md)
-- [ListNumbers200Response](docs/Model/ListNumbers200Response.md)
+- [ListNumber200Response](docs/Model/ListNumber200Response.md)
 - [ListRobins200Response](docs/Model/ListRobins200Response.md)
+- [ListSIPExtension200Response](docs/Model/ListSIPExtension200Response.md)
 - [ListTagActions200Response](docs/Model/ListTagActions200Response.md)
 - [ListTimeActions200Response](docs/Model/ListTimeActions200Response.md)
 - [ListTransfers200Response](docs/Model/ListTransfers200Response.md)
+- [ListUser200Response](docs/Model/ListUser200Response.md)
 - [ListVoicemails200Response](docs/Model/ListVoicemails200Response.md)
+- [ListWebhook200Response](docs/Model/ListWebhook200Response.md)
 - [Login200Response](docs/Model/Login200Response.md)
+- [MoveAccount200Response](docs/Model/MoveAccount200Response.md)
 - [Number](docs/Model/Number.md)
 - [NumberDetailed](docs/Model/NumberDetailed.md)
 - [NumberDetailedFull](docs/Model/NumberDetailedFull.md)
 - [NumberDetailedFullAllOfExtra](docs/Model/NumberDetailedFullAllOfExtra.md)
 - [NumberDetailedFullAllOfExtraMultiConf](docs/Model/NumberDetailedFullAllOfExtraMultiConf.md)
+- [NumberDetailedFullAllOfExtraWebCode](docs/Model/NumberDetailedFullAllOfExtraWebCode.md)
 - [OrderNumber](docs/Model/OrderNumber.md)
 - [OrderNumber200Response](docs/Model/OrderNumber200Response.md)
 - [OutboundCall](docs/Model/OutboundCall.md)
 - [RoutingAction](docs/Model/RoutingAction.md)
+- [SIPExtensionActive](docs/Model/SIPExtensionActive.md)
+- [SIPExtensionCommon](docs/Model/SIPExtensionCommon.md)
+- [SIPExtensionFull](docs/Model/SIPExtensionFull.md)
 - [UpdateDidRouting200Response](docs/Model/UpdateDidRouting200Response.md)
 - [UpdateLocationsAction200Response](docs/Model/UpdateLocationsAction200Response.md)
+- [User](docs/Model/User.md)
+- [UserFull](docs/Model/UserFull.md)
+- [WebConfiguration](docs/Model/WebConfiguration.md)
+- [WebConfigurationAllOfAlias](docs/Model/WebConfigurationAllOfAlias.md)
+- [WebConfigurationAllOfConf](docs/Model/WebConfigurationAllOfConf.md)
+- [WebDomain](docs/Model/WebDomain.md)
+- [WebDomainFull](docs/Model/WebDomainFull.md)
+- [WebPhoneModule](docs/Model/WebPhoneModule.md)
+- [WebPhoneModuleParams](docs/Model/WebPhoneModuleParams.md)
+- [Webhook](docs/Model/Webhook.md)
+- [WebhookDetailed](docs/Model/WebhookDetailed.md)
+- [WebhookDetailedAllOfMatch](docs/Model/WebhookDetailedAllOfMatch.md)
+- [WebhookDetailedAllOfPush](docs/Model/WebhookDetailedAllOfPush.md)
+- [WebhookDetailedAllOfReply](docs/Model/WebhookDetailedAllOfReply.md)
 
 ## Authorization
 
 Authentication schemes defined for the API:
-### BearerAuth
-
-- **Type**: Bearer authentication
-
-### OAuth2
-
-- **Type**: `OAuth`
-- **Flow**: `implicit`
-- **Authorization URL**: `https://portal.wildjar.com/login`
-- **Scopes**: 
-    - **admin**: administrator access
-    - **conf**: access to configuration
-    - **reports**: access to reports
-    - **super**: reseller super access
-    - **users**: access to create users
-
 ### userLogin
 
 - **Type**: HTTP basic authentication
+
+### BearerAuth
+
+- **Type**: Bearer authentication
 
 ## Tests
 

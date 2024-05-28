@@ -56,12 +56,12 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'id' => 'mixed',
-        'name' => 'mixed',
-        'next_action' => 'mixed',
-        'next_action_id' => 'mixed',
-        'tag_uuid' => 'mixed'
+        'id' => 'float',
+        'account' => 'float',
+        'name' => 'string',
+        'next_action' => 'string',
+        'next_action_id' => 'float',
+        'tag_uuid' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
         'id' => null,
+        'account' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
@@ -86,12 +86,12 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'id' => true,
-        'name' => true,
-        'next_action' => true,
-        'next_action_id' => true,
-        'tag_uuid' => true
+        'id' => false,
+        'account' => false,
+        'name' => false,
+        'next_action' => false,
+        'next_action_id' => false,
+        'tag_uuid' => false
     ];
 
     /**
@@ -180,8 +180,8 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
         'id' => 'id',
+        'account' => 'account',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
@@ -194,8 +194,8 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
         'id' => 'setId',
+        'account' => 'setAccount',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
@@ -208,8 +208,8 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
         'id' => 'getId',
+        'account' => 'getAccount',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
@@ -302,8 +302,8 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
@@ -369,43 +369,9 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets account
-     *
-     * @return mixed|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param mixed|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getId()
     {
@@ -415,21 +381,14 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param mixed|null $id The action ID.
+     * @param float|null $id The action ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -437,9 +396,36 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getName()
     {
@@ -449,23 +435,16 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param mixed|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
+     * @param string|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 100)) {
+        if ((mb_strlen($name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ActionTag., must be smaller than or equal to 100.');
         }
 
@@ -477,7 +456,7 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next_action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getNextAction()
     {
@@ -487,24 +466,17 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next_action
      *
-     * @param mixed|null $next_action Next action type to route to in the call flow.
+     * @param string|null $next_action Next action type to route to in the call flow.
      *
      * @return self
      */
     public function setNextAction($next_action)
     {
         if (is_null($next_action)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action cannot be null');
         }
         $allowedValues = $this->getNextActionAllowableValues();
-        if (!is_null($next_action) && !in_array($next_action, $allowedValues, true)) {
+        if (!in_array($next_action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'next_action', must be one of '%s'",
@@ -521,7 +493,7 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next_action_id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getNextActionId()
     {
@@ -531,21 +503,14 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next_action_id
      *
-     * @param mixed|null $next_action_id Next action ID to route to in the call flow.
+     * @param float|null $next_action_id Next action ID to route to in the call flow.
      *
      * @return self
      */
     public function setNextActionId($next_action_id)
     {
         if (is_null($next_action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action_id cannot be null');
         }
         $this->container['next_action_id'] = $next_action_id;
 
@@ -555,7 +520,7 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tag_uuid
      *
-     * @return mixed
+     * @return string
      */
     public function getTagUuid()
     {
@@ -565,21 +530,14 @@ class ActionTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tag_uuid
      *
-     * @param mixed $tag_uuid The UUID of a smart tag. Best practice is to use a smart tag without conditions when using as an action.
+     * @param string $tag_uuid The UUID of a smart tag. Best practice is to use a smart tag without conditions when using as an action.
      *
      * @return self
      */
     public function setTagUuid($tag_uuid)
     {
         if (is_null($tag_uuid)) {
-            array_push($this->openAPINullablesSetToNull, 'tag_uuid');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tag_uuid', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable tag_uuid cannot be null');
         }
         $this->container['tag_uuid'] = $tag_uuid;
 

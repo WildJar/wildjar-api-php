@@ -57,9 +57,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'web_code' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode',
         'multi_conf' => '\WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraMultiConf',
-        'sms_email' => 'mixed',
-        'web_code' => 'mixed'
+        'sms_email' => 'string'
     ];
 
     /**
@@ -70,9 +70,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'web_code' => null,
         'multi_conf' => null,
-        'sms_email' => 'email',
-        'web_code' => null
+        'sms_email' => 'email'
     ];
 
     /**
@@ -81,9 +81,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'web_code' => false,
         'multi_conf' => false,
-        'sms_email' => true,
-        'web_code' => true
+        'sms_email' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'web_code' => 'webCode',
         'multi_conf' => 'multiConf',
-        'sms_email' => 'smsEmail',
-        'web_code' => 'webCode'
+        'sms_email' => 'smsEmail'
     ];
 
     /**
@@ -183,9 +183,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'web_code' => 'setWebCode',
         'multi_conf' => 'setMultiConf',
-        'sms_email' => 'setSmsEmail',
-        'web_code' => 'setWebCode'
+        'sms_email' => 'setSmsEmail'
     ];
 
     /**
@@ -194,9 +194,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'web_code' => 'getWebCode',
         'multi_conf' => 'getMultiConf',
-        'sms_email' => 'getSmsEmail',
-        'web_code' => 'getWebCode'
+        'sms_email' => 'getSmsEmail'
     ];
 
     /**
@@ -256,9 +256,9 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('web_code', $data ?? [], null);
         $this->setIfExists('multi_conf', $data ?? [], null);
         $this->setIfExists('sms_email', $data ?? [], null);
-        $this->setIfExists('web_code', $data ?? [], null);
     }
 
     /**
@@ -304,6 +304,33 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
 
 
     /**
+     * Gets web_code
+     *
+     * @return \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode|null
+     */
+    public function getWebCode()
+    {
+        return $this->container['web_code'];
+    }
+
+    /**
+     * Sets web_code
+     *
+     * @param \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraWebCode|null $web_code web_code
+     *
+     * @return self
+     */
+    public function setWebCode($web_code)
+    {
+        if (is_null($web_code)) {
+            throw new \InvalidArgumentException('non-nullable web_code cannot be null');
+        }
+        $this->container['web_code'] = $web_code;
+
+        return $this;
+    }
+
+    /**
      * Gets multi_conf
      *
      * @return \WildJar\ApiClient\Model\NumberDetailedFullAllOfExtraMultiConf|null
@@ -333,7 +360,7 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets sms_email
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getSmsEmail()
     {
@@ -343,57 +370,16 @@ class NumberDetailedFullAllOfExtra implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets sms_email
      *
-     * @param mixed|null $sms_email **Mobile numbers only**: The email address that inbound SMS will be forwarded to.
+     * @param string|null $sms_email **Mobile numbers only**: The email address that inbound SMS will be forwarded to.
      *
      * @return self
      */
     public function setSmsEmail($sms_email)
     {
         if (is_null($sms_email)) {
-            array_push($this->openAPINullablesSetToNull, 'sms_email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sms_email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable sms_email cannot be null');
         }
         $this->container['sms_email'] = $sms_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets web_code
-     *
-     * @return mixed|null
-     */
-    public function getWebCode()
-    {
-        return $this->container['web_code'];
-    }
-
-    /**
-     * Sets web_code
-     *
-     * @param mixed|null $web_code The DNI script the number is linked to.
-     *
-     * @return self
-     */
-    public function setWebCode($web_code)
-    {
-        if (is_null($web_code)) {
-            array_push($this->openAPINullablesSetToNull, 'web_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('web_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['web_code'] = $web_code;
 
         return $this;
     }

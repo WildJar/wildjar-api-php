@@ -56,10 +56,10 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branch_code' => 'mixed',
-        'branch_name' => 'mixed',
-        'lead_scorer_aleg_digit' => 'mixed',
-        'lead_scorer_bleg_digit' => 'mixed'
+        'branch_code' => 'string',
+        'branch_name' => 'string',
+        'lead_scorer_aleg_digit' => 'string',
+        'lead_scorer_bleg_digit' => 'string'
     ];
 
     /**
@@ -82,10 +82,10 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'branch_code' => true,
-        'branch_name' => true,
-        'lead_scorer_aleg_digit' => true,
-        'lead_scorer_bleg_digit' => true
+        'branch_code' => false,
+        'branch_name' => false,
+        'lead_scorer_aleg_digit' => false,
+        'lead_scorer_bleg_digit' => false
     ];
 
     /**
@@ -312,7 +312,7 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets branch_code
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getBranchCode()
     {
@@ -322,21 +322,14 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets branch_code
      *
-     * @param mixed|null $branch_code **Location routing only**: The branch code the call was answered at.
+     * @param string|null $branch_code **Location routing only**: The branch code the call was answered at.
      *
      * @return self
      */
     public function setBranchCode($branch_code)
     {
         if (is_null($branch_code)) {
-            array_push($this->openAPINullablesSetToNull, 'branch_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('branch_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable branch_code cannot be null');
         }
         $this->container['branch_code'] = $branch_code;
 
@@ -346,7 +339,7 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets branch_name
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getBranchName()
     {
@@ -356,21 +349,14 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets branch_name
      *
-     * @param mixed|null $branch_name **Location routing only**: The branch name the call was answered at.
+     * @param string|null $branch_name **Location routing only**: The branch name the call was answered at.
      *
      * @return self
      */
     public function setBranchName($branch_name)
     {
         if (is_null($branch_name)) {
-            array_push($this->openAPINullablesSetToNull, 'branch_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('branch_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable branch_name cannot be null');
         }
         $this->container['branch_name'] = $branch_name;
 
@@ -380,7 +366,7 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets lead_scorer_aleg_digit
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getLeadScorerAlegDigit()
     {
@@ -390,21 +376,14 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lead_scorer_aleg_digit
      *
-     * @param mixed|null $lead_scorer_aleg_digit Smart Tag Lead Scorer digit(s) entered by the caller.
+     * @param string|null $lead_scorer_aleg_digit Smart Tag Lead Scorer digit(s) entered by the caller.
      *
      * @return self
      */
     public function setLeadScorerAlegDigit($lead_scorer_aleg_digit)
     {
         if (is_null($lead_scorer_aleg_digit)) {
-            array_push($this->openAPINullablesSetToNull, 'lead_scorer_aleg_digit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lead_scorer_aleg_digit', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable lead_scorer_aleg_digit cannot be null');
         }
         $this->container['lead_scorer_aleg_digit'] = $lead_scorer_aleg_digit;
 
@@ -414,7 +393,7 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets lead_scorer_bleg_digit
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getLeadScorerBlegDigit()
     {
@@ -424,21 +403,14 @@ class CallTag implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lead_scorer_bleg_digit
      *
-     * @param mixed|null $lead_scorer_bleg_digit Smart Tag Lead Scorer digit(s) entered by the answering party.
+     * @param string|null $lead_scorer_bleg_digit Smart Tag Lead Scorer digit(s) entered by the answering party.
      *
      * @return self
      */
     public function setLeadScorerBlegDigit($lead_scorer_bleg_digit)
     {
         if (is_null($lead_scorer_bleg_digit)) {
-            array_push($this->openAPINullablesSetToNull, 'lead_scorer_bleg_digit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lead_scorer_bleg_digit', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable lead_scorer_bleg_digit cannot be null');
         }
         $this->container['lead_scorer_bleg_digit'] = $lead_scorer_bleg_digit;
 

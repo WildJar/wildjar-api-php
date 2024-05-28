@@ -6,7 +6,8 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 | ------------- | ------------- | ------------- |
 | [**addAccount()**](AccountApi.md#addAccount) | **PUT** /account | Create a new account |
 | [**getAccount()**](AccountApi.md#getAccount) | **GET** /account/{id} | Get account details |
-| [**listAccounts()**](AccountApi.md#listAccounts) | **GET** /account | Get list of accounts |
+| [**listAccount()**](AccountApi.md#listAccount) | **GET** /account | Get list of accounts |
+| [**moveAccount()**](AccountApi.md#moveAccount) | **GET** /account/tree/{child}/{parent} | Move an account |
 | [**updateAccount()**](AccountApi.md#updateAccount) | **POST** /account/{id} | Update an existing account |
 
 
@@ -26,9 +27,6 @@ Add a new account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -62,7 +60,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -76,7 +74,7 @@ try {
 ## `getAccount()`
 
 ```php
-getAccount($id): \WildJar\ApiClient\Model\AddAccount200Response
+getAccount($id, $show): \WildJar\ApiClient\Model\AddAccount200Response
 ```
 
 Get account details
@@ -90,9 +88,6 @@ Retrieve list of accounts all accounts availabe, active and disabled
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
@@ -104,9 +99,10 @@ $apiInstance = new WildJar\ApiClient\Api\AccountApi(
     $config
 );
 $id = 56; // int | Account ID
+$show = links; // string | Use `links` to include the account's parent and child accounts.
 
 try {
-    $result = $apiInstance->getAccount($id);
+    $result = $apiInstance->getAccount($id, $show);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->getAccount: ', $e->getMessage(), PHP_EOL;
@@ -118,6 +114,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| Account ID | |
+| **show** | **string**| Use &#x60;links&#x60; to include the account&#39;s parent and child accounts. | [optional] |
 
 ### Return type
 
@@ -125,7 +122,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -136,10 +133,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listAccounts()`
+## `listAccount()`
 
 ```php
-listAccounts($status, $name): \WildJar\ApiClient\Model\ListAccounts200Response
+listAccount($page, $per_page, $order, $status, $name): \WildJar\ApiClient\Model\ListAccount200Response
 ```
 
 Get list of accounts
@@ -153,8 +150,73 @@ Retrieve list of accounts all accounts availabe, active and disabled
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new WildJar\ApiClient\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$page = 1; // int | Page number of results to return.
+$per_page = 10; // int | Number of results to return per page.
+$order = 'order_example'; // string | Field name to sort results by. Prefix the field name by a minus sign (ie. -id) to filter in descending order.
+$status = 'status_example'; // string | Filter accounts by their status
+$name = 'name_example'; // string | Filter accounts by name
+
+try {
+    $result = $apiInstance->listAccount($page, $per_page, $order, $status, $name);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->listAccount: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Page number of results to return. | [optional] [default to 1] |
+| **per_page** | **int**| Number of results to return per page. | [optional] [default to 10] |
+| **order** | **string**| Field name to sort results by. Prefix the field name by a minus sign (ie. -id) to filter in descending order. | [optional] |
+| **status** | **string**| Filter accounts by their status | [optional] |
+| **name** | **string**| Filter accounts by name | [optional] |
+
+### Return type
+
+[**\WildJar\ApiClient\Model\ListAccount200Response**](../Model/ListAccount200Response.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `moveAccount()`
+
+```php
+moveAccount($child, $parent): \WildJar\ApiClient\Model\MoveAccount200Response
+```
+
+Move an account
+
+Move an account within the account structure.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -166,14 +228,14 @@ $apiInstance = new WildJar\ApiClient\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$status = 'status_example'; // string | Filter accounts by their status
-$name = 'name_example'; // string | Filter accounts by name
+$child = 20002; // float | The account ID of the account to be moved
+$parent = 20001; // float | The account ID of the new parent account.
 
 try {
-    $result = $apiInstance->listAccounts($status, $name);
+    $result = $apiInstance->moveAccount($child, $parent);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountApi->listAccounts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountApi->moveAccount: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -181,16 +243,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **status** | **string**| Filter accounts by their status | [optional] |
-| **name** | **string**| Filter accounts by name | [optional] |
+| **child** | **float**| The account ID of the account to be moved | |
+| **parent** | **float**| The account ID of the new parent account. | |
 
 ### Return type
 
-[**\WildJar\ApiClient\Model\ListAccounts200Response**](../Model/ListAccounts200Response.md)
+[**\WildJar\ApiClient\Model\MoveAccount200Response**](../Model/MoveAccount200Response.md)
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -217,9 +279,6 @@ Update an existing account
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure Bearer authorization: BearerAuth
 $config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -255,7 +314,7 @@ try {
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2), [BearerAuth](../../README.md#BearerAuth)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

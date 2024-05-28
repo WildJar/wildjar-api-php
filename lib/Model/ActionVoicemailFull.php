@@ -56,19 +56,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => 'mixed',
-        'id' => 'mixed',
-        'name' => 'mixed',
-        'next_action' => 'mixed',
-        'next_action_id' => 'mixed',
-        'play' => 'mixed',
-        'read' => 'mixed',
-        'group_id' => 'mixed',
-        'notify' => 'mixed',
-        'action' => 'mixed',
-        'contacts' => 'mixed',
-        'mcn_mails' => 'mixed',
-        'sms_phone' => 'mixed'
+        'id' => 'float',
+        'account' => 'float',
+        'name' => 'string',
+        'next_action' => 'string',
+        'next_action_id' => 'float',
+        'read' => 'string',
+        'play' => 'string',
+        'notify' => 'string',
+        'group_id' => 'float',
+        'action' => 'string',
+        'mcn_mails' => 'string[]',
+        'sms_phone' => 'string[]',
+        'contacts' => '\WildJar\ApiClient\Model\ActionVoicemailFullAllOfContacts[]'
     ];
 
     /**
@@ -79,19 +79,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account' => null,
         'id' => null,
+        'account' => null,
         'name' => null,
         'next_action' => null,
         'next_action_id' => null,
-        'play' => null,
         'read' => null,
-        'group_id' => null,
+        'play' => null,
         'notify' => null,
+        'group_id' => null,
         'action' => null,
-        'contacts' => null,
-        'mcn_mails' => null,
-        'sms_phone' => null
+        'mcn_mails' => 'email',
+        'sms_phone' => 'email',
+        'contacts' => null
     ];
 
     /**
@@ -100,19 +100,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account' => true,
-        'id' => true,
-        'name' => true,
-        'next_action' => true,
-        'next_action_id' => true,
-        'play' => true,
-        'read' => true,
-        'group_id' => true,
-        'notify' => true,
-        'action' => true,
-        'contacts' => true,
-        'mcn_mails' => true,
-        'sms_phone' => true
+        'id' => false,
+        'account' => false,
+        'name' => false,
+        'next_action' => false,
+        'next_action_id' => false,
+        'read' => false,
+        'play' => false,
+        'notify' => false,
+        'group_id' => false,
+        'action' => false,
+        'mcn_mails' => false,
+        'sms_phone' => false,
+        'contacts' => false
     ];
 
     /**
@@ -201,19 +201,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'account' => 'account',
         'id' => 'id',
+        'account' => 'account',
         'name' => 'name',
         'next_action' => 'nextAction',
         'next_action_id' => 'nextActionId',
-        'play' => 'play',
         'read' => 'read',
-        'group_id' => 'groupId',
+        'play' => 'play',
         'notify' => 'notify',
+        'group_id' => 'groupId',
         'action' => 'action',
-        'contacts' => 'contacts',
         'mcn_mails' => 'mcnMails',
-        'sms_phone' => 'smsPhone'
+        'sms_phone' => 'smsPhone',
+        'contacts' => 'contacts'
     ];
 
     /**
@@ -222,19 +222,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'account' => 'setAccount',
         'id' => 'setId',
+        'account' => 'setAccount',
         'name' => 'setName',
         'next_action' => 'setNextAction',
         'next_action_id' => 'setNextActionId',
-        'play' => 'setPlay',
         'read' => 'setRead',
-        'group_id' => 'setGroupId',
+        'play' => 'setPlay',
         'notify' => 'setNotify',
+        'group_id' => 'setGroupId',
         'action' => 'setAction',
-        'contacts' => 'setContacts',
         'mcn_mails' => 'setMcnMails',
-        'sms_phone' => 'setSmsPhone'
+        'sms_phone' => 'setSmsPhone',
+        'contacts' => 'setContacts'
     ];
 
     /**
@@ -243,19 +243,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'account' => 'getAccount',
         'id' => 'getId',
+        'account' => 'getAccount',
         'name' => 'getName',
         'next_action' => 'getNextAction',
         'next_action_id' => 'getNextActionId',
-        'play' => 'getPlay',
         'read' => 'getRead',
-        'group_id' => 'getGroupId',
+        'play' => 'getPlay',
         'notify' => 'getNotify',
+        'group_id' => 'getGroupId',
         'action' => 'getAction',
-        'contacts' => 'getContacts',
         'mcn_mails' => 'getMcnMails',
-        'sms_phone' => 'getSmsPhone'
+        'sms_phone' => 'getSmsPhone',
+        'contacts' => 'getContacts'
     ];
 
     /**
@@ -374,19 +374,19 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('account', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('next_action', $data ?? [], null);
         $this->setIfExists('next_action_id', $data ?? [], null);
-        $this->setIfExists('play', $data ?? [], null);
         $this->setIfExists('read', $data ?? [], null);
-        $this->setIfExists('group_id', $data ?? [], null);
-        $this->setIfExists('notify', $data ?? [], null);
+        $this->setIfExists('play', $data ?? [], null);
+        $this->setIfExists('notify', $data ?? [], 'no');
+        $this->setIfExists('group_id', $data ?? [], 0);
         $this->setIfExists('action', $data ?? [], null);
-        $this->setIfExists('contacts', $data ?? [], null);
         $this->setIfExists('mcn_mails', $data ?? [], null);
         $this->setIfExists('sms_phone', $data ?? [], null);
+        $this->setIfExists('contacts', $data ?? [], null);
     }
 
     /**
@@ -429,12 +429,12 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
 
-        if (!is_null($this->container['play']) && (mb_strlen($this->container['play']) > 250)) {
-            $invalidProperties[] = "invalid value for 'play', the character length must be smaller than or equal to 250.";
-        }
-
         if (!is_null($this->container['read']) && (mb_strlen($this->container['read']) > 250)) {
             $invalidProperties[] = "invalid value for 'read', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['play']) && (mb_strlen($this->container['play']) > 250)) {
+            $invalidProperties[] = "invalid value for 'play', the character length must be smaller than or equal to 250.";
         }
 
         $allowedValues = $this->getNotifyAllowableValues();
@@ -471,43 +471,9 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets account
-     *
-     * @return mixed|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param mixed|null $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            array_push($this->openAPINullablesSetToNull, 'account');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getId()
     {
@@ -517,21 +483,14 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param mixed|null $id The action ID.
+     * @param float|null $id The action ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -539,9 +498,36 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets account
+     *
+     * @return float|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param float|null $account The account ID.
+     *
+     * @return self
+     */
+    public function setAccount($account)
+    {
+        if (is_null($account)) {
+            throw new \InvalidArgumentException('non-nullable account cannot be null');
+        }
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getName()
     {
@@ -551,23 +537,16 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets name
      *
-     * @param mixed|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
+     * @param string|null $name Friendly name of the call flow action. Used to easily identify an action in the call flow.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 100)) {
+        if ((mb_strlen($name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ActionVoicemailFull., must be smaller than or equal to 100.');
         }
 
@@ -579,7 +558,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets next_action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getNextAction()
     {
@@ -589,24 +568,17 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets next_action
      *
-     * @param mixed|null $next_action Next action type to route to in the call flow.
+     * @param string|null $next_action Next action type to route to in the call flow.
      *
      * @return self
      */
     public function setNextAction($next_action)
     {
         if (is_null($next_action)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action cannot be null');
         }
         $allowedValues = $this->getNextActionAllowableValues();
-        if (!is_null($next_action) && !in_array($next_action, $allowedValues, true)) {
+        if (!in_array($next_action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'next_action', must be one of '%s'",
@@ -623,7 +595,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets next_action_id
      *
-     * @return mixed|null
+     * @return float|null
      */
     public function getNextActionId()
     {
@@ -633,21 +605,14 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets next_action_id
      *
-     * @param mixed|null $next_action_id Next action ID to route to in the call flow.
+     * @param float|null $next_action_id Next action ID to route to in the call flow.
      *
      * @return self
      */
     public function setNextActionId($next_action_id)
     {
         if (is_null($next_action_id)) {
-            array_push($this->openAPINullablesSetToNull, 'next_action_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_action_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_action_id cannot be null');
         }
         $this->container['next_action_id'] = $next_action_id;
 
@@ -655,47 +620,9 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets play
-     *
-     * @return mixed|null
-     */
-    public function getPlay()
-    {
-        return $this->container['play'];
-    }
-
-    /**
-     * Sets play
-     *
-     * @param mixed|null $play The URI to an MP3 file to play as a voicemail message. Only populate if **not** using TTS.
-     *
-     * @return self
-     */
-    public function setPlay($play)
-    {
-        if (is_null($play)) {
-            array_push($this->openAPINullablesSetToNull, 'play');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('play', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($play) && (mb_strlen($play) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $play when calling ActionVoicemailFull., must be smaller than or equal to 250.');
-        }
-
-        $this->container['play'] = $play;
-
-        return $this;
-    }
-
-    /**
      * Gets read
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getRead()
     {
@@ -705,23 +632,16 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets read
      *
-     * @param mixed|null $read The voicemail message to be read to the caller using Text-to-Speech (TTS). Only populate if **not** using a recording MP3.
+     * @param string|null $read The voicemail message to be read to the caller using Text-to-Speech (TTS). Only populate if **not** using a recording MP3.
      *
      * @return self
      */
     public function setRead($read)
     {
         if (is_null($read)) {
-            array_push($this->openAPINullablesSetToNull, 'read');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('read', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable read cannot be null');
         }
-        if (!is_null($read) && (mb_strlen($read) > 250)) {
+        if ((mb_strlen($read) > 250)) {
             throw new \InvalidArgumentException('invalid length for $read when calling ActionVoicemailFull., must be smaller than or equal to 250.');
         }
 
@@ -731,35 +651,32 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets group_id
+     * Gets play
      *
-     * @return mixed|null
+     * @return string|null
      */
-    public function getGroupId()
+    public function getPlay()
     {
-        return $this->container['group_id'];
+        return $this->container['play'];
     }
 
     /**
-     * Sets group_id
+     * Sets play
      *
-     * @param mixed|null $group_id The contact group ID the notifications will be sent to.
+     * @param string|null $play The URI to an MP3 file to play as a voicemail message. Only populate if **not** using TTS.
      *
      * @return self
      */
-    public function setGroupId($group_id)
+    public function setPlay($play)
     {
-        if (is_null($group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($play)) {
+            throw new \InvalidArgumentException('non-nullable play cannot be null');
         }
-        $this->container['group_id'] = $group_id;
+        if ((mb_strlen($play) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $play when calling ActionVoicemailFull., must be smaller than or equal to 250.');
+        }
+
+        $this->container['play'] = $play;
 
         return $this;
     }
@@ -767,7 +684,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets notify
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getNotify()
     {
@@ -777,24 +694,17 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets notify
      *
-     * @param mixed|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
+     * @param string|null $notify When notifications are sent to email or SMS contacts:   * `always` - Notify for all call types (email only).   * `missed` - Notify for missed call types only.   * `no` - No not send call notifications by email or SMS. **Note**: Requires a voicemail action to be the next action in the call flow.
      *
      * @return self
      */
     public function setNotify($notify)
     {
         if (is_null($notify)) {
-            array_push($this->openAPINullablesSetToNull, 'notify');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('notify', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable notify cannot be null');
         }
         $allowedValues = $this->getNotifyAllowableValues();
-        if (!is_null($notify) && !in_array($notify, $allowedValues, true)) {
+        if (!in_array($notify, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'notify', must be one of '%s'",
@@ -809,9 +719,36 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets group_id
+     *
+     * @return float|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param float|null $group_id The contact group ID the notifications will be sent to.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
+        }
+        $this->container['group_id'] = $group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets action
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getAction()
     {
@@ -821,24 +758,17 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets action
      *
-     * @param mixed|null $action The action type.
+     * @param string|null $action The action type.
      *
      * @return self
      */
     public function setAction($action)
     {
         if (is_null($action)) {
-            array_push($this->openAPINullablesSetToNull, 'action');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('action', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
         $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        if (!in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'action', must be one of '%s'",
@@ -853,43 +783,9 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets contacts
-     *
-     * @return mixed|null
-     */
-    public function getContacts()
-    {
-        return $this->container['contacts'];
-    }
-
-    /**
-     * Sets contacts
-     *
-     * @param mixed|null $contacts contacts
-     *
-     * @return self
-     */
-    public function setContacts($contacts)
-    {
-        if (is_null($contacts)) {
-            array_push($this->openAPINullablesSetToNull, 'contacts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('contacts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['contacts'] = $contacts;
-
-        return $this;
-    }
-
-    /**
      * Gets mcn_mails
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getMcnMails()
     {
@@ -899,21 +795,14 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets mcn_mails
      *
-     * @param mixed|null $mcn_mails mcn_mails
+     * @param string[]|null $mcn_mails mcn_mails
      *
      * @return self
      */
     public function setMcnMails($mcn_mails)
     {
         if (is_null($mcn_mails)) {
-            array_push($this->openAPINullablesSetToNull, 'mcn_mails');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('mcn_mails', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable mcn_mails cannot be null');
         }
         $this->container['mcn_mails'] = $mcn_mails;
 
@@ -923,7 +812,7 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets sms_phone
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getSmsPhone()
     {
@@ -933,23 +822,43 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets sms_phone
      *
-     * @param mixed|null $sms_phone sms_phone
+     * @param string[]|null $sms_phone sms_phone
      *
      * @return self
      */
     public function setSmsPhone($sms_phone)
     {
         if (is_null($sms_phone)) {
-            array_push($this->openAPINullablesSetToNull, 'sms_phone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sms_phone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable sms_phone cannot be null');
         }
         $this->container['sms_phone'] = $sms_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets contacts
+     *
+     * @return \WildJar\ApiClient\Model\ActionVoicemailFullAllOfContacts[]|null
+     */
+    public function getContacts()
+    {
+        return $this->container['contacts'];
+    }
+
+    /**
+     * Sets contacts
+     *
+     * @param \WildJar\ApiClient\Model\ActionVoicemailFullAllOfContacts[]|null $contacts contacts
+     *
+     * @return self
+     */
+    public function setContacts($contacts)
+    {
+        if (is_null($contacts)) {
+            throw new \InvalidArgumentException('non-nullable contacts cannot be null');
+        }
+        $this->container['contacts'] = $contacts;
 
         return $this;
     }

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | **float** | The account ID. | [optional] [readonly]
 **id** | **float** | The action ID. | [optional] [readonly]
+**account** | **float** | The account ID. | [optional] [readonly]
 **name** | **string** | Friendly name of the call flow action. Used to easily identify an action in the call flow. | [optional]
 **next_action** | **string** | Next action type to route to in the call flow. | [optional]
 **next_action_id** | **float** | Next action ID to route to in the call flow. | [optional]

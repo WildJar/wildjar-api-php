@@ -57,7 +57,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        '_0000' => 'mixed'
+        '_0000' => 'string[]'
     ];
 
     /**
@@ -77,7 +77,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        '_0000' => true
+        '_0000' => false
     ];
 
     /**
@@ -292,7 +292,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets _0000
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function get0000()
     {
@@ -302,21 +302,14 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets _0000
      *
-     * @param mixed|null $_0000 An array of Branch Codes associated to that postcode in the format: * First value: A specified branch code used for overriding the automatically allocated branch. Returns `null` if routing using the automatic branch code. * Second value: The automatically allocated branch code based on closest branch to that postcode.
+     * @param string[]|null $_0000 An array of Branch Codes associated to that postcode in the format: * First value: A specified branch code used for overriding the automatically allocated branch. Returns `null` if routing using the automatic branch code. * Second value: The automatically allocated branch code based on closest branch to that postcode.
      *
      * @return self
      */
     public function set0000($_0000)
     {
         if (is_null($_0000)) {
-            array_push($this->openAPINullablesSetToNull, '_0000');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('_0000', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable _0000 cannot be null');
         }
         $this->container['_0000'] = $_0000;
 

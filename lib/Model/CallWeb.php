@@ -56,8 +56,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'medium' => 'mixed',
-        'source' => 'mixed'
+        'source' => 'string',
+        'medium' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'medium' => null,
-        'source' => null
+        'source' => null,
+        'medium' => null
     ];
 
     /**
@@ -78,8 +78,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'medium' => true,
-        'source' => true
+        'source' => false,
+        'medium' => false
     ];
 
     /**
@@ -168,8 +168,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'medium' => 'medium',
-        'source' => 'source'
+        'source' => 'source',
+        'medium' => 'medium'
     ];
 
     /**
@@ -178,8 +178,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'medium' => 'setMedium',
-        'source' => 'setSource'
+        'source' => 'setSource',
+        'medium' => 'setMedium'
     ];
 
     /**
@@ -188,8 +188,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'medium' => 'getMedium',
-        'source' => 'getSource'
+        'source' => 'getSource',
+        'medium' => 'getMedium'
     ];
 
     /**
@@ -249,8 +249,8 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('medium', $data ?? [], null);
         $this->setIfExists('source', $data ?? [], null);
+        $this->setIfExists('medium', $data ?? [], null);
     }
 
     /**
@@ -296,43 +296,9 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets medium
-     *
-     * @return mixed|null
-     */
-    public function getMedium()
-    {
-        return $this->container['medium'];
-    }
-
-    /**
-     * Sets medium
-     *
-     * @param mixed|null $medium The web medium attributed to the caller.
-     *
-     * @return self
-     */
-    public function setMedium($medium)
-    {
-        if (is_null($medium)) {
-            array_push($this->openAPINullablesSetToNull, 'medium');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('medium', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['medium'] = $medium;
-
-        return $this;
-    }
-
-    /**
      * Gets source
      *
-     * @return mixed|null
+     * @return string|null
      */
     public function getSource()
     {
@@ -342,23 +308,43 @@ class CallWeb implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source
      *
-     * @param mixed|null $source The web source attributed to the caller.
+     * @param string|null $source The web source attributed to the caller.
      *
      * @return self
      */
     public function setSource($source)
     {
         if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
         }
         $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets medium
+     *
+     * @return string|null
+     */
+    public function getMedium()
+    {
+        return $this->container['medium'];
+    }
+
+    /**
+     * Sets medium
+     *
+     * @param string|null $medium The web medium attributed to the caller.
+     *
+     * @return self
+     */
+    public function setMedium($medium)
+    {
+        if (is_null($medium)) {
+            throw new \InvalidArgumentException('non-nullable medium cannot be null');
+        }
+        $this->container['medium'] = $medium;
 
         return $this;
     }

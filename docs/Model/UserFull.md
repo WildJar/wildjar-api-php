@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **account** | **float** | The account ID. |
 **mobile** | **string** | The user&#39;s mobile number in E164 format including a leading plus (+). | [optional]
 **sip** | **string** | The sip extension allocated to the user for use of the web phone, if enabled. | [optional]
-**allow** | **mixed[]** | The funcions the user is allowed to access:   * &#x60;reports&#x60; - This gives the user access to only view the dashboards and data without being able to add more phone numbers and change settings.   * &#x60;conf&#x60; - Access to change number configuration settings and order numbers.   * &#x60;users&#x60; - Access to add users to the account and create accounts.   * &#x60;admin&#x60; - Full administrative access to the account.   * &#x60;billing&#x60; - Access to view monthly summary, invoices and payments.   * &#x60;super&#x60; - Access to whitelabel billing, prospects, biller codes and sub-invoicing. |
+**allow** | [**\WildJar\ApiClient\Model\UserAllow**](UserAllow.md) |  |
 **portal** | **string** | The URI of the whitelabel portal the invite applies to. If not specified, the whitelabel template of the top level account is applied, if configured. If no whitelabel template is configured, the WildJar branding will be used. | [optional]
 **id** | **string** | The ID of the user. | [optional] [readonly]
 **block** | **string** | INTERNAL. The billing block that the user belongs to. | [optional] [readonly]

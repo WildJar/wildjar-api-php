@@ -353,7 +353,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\GetNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getNumber( $did, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_getNumber();
@@ -516,7 +516,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\OrderNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\OrderNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getNumberFull( $did, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_getNumberFull();
@@ -679,7 +679,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListAvailableNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\ListAvailableNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listAvailableNumber( $country_code, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_listAvailableNumber();
@@ -863,7 +863,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListInventoryNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\ListInventoryNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listInventoryNumber( $country_code, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_listInventoryNumber();
@@ -1045,7 +1045,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\ListNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listNumber( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_listNumber();
@@ -1222,7 +1222,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\OrderNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\OrderNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function orderNumber( $account, $did, $order_number, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_orderNumber();
@@ -1403,7 +1403,7 @@ class NumberApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetNumber200Response|object
+	 * @return \WildJar\ApiClient\Model\GetNumber200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateNumber( $did, $number, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_NumberApi_updateNumber();

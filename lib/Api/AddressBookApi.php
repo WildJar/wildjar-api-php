@@ -127,7 +127,7 @@ class AddressBookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response|object
+	 * @return \WildJar\ApiClient\Model\GetAddressBookContactAssociations200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getAddressBookContactAssociations( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AddressBookApi_getAddressBookContactAssociations();
@@ -281,7 +281,7 @@ class AddressBookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetAddressBookContactDetails200Response|object
+	 * @return \WildJar\ApiClient\Model\GetAddressBookContactDetails200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getAddressBookContactDetails( $uuid, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AddressBookApi_getAddressBookContactDetails();
@@ -442,7 +442,7 @@ class AddressBookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListAddressBookContacts200Response|object
+	 * @return \WildJar\ApiClient\Model\ListAddressBookContacts200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listAddressBookContacts( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AddressBookApi_listAddressBookContacts();

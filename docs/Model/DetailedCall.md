@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **tracking_number** | **string** | The tracking number the call was received on in E164 format. | [optional] [readonly]
 **tracking_name** | **string** | Unique name to identify the tracking number | [optional] [readonly]
 **tracking_source** | **string** | Grouped source name to identify the call source | [optional] [readonly]
-**tags** | **mixed[]** |  | [optional]
+**tags** | **string[]** |  | [optional]
 **dtmf** | **float** | Smart Tag Lead Scorer digit(s) entered by the caller | [optional] [readonly]
 **dtm_fname** | **string** | Smart tag name for the corresponding Lead Scorer digit. | [optional] [readonly]
 **location** | **string** | The caller&#39;s location. For geo callers, this is the caller&#39;s phone exchange. For mobile callers, this is \&quot;Mobile\&quot;. | [optional] [readonly]

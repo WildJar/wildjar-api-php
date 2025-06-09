@@ -415,9 +415,9 @@ class OutboundCall implements ModelInterface, ArrayAccess, \JsonSerializable
     public const NETWORK_SMART = 'smart';
     public const NETWORK_TOLLFREE = 'tollfree';
     public const NETWORK_GEO_O_RMOBILE = 'geoORmobile';
-    public const SCORE_1 = 1;
-    public const SCORE_2 = 2;
-    public const SCORE_3 = 3;
+    public const SCORE_NUMBER_1 = 1;
+    public const SCORE_NUMBER_2 = 2;
+    public const SCORE_NUMBER_3 = 3;
     public const DIRECTION_INBOUND = 'inbound';
     public const DIRECTION_OUTBOUND = 'outbound';
 
@@ -459,9 +459,9 @@ class OutboundCall implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getScoreAllowableValues()
     {
         return [
-            self::SCORE_1,
-            self::SCORE_2,
-            self::SCORE_3,
+            self::SCORE_NUMBER_1,
+            self::SCORE_NUMBER_2,
+            self::SCORE_NUMBER_3,
         ];
     }
 

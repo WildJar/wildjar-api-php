@@ -129,7 +129,7 @@ class UserApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddUser200Response|object
+	 * @return \WildJar\ApiClient\Model\AddUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function addUser( $user, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_addUser();
@@ -280,6 +280,158 @@ class UserApi
 
 
 	/**
+	 * Operation getCurrentUserWithSIP 
+	 *
+	 * Get current user details with SIP extension
+	 * 
+	 * @param RequestParams_UserApi_getCurrentUserWithSIP|null $passParams
+	 *
+	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response|\WildJar\ApiClient\Model\InlineObject
+	 */
+	public function getCurrentUserWithSIP( $passParams = null) {
+		if ($passParams===null) $passParams = new RequestParams_UserApi_getCurrentUserWithSIP();
+
+		$request = $this->getCurrentUserWithSIPRequest();
+
+		$options = $this->createHttpClientOption();
+		try {
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null );
+		} catch (ConnectException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null );
+		}
+
+		$statusCode = $response->getStatusCode();
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf( '[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri() ),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		switch($statusCode) {
+			case 200:
+				if ('\WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response' === '\SplFileObject') {
+					$content = $response->getBody(); //stream goes to serializer
+				} else {
+					$content = (string) $response->getBody();
+					if ('\WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response' !== 'string') {
+						try {
+							$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+						} catch (\JsonException $exception) {
+							throw new ApiException(
+								sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+								$statusCode,
+								$response->getHeaders(),
+								$content
+							);
+						}
+					}
+				}
+
+				return new OperationReturnUserApi(
+					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response', []),
+					$response->getStatusCode(),
+					$response->getHeaders()
+				);
+			
+		}
+
+		$returnType = '\WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response';
+		if ($returnType === '\SplFileObject') {
+			$content = $response->getBody(); //stream goes to serializer
+		} else {
+			$content = (string) $response->getBody();
+			if ($returnType !== 'string') {
+				try {
+					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+				} catch (\JsonException $exception) {
+					throw new ApiException(
+						sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+						$statusCode,
+						$response->getHeaders(),
+						$content
+					);
+				}
+			}
+		}
+
+		return new OperationReturnUserApi(
+			ObjectSerializer::deserialize($content, $returnType, []),
+			$response->getStatusCode(),
+			$response->getHeaders()
+		);
+
+	}
+
+
+	/**
+	 * Create request for operation 'getCurrentUserWithSIP'
+	 *
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function getCurrentUserWithSIPRequest()
+	{
+
+
+		$resourcePath = '/user/me/sip';
+		$formParams = [];
+		$queryParams = [];
+		$headers = [];
+		$httpBody = '';
+		$multipart = false;
+
+		
+
+
+		// for model (json/xml)
+		if (count($formParams) > 0) {
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
+
+		$query = ObjectSerializer::buildQuery($queryParams);
+
+		// set headers
+		$headers['Accept'] = 'application/json';
+		if (!$multipart) $headers['Content-Type'] = 'application/json';
+		if ($this->config->getUserAgent()) $headers['User-Agent'] = $this->config->getUserAgent();
+		
+		// this endpoint requires Bearer authentication (access token)
+		if (!empty($this->config->getAccessToken())) $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		
+
+		return new Request( 'GET', $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''), $headers, $httpBody );
+	}
+
+
+	/**
 	 * Operation getUser 
 	 *
 	 * Get user details
@@ -290,7 +442,7 @@ class UserApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddUser200Response|object
+	 * @return \WildJar\ApiClient\Model\AddUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getUser( $email, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_getUser();
@@ -445,13 +597,13 @@ class UserApi
 	/**
 	 * Operation getUserInfo 
 	 *
-	 * Retrieve your user details
+	 * Get logged user details
 	 * 
 	 * @param RequestParams_UserApi_getUserInfo|null $passParams
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddUser200Response|object
+	 * @return \WildJar\ApiClient\Model\AddUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getUserInfo( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_getUserInfo();
@@ -603,7 +755,7 @@ class UserApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListUser200Response|object
+	 * @return \WildJar\ApiClient\Model\ListUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listUser( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_listUser();
@@ -757,7 +909,7 @@ class UserApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddUser200Response|object
+	 * @return \WildJar\ApiClient\Model\AddUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function removeUser( $email, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_removeUser();
@@ -922,7 +1074,7 @@ class UserApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddUser200Response|object
+	 * @return \WildJar\ApiClient\Model\AddUser200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateUser( $email, $user_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_UserApi_updateUser();
@@ -1105,6 +1257,11 @@ class UserApi
 
 	
 	class RequestParams_UserApi_addUser {
+		
+	}
+	
+	
+	class RequestParams_UserApi_getCurrentUserWithSIP {
 		
 	}
 	

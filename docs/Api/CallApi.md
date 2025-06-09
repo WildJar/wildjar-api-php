@@ -9,6 +9,7 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 | [**getOutboundCallDetails()**](CallApi.md#getOutboundCallDetails) | **GET** /call/outbound/{uuid} | Show outbound call details |
 | [**getOutboundCalls()**](CallApi.md#getOutboundCalls) | **GET** /call/outbound | List Outbound Calls |
 | [**updateCall()**](CallApi.md#updateCall) | **PATCH** /call/{id} | Add a score, tag or note to a call |
+| [**updateOutboundCall()**](CallApi.md#updateOutboundCall) | **PATCH** /call/outbound/{uuid} | Add a score, tag or note to an outbound call |
 
 
 ## `getCall()`
@@ -343,6 +344,68 @@ try {
 ### Return type
 
 [**\WildJar\ApiClient\Model\GetCallDetails200Response**](../Model/GetCallDetails200Response.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateOutboundCall()`
+
+```php
+updateOutboundCall($uuid, $outbound_call): \WildJar\ApiClient\Model\GetOutboundCallDetails200Response
+```
+
+Add a score, tag or note to an outbound call
+
+Update a call by giving it a quality score, tag it or add a note for some context. Only the fields you want to update  need to be sent.  Tag values can be plain text or the UUID of an existing tag.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new WildJar\ApiClient\Api\CallApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uuid = 'uuid_example'; // string | Outbound call UUID
+$outbound_call = new \WildJar\ApiClient\Model\OutboundCall(); // \WildJar\ApiClient\Model\OutboundCall
+
+try {
+    $result = $apiInstance->updateOutboundCall($uuid, $outbound_call);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CallApi->updateOutboundCall: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| Outbound call UUID | |
+| **outbound_call** | [**\WildJar\ApiClient\Model\OutboundCall**](../Model/OutboundCall.md)|  | |
+
+### Return type
+
+[**\WildJar\ApiClient\Model\GetOutboundCallDetails200Response**](../Model/GetOutboundCallDetails200Response.md)
 
 ### Authorization
 

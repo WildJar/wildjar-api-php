@@ -1,6 +1,6 @@
 <?php
 /**
- * User
+ * CurrentUserAllow
  *
  * PHP version 7.4
  *
@@ -31,7 +31,7 @@ use \ArrayAccess;
 use \WildJar\ApiClient\ObjectSerializer;
 
 /**
- * User Class Doc Comment
+ * CurrentUserAllow Class Doc Comment
  *
  * @category Class
  * @package  WildJar\ApiClient
@@ -39,7 +39,7 @@ use \WildJar\ApiClient\ObjectSerializer;
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
  */
-class User implements ModelInterface, ArrayAccess, \JsonSerializable
+class CurrentUserAllow implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'User';
+    protected static $openAPIModelName = 'CurrentUser_allow';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,17 +56,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
-        'username' => 'string',
-        'status' => 'string',
-        'level' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'account' => 'float',
-        'mobile' => 'string',
-        'sip' => 'string',
-        'allow' => '\WildJar\ApiClient\Model\UserAllow',
-        'portal' => 'string'
+        'reports' => 'bool',
+        'conf' => 'string',
+        'users' => 'string',
+        'billing' => 'string',
+        'admin' => 'string',
+        'super' => 'string',
+        'support' => 'string',
+        'system' => 'string',
+        'director' => 'string',
+        'chat_bot' => 'string',
+        'dev_feature' => 'string'
     ];
 
     /**
@@ -77,17 +77,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => 'email',
-        'username' => null,
-        'status' => null,
-        'level' => null,
-        'first_name' => null,
-        'last_name' => null,
-        'account' => null,
-        'mobile' => null,
-        'sip' => null,
-        'allow' => null,
-        'portal' => 'uri'
+        'reports' => null,
+        'conf' => null,
+        'users' => null,
+        'billing' => null,
+        'admin' => null,
+        'super' => null,
+        'support' => null,
+        'system' => null,
+        'director' => null,
+        'chat_bot' => null,
+        'dev_feature' => null
     ];
 
     /**
@@ -96,17 +96,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-        'username' => false,
-        'status' => false,
-        'level' => false,
-        'first_name' => false,
-        'last_name' => false,
-        'account' => false,
-        'mobile' => false,
-        'sip' => true,
-        'allow' => true,
-        'portal' => false
+        'reports' => false,
+        'conf' => false,
+        'users' => false,
+        'billing' => false,
+        'admin' => false,
+        'super' => false,
+        'support' => false,
+        'system' => false,
+        'director' => false,
+        'chat_bot' => false,
+        'dev_feature' => false
     ];
 
     /**
@@ -195,17 +195,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
-        'username' => 'username',
-        'status' => 'status',
-        'level' => 'level',
-        'first_name' => 'firstName',
-        'last_name' => 'lastName',
-        'account' => 'account',
-        'mobile' => 'mobile',
-        'sip' => 'sip',
-        'allow' => 'allow',
-        'portal' => 'portal'
+        'reports' => 'reports',
+        'conf' => 'conf',
+        'users' => 'users',
+        'billing' => 'billing',
+        'admin' => 'admin',
+        'super' => 'super',
+        'support' => 'support',
+        'system' => 'system',
+        'director' => 'director',
+        'chat_bot' => 'chatBot',
+        'dev_feature' => 'devFeature'
     ];
 
     /**
@@ -214,17 +214,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'username' => 'setUsername',
-        'status' => 'setStatus',
-        'level' => 'setLevel',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'account' => 'setAccount',
-        'mobile' => 'setMobile',
-        'sip' => 'setSip',
-        'allow' => 'setAllow',
-        'portal' => 'setPortal'
+        'reports' => 'setReports',
+        'conf' => 'setConf',
+        'users' => 'setUsers',
+        'billing' => 'setBilling',
+        'admin' => 'setAdmin',
+        'super' => 'setSuper',
+        'support' => 'setSupport',
+        'system' => 'setSystem',
+        'director' => 'setDirector',
+        'chat_bot' => 'setChatBot',
+        'dev_feature' => 'setDevFeature'
     ];
 
     /**
@@ -233,17 +233,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'username' => 'getUsername',
-        'status' => 'getStatus',
-        'level' => 'getLevel',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'account' => 'getAccount',
-        'mobile' => 'getMobile',
-        'sip' => 'getSip',
-        'allow' => 'getAllow',
-        'portal' => 'getPortal'
+        'reports' => 'getReports',
+        'conf' => 'getConf',
+        'users' => 'getUsers',
+        'billing' => 'getBilling',
+        'admin' => 'getAdmin',
+        'super' => 'getSuper',
+        'support' => 'getSupport',
+        'system' => 'getSystem',
+        'director' => 'getDirector',
+        'chat_bot' => 'getChatBot',
+        'dev_feature' => 'getDevFeature'
     ];
 
     /**
@@ -287,23 +287,6 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const STATUS_ACTIVE = 'active';
-    public const STATUS_INVITED = 'invited';
-    public const STATUS_SUSPENDED = 'suspended';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACTIVE,
-            self::STATUS_INVITED,
-            self::STATUS_SUSPENDED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -320,17 +303,17 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('level', $data ?? [], null);
-        $this->setIfExists('first_name', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('mobile', $data ?? [], null);
-        $this->setIfExists('sip', $data ?? [], null);
-        $this->setIfExists('allow', $data ?? [], null);
-        $this->setIfExists('portal', $data ?? [], null);
+        $this->setIfExists('reports', $data ?? [], null);
+        $this->setIfExists('conf', $data ?? [], null);
+        $this->setIfExists('users', $data ?? [], null);
+        $this->setIfExists('billing', $data ?? [], null);
+        $this->setIfExists('admin', $data ?? [], null);
+        $this->setIfExists('super', $data ?? [], null);
+        $this->setIfExists('support', $data ?? [], null);
+        $this->setIfExists('system', $data ?? [], null);
+        $this->setIfExists('director', $data ?? [], null);
+        $this->setIfExists('chat_bot', $data ?? [], null);
+        $this->setIfExists('dev_feature', $data ?? [], null);
     }
 
     /**
@@ -360,24 +343,6 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['account'] === null) {
-            $invalidProperties[] = "'account' can't be null";
-        }
-        if ($this->container['allow'] === null) {
-            $invalidProperties[] = "'allow' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -394,324 +359,298 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets email
+     * Gets reports
      *
-     * @return string
+     * @return bool|null
      */
-    public function getEmail()
+    public function getReports()
     {
-        return $this->container['email'];
+        return $this->container['reports'];
     }
 
     /**
-     * Sets email
+     * Sets reports
      *
-     * @param string $email The email address of the user.
+     * @param bool|null $reports Access to reporting.
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setReports($reports)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($reports)) {
+            throw new \InvalidArgumentException('non-nullable reports cannot be null');
         }
-        $this->container['email'] = $email;
+        $this->container['reports'] = $reports;
 
         return $this;
     }
 
     /**
-     * Gets username
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username The username of the user.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setUsername($username)
-    {
-        if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
-        }
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
+     * Gets conf
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getConf()
     {
-        return $this->container['status'];
+        return $this->container['conf'];
     }
 
     /**
-     * Sets status
+     * Sets conf
      *
-     * @param string|null $status The status of the user:  * `active` - The user is active  * `invited` - The user has been invited but has not yet accepted the invite.  * `suspended` - The user has been suspended. Suspended users can be reactivated.
+     * @param string|null $conf Access to configuration.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setConf($conf)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($conf)) {
+            throw new \InvalidArgumentException('non-nullable conf cannot be null');
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
+        $this->container['conf'] = $conf;
 
         return $this;
     }
 
     /**
-     * Gets level
+     * Gets users
      *
      * @return string|null
      */
-    public function getLevel()
+    public function getUsers()
     {
-        return $this->container['level'];
+        return $this->container['users'];
     }
 
     /**
-     * Sets level
+     * Sets users
      *
-     * @param string|null $level The access level granted to the user.
+     * @param string|null $users Access to add users.
      *
      * @return self
      */
-    public function setLevel($level)
+    public function setUsers($users)
     {
-        if (is_null($level)) {
-            throw new \InvalidArgumentException('non-nullable level cannot be null');
+        if (is_null($users)) {
+            throw new \InvalidArgumentException('non-nullable users cannot be null');
         }
-        $this->container['level'] = $level;
+        $this->container['users'] = $users;
 
         return $this;
     }
 
     /**
-     * Gets first_name
+     * Gets billing
      *
      * @return string|null
      */
-    public function getFirstName()
+    public function getBilling()
     {
-        return $this->container['first_name'];
+        return $this->container['billing'];
     }
 
     /**
-     * Sets first_name
+     * Sets billing
      *
-     * @param string|null $first_name The first name of the contact.
+     * @param string|null $billing Access billing.
      *
      * @return self
      */
-    public function setFirstName($first_name)
+    public function setBilling($billing)
     {
-        if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        if (is_null($billing)) {
+            throw new \InvalidArgumentException('non-nullable billing cannot be null');
         }
-        $this->container['first_name'] = $first_name;
+        $this->container['billing'] = $billing;
 
         return $this;
     }
 
     /**
-     * Gets last_name
+     * Gets admin
      *
      * @return string|null
      */
-    public function getLastName()
+    public function getAdmin()
     {
-        return $this->container['last_name'];
+        return $this->container['admin'];
     }
 
     /**
-     * Sets last_name
+     * Sets admin
      *
-     * @param string|null $last_name The last name of the contact.
+     * @param string|null $admin Access to administer the whole account.
      *
      * @return self
      */
-    public function setLastName($last_name)
+    public function setAdmin($admin)
     {
-        if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        if (is_null($admin)) {
+            throw new \InvalidArgumentException('non-nullable admin cannot be null');
         }
-        $this->container['last_name'] = $last_name;
+        $this->container['admin'] = $admin;
 
         return $this;
     }
 
     /**
-     * Gets account
-     *
-     * @return float
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param float $account The account ID.
-     *
-     * @return self
-     */
-    public function setAccount($account)
-    {
-        if (is_null($account)) {
-            throw new \InvalidArgumentException('non-nullable account cannot be null');
-        }
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets mobile
+     * Gets super
      *
      * @return string|null
      */
-    public function getMobile()
+    public function getSuper()
     {
-        return $this->container['mobile'];
+        return $this->container['super'];
     }
 
     /**
-     * Sets mobile
+     * Sets super
      *
-     * @param string|null $mobile The user's mobile number in E164 format including a leading plus (+).
+     * @param string|null $super Access to prospects and biller codes.
      *
      * @return self
      */
-    public function setMobile($mobile)
+    public function setSuper($super)
     {
-        if (is_null($mobile)) {
-            throw new \InvalidArgumentException('non-nullable mobile cannot be null');
+        if (is_null($super)) {
+            throw new \InvalidArgumentException('non-nullable super cannot be null');
         }
-        $this->container['mobile'] = $mobile;
+        $this->container['super'] = $super;
 
         return $this;
     }
 
     /**
-     * Gets sip
+     * Gets support
      *
      * @return string|null
      */
-    public function getSip()
+    public function getSupport()
     {
-        return $this->container['sip'];
+        return $this->container['support'];
     }
 
     /**
-     * Sets sip
+     * Sets support
      *
-     * @param string|null $sip The sip extension allocated to the user for use of the web phone, if enabled.
+     * @param string|null $support Support level access.
      *
      * @return self
      */
-    public function setSip($sip)
+    public function setSupport($support)
     {
-        if (is_null($sip)) {
-            array_push($this->openAPINullablesSetToNull, 'sip');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sip', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($support)) {
+            throw new \InvalidArgumentException('non-nullable support cannot be null');
         }
-        $this->container['sip'] = $sip;
+        $this->container['support'] = $support;
 
         return $this;
     }
 
     /**
-     * Gets allow
-     *
-     * @return \WildJar\ApiClient\Model\UserAllow
-     */
-    public function getAllow()
-    {
-        return $this->container['allow'];
-    }
-
-    /**
-     * Sets allow
-     *
-     * @param \WildJar\ApiClient\Model\UserAllow $allow allow
-     *
-     * @return self
-     */
-    public function setAllow($allow)
-    {
-        if (is_null($allow)) {
-            array_push($this->openAPINullablesSetToNull, 'allow');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('allow', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['allow'] = $allow;
-
-        return $this;
-    }
-
-    /**
-     * Gets portal
+     * Gets system
      *
      * @return string|null
      */
-    public function getPortal()
+    public function getSystem()
     {
-        return $this->container['portal'];
+        return $this->container['system'];
     }
 
     /**
-     * Sets portal
+     * Sets system
      *
-     * @param string|null $portal The URI of the whitelabel portal the invite applies to. If not specified, the whitelabel template of the top level account is applied, if configured. If no whitelabel template is configured, the WildJar branding will be used.
+     * @param string|null $system WildJar system admin access.
      *
      * @return self
      */
-    public function setPortal($portal)
+    public function setSystem($system)
     {
-        if (is_null($portal)) {
-            throw new \InvalidArgumentException('non-nullable portal cannot be null');
+        if (is_null($system)) {
+            throw new \InvalidArgumentException('non-nullable system cannot be null');
         }
-        $this->container['portal'] = $portal;
+        $this->container['system'] = $system;
+
+        return $this;
+    }
+
+    /**
+     * Gets director
+     *
+     * @return string|null
+     */
+    public function getDirector()
+    {
+        return $this->container['director'];
+    }
+
+    /**
+     * Sets director
+     *
+     * @param string|null $director WildJar director access.
+     *
+     * @return self
+     */
+    public function setDirector($director)
+    {
+        if (is_null($director)) {
+            throw new \InvalidArgumentException('non-nullable director cannot be null');
+        }
+        $this->container['director'] = $director;
+
+        return $this;
+    }
+
+    /**
+     * Gets chat_bot
+     *
+     * @return string|null
+     */
+    public function getChatBot()
+    {
+        return $this->container['chat_bot'];
+    }
+
+    /**
+     * Sets chat_bot
+     *
+     * @param string|null $chat_bot Access to create and manage chatbots.
+     *
+     * @return self
+     */
+    public function setChatBot($chat_bot)
+    {
+        if (is_null($chat_bot)) {
+            throw new \InvalidArgumentException('non-nullable chat_bot cannot be null');
+        }
+        $this->container['chat_bot'] = $chat_bot;
+
+        return $this;
+    }
+
+    /**
+     * Gets dev_feature
+     *
+     * @return string|null
+     */
+    public function getDevFeature()
+    {
+        return $this->container['dev_feature'];
+    }
+
+    /**
+     * Sets dev_feature
+     *
+     * @param string|null $dev_feature Access to features in development.
+     *
+     * @return self
+     */
+    public function setDevFeature($dev_feature)
+    {
+        if (is_null($dev_feature)) {
+            throw new \InvalidArgumentException('non-nullable dev_feature cannot be null');
+        }
+        $this->container['dev_feature'] = $dev_feature;
 
         return $this;
     }

@@ -72,7 +72,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_number' => 'string',
         'tracking_name' => 'string',
         'tracking_source' => 'string',
-        'tags' => 'mixed[]',
+        'tags' => 'string[]',
         'dtmf' => 'float',
         'dtm_fname' => 'string',
         'location' => 'string',
@@ -465,9 +465,9 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     public const NETWORK_GEO = 'geo';
     public const NETWORK_MOBILE = 'mobile';
     public const NETWORK_GEO_O_RMOBILE = 'geoORmobile';
-    public const SCORE_1 = 1;
-    public const SCORE_2 = 2;
-    public const SCORE_3 = 3;
+    public const SCORE_NUMBER_1 = 1;
+    public const SCORE_NUMBER_2 = 2;
+    public const SCORE_NUMBER_3 = 3;
 
     /**
      * Gets allowable values of the enum
@@ -531,9 +531,9 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getScoreAllowableValues()
     {
         return [
-            self::SCORE_1,
-            self::SCORE_2,
-            self::SCORE_3,
+            self::SCORE_NUMBER_1,
+            self::SCORE_NUMBER_2,
+            self::SCORE_NUMBER_3,
         ];
     }
 
@@ -1169,7 +1169,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tags
      *
-     * @return mixed[]|null
+     * @return string[]|null
      */
     public function getTags()
     {
@@ -1179,7 +1179,7 @@ class DetailedCall implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tags
      *
-     * @param mixed[]|null $tags tags
+     * @param string[]|null $tags tags
      *
      * @return self
      */

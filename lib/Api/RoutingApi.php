@@ -131,7 +131,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\BlockCaller200Response|object
+	 * @return \WildJar\ApiClient\Model\BlockCaller200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function blockCaller( $account, $action_blocked, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_blockCaller();
@@ -303,7 +303,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\BlockCaller200Response|object
+	 * @return \WildJar\ApiClient\Model\BlockCaller200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function blockCallerFromCall( $account, $block_caller_from_call_request, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_blockCallerFromCall();
@@ -475,7 +475,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createBranchAction( $account, $action_branch_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createBranchAction();
@@ -647,7 +647,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createIVRAction( $account, $action_ivr_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createIVRAction();
@@ -819,7 +819,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createLocationsAction( $account, $action_locations_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createLocationsAction();
@@ -991,7 +991,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createRobinAction( $account, $action_robin_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createRobinAction();
@@ -1163,7 +1163,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createTagAction( $account, $action_tag, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createTagAction();
@@ -1335,7 +1335,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createTimeAction( $account, $action_time_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createTimeAction();
@@ -1507,7 +1507,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createTransferAction( $account, $action_transfer_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createTransferAction();
@@ -1679,7 +1679,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function createVoicemailAction( $account, $action_voicemail_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_createVoicemailAction();
@@ -1851,7 +1851,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getBranchAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getBranchAction();
@@ -2025,7 +2025,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getIVRAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getIVRAction();
@@ -2199,7 +2199,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateLocationsAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getLocationsAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getLocationsAction();
@@ -2373,7 +2373,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object
+	 * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getLocationsMap( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getLocationsMap();
@@ -2547,7 +2547,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getRobinAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getRobinAction();
@@ -2721,7 +2721,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getTagAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getTagAction();
@@ -2895,7 +2895,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getTimeAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getTimeAction();
@@ -3069,7 +3069,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getTransferAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getTransferAction();
@@ -3243,7 +3243,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getVoicemailAction( $account, $action_id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_getVoicemailAction();
@@ -3415,7 +3415,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListBlockedCallers200Response|object
+	 * @return \WildJar\ApiClient\Model\ListBlockedCallers200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listBlockedCallers( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listBlockedCallers();
@@ -3578,7 +3578,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListBranchActions200Response|object
+	 * @return \WildJar\ApiClient\Model\ListBranchActions200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listBranchActions( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listBranchActions();
@@ -3741,7 +3741,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListIVRs200Response|object
+	 * @return \WildJar\ApiClient\Model\ListIVRs200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listIVRs( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listIVRs();
@@ -3904,7 +3904,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListLocationsActions200Response|object
+	 * @return \WildJar\ApiClient\Model\ListLocationsActions200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listLocationsActions( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listLocationsActions();
@@ -4067,7 +4067,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListRobins200Response|object
+	 * @return \WildJar\ApiClient\Model\ListRobins200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listRobins( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listRobins();
@@ -4230,7 +4230,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListTagActions200Response|object
+	 * @return \WildJar\ApiClient\Model\ListTagActions200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listTagActions( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listTagActions();
@@ -4393,7 +4393,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListTimeActions200Response|object
+	 * @return \WildJar\ApiClient\Model\ListTimeActions200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listTimeActions( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listTimeActions();
@@ -4556,7 +4556,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListTransfers200Response|object
+	 * @return \WildJar\ApiClient\Model\ListTransfers200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listTransfers( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listTransfers();
@@ -4719,7 +4719,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListVoicemails200Response|object
+	 * @return \WildJar\ApiClient\Model\ListVoicemails200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listVoicemails( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_listVoicemails();
@@ -5009,7 +5009,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateBranchAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateBranchAction( $account, $action_id, $action_branch, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateBranchAction();
@@ -5192,7 +5192,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\UpdateDidRouting200Response|object
+	 * @return \WildJar\ApiClient\Model\UpdateDidRouting200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateDidRouting( $account, $did, $routing_action, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateDidRouting();
@@ -5375,7 +5375,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateIVRAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateIVRAction( $account, $action_id, $action_ivr_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateIVRAction();
@@ -5558,7 +5558,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|object
+	 * @return \WildJar\ApiClient\Model\UpdateLocationsAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateLocationsAction( $account, $action_id, $action_locations_map_update, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateLocationsAction();
@@ -5741,7 +5741,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateRobinAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateRobinAction( $account, $action_id, $action_robin_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateRobinAction();
@@ -5924,7 +5924,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTagAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateTagAction( $account, $action_id, $action_tag, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateTagAction();
@@ -6107,7 +6107,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTimeAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateTimeAction( $account, $action_id, $action_time_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateTimeAction();
@@ -6290,7 +6290,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateTransferAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateTransferAction( $account, $action_id, $action_transfer_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateTransferAction();
@@ -6473,7 +6473,7 @@ class RoutingApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|object
+	 * @return \WildJar\ApiClient\Model\CreateVoicemailAction200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateVoicemailAction( $account, $action_id, $action_voicemail_full, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_RoutingApi_updateVoicemailAction();

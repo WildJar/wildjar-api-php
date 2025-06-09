@@ -110,8 +110,8 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
         'notify' => false,
         'group_id' => false,
         'action' => false,
-        'mcn_mails' => false,
-        'sms_phone' => false,
+        'mcn_mails' => true,
+        'sms_phone' => true,
         'contacts' => false
     ];
 
@@ -802,7 +802,14 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMcnMails($mcn_mails)
     {
         if (is_null($mcn_mails)) {
-            throw new \InvalidArgumentException('non-nullable mcn_mails cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'mcn_mails');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mcn_mails', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['mcn_mails'] = $mcn_mails;
 
@@ -829,7 +836,14 @@ class ActionVoicemailFull implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSmsPhone($sms_phone)
     {
         if (is_null($sms_phone)) {
-            throw new \InvalidArgumentException('non-nullable sms_phone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sms_phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sms_phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sms_phone'] = $sms_phone;
 

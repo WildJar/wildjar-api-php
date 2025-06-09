@@ -5,8 +5,9 @@ All URIs are relative to https://api.trkcall.com/v2, except if the operation def
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addUser()**](UserApi.md#addUser) | **PUT** /user | Invite a user |
+| [**getCurrentUserWithSIP()**](UserApi.md#getCurrentUserWithSIP) | **GET** /user/me/sip | Get current user details with SIP extension |
 | [**getUser()**](UserApi.md#getUser) | **GET** /user/{email} | Get user details |
-| [**getUserInfo()**](UserApi.md#getUserInfo) | **GET** /user/me | Retrieve your user details |
+| [**getUserInfo()**](UserApi.md#getUserInfo) | **GET** /user/me | Get logged user details |
 | [**listUser()**](UserApi.md#listUser) | **GET** /user | List Users |
 | [**removeUser()**](UserApi.md#removeUser) | **DELETE** /user/{email} | Suspend and remove a user |
 | [**updateUser()**](UserApi.md#updateUser) | **POST** /user/{email} | Update user details |
@@ -66,6 +67,63 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCurrentUserWithSIP()`
+
+```php
+getCurrentUserWithSIP(): \WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response
+```
+
+Get current user details with SIP extension
+
+Show detailed information about the currently logged in user with SIP extension details.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = WildJar\ApiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new WildJar\ApiClient\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getCurrentUserWithSIP();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->getCurrentUserWithSIP: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\WildJar\ApiClient\Model\GetCurrentUserWithSIP200Response**](../Model/GetCurrentUserWithSIP200Response.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -138,9 +196,9 @@ try {
 getUserInfo(): \WildJar\ApiClient\Model\AddUser200Response
 ```
 
-Retrieve your user details
+Get logged user details
 
-Show detailed information about the user doing the API requests.
+Show detailed information about the currently logged in user.
 
 ### Example
 

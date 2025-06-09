@@ -129,7 +129,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function addDNI( $web_domain, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_addDNI();
@@ -292,7 +292,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function addToDNIPool( $code, $request_body, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_addToDNIPool();
@@ -462,7 +462,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getDNI( $code, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_getDNI();
@@ -623,7 +623,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\ListDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listDNI( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_listDNI();
@@ -775,7 +775,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListDNIAll200Response|object
+	 * @return \WildJar\ApiClient\Model\ListDNIAll200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listDNIAll( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_listDNIAll();
@@ -929,7 +929,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function patchDNI( $code, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_patchDNI();
@@ -1094,7 +1094,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function patchDNIToVersion( $code, $version, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_patchDNIToVersion();
@@ -1380,7 +1380,7 @@ class DNIApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddDNI200Response|object
+	 * @return \WildJar\ApiClient\Model\AddDNI200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateDNI( $code, $web_configuration, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_DNIApi_updateDNI();

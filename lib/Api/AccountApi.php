@@ -129,7 +129,7 @@ class AccountApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddAccount200Response|object
+	 * @return \WildJar\ApiClient\Model\AddAccount200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function addAccount( $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_addAccount();
@@ -290,7 +290,7 @@ class AccountApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddAccount200Response|object
+	 * @return \WildJar\ApiClient\Model\AddAccount200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getAccount( $id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_getAccount();
@@ -453,7 +453,7 @@ class AccountApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListAccount200Response|object
+	 * @return \WildJar\ApiClient\Model\ListAccount200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listAccount( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_listAccount();
@@ -628,7 +628,7 @@ class AccountApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\MoveAccount200Response|object
+	 * @return \WildJar\ApiClient\Model\MoveAccount200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function moveAccount( $child, $parent, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_moveAccount();
@@ -802,7 +802,7 @@ class AccountApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddAccount200Response|object
+	 * @return \WildJar\ApiClient\Model\AddAccount200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateAccount( $id, $account, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AccountApi_updateAccount();

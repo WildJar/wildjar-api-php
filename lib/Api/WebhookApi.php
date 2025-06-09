@@ -129,7 +129,7 @@ class WebhookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|object
+	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function addWebhook( $webhook_detailed, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_WebhookApi_addWebhook();
@@ -290,7 +290,7 @@ class WebhookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|object
+	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getWebhook( $uuid, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_WebhookApi_getWebhook();
@@ -451,7 +451,7 @@ class WebhookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\ListWebhook200Response|object
+	 * @return \WildJar\ApiClient\Model\ListWebhook200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function listWebhook( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_WebhookApi_listWebhook();
@@ -719,7 +719,7 @@ class WebhookApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|object
+	 * @return \WildJar\ApiClient\Model\AddWebhook200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateWebhook( $uuid, $webhook_detailed, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_WebhookApi_updateWebhook();

@@ -4,7 +4,7 @@ The WildJar API allows you to programmatically access call data, create and mana
 create and configure services, enable features and integrations, and send SMS.
 
 
-For more information, please visit [http://support.wildjar.com/](http://support.wildjar.com/).
+For more information, please visit [https://help.wildjar.com/](https://help.wildjar.com/).
 
 ## Installation & Usage
 
@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *CallApi* | [**getOutboundCallDetails**](docs/Api/CallApi.md#getoutboundcalldetails) | **GET** /call/outbound/{uuid} | Show outbound call details
 *CallApi* | [**getOutboundCalls**](docs/Api/CallApi.md#getoutboundcalls) | **GET** /call/outbound | List Outbound Calls
 *CallApi* | [**updateCall**](docs/Api/CallApi.md#updatecall) | **PATCH** /call/{id} | Add a score, tag or note to a call
+*CallApi* | [**updateOutboundCall**](docs/Api/CallApi.md#updateoutboundcall) | **PATCH** /call/outbound/{uuid} | Add a score, tag or note to an outbound call
 *DNIApi* | [**addDNI**](docs/Api/DNIApi.md#adddni) | **PUT** /web | Create a DNI configuration
 *DNIApi* | [**addToDNIPool**](docs/Api/DNIApi.md#addtodnipool) | **POST** /web/{code}/pool | Add to DNI number pool
 *DNIApi* | [**getDNI**](docs/Api/DNIApi.md#getdni) | **GET** /web/{code} | Get DNI configuration details
@@ -149,14 +150,10 @@ Class | Method | HTTP request | Description
 *RoutingApi* | [**updateTimeAction**](docs/Api/RoutingApi.md#updatetimeaction) | **POST** /routing/{account}/time/{action_id} | Update a time switch action
 *RoutingApi* | [**updateTransferAction**](docs/Api/RoutingApi.md#updatetransferaction) | **POST** /routing/{account}/transfer/{action_id} | Update a transfer action
 *RoutingApi* | [**updateVoicemailAction**](docs/Api/RoutingApi.md#updatevoicemailaction) | **POST** /routing/{account}/voicemail/{action_id} | Update a voicemail action
-*SIPApi* | [**addSIPExtension**](docs/Api/SIPApi.md#addsipextension) | **PUT** /sip | Create a new SIP extension
-*SIPApi* | [**getSIPExtension**](docs/Api/SIPApi.md#getsipextension) | **GET** /sip/{uuid} | Show SIP extension details
-*SIPApi* | [**init**](docs/Api/SIPApi.md#init) | **PATCH** /sip/web | Initialise the web phone module for an end-user
-*SIPApi* | [**listSIPExtension**](docs/Api/SIPApi.md#listsipextension) | **GET** /sip | Get list of SIP extensions
-*SIPApi* | [**updateSIPExtension**](docs/Api/SIPApi.md#updatesipextension) | **POST** /sip/{uuid} | Update SIP extension details
 *UserApi* | [**addUser**](docs/Api/UserApi.md#adduser) | **PUT** /user | Invite a user
+*UserApi* | [**getCurrentUserWithSIP**](docs/Api/UserApi.md#getcurrentuserwithsip) | **GET** /user/me/sip | Get current user details with SIP extension
 *UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /user/{email} | Get user details
-*UserApi* | [**getUserInfo**](docs/Api/UserApi.md#getuserinfo) | **GET** /user/me | Retrieve your user details
+*UserApi* | [**getUserInfo**](docs/Api/UserApi.md#getuserinfo) | **GET** /user/me | Get logged user details
 *UserApi* | [**listUser**](docs/Api/UserApi.md#listuser) | **GET** /user | List Users
 *UserApi* | [**removeUser**](docs/Api/UserApi.md#removeuser) | **DELETE** /user/{email} | Suspend and remove a user
 *UserApi* | [**updateUser**](docs/Api/UserApi.md#updateuser) | **POST** /user/{email} | Update user details
@@ -197,7 +194,6 @@ Class | Method | HTTP request | Description
 - [ActionVoicemailFullAllOfContacts](docs/Model/ActionVoicemailFullAllOfContacts.md)
 - [AddAccount200Response](docs/Model/AddAccount200Response.md)
 - [AddDNI200Response](docs/Model/AddDNI200Response.md)
-- [AddSIPExtension200Response](docs/Model/AddSIPExtension200Response.md)
 - [AddUser200Response](docs/Model/AddUser200Response.md)
 - [AddWebhook200Response](docs/Model/AddWebhook200Response.md)
 - [AddressBook](docs/Model/AddressBook.md)
@@ -220,17 +216,25 @@ Class | Method | HTTP request | Description
 - [CreateTimeAction200Response](docs/Model/CreateTimeAction200Response.md)
 - [CreateTransferAction200Response](docs/Model/CreateTransferAction200Response.md)
 - [CreateVoicemailAction200Response](docs/Model/CreateVoicemailAction200Response.md)
+- [CurrentUser](docs/Model/CurrentUser.md)
+- [CurrentUserAllow](docs/Model/CurrentUserAllow.md)
+- [CurrentUserDash](docs/Model/CurrentUserDash.md)
+- [CurrentUserSIP](docs/Model/CurrentUserSIP.md)
+- [CurrentUserSIPAllOfSip](docs/Model/CurrentUserSIPAllOfSip.md)
+- [CurrentUserSercret2FA](docs/Model/CurrentUserSercret2FA.md)
+- [CurrentUserSip](docs/Model/CurrentUserSip.md)
 - [DetailedCall](docs/Model/DetailedCall.md)
 - [DetailedCallAllOfWeb](docs/Model/DetailedCallAllOfWeb.md)
 - [GetAddressBookContactAssociations200Response](docs/Model/GetAddressBookContactAssociations200Response.md)
 - [GetAddressBookContactDetails200Response](docs/Model/GetAddressBookContactDetails200Response.md)
 - [GetCall200Response](docs/Model/GetCall200Response.md)
 - [GetCallDetails200Response](docs/Model/GetCallDetails200Response.md)
+- [GetCurrentUserWithSIP200Response](docs/Model/GetCurrentUserWithSIP200Response.md)
 - [GetNumber200Response](docs/Model/GetNumber200Response.md)
 - [GetOutboundCallDetails200Response](docs/Model/GetOutboundCallDetails200Response.md)
 - [GetOutboundCalls200Response](docs/Model/GetOutboundCalls200Response.md)
 - [GlobalNumber](docs/Model/GlobalNumber.md)
-- [Init200Response](docs/Model/Init200Response.md)
+- [InlineObject](docs/Model/InlineObject.md)
 - [ListAccount200Response](docs/Model/ListAccount200Response.md)
 - [ListAddressBookContacts200Response](docs/Model/ListAddressBookContacts200Response.md)
 - [ListAvailableNumber200Response](docs/Model/ListAvailableNumber200Response.md)
@@ -244,7 +248,6 @@ Class | Method | HTTP request | Description
 - [ListNumber](docs/Model/ListNumber.md)
 - [ListNumber200Response](docs/Model/ListNumber200Response.md)
 - [ListRobins200Response](docs/Model/ListRobins200Response.md)
-- [ListSIPExtension200Response](docs/Model/ListSIPExtension200Response.md)
 - [ListTagActions200Response](docs/Model/ListTagActions200Response.md)
 - [ListTimeActions200Response](docs/Model/ListTimeActions200Response.md)
 - [ListTransfers200Response](docs/Model/ListTransfers200Response.md)
@@ -263,20 +266,16 @@ Class | Method | HTTP request | Description
 - [OrderNumber200Response](docs/Model/OrderNumber200Response.md)
 - [OutboundCall](docs/Model/OutboundCall.md)
 - [RoutingAction](docs/Model/RoutingAction.md)
-- [SIPExtensionActive](docs/Model/SIPExtensionActive.md)
-- [SIPExtensionCommon](docs/Model/SIPExtensionCommon.md)
-- [SIPExtensionFull](docs/Model/SIPExtensionFull.md)
 - [UpdateDidRouting200Response](docs/Model/UpdateDidRouting200Response.md)
 - [UpdateLocationsAction200Response](docs/Model/UpdateLocationsAction200Response.md)
 - [User](docs/Model/User.md)
+- [UserAllow](docs/Model/UserAllow.md)
 - [UserFull](docs/Model/UserFull.md)
 - [WebConfiguration](docs/Model/WebConfiguration.md)
 - [WebConfigurationAllOfAlias](docs/Model/WebConfigurationAllOfAlias.md)
 - [WebConfigurationAllOfConf](docs/Model/WebConfigurationAllOfConf.md)
 - [WebDomain](docs/Model/WebDomain.md)
 - [WebDomainFull](docs/Model/WebDomainFull.md)
-- [WebPhoneModule](docs/Model/WebPhoneModule.md)
-- [WebPhoneModuleParams](docs/Model/WebPhoneModuleParams.md)
 - [Webhook](docs/Model/Webhook.md)
 - [WebhookDetailed](docs/Model/WebhookDetailed.md)
 - [WebhookDetailedAllOfMatch](docs/Model/WebhookDetailedAllOfMatch.md)

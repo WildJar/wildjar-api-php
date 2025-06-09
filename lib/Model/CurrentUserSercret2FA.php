@@ -1,6 +1,6 @@
 <?php
 /**
- * ActionLocationsMapAllOfMap
+ * CurrentUserSercret2FA
  *
  * PHP version 7.4
  *
@@ -31,16 +31,15 @@ use \ArrayAccess;
 use \WildJar\ApiClient\ObjectSerializer;
 
 /**
- * ActionLocationsMapAllOfMap Class Doc Comment
+ * CurrentUserSercret2FA Class Doc Comment
  *
  * @category Class
- * @description The postcode to branch mapping for this location based routing action. Each Australian postcode will appears as a property.
  * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
  */
-class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSerializable
+class CurrentUserSercret2FA implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ActionLocationsMap_allOf_map';
+    protected static $openAPIModelName = 'CurrentUser_sercret2FA';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        '_0000' => 'mixed[]'
+        'app' => 'bool',
+        'sms' => 'bool'
     ];
 
     /**
@@ -68,7 +68,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        '_0000' => null
+        'app' => null,
+        'sms' => null
     ];
 
     /**
@@ -77,7 +78,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        '_0000' => false
+        'app' => false,
+        'sms' => false
     ];
 
     /**
@@ -166,7 +168,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        '_0000' => '0000'
+        'app' => 'app',
+        'sms' => 'sms'
     ];
 
     /**
@@ -175,7 +178,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        '_0000' => 'set0000'
+        'app' => 'setApp',
+        'sms' => 'setSms'
     ];
 
     /**
@@ -184,7 +188,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        '_0000' => 'get0000'
+        'app' => 'getApp',
+        'sms' => 'getSms'
     ];
 
     /**
@@ -244,7 +249,8 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('_0000', $data ?? [], null);
+        $this->setIfExists('app', $data ?? [], null);
+        $this->setIfExists('sms', $data ?? [], null);
     }
 
     /**
@@ -290,28 +296,55 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets _0000
+     * Gets app
      *
-     * @return mixed[]|null
+     * @return bool|null
      */
-    public function get0000()
+    public function getApp()
     {
-        return $this->container['_0000'];
+        return $this->container['app'];
     }
 
     /**
-     * Sets _0000
+     * Sets app
      *
-     * @param mixed[]|null $_0000 An array of Branch Codes associated to that postcode in the format: * First value: A specified branch code used for overriding the automatically allocated branch. Returns `null` if routing using the automatic branch code. * Second value: The automatically allocated branch code based on closest branch to that postcode.
+     * @param bool|null $app If the user is configured for Two-Factor Authentication via an authenticator app.
      *
      * @return self
      */
-    public function set0000($_0000)
+    public function setApp($app)
     {
-        if (is_null($_0000)) {
-            throw new \InvalidArgumentException('non-nullable _0000 cannot be null');
+        if (is_null($app)) {
+            throw new \InvalidArgumentException('non-nullable app cannot be null');
         }
-        $this->container['_0000'] = $_0000;
+        $this->container['app'] = $app;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms
+     *
+     * @return bool|null
+     */
+    public function getSms()
+    {
+        return $this->container['sms'];
+    }
+
+    /**
+     * Sets sms
+     *
+     * @param bool|null $sms If the user is configured for Two-Factor Authentication via SMS.
+     *
+     * @return self
+     */
+    public function setSms($sms)
+    {
+        if (is_null($sms)) {
+            throw new \InvalidArgumentException('non-nullable sms cannot be null');
+        }
+        $this->container['sms'] = $sms;
 
         return $this;
     }

@@ -168,7 +168,7 @@ class Call implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_number' => false,
         'tracking_name' => false,
         'tracking_source' => false,
-        'tags' => false,
+        'tags' => true,
         'dtmf' => true,
         'dtm_fname' => true,
         'location' => false,
@@ -465,9 +465,9 @@ class Call implements ModelInterface, ArrayAccess, \JsonSerializable
     public const NETWORK_GEO = 'geo';
     public const NETWORK_MOBILE = 'mobile';
     public const NETWORK_GEO_O_RMOBILE = 'geoORmobile';
-    public const SCORE_1 = 1;
-    public const SCORE_2 = 2;
-    public const SCORE_3 = 3;
+    public const SCORE_NUMBER_1 = 1;
+    public const SCORE_NUMBER_2 = 2;
+    public const SCORE_NUMBER_3 = 3;
 
     /**
      * Gets allowable values of the enum
@@ -531,9 +531,9 @@ class Call implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getScoreAllowableValues()
     {
         return [
-            self::SCORE_1,
-            self::SCORE_2,
-            self::SCORE_3,
+            self::SCORE_NUMBER_1,
+            self::SCORE_NUMBER_2,
+            self::SCORE_NUMBER_3,
         ];
     }
 
@@ -1193,7 +1193,14 @@ class Call implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTags($tags)
     {
         if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tags');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tags', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tags'] = $tags;
 

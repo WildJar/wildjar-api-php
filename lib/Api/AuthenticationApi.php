@@ -127,7 +127,7 @@ class AuthenticationApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\Login200Response|object
+	 * @return \WildJar\ApiClient\Model\Login200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function login( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_AuthenticationApi_login();
@@ -180,11 +180,11 @@ class AuthenticationApi
 					$response->getHeaders()
 				);
 			case 401:
-				if ('object' === '\SplFileObject') {
+				if ('\WildJar\ApiClient\Model\InlineObject' === '\SplFileObject') {
 					$content = $response->getBody(); //stream goes to serializer
 				} else {
 					$content = (string) $response->getBody();
-					if ('object' !== 'string') {
+					if ('\WildJar\ApiClient\Model\InlineObject' !== 'string') {
 						try {
 							$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
 						} catch (\JsonException $exception) {
@@ -199,7 +199,7 @@ class AuthenticationApi
 				}
 
 				return new OperationReturnAuthenticationApi(
-					ObjectSerializer::deserialize($content, 'object', []),
+					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\InlineObject', []),
 					$response->getStatusCode(),
 					$response->getHeaders()
 				);

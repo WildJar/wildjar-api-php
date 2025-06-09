@@ -1,6 +1,6 @@
 <?php
 /**
- * WebConfiguration
+ * CurrentUserSip
  *
  * PHP version 7.4
  *
@@ -31,7 +31,7 @@ use \ArrayAccess;
 use \WildJar\ApiClient\ObjectSerializer;
 
 /**
- * WebConfiguration Class Doc Comment
+ * CurrentUserSip Class Doc Comment
  *
  * @category Class
  * @package  WildJar\ApiClient
@@ -39,7 +39,7 @@ use \WildJar\ApiClient\ObjectSerializer;
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
  */
-class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
+class CurrentUserSip implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WebConfiguration';
+    protected static $openAPIModelName = 'CurrentUser_sip';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,16 +56,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'float',
         'account' => 'float',
-        'domain' => 'string',
-        'type' => 'string',
-        'owner' => 'string',
-        'conf' => '\WildJar\ApiClient\Model\WebConfigurationAllOfConf[]',
-        'alias' => '\WildJar\ApiClient\Model\WebConfigurationAllOfAlias[]',
-        'pool' => 'array<string,string[]>',
-        'file' => 'string',
-        'v' => 'string'
+        'exten' => 'string',
+        'password' => 'string'
     ];
 
     /**
@@ -76,16 +69,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => null,
         'account' => null,
-        'domain' => 'uri',
-        'type' => null,
-        'owner' => null,
-        'conf' => null,
-        'alias' => null,
-        'pool' => null,
-        'file' => null,
-        'v' => null
+        'exten' => null,
+        'password' => null
     ];
 
     /**
@@ -94,16 +80,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-        'account' => false,
-        'domain' => false,
-        'type' => false,
-        'owner' => false,
-        'conf' => false,
-        'alias' => false,
-        'pool' => false,
-        'file' => true,
-        'v' => false
+        'account' => true,
+        'exten' => true,
+        'password' => true
     ];
 
     /**
@@ -192,16 +171,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
         'account' => 'account',
-        'domain' => 'domain',
-        'type' => 'type',
-        'owner' => 'owner',
-        'conf' => 'conf',
-        'alias' => 'alias',
-        'pool' => 'pool',
-        'file' => 'file',
-        'v' => 'v'
+        'exten' => 'exten',
+        'password' => 'password'
     ];
 
     /**
@@ -210,16 +182,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
         'account' => 'setAccount',
-        'domain' => 'setDomain',
-        'type' => 'setType',
-        'owner' => 'setOwner',
-        'conf' => 'setConf',
-        'alias' => 'setAlias',
-        'pool' => 'setPool',
-        'file' => 'setFile',
-        'v' => 'setV'
+        'exten' => 'setExten',
+        'password' => 'setPassword'
     ];
 
     /**
@@ -228,16 +193,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
         'account' => 'getAccount',
-        'domain' => 'getDomain',
-        'type' => 'getType',
-        'owner' => 'getOwner',
-        'conf' => 'getConf',
-        'alias' => 'getAlias',
-        'pool' => 'getPool',
-        'file' => 'getFile',
-        'v' => 'getV'
+        'exten' => 'getExten',
+        'password' => 'getPassword'
     ];
 
     /**
@@ -281,21 +239,6 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CODE = 'code';
-    public const TYPE_ALIAS = 'alias';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CODE,
-            self::TYPE_ALIAS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -312,16 +255,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('domain', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('owner', $data ?? [], null);
-        $this->setIfExists('conf', $data ?? [], null);
-        $this->setIfExists('alias', $data ?? [], null);
-        $this->setIfExists('pool', $data ?? [], null);
-        $this->setIfExists('file', $data ?? [], null);
-        $this->setIfExists('v', $data ?? [], null);
+        $this->setIfExists('exten', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
     }
 
     /**
@@ -351,25 +287,6 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['account'] === null) {
-            $invalidProperties[] = "'account' can't be null";
-        }
-        if ($this->container['domain'] === null) {
-            $invalidProperties[] = "'domain' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['owner']) && (mb_strlen($this->container['owner']) > 100)) {
-            $invalidProperties[] = "invalid value for 'owner', the character length must be smaller than or equal to 100.";
-        }
-
         return $invalidProperties;
     }
 
@@ -386,36 +303,9 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets code
-     *
-     * @return float|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param float|null $code The DNI tracking code ID.
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
-        }
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
      * Gets account
      *
-     * @return float
+     * @return float|null
      */
     public function getAccount()
     {
@@ -425,14 +315,21 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account
      *
-     * @param float $account The account ID.
+     * @param float|null $account The account ID of the SIP extension.
      *
      * @return self
      */
     public function setAccount($account)
     {
         if (is_null($account)) {
-            throw new \InvalidArgumentException('non-nullable account cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'account');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('account', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['account'] = $account;
 
@@ -440,238 +337,69 @@ class WebConfiguration implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets domain
-     *
-     * @return string
-     */
-    public function getDomain()
-    {
-        return $this->container['domain'];
-    }
-
-    /**
-     * Sets domain
-     *
-     * @param string $domain The domain the tracking code will be placed on.
-     *
-     * @return self
-     */
-    public function setDomain($domain)
-    {
-        if (is_null($domain)) {
-            throw new \InvalidArgumentException('non-nullable domain cannot be null');
-        }
-        $this->container['domain'] = $domain;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets exten
      *
      * @return string|null
      */
-    public function getType()
+    public function getExten()
     {
-        return $this->container['type'];
+        return $this->container['exten'];
     }
 
     /**
-     * Sets type
+     * Sets exten
      *
-     * @param string|null $type Whether the code is for a domain or is an additional domain alias.
+     * @param string|null $exten The SIP extension allocated to the user for use of the web phone, if enabled.
      *
      * @return self
      */
-    public function setType($type)
+    public function setExten($exten)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner
-     *
-     * @return string|null
-     */
-    public function getOwner()
-    {
-        return $this->container['owner'];
-    }
-
-    /**
-     * Sets owner
-     *
-     * @param string|null $owner Name of the account the tracking code belongs to.
-     *
-     * @return self
-     */
-    public function setOwner($owner)
-    {
-        if (is_null($owner)) {
-            throw new \InvalidArgumentException('non-nullable owner cannot be null');
-        }
-        if ((mb_strlen($owner) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $owner when calling WebConfiguration., must be smaller than or equal to 100.');
-        }
-
-        $this->container['owner'] = $owner;
-
-        return $this;
-    }
-
-    /**
-     * Gets conf
-     *
-     * @return \WildJar\ApiClient\Model\WebConfigurationAllOfConf[]|null
-     */
-    public function getConf()
-    {
-        return $this->container['conf'];
-    }
-
-    /**
-     * Sets conf
-     *
-     * @param \WildJar\ApiClient\Model\WebConfigurationAllOfConf[]|null $conf The dynamic number insertion (DNI) criteria configured for this domain and/or alias.
-     *
-     * @return self
-     */
-    public function setConf($conf)
-    {
-        if (is_null($conf)) {
-            throw new \InvalidArgumentException('non-nullable conf cannot be null');
-        }
-        $this->container['conf'] = $conf;
-
-        return $this;
-    }
-
-    /**
-     * Gets alias
-     *
-     * @return \WildJar\ApiClient\Model\WebConfigurationAllOfAlias[]|null
-     */
-    public function getAlias()
-    {
-        return $this->container['alias'];
-    }
-
-    /**
-     * Sets alias
-     *
-     * @param \WildJar\ApiClient\Model\WebConfigurationAllOfAlias[]|null $alias If tracking multiple domains, the additional alias domains. If using one domain across multiple accounts, the additional accounts associated with the domain.
-     *
-     * @return self
-     */
-    public function setAlias($alias)
-    {
-        if (is_null($alias)) {
-            throw new \InvalidArgumentException('non-nullable alias cannot be null');
-        }
-        $this->container['alias'] = $alias;
-
-        return $this;
-    }
-
-    /**
-     * Gets pool
-     *
-     * @return array<string,string[]>|null
-     */
-    public function getPool()
-    {
-        return $this->container['pool'];
-    }
-
-    /**
-     * Sets pool
-     *
-     * @param array<string,string[]>|null $pool The base tracking number the pool will be configured for or false if not configured for dynamic number pools.
-     *
-     * @return self
-     */
-    public function setPool($pool)
-    {
-        if (is_null($pool)) {
-            throw new \InvalidArgumentException('non-nullable pool cannot be null');
-        }
-        $this->container['pool'] = $pool;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return string|null
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param string|null $file file
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        if (is_null($file)) {
-            array_push($this->openAPINullablesSetToNull, 'file');
+        if (is_null($exten)) {
+            array_push($this->openAPINullablesSetToNull, 'exten');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('file', $nullablesSetToNull);
+            $index = array_search('exten', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['file'] = $file;
+        $this->container['exten'] = $exten;
 
         return $this;
     }
 
     /**
-     * Gets v
+     * Gets password
      *
      * @return string|null
      */
-    public function getV()
+    public function getPassword()
     {
-        return $this->container['v'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets v
+     * Sets password
      *
-     * @param string|null $v The version of the DNI code to be fired.
+     * @param string|null $password The SIP extension password.
      *
      * @return self
      */
-    public function setV($v)
+    public function setPassword($password)
     {
-        if (is_null($v)) {
-            throw new \InvalidArgumentException('non-nullable v cannot be null');
+        if (is_null($password)) {
+            array_push($this->openAPINullablesSetToNull, 'password');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('password', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['v'] = $v;
+        $this->container['password'] = $password;
 
         return $this;
     }

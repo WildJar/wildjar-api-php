@@ -127,7 +127,7 @@ class CallApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetCall200Response|object
+	 * @return \WildJar\ApiClient\Model\GetCall200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getCall( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_CallApi_getCall();
@@ -316,7 +316,7 @@ class CallApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetCallDetails200Response|object
+	 * @return \WildJar\ApiClient\Model\GetCallDetails200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getCallDetails( $id, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_CallApi_getCallDetails();
@@ -479,7 +479,7 @@ class CallApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetOutboundCallDetails200Response|object
+	 * @return \WildJar\ApiClient\Model\GetOutboundCallDetails200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getOutboundCallDetails( $uuid, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_CallApi_getOutboundCallDetails();
@@ -640,7 +640,7 @@ class CallApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetOutboundCalls200Response|object
+	 * @return \WildJar\ApiClient\Model\GetOutboundCalls200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function getOutboundCalls( $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_CallApi_getOutboundCalls();
@@ -827,7 +827,7 @@ class CallApi
 	 *
 	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
 	 * @throws \InvalidArgumentException
-	 * @return \WildJar\ApiClient\Model\GetCallDetails200Response|object
+	 * @return \WildJar\ApiClient\Model\GetCallDetails200Response|\WildJar\ApiClient\Model\InlineObject
 	 */
 	public function updateCall( $id, $call, $passParams = null) {
 		if ($passParams===null) $passParams = new RequestParams_CallApi_updateCall();
@@ -987,6 +987,178 @@ class CallApi
 
 
 	/**
+	 * Operation updateOutboundCall 
+	 *
+	 * Add a score, tag or note to an outbound call
+	 * 
+	 * @param  string $uuid Outbound call UUID (required)
+	 * 
+	 * @param  \WildJar\ApiClient\Model\OutboundCall $outbound_call outbound_call (required)
+	 * 
+	 * @param RequestParams_CallApi_updateOutboundCall|null $passParams
+	 *
+	 * @throws \WildJar\ApiClient\ApiException on non-2xx response or if the response body is not in the expected format
+	 * @throws \InvalidArgumentException
+	 * @return \WildJar\ApiClient\Model\GetOutboundCallDetails200Response|\WildJar\ApiClient\Model\InlineObject
+	 */
+	public function updateOutboundCall( $uuid, $outbound_call, $passParams = null) {
+		if ($passParams===null) $passParams = new RequestParams_CallApi_updateOutboundCall();
+
+		$request = $this->updateOutboundCallRequest( $uuid,  $outbound_call );
+
+		$options = $this->createHttpClientOption();
+		try {
+			$response = $this->client->send($request, $options);
+		} catch (RequestException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null );
+		} catch (ConnectException $e) {
+			throw new ApiException( "[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), null, null );
+		}
+
+		$statusCode = $response->getStatusCode();
+
+		if ($statusCode < 200 || $statusCode > 299) {
+			throw new ApiException(
+				sprintf( '[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri() ),
+				$statusCode,
+				$response->getHeaders(),
+				(string) $response->getBody()
+			);
+		}
+
+		switch($statusCode) {
+			case 200:
+				if ('\WildJar\ApiClient\Model\GetOutboundCallDetails200Response' === '\SplFileObject') {
+					$content = $response->getBody(); //stream goes to serializer
+				} else {
+					$content = (string) $response->getBody();
+					if ('\WildJar\ApiClient\Model\GetOutboundCallDetails200Response' !== 'string') {
+						try {
+							$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+						} catch (\JsonException $exception) {
+							throw new ApiException(
+								sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+								$statusCode,
+								$response->getHeaders(),
+								$content
+							);
+						}
+					}
+				}
+
+				return new OperationReturnCallApi(
+					ObjectSerializer::deserialize($content, '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response', []),
+					$response->getStatusCode(),
+					$response->getHeaders()
+				);
+			
+		}
+
+		$returnType = '\WildJar\ApiClient\Model\GetOutboundCallDetails200Response';
+		if ($returnType === '\SplFileObject') {
+			$content = $response->getBody(); //stream goes to serializer
+		} else {
+			$content = (string) $response->getBody();
+			if ($returnType !== 'string') {
+				try {
+					$content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+				} catch (\JsonException $exception) {
+					throw new ApiException(
+						sprintf( 'Error JSON decoding server response (%s)', $request->getUri() ),
+						$statusCode,
+						$response->getHeaders(),
+						$content
+					);
+				}
+			}
+		}
+
+		return new OperationReturnCallApi(
+			ObjectSerializer::deserialize($content, $returnType, []),
+			$response->getStatusCode(),
+			$response->getHeaders()
+		);
+
+	}
+
+
+	/**
+	 * Create request for operation 'updateOutboundCall'
+	 *
+	 * @param  string $uuid Outbound call UUID (required)
+	 * @param  \WildJar\ApiClient\Model\OutboundCall $outbound_call (required)
+	 * @throws \InvalidArgumentException
+	 * @return \GuzzleHttp\Psr7\Request
+	 */
+	public function updateOutboundCallRequest($uuid, $outbound_call )
+	{
+		// verify the required parameter 'uuid' is set
+		if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
+			throw new \InvalidArgumentException( 'Missing the required parameter $uuid when calling updateOutboundCall' );
+		}
+				// verify the required parameter 'outbound_call' is set
+		if ($outbound_call === null || (is_array($outbound_call) && count($outbound_call) === 0)) {
+			throw new \InvalidArgumentException( 'Missing the required parameter $outbound_call when calling updateOutboundCall' );
+		}
+		
+
+		$resourcePath = '/call/outbound/{uuid}';
+		$formParams = [];
+		$queryParams = [];
+		$headers = [];
+		$httpBody = '';
+		$multipart = false;
+
+		
+		// path params
+		if ($uuid !== null) {
+			$resourcePath = str_replace( '{' . 'uuid' . '}', ObjectSerializer::toPathValue($uuid), $resourcePath );
+		}
+
+
+		// for model (json/xml)
+		if (isset($outbound_call)) {
+			$httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($outbound_call));
+		} elseif (count($formParams) > 0) {
+			if ($multipart) {
+				$multipartContents = [];
+				foreach ($formParams as $formParamName => $formParamValue) {
+					$formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+					foreach ($formParamValueItems as $formParamValueItem) {
+						$multipartContents[] = [
+							'name' => $formParamName,
+							'contents' => $formParamValueItem
+						];
+					}
+				}
+				// for HTTP post (form)
+				$httpBody = new MultipartStream($multipartContents);
+
+			} elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+				# if Content-Type contains "application/json", json_encode the form parameters
+				$httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+			} else {
+				// for HTTP post (form)
+				$httpBody = ObjectSerializer::buildQuery($formParams);
+			}
+		}
+
+		$query = ObjectSerializer::buildQuery($queryParams);
+
+		// set headers
+		$headers['Accept'] = 'application/json';
+		if (!$multipart) $headers['Content-Type'] = 'application/json';
+		if ($this->config->getUserAgent()) $headers['User-Agent'] = $this->config->getUserAgent();
+		
+		// this endpoint requires Bearer authentication (access token)
+		if (!empty($this->config->getAccessToken())) $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+		
+
+		return new Request( 'PATCH', $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''), $headers, $httpBody );
+	}
+
+
+	/**
 	 * Create http client option
 	 *
 	 * @throws \RuntimeException on file opening failure
@@ -1102,6 +1274,11 @@ class CallApi
 	
 	
 	class RequestParams_CallApi_updateCall {
+		
+	}
+	
+	
+	class RequestParams_CallApi_updateOutboundCall {
 		
 	}
 	

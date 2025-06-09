@@ -65,7 +65,7 @@ class UserFull implements ModelInterface, ArrayAccess, \JsonSerializable
         'account' => 'float',
         'mobile' => 'string',
         'sip' => 'string',
-        'allow' => 'mixed[]',
+        'allow' => '\WildJar\ApiClient\Model\UserAllow',
         'portal' => 'string',
         'id' => 'string',
         'block' => 'string',
@@ -115,12 +115,12 @@ class UserFull implements ModelInterface, ArrayAccess, \JsonSerializable
         'account' => false,
         'mobile' => false,
         'sip' => false,
-        'allow' => false,
+        'allow' => true,
         'portal' => false,
         'id' => true,
         'block' => false,
         'timezone' => false,
-        'acl' => false,
+        'acl' => true,
         'key' => true
     ];
 
@@ -690,7 +690,7 @@ class UserFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allow
      *
-     * @return mixed[]
+     * @return \WildJar\ApiClient\Model\UserAllow
      */
     public function getAllow()
     {
@@ -700,14 +700,21 @@ class UserFull implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allow
      *
-     * @param mixed[] $allow The funcions the user is allowed to access:   * `reports` - This gives the user access to only view the dashboards and data without being able to add more phone numbers and change settings.   * `conf` - Access to change number configuration settings and order numbers.   * `users` - Access to add users to the account and create accounts.   * `admin` - Full administrative access to the account.   * `billing` - Access to view monthly summary, invoices and payments.   * `super` - Access to whitelabel billing, prospects, biller codes and sub-invoicing.
+     * @param \WildJar\ApiClient\Model\UserAllow $allow allow
      *
      * @return self
      */
     public function setAllow($allow)
     {
         if (is_null($allow)) {
-            throw new \InvalidArgumentException('non-nullable allow cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'allow');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('allow', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['allow'] = $allow;
 
@@ -853,7 +860,14 @@ class UserFull implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAcl($acl)
     {
         if (is_null($acl)) {
-            throw new \InvalidArgumentException('non-nullable acl cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'acl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('acl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['acl'] = $acl;
 

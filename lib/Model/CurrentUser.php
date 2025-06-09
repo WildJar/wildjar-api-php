@@ -1,6 +1,6 @@
 <?php
 /**
- * User
+ * CurrentUser
  *
  * PHP version 7.4
  *
@@ -31,7 +31,7 @@ use \ArrayAccess;
 use \WildJar\ApiClient\ObjectSerializer;
 
 /**
- * User Class Doc Comment
+ * CurrentUser Class Doc Comment
  *
  * @category Class
  * @package  WildJar\ApiClient
@@ -39,7 +39,7 @@ use \WildJar\ApiClient\ObjectSerializer;
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
  */
-class User implements ModelInterface, ArrayAccess, \JsonSerializable
+class CurrentUser implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'User';
+    protected static $openAPIModelName = 'CurrentUser';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,17 +56,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
         'username' => 'string',
-        'status' => 'string',
-        'level' => 'string',
+        'email' => 'string',
+        'mobile' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'account' => 'float',
-        'mobile' => 'string',
-        'sip' => 'string',
-        'allow' => '\WildJar\ApiClient\Model\UserAllow',
-        'portal' => 'string'
+        'tz' => 'string',
+        'country' => 'string',
+        'dash' => '\WildJar\ApiClient\Model\CurrentUserDash',
+        'allow' => '\WildJar\ApiClient\Model\CurrentUserAllow',
+        'sip' => '\WildJar\ApiClient\Model\CurrentUserSip',
+        'sercret2_fa' => '\WildJar\ApiClient\Model\CurrentUserSercret2FA',
+        'preferences' => 'object',
+        'timestamp' => 'string',
+        'md5' => 'string'
     ];
 
     /**
@@ -77,17 +81,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => 'email',
         'username' => null,
-        'status' => null,
-        'level' => null,
+        'email' => 'email',
+        'mobile' => null,
         'first_name' => null,
         'last_name' => null,
         'account' => null,
-        'mobile' => null,
-        'sip' => null,
+        'tz' => null,
+        'country' => null,
+        'dash' => null,
         'allow' => null,
-        'portal' => 'uri'
+        'sip' => null,
+        'sercret2_fa' => null,
+        'preferences' => null,
+        'timestamp' => 'time',
+        'md5' => null
     ];
 
     /**
@@ -96,17 +104,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
         'username' => false,
-        'status' => false,
-        'level' => false,
+        'email' => false,
+        'mobile' => false,
         'first_name' => false,
         'last_name' => false,
         'account' => false,
-        'mobile' => false,
-        'sip' => true,
-        'allow' => true,
-        'portal' => false
+        'tz' => false,
+        'country' => false,
+        'dash' => false,
+        'allow' => false,
+        'sip' => false,
+        'sercret2_fa' => false,
+        'preferences' => false,
+        'timestamp' => false,
+        'md5' => true
     ];
 
     /**
@@ -195,17 +207,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
         'username' => 'username',
-        'status' => 'status',
-        'level' => 'level',
+        'email' => 'email',
+        'mobile' => 'mobile',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'account' => 'account',
-        'mobile' => 'mobile',
-        'sip' => 'sip',
+        'tz' => 'tz',
+        'country' => 'country',
+        'dash' => 'dash',
         'allow' => 'allow',
-        'portal' => 'portal'
+        'sip' => 'sip',
+        'sercret2_fa' => 'sercret2FA',
+        'preferences' => 'preferences',
+        'timestamp' => 'timestamp',
+        'md5' => 'md5'
     ];
 
     /**
@@ -214,17 +230,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
         'username' => 'setUsername',
-        'status' => 'setStatus',
-        'level' => 'setLevel',
+        'email' => 'setEmail',
+        'mobile' => 'setMobile',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'account' => 'setAccount',
-        'mobile' => 'setMobile',
-        'sip' => 'setSip',
+        'tz' => 'setTz',
+        'country' => 'setCountry',
+        'dash' => 'setDash',
         'allow' => 'setAllow',
-        'portal' => 'setPortal'
+        'sip' => 'setSip',
+        'sercret2_fa' => 'setSercret2Fa',
+        'preferences' => 'setPreferences',
+        'timestamp' => 'setTimestamp',
+        'md5' => 'setMd5'
     ];
 
     /**
@@ -233,17 +253,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
         'username' => 'getUsername',
-        'status' => 'getStatus',
-        'level' => 'getLevel',
+        'email' => 'getEmail',
+        'mobile' => 'getMobile',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'account' => 'getAccount',
-        'mobile' => 'getMobile',
-        'sip' => 'getSip',
+        'tz' => 'getTz',
+        'country' => 'getCountry',
+        'dash' => 'getDash',
         'allow' => 'getAllow',
-        'portal' => 'getPortal'
+        'sip' => 'getSip',
+        'sercret2_fa' => 'getSercret2Fa',
+        'preferences' => 'getPreferences',
+        'timestamp' => 'getTimestamp',
+        'md5' => 'getMd5'
     ];
 
     /**
@@ -287,23 +311,6 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const STATUS_ACTIVE = 'active';
-    public const STATUS_INVITED = 'invited';
-    public const STATUS_SUSPENDED = 'suspended';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACTIVE,
-            self::STATUS_INVITED,
-            self::STATUS_SUSPENDED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -320,17 +327,21 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('username', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('level', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('mobile', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('account', $data ?? [], null);
-        $this->setIfExists('mobile', $data ?? [], null);
-        $this->setIfExists('sip', $data ?? [], null);
+        $this->setIfExists('tz', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('dash', $data ?? [], null);
         $this->setIfExists('allow', $data ?? [], null);
-        $this->setIfExists('portal', $data ?? [], null);
+        $this->setIfExists('sip', $data ?? [], null);
+        $this->setIfExists('sercret2_fa', $data ?? [], null);
+        $this->setIfExists('preferences', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
+        $this->setIfExists('md5', $data ?? [], null);
     }
 
     /**
@@ -360,24 +371,10 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['tz']) && (mb_strlen($this->container['tz']) > 50)) {
+            $invalidProperties[] = "invalid value for 'tz', the character length must be smaller than or equal to 50.";
         }
 
-        if ($this->container['account'] === null) {
-            $invalidProperties[] = "'account' can't be null";
-        }
-        if ($this->container['allow'] === null) {
-            $invalidProperties[] = "'allow' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -392,33 +389,6 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email The email address of the user.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
 
     /**
      * Gets username
@@ -450,65 +420,55 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets status
+     * Gets email
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getEmail()
     {
-        return $this->container['status'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets status
+     * Sets email
      *
-     * @param string|null $status The status of the user:  * `active` - The user is active  * `invited` - The user has been invited but has not yet accepted the invite.  * `suspended` - The user has been suspended. Suspended users can be reactivated.
+     * @param string|null $email The email address of the user.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setEmail($email)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets level
+     * Gets mobile
      *
      * @return string|null
      */
-    public function getLevel()
+    public function getMobile()
     {
-        return $this->container['level'];
+        return $this->container['mobile'];
     }
 
     /**
-     * Sets level
+     * Sets mobile
      *
-     * @param string|null $level The access level granted to the user.
+     * @param string|null $mobile The user's mobile number in E164 format including a leading plus (+).
      *
      * @return self
      */
-    public function setLevel($level)
+    public function setMobile($mobile)
     {
-        if (is_null($level)) {
-            throw new \InvalidArgumentException('non-nullable level cannot be null');
+        if (is_null($mobile)) {
+            throw new \InvalidArgumentException('non-nullable mobile cannot be null');
         }
-        $this->container['level'] = $level;
+        $this->container['mobile'] = $mobile;
 
         return $this;
     }
@@ -570,7 +530,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets account
      *
-     * @return float
+     * @return float|null
      */
     public function getAccount()
     {
@@ -580,7 +540,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account
      *
-     * @param float $account The account ID.
+     * @param float|null $account The account ID.
      *
      * @return self
      */
@@ -595,62 +555,86 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets mobile
+     * Gets tz
      *
      * @return string|null
      */
-    public function getMobile()
+    public function getTz()
     {
-        return $this->container['mobile'];
+        return $this->container['tz'];
     }
 
     /**
-     * Sets mobile
+     * Sets tz
      *
-     * @param string|null $mobile The user's mobile number in E164 format including a leading plus (+).
+     * @param string|null $tz Local timezone of the user.
      *
      * @return self
      */
-    public function setMobile($mobile)
+    public function setTz($tz)
     {
-        if (is_null($mobile)) {
-            throw new \InvalidArgumentException('non-nullable mobile cannot be null');
+        if (is_null($tz)) {
+            throw new \InvalidArgumentException('non-nullable tz cannot be null');
         }
-        $this->container['mobile'] = $mobile;
+        if ((mb_strlen($tz) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $tz when calling CurrentUser., must be smaller than or equal to 50.');
+        }
+
+        $this->container['tz'] = $tz;
 
         return $this;
     }
 
     /**
-     * Gets sip
+     * Gets country
      *
      * @return string|null
      */
-    public function getSip()
+    public function getCountry()
     {
-        return $this->container['sip'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets sip
+     * Sets country
      *
-     * @param string|null $sip The sip extension allocated to the user for use of the web phone, if enabled.
+     * @param string|null $country 2 character country code (ie. AU, GB, NZ, US). Refer to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for more information.
      *
      * @return self
      */
-    public function setSip($sip)
+    public function setCountry($country)
     {
-        if (is_null($sip)) {
-            array_push($this->openAPINullablesSetToNull, 'sip');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sip', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
-        $this->container['sip'] = $sip;
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets dash
+     *
+     * @return \WildJar\ApiClient\Model\CurrentUserDash|null
+     */
+    public function getDash()
+    {
+        return $this->container['dash'];
+    }
+
+    /**
+     * Sets dash
+     *
+     * @param \WildJar\ApiClient\Model\CurrentUserDash|null $dash dash
+     *
+     * @return self
+     */
+    public function setDash($dash)
+    {
+        if (is_null($dash)) {
+            throw new \InvalidArgumentException('non-nullable dash cannot be null');
+        }
+        $this->container['dash'] = $dash;
 
         return $this;
     }
@@ -658,7 +642,7 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets allow
      *
-     * @return \WildJar\ApiClient\Model\UserAllow
+     * @return \WildJar\ApiClient\Model\CurrentUserAllow|null
      */
     public function getAllow()
     {
@@ -668,21 +652,14 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets allow
      *
-     * @param \WildJar\ApiClient\Model\UserAllow $allow allow
+     * @param \WildJar\ApiClient\Model\CurrentUserAllow|null $allow allow
      *
      * @return self
      */
     public function setAllow($allow)
     {
         if (is_null($allow)) {
-            array_push($this->openAPINullablesSetToNull, 'allow');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('allow', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable allow cannot be null');
         }
         $this->container['allow'] = $allow;
 
@@ -690,28 +667,143 @@ class User implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets portal
+     * Gets sip
      *
-     * @return string|null
+     * @return \WildJar\ApiClient\Model\CurrentUserSip|null
      */
-    public function getPortal()
+    public function getSip()
     {
-        return $this->container['portal'];
+        return $this->container['sip'];
     }
 
     /**
-     * Sets portal
+     * Sets sip
      *
-     * @param string|null $portal The URI of the whitelabel portal the invite applies to. If not specified, the whitelabel template of the top level account is applied, if configured. If no whitelabel template is configured, the WildJar branding will be used.
+     * @param \WildJar\ApiClient\Model\CurrentUserSip|null $sip sip
      *
      * @return self
      */
-    public function setPortal($portal)
+    public function setSip($sip)
     {
-        if (is_null($portal)) {
-            throw new \InvalidArgumentException('non-nullable portal cannot be null');
+        if (is_null($sip)) {
+            throw new \InvalidArgumentException('non-nullable sip cannot be null');
         }
-        $this->container['portal'] = $portal;
+        $this->container['sip'] = $sip;
+
+        return $this;
+    }
+
+    /**
+     * Gets sercret2_fa
+     *
+     * @return \WildJar\ApiClient\Model\CurrentUserSercret2FA|null
+     */
+    public function getSercret2Fa()
+    {
+        return $this->container['sercret2_fa'];
+    }
+
+    /**
+     * Sets sercret2_fa
+     *
+     * @param \WildJar\ApiClient\Model\CurrentUserSercret2FA|null $sercret2_fa sercret2_fa
+     *
+     * @return self
+     */
+    public function setSercret2Fa($sercret2_fa)
+    {
+        if (is_null($sercret2_fa)) {
+            throw new \InvalidArgumentException('non-nullable sercret2_fa cannot be null');
+        }
+        $this->container['sercret2_fa'] = $sercret2_fa;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferences
+     *
+     * @return object|null
+     */
+    public function getPreferences()
+    {
+        return $this->container['preferences'];
+    }
+
+    /**
+     * Sets preferences
+     *
+     * @param object|null $preferences Preferences
+     *
+     * @return self
+     */
+    public function setPreferences($preferences)
+    {
+        if (is_null($preferences)) {
+            throw new \InvalidArgumentException('non-nullable preferences cannot be null');
+        }
+        $this->container['preferences'] = $preferences;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return string|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param string|null $timestamp If logged into the WildJar dashboard, the expiry timestamp in milliseconds.
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets md5
+     *
+     * @return string|null
+     */
+    public function getMd5()
+    {
+        return $this->container['md5'];
+    }
+
+    /**
+     * Sets md5
+     *
+     * @param string|null $md5 An MD5 hash for the user.
+     *
+     * @return self
+     */
+    public function setMd5($md5)
+    {
+        if (is_null($md5)) {
+            array_push($this->openAPINullablesSetToNull, 'md5');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('md5', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['md5'] = $md5;
 
         return $this;
     }

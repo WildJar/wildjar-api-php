@@ -1,6 +1,6 @@
 <?php
 /**
- * ActionLocationsMapAllOfMap
+ * CurrentUserDash
  *
  * PHP version 7.4
  *
@@ -31,16 +31,16 @@ use \ArrayAccess;
 use \WildJar\ApiClient\ObjectSerializer;
 
 /**
- * ActionLocationsMapAllOfMap Class Doc Comment
+ * CurrentUserDash Class Doc Comment
  *
  * @category Class
- * @description The postcode to branch mapping for this location based routing action. Each Australian postcode will appears as a property.
+ * @description The _wj_ob cookie value if logged into the dashboard or false if not.
  * @package  WildJar\ApiClient
  * @author   WildJar pty ltd
  * @link     https://wildjar.com
  * @implements \ArrayAccess<string, mixed>
  */
-class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSerializable
+class CurrentUserDash implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ActionLocationsMap_allOf_map';
+    protected static $openAPIModelName = 'CurrentUser_dash';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        '_0000' => 'mixed[]'
+        
     ];
 
     /**
@@ -68,7 +68,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        '_0000' => null
+        
     ];
 
     /**
@@ -77,7 +77,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        '_0000' => false
+        
     ];
 
     /**
@@ -166,7 +166,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        '_0000' => '0000'
+        
     ];
 
     /**
@@ -175,7 +175,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        '_0000' => 'set0000'
+        
     ];
 
     /**
@@ -184,7 +184,7 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        '_0000' => 'get0000'
+        
     ];
 
     /**
@@ -244,7 +244,6 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('_0000', $data ?? [], null);
     }
 
     /**
@@ -288,33 +287,6 @@ class ActionLocationsMapAllOfMap implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets _0000
-     *
-     * @return mixed[]|null
-     */
-    public function get0000()
-    {
-        return $this->container['_0000'];
-    }
-
-    /**
-     * Sets _0000
-     *
-     * @param mixed[]|null $_0000 An array of Branch Codes associated to that postcode in the format: * First value: A specified branch code used for overriding the automatically allocated branch. Returns `null` if routing using the automatic branch code. * Second value: The automatically allocated branch code based on closest branch to that postcode.
-     *
-     * @return self
-     */
-    public function set0000($_0000)
-    {
-        if (is_null($_0000)) {
-            throw new \InvalidArgumentException('non-nullable _0000 cannot be null');
-        }
-        $this->container['_0000'] = $_0000;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
